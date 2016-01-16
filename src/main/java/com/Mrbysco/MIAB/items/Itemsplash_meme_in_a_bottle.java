@@ -2,14 +2,10 @@ package com.Mrbysco.MIAB.items;
 
 import com.Mrbysco.MIAB.entity.EntityMeme;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class Itemsplash_meme_in_a_bottle extends Item {
