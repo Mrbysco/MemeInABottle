@@ -2,13 +2,13 @@
 {
   "modid": "miab",
   "name": "Meme in a bottle",
-  "description": "Bysco's test mod.",
+  "description": "Memes that you can throw.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Mrbysco"],
-  "credits": "The Forge and FML guys, for making this example",
+  "credits": "Credits go to Glassmaker for helping with the projectile entity and MeadowCottage for spotting my derp at the sounds json file",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
