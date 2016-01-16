@@ -1,7 +1,6 @@
 package com.Mrbysco.MIAB.entity;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -38,11 +37,12 @@ public class EntityMeme extends EntityThrowable{
 
 	        for (int j = 0; j < 8; ++j)
 	        {
-	            this.worldObj.spawnParticle(EnumParticleTypes.ITEM_CRACK, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
+	            this.worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
 	        }
 
 	        if (!this.worldObj.isRemote)
 	        {
+	        	this.playSound("miab:memesound", 10, 1);
 	            this.setDead();
 	        }
 	    }

@@ -2,6 +2,7 @@ package com.Mrbysco.MIAB.init;
 
 import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.Reference;
+import com.Mrbysco.MIAB.items.Itemmeme_in_a_bottle;
 import com.Mrbysco.MIAB.items.Itemsplash_meme_in_a_bottle;
 
 import net.minecraft.client.Minecraft;
@@ -15,7 +16,7 @@ public class MIABItems {
 	public static Item splash_meme_in_a_bottle;
 	
 	public static void init(){
-		meme_in_a_bottle = new Item().setUnlocalizedName("meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
+		meme_in_a_bottle = new Itemmeme_in_a_bottle().setUnlocalizedName("meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
 		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle().setUnlocalizedName("splash_meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
 	}
 	

@@ -1,0 +1,27 @@
+{
+    "meme.sound" : {
+        "category" : "hostile",
+        "sounds":
+        [
+            "memesound1",
+            "memesound2",
+            "memesound3",
+            "memesound4",
+            "memesound5",
+            "memesound6",
+            "memesound7",
+            "memesound8",
+            "memesound9",
+            "memesound10",
+            "memesound11",
+            "memesound12",
+            "memesound13",
+            "memesound14",
+            "memesound15",
+            "memesound16",
+            "memesound17",
+            "memesound18",
+            "memesound19",
+            "memesound20",
+        ]
+    }
