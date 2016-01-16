@@ -1,8 +1,7 @@
 {
     "meme.sound" : {
         "category" : "hostile",
-        "sounds":
-        [
+        "sounds": [
             "memes/memesound1",
             "memes/memesound2",
             "memes/memesound3",
@@ -23,5 +22,26 @@
             "memes/memesound18",
             "memes/memesound19",
             "memes/memesound20",
+            "memes/memesound21",
+            "memes/memesound22",
+            "memes/memesound23",
+            "memes/memesound24",
+            "memes/memesound25",
+            "memes/memesound26",
+            "memes/memesound27",
+            "memes/memesound28",
+            "memes/memesound29",
+            "memes/memesound30",
+            "memes/memesound31",
+            "memes/memesound32",
+            "memes/memesound33",
+            "memes/memesound34",
+            "memes/memesound35",
+            "memes/memesound36",
+            "memes/memesound37",
+            "memes/memesound38",
+            "memes/memesound39",
+            "memes/memesound40",
         ]
     }
+}
