@@ -14,7 +14,7 @@ public class MIABTab extends CreativeTabs {
 
 	@Override
 	public Item getTabIconItem() {
-		return MIABItems.meme_in_a_bottle;
+		return MIABItems.splash_meme_in_a_bottle;
 	}
 
 	public MIABTab setCreativeTab(MIABTab tabmiab) {

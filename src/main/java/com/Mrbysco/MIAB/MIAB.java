@@ -36,6 +36,10 @@ public class MIAB {
     	GameRegistry.addRecipe(new ItemStack(MIABItems.meme_in_a_bottle), new Object[]
     		{" A"
     		," G", 'A', Items.arrow, 'G', Items.glass_bottle });
+    	
+    	GameRegistry.addRecipe(new ItemStack(MIABItems.splash_meme_in_a_bottle), new Object[]
+        	{" G"
+        	," S", 'G', Items.gunpowder, 'S', MIABItems.meme_in_a_bottle });
     }
     
     @EventHandler
