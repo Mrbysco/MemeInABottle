@@ -6,6 +6,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.WorldInfo;
 
 public class EntityMeme extends EntityThrowable{
 	    public EntityMeme(World worldIn)

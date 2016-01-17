@@ -1,6 +1,6 @@
 {
     "meme.sound" : {
-        "category" : "hostile",
+        "category" : "record",
         "sounds": [
             "memes/memesound1",
             "memes/memesound2",
@@ -51,7 +51,12 @@
             "memes/memesound47",
             "memes/memesound48",
             "memes/memesound49",
-            "memes/memesound50"
+            "memes/memesound50",
+            "memes/memesound51",
+            "memes/memesound52",
+            "memes/memesound53",
+            "memes/memesound54",
+            "memes/memesound55"
         ]
     }
 }
