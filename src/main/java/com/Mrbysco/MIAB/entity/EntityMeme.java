@@ -6,7 +6,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.WorldInfo;
 
 public class EntityMeme extends EntityThrowable{
 	    public EntityMeme(World worldIn)
@@ -23,7 +22,7 @@ public class EntityMeme extends EntityThrowable{
 	    {
 	        super(worldIn, x, y, z);
 	    }
-
+	    
 	    /**
 	     * Called when this EntityThrowable hits a block or entity.
 	     */
@@ -38,7 +37,7 @@ public class EntityMeme extends EntityThrowable{
 
 	        for (int j = 0; j < 8; ++j)
 	        {
-	            this.worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
+	            this.worldObj.spawnParticle(EnumParticleTypes.NOTE, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
 	        }
 
 	        if (!this.worldObj.isRemote)
