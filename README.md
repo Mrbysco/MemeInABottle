@@ -1,2 +1,5 @@
 # Memes In A Bottle
-I went ahead and actually attempted at making it :)
+
+Ah.. So you ended up on my Github page :P
+This page contains the source code to Meme In A Bottle
+A mod that was a suggestion by Pahimar and I took it seriously to see how far I can go.
