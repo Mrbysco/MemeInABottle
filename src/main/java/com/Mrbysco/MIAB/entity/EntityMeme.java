@@ -42,7 +42,7 @@ public class EntityMeme extends EntityThrowable{
 
 	        if (!this.worldObj.isRemote)
 	        {
-	        	this.playSound("miab:meme.sound", 10, 1);
+	        	this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
 	            this.setDead();
 	        }
 	    }
