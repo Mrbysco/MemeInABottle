@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB;
 
+import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
@@ -29,6 +30,8 @@ public class MIAB {
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event)
     {
+    	MIABBlocks.init();
+    	MIABBlocks.register();
     	MIABItems.init();
     	MIABItems.register();
     	
