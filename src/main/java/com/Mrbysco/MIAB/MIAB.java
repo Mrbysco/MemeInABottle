@@ -4,6 +4,7 @@ import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
+import com.Mrbysco.MIAB.world.WorldGenMemebottle;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -51,6 +52,7 @@ public class MIAB {
     	GameRegistry.addRecipe(new ItemStack(MIABItems.splash_meme_in_a_bottle), new Object[]
         	{" G"
         	," S", 'G', Items.gunpowder, 'S', MIABItems.meme_in_a_bottle });
+    	GameRegistry.registerWorldGenerator(new WorldGenMemebottle(), 1);
     }
     
     @EventHandler

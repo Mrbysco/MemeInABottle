@@ -1,6 +1,9 @@
 package com.Mrbysco.MIAB.blocks;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -52,4 +55,8 @@ public class BottleBlock extends Block{
 		return super.getCollisionBoundingBox(worldIn, pos, state);
 	}
 	
+	@Override
+	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		ArrayList returnedStacks = new ArrayList(); returnedStacks.add(new ItemStack(MIABItems.meme_in_a_bottle)); return returnedStacks;
+	}
 }

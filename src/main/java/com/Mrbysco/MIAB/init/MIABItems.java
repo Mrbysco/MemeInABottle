@@ -14,22 +14,26 @@ public class MIABItems {
 	
 	public static Item meme_in_a_bottle;
 	public static Item splash_meme_in_a_bottle;
+	public static Item WWE_Belt;
 	
 	public static void init(){
 		meme_in_a_bottle = new Itemmeme_in_a_bottle().setUnlocalizedName("meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
 		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle().setUnlocalizedName("splash_meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
+		WWE_Belt = new Item().setUnlocalizedName("WWE_Belt").setCreativeTab(MIAB.tabMIAB);
 	}
 	
 	public static void register()
 	{
 		GameRegistry.registerItem(meme_in_a_bottle, meme_in_a_bottle.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(splash_meme_in_a_bottle, splash_meme_in_a_bottle.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(WWE_Belt, WWE_Belt.getUnlocalizedName().substring(5));
 	}
 	
 	public static void registerRenders()
 	{
 		registerRender(meme_in_a_bottle);
 		registerRender(splash_meme_in_a_bottle);
+		registerRender(WWE_Belt);
 	}
 	
 	public static void registerRender(Item item)
