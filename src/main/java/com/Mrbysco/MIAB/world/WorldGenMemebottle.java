@@ -2,13 +2,8 @@ package com.Mrbysco.MIAB.world;
 
 import java.util.Random;
 
-import com.Mrbysco.MIAB.init.MIABBlocks;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenMemebottle implements IWorldGenerator{
@@ -19,14 +14,16 @@ public class WorldGenMemebottle implements IWorldGenerator{
 	           case -1:
 	               break;
 	           case 0:
-	               generateSurface(world, random, chunkX * 16, chunkZ * 16);
+	               /*  Disabled atm. Still figuring out
+	        	   generateSurface(world, random, chunkX * 16, chunkZ * 16);
+	        	   */
 	               break;
 	           case 1:
 	               break;
         }
 }
-
- private void generateSurface(World world, Random rand, int chunkX, int chunkZ) {
+ /*	Disabled atm. Still figuring out
+  private void generateSurface(World world, Random rand, int chunkX, int chunkZ) {
      for (int k = 0; k < 16; k++)
      {
          int firstBlockXCoord = chunkX + rand.nextInt(16);
@@ -36,5 +33,5 @@ public class WorldGenMemebottle implements IWorldGenerator{
          BlockPos bottle_blockPos = new BlockPos(firstBlockXCoord, bottle_blockY, firstBlockZCoord);
          new WorldGenMinable(MIABBlocks.bottle_block.getDefaultState(), 4).generate(world, rand, bottle_blockPos);
      }
- }
+ } */
 }

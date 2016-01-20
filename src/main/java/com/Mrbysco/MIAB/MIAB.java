@@ -52,7 +52,8 @@ public class MIAB {
     	GameRegistry.addRecipe(new ItemStack(MIABItems.splash_meme_in_a_bottle), new Object[]
         	{" G"
         	," S", 'G', Items.gunpowder, 'S', MIABItems.meme_in_a_bottle });
-    	GameRegistry.registerWorldGenerator(new WorldGenMemebottle(), 1);
+    	// Currently disabled untill sorted out
+    	// GameRegistry.registerWorldGenerator(new WorldGenMemebottle(), 1);
     }
     
     @EventHandler

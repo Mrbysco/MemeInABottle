@@ -58,5 +58,12 @@
             "memes/memesound54",
             "memes/memesound55"
         ]
-    }
+    },
+    "cena.sound" : {
+        "category" : "hostile",
+        "sounds": [
+            "cena/Cena1",
+            "cena/Cena2"
+        ]
+	}
 }

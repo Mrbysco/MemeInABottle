@@ -21,20 +21,20 @@ public class EntityCena extends EntityZombie {
 	    super(world);
 	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
-	
+    
 	    @Override
 	    protected String getLivingSound() {
-	      return "mob.zombie.say";
+	      return "miab:cena.sound";
 	    }
 
 	    @Override
 	    protected String getHurtSound() {
-	      return "mob.zombie.hurt";
+	      return "miab:cena.sound";
 	    }
 
 	    @Override
 	    protected String getDeathSound() {
-	      return "mob.zombie.death";
+	      return "miab:cena.sound";
 	    }
 	    
 	    @Override
