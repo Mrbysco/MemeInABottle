@@ -42,7 +42,7 @@ public class EntityCena extends EntityZombie {
 	      int numDrops = rand.nextInt(3 + lootingLevel);
 	      for (int i = 0; i < numDrops; ++i) {
 	        if(rand.nextBoolean()) {
-	          dropItem(MIABItems.WWE_Belt, 1);
+	          dropItem(MIABItems.MCW_Belt, 1);
 	        }
 	      }
 	    }
