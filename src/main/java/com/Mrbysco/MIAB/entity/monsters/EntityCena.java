@@ -39,12 +39,8 @@ public class EntityCena extends EntityZombie {
 	    
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
-	      int numDrops = rand.nextInt(3 + lootingLevel);
-	      for (int i = 0; i < numDrops; ++i) {
 	        if(rand.nextBoolean()) {
 	          dropItem(MIABItems.MCW_Belt, 1);
 	        }
 	      }
 	    }
-
-	  }
