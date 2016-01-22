@@ -2,6 +2,7 @@ package com.Mrbysco.MIAB.entity.monsters;
 
 import com.Mrbysco.MIAB.init.MIABItems;
 
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityZombie;
@@ -22,6 +23,18 @@ public class EntityCena extends EntityZombie {
 	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
     
+	@Override
+	protected void applyEntityAttributes() 
+	{
+		super.applyEntityAttributes();
+		
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23D);
+		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8D);
+		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
+		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(6.0D);
+	};
+	
 	    @Override
 	    protected String getLivingSound() {
 	      return "miab:cena.sound";
