@@ -20,7 +20,13 @@ public class RenderBill extends RenderLiving<EntityBill> {
 	  protected ResourceLocation getEntityTexture(EntityBill entity) {
 	    return texture;
 	  }
+	  
+	  @Override
+	public void doRender(EntityBill entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
+	}
+	  
 	  public static class Factory implements IRenderFactory<EntityBill> {
 
 	    @Override
