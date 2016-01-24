@@ -22,7 +22,7 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderingFactories(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityMeme.class, new EntityRenderingFactory());
 		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, RenderCena.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityBill.class, new RenderBill.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBill.class, RenderBill.FACTORY);
 	}
 	
 }
