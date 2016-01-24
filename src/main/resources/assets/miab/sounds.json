@@ -58,8 +58,7 @@
         "category" : "record",
         "sounds": [
             "cenaspawn/cenaspawn1",
-            "cenaspawn/cenaspawn2",
-            "cenaspawn/cenaspawn3"
+            "cenaspawn/cenaspawn2"
         ]
     },
     "bill.spawn" : {

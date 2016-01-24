@@ -1,32 +1,33 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.models.ModelBill;
+
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderBill extends RenderBiped<EntityBill> {
+public class RenderBill extends RenderLiving<EntityBill> {
 	
 	  public static final Factory FACTORY = new Factory();
 	  
 	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/BillCipher.png");
 
-	  public RenderBill(RenderManager p_i46143_1_) {
-		super(renderManagerIn, new modelBill(), 0.5F, 1.0F); :P
+	  public RenderBill(RenderManager renderManagerIn) {
+		super(renderManagerIn, new ModelBill(), 0.5F);
 	  }
 
 	  @Override
-	  protected ResourceLocation getEntityTexture(EntityZombie entity) {
+	  protected ResourceLocation getEntityTexture(EntityBill entity) {
 	    return texture;
 	  }
 
-	  public static class Factory implements IRenderFactory<EntityZombie> {
+	  public static class Factory implements IRenderFactory<EntityBill> {
 
 	    @Override
-	    public Render<? super EntityZombie> createRenderFor(RenderManager manager) {
-	      return new RenderCena(manager);
+	    public Render<? super EntityBill> createRenderFor(RenderManager manager) {
+	      return new RenderBill(manager);
 	    }
 	  }
 	  
