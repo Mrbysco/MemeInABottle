@@ -6,21 +6,22 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
-public class EntityCena extends EntityZombie {
-	
-	public static String NAME = "JohnCena";
+public class EntityBill extends EntityMob
+{
+public static String NAME = "BillCipher";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;
 	
 	private boolean isMounted = false;
 	
-	public EntityCena(World world) {
+	public EntityBill(World world) {
 	    super(world);
 	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
@@ -50,23 +51,23 @@ public class EntityCena extends EntityZombie {
 	
 	    @Override
 	    protected String getLivingSound() {
-	      return "miab:cena.sound";
+	      return "miab:bill.sound";
 	    }
 
 	    @Override
 	    protected String getHurtSound() {
-	      return "miab:cena.sound";
+	      return "miab:bill.sound";
 	    }
 
 	    @Override
 	    protected String getDeathSound() {
-	      return "miab:cena.sound";
+	      return "miab:bill.sound";
 	    }
 	    
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
 	        if(rand.nextBoolean()) {
-	          dropItem(MIABItems.MCW_Belt, 1);
+	          dropItem(Items.emerald, 1);
 	        }
 	    }
 }

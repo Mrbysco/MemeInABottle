@@ -5,5 +5,5 @@ tile.bottle_block.name=Bottle Block (WIP)
 
 itemGroup.tabMIAB=Meme In A Bottle
 
-entity.EntityMeme.name=Splash Meme In A Bottle
-entity.EntityCena.name=John Cena
+entity.miab.EntityMeme.name=Splash Meme In A Bottle
+entity.miab.JohnCena.name=John Cena

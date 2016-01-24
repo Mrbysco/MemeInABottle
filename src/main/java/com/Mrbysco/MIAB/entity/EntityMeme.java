@@ -44,7 +44,9 @@ public class EntityMeme extends EntityThrowable{
 
 	        if (!this.worldObj.isRemote)
 	        {
-	        	if (rand.nextInt(100) <2) { EntityCena cena = new EntityCena(worldObj); cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); worldObj.spawnEntityInWorld(cena);}
+	        	if (rand.nextInt(100) <2) { this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); EntityCena cena = new EntityCena(worldObj); cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); worldObj.spawnEntityInWorld(cena);}
+	        	if (rand.nextInt(100) <4) { this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F);}
+	        	if (rand.nextInt(100) <2) { this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F);}
 	        	this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
 	        	this.setDead();
 

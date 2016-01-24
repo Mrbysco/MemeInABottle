@@ -51,12 +51,27 @@
             "memes/memesound47",
             "memes/memesound48",
             "memes/memesound49",
-            "memes/memesound50",
-            "memes/memesound51",
-            "memes/memesound52",
-            "memes/memesound53",
-            "memes/memesound54",
-            "memes/memesound55"
+            "memes/memesound50"
+        ]
+    },
+    "cena.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "cenaspawn/cenaspawn1",
+            "cenaspawn/cenaspawn2",
+            "cenaspawn/cenaspawn3"
+        ]
+    },
+    "bill.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "illuminati/illumispawn"
+        ]
+    },
+    "ception.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "inception/inception"
         ]
     },
     "cena.sound" : {
