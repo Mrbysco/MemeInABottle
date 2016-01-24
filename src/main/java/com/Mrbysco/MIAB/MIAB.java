@@ -4,7 +4,6 @@ import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
-import com.Mrbysco.MIAB.world.WorldGenMemebottle;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,4 @@
-package com.Mrbysco.MIAB.entity.monsters.models;
+package com.Mrbysco.MIAB.entity.monsters;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
