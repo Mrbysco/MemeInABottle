@@ -148,5 +148,5 @@ public class ModelBill extends ModelBase
 	        this.rightarm.rotateAngleX += MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
 	        this.leftarm.rotateAngleX -= MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
 	    }
-
+	
 	}
