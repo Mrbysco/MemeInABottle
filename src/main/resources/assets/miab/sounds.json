@@ -61,23 +61,42 @@
             "cenaspawn/cenaspawn2"
         ]
     },
-    "bill.spawn" : {
-        "category" : "record",
-        "sounds": [
-            "illuminati/illumispawn"
-        ]
-    },
-    "ception.spawn" : {
-        "category" : "record",
-        "sounds": [
-            "inception/inception"
-        ]
-    },
-    "cena.sound" : {
+	"cena.sound" : {
         "category" : "hostile",
         "sounds": [
             "cena/Cena1",
             "cena/Cena2"
         ]
-	}
+	},
+    "bill.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "bill/billspawn"
+        ]
+    },
+	"bill.sound" : {
+        "category" : "hostile",
+        "sounds": [
+            "bill/sound",
+            "bill/sound1"
+        ]
+    },
+	"bill.hit" : {
+        "category" : "hostile",
+        "sounds": [
+            "bill/hit"
+        ]
+    },
+	"bill.death" : {
+        "category" : "hostile",
+        "sounds": [
+            "bill/death"
+        ]
+	},
+	"ception.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "inception/inception"
+        ]
+    }
 }

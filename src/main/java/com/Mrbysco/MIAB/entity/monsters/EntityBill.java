@@ -31,8 +31,19 @@ public static String NAME = "BillCipher";
         {
             ((EntityLiving)this.ridingEntity).getNavigator().setPath(this.getNavigator().getPath(), 1.5D);
         }
-
+		
+		ignoreUndeadFire = true;
+	       
         super.onLivingUpdate();
+       
+        ignoreUndeadFire = false;
+    }
+	
+	private boolean ignoreUndeadFire = false;
+	   
+    @Override
+    public float getBrightness(float partialTicks) {
+        return ignoreUndeadFire ? 0f : super.getBrightness(partialTicks);
     }
 	
 	@Override
@@ -54,12 +65,12 @@ public static String NAME = "BillCipher";
 
 	    @Override
 	    protected String getHurtSound() {
-	      return "miab:bill.sound";
+	      return "miab:bill.hit";
 	    }
 
 	    @Override
 	    protected String getDeathSound() {
-	      return "miab:bill.sound";
+	      return "miab:bill.death";
 	    }
 	    
 	    @Override

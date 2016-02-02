@@ -131,23 +131,12 @@ public class ModelBill extends ModelBase
 	    model.rotateAngleZ = z;
 	  }
 	  
-	  public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity entityIn)
-	    {
-	        super.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, entityIn);
-	        float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
-	        float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
-	        this.rightarm.rotateAngleZ = 0.0F;
-	        this.leftarm.rotateAngleZ = 0.0F;
-	        this.rightarm.rotateAngleY = -(0.1F - f * 0.6F);
-	        this.leftarm.rotateAngleY = 0.1F - f * 0.6F;
-	        this.rightarm.rotateAngleX = -((float)Math.PI / 2F);
-	        this.leftarm.rotateAngleX = -((float)Math.PI / 2F);
-	        this.rightarm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-	        this.leftarm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-	        this.rightarm.rotateAngleZ += MathHelper.cos(p_78087_3_ * 0.09F) * 0.05F + 0.05F;
-	        this.leftarm.rotateAngleZ -= MathHelper.cos(p_78087_3_ * 0.09F) * 0.05F + 0.05F;
-	        this.rightarm.rotateAngleX += MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
-	        this.leftarm.rotateAngleX -= MathHelper.sin(p_78087_3_ * 0.067F) * 0.05F;
-	    }
-	
-	}
+	  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
+	  {
+	    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+	    this.rightleg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 0.3F * f1;
+        this.leftleg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 0.3F * f1;
+        this.rightleg.rotateAngleY = 0.0F;
+        this.leftleg.rotateAngleY = 0.0F;
+	  }
+}
