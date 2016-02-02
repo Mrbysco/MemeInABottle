@@ -102,9 +102,10 @@ public class ModelBill extends ModelBase
 	    this.setRotation(leftleg, 0F, 0F, 0F);
 	  }
 	  
-	  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5, Entity entityIn)
+	  @Override
+	  public void render(Entity entityIn, float f, float f1, float f2, float f3, float f4, float f5)
 	  {
-	    super.render(entity, f, f1, f2, f3, f4, f5);
+	    super.render(entityIn, f, f1, f2, f3, f4, f5);
 	    setRotationAngles(f, f1, f2, f3, f4, f5, entityIn);
 	    Hat1.render(f5);
 	    Hat.render(f5);
