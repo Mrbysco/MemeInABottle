@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
-public class EntityBill extends EntityZombie
+public class EntityBill extends EntityZombie 
 {
 public static String NAME = "BillCipher";
 	
