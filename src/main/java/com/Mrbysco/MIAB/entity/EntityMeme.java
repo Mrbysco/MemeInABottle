@@ -5,13 +5,18 @@ import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
-	    public EntityMeme(World worldIn)
+
+		public EntityMeme(World worldIn)
 	    {
 	        super(worldIn);
 	    }
@@ -45,9 +50,31 @@ public class EntityMeme extends EntityThrowable{
 
 	        if (!this.worldObj.isRemote)
 	        {
-	        	if (rand.nextInt(100) <2) { this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); EntityCena cena = new EntityCena(worldObj); cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); worldObj.spawnEntityInWorld(cena);}
-	        	if (rand.nextInt(100) <4) { this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); EntityBill bill = new EntityBill(worldObj); bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); worldObj.spawnEntityInWorld(bill);}
-	        	if (rand.nextInt(100) <2) { this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F);}
+	        	if (rand.nextInt(100) <2) 
+	        	{ 
+	        		this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); 
+	        		EntityCena cena = new EntityCena(worldObj); 
+	        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(cena);
+	        	}
+	        	
+	        	if (rand.nextInt(100) <4) 
+	        	{ 
+	        		this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); 
+	        		EntityBill bill = new EntityBill(worldObj); 
+	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(bill);
+	        	}
+	        	
+	        	if (rand.nextInt(100) <2) 
+	        	{ 
+	        		this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
+	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.chest.getDefaultState()); 
+	        		TileEntityChest chest = (TileEntityChest) worldObj.getTileEntity(new BlockPos(posX, posY, posZ));
+	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.chest));
+	        		chest.setCustomName("Chestception");
+	    		}
+	        	
 	        	this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
 	        	this.setDead();
 
