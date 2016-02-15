@@ -37,13 +37,13 @@ public class MIAB {
     	
     	MIABEntities.register();
     	proxy.registerRenderingFactories();
+    	proxy.registerRenders();
     	
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	proxy.registerRenders();
     	GameRegistry.addRecipe(new ItemStack(MIABItems.meme_in_a_bottle), new Object[]
     		{" A"
     		," G", 'A', Items.arrow, 'G', Items.glass_bottle });

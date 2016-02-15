@@ -11,8 +11,8 @@ import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityCena extends EntityZombie {
-	
+public class EntityCena extends EntityZombie 
+{
 	public static String NAME = "JohnCena";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
@@ -32,8 +32,19 @@ public class EntityCena extends EntityZombie {
         {
             ((EntityLiving)this.ridingEntity).getNavigator().setPath(this.getNavigator().getPath(), 1.5D);
         }
-
+		
+		ignoreUndeadFire = true;
+	       
         super.onLivingUpdate();
+       
+        ignoreUndeadFire = false;
+    }
+	
+	private boolean ignoreUndeadFire = false;
+	   
+    @Override
+    public float getBrightness(float partialTicks) {
+        return ignoreUndeadFire ? 0f : super.getBrightness(partialTicks);
     }
 	
 	@Override

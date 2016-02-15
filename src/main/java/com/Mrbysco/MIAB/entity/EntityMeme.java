@@ -2,6 +2,8 @@ package com.Mrbysco.MIAB.entity;
 
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.passive.EntityDoge;
+import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -64,6 +66,22 @@ public class EntityMeme extends EntityThrowable{
 	        		EntityBill bill = new EntityBill(worldObj); 
 	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(bill);
+	        	}
+	        	
+	        	if (rand.nextInt(100) <6) 
+	        	{ 
+	        		this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
+	        		EntityDoge Doge = new EntityDoge(worldObj); 
+	        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(Doge);
+	        	}
+	        	
+	        	if (rand.nextInt(100) <6) 
+	        	{ 
+	        		this.worldObj.playSoundAtEntity(this, "miab:Grumpy.spawn", 1F, 1F); 
+	        		EntityGrumpy Grumpy = new EntityGrumpy(worldObj); 
+	        		Grumpy.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(Grumpy);
 	        	}
 	        	
 	        	if (rand.nextInt(100) <2) 

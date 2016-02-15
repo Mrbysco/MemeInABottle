@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityBill extends EntityZombie 
 {
-public static String NAME = "BillCipher";
+	public static String NAME = "BillCipher";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;
