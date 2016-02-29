@@ -1,14 +1,16 @@
 package com.Mrbysco.MIAB.init;
 
+import java.util.Locale;
+
 import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.Reference;
 import com.Mrbysco.MIAB.blocks.BottleBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class MIABBlocks {
@@ -33,6 +35,6 @@ public class MIABBlocks {
 	public static void registerRender(Block block)
 	{
 		Item item = Item.getItemFromBlock(block);
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + item.getUnlocalizedName().substring(5).toLowerCase(Locale.US), "inventory"));
 	}
 }
