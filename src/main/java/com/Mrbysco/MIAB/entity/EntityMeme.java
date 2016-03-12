@@ -60,7 +60,7 @@ public class EntityMeme extends EntityThrowable{
 	        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(cena);
 	        	}
-	        	
+
 	        	if (rand.nextInt(100) <4) 
 	        	{ 
 	        		this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); 
@@ -68,7 +68,7 @@ public class EntityMeme extends EntityThrowable{
 	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(bill);
 	        	}
-	        	
+
 	        	if (rand.nextInt(100) <6) 
 	        	{ 
 	        		this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
@@ -76,7 +76,7 @@ public class EntityMeme extends EntityThrowable{
 	        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Doge);
 	        	}
-	        	
+
 	        	if (rand.nextInt(100) <6) 
 	        	{ 
 	        		this.worldObj.playSoundAtEntity(this, "miab:Grumpy.spawn", 1F, 1F); 
@@ -93,11 +93,16 @@ public class EntityMeme extends EntityThrowable{
 	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.chest));
 	        		chest.setCustomName("Chestception");
 	    		}
+	        	
 	        	if(MIABConfig.MatureSounds)
 	        	{
-	        		this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
+	        		this.worldObj.playSoundAtEntity(this, "miab:meme.soundMature", 1F, 1F);
 	        	}
+	        	else
+	        	{
 	        	this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
+	        	}
+	        	
 	        	this.setDead();
 
 	    }

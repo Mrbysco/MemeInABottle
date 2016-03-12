@@ -1,7 +1,5 @@
 package com.Mrbysco.MIAB;
 
-import java.io.File;
-
 import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
@@ -34,7 +32,7 @@ public class MIAB {
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event)
     {
-    	Configuration cfg = new Configuration(new File("path/to/config/folder/MemeInABottle.cfg"));
+    	Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
     	MIABConfigGen.configOptions(cfg);
     	
     	MIABBlocks.init();

@@ -183,5 +183,11 @@
         "sounds": [
             "Doge/death"
         ]
+    },
+	"ception.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "inception/inception"
+        ]
     }
 }
