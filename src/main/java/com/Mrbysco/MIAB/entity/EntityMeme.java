@@ -4,6 +4,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
+import com.Mrbysco.MIAB.init.MIABConfig;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -92,8 +93,14 @@ public class EntityMeme extends EntityThrowable{
 	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.chest));
 	        		chest.setCustomName("Chestception");
 	    		}
-	        	
+	        	if(MIABConfig.MatureSounds)
+	        	{
+	        		this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
+	        	}
+	        	else
+	        	{
 	        	this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
+	        	}
 	        	this.setDead();
 
 	    }

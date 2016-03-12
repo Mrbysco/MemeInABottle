@@ -1,12 +1,16 @@
 package com.Mrbysco.MIAB;
 
+import java.io.File;
+
 import com.Mrbysco.MIAB.init.MIABBlocks;
+import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -30,6 +34,9 @@ public class MIAB {
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event)
     {
+    	Configuration cfg = new Configuration(new File("path/to/config/folder/MemeInABottle.cfg"));
+    	MIABConfigGen.configOptions(cfg);
+    	
     	MIABBlocks.init();
     	MIABBlocks.register();
     	MIABItems.init();
@@ -51,8 +58,6 @@ public class MIAB {
     	GameRegistry.addRecipe(new ItemStack(MIABItems.splash_meme_in_a_bottle), new Object[]
         	{" G"
         	," S", 'G', Items.gunpowder, 'S', MIABItems.meme_in_a_bottle });
-    	// Currently disabled untill sorted out
-    	// GameRegistry.registerWorldGenerator(new WorldGenMemebottle(), 1);
     }
     
     @EventHandler

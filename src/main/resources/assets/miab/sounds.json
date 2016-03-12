@@ -1,5 +1,5 @@
 {
-    "meme.sound" : {
+    "meme.soundMature" : {
         "category" : "record",
         "sounds": [
             "memes/memesound1",
@@ -54,6 +54,55 @@
             "memes/memesound50"
         ]
     },
+        "meme.sound" : {
+        "category" : "record",
+        "sounds": [
+            "memes/memesound1",
+            "memes/memesound2",
+            "memes/memesound3",
+            "memes/memesound4",
+            "memes/memesound5",
+            "memes/memesound6",
+            "memes/memesound7",
+            "memes/memesound8",
+            "memes/memesound9",
+            "memes/memesound10",
+            "memes/memesound11",
+            "memes/memesound12",
+            "memes/memesound13",
+            "memes/memesound14",
+            "memes/memesound15",
+            "memes/memesound17",
+            "memes/memesound18",
+            "memes/memesound20",
+            "memes/memesound21",
+            "memes/memesound22",
+            "memes/memesound23",
+            "memes/memesound24",
+            "memes/memesound25",
+            "memes/memesound26",
+            "memes/memesound27",
+            "memes/memesound28",
+            "memes/memesound29",
+            "memes/memesound30",
+            "memes/memesound32",
+            "memes/memesound33",
+            "memes/memesound34",
+            "memes/memesound37",
+            "memes/memesound38",
+            "memes/memesound39",
+            "memes/memesound40",
+            "memes/memesound41",
+            "memes/memesound42",
+            "memes/memesound43",
+            "memes/memesound44",
+            "memes/memesound46",
+            "memes/memesound47",
+            "memes/memesound48",
+            "memes/memesound49",
+            "memes/memesound50"
+        ]
+    },
     "cena.spawn" : {
         "category" : "record",
         "sounds": [
@@ -100,37 +149,37 @@
         ]
     },
 	"Doge.growl" : {
-        "category" : "record",
+        "category" : "neutral",
         "sounds": [
             "Doge/growl"
         ]
     },
 	"Doge.whine" : {
-        "category" : "record",
+        "category" : "neutral",
         "sounds": [
             "Doge/whine"
         ]
     },
 	"Doge.panting" : {
-        "category" : "record",
+        "category" : "neutral",
         "sounds": [
             "Doge/panting"
         ]
     },
 	"Doge.hurt" : {
-        "category" : "record",
+        "category" : "neutral",
         "sounds": [
             "Doge/hurt"
         ]
     },
 	"Doge.bark" : {
-        "category" : "record",
+        "category" : "neutral",
         "sounds": [
             "Doge/bark"
         ]
     },
 	"Doge.death" : {
-        "category" : "record",
+        "category" : "neutral",
         "sounds": [
             "Doge/death"
         ]
