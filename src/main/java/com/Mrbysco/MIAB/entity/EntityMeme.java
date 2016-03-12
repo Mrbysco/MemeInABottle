@@ -98,10 +98,7 @@ public class EntityMeme extends EntityThrowable{
 	        	{
 	        		this.worldObj.playSoundAtEntity(this, "miab:meme.soundMature", 1F, 1F);
 	        	}
-	        	else
-	        	{
 	        	this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
-	        	}
 	        	
 	        	this.setDead();
 

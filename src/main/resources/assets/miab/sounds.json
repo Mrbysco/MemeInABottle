@@ -141,48 +141,6 @@
             "bill/death"
         ]
 	},
-	"Doge.spawn" : {
-        "category" : "record",
-        "sounds": [
-            "Doge/spawn"
-        ]
-    },
-	"Doge.growl" : {
-        "category" : "neutral",
-        "sounds": [
-            "Doge/growl"
-        ]
-    },
-	"Doge.whine" : {
-        "category" : "neutral",
-        "sounds": [
-            "Doge/whine"
-        ]
-    },
-	"Doge.panting" : {
-        "category" : "neutral",
-        "sounds": [
-            "Doge/panting"
-        ]
-    },
-	"Doge.hurt" : {
-        "category" : "neutral",
-        "sounds": [
-            "Doge/hurt"
-        ]
-    },
-	"Doge.bark" : {
-        "category" : "neutral",
-        "sounds": [
-            "Doge/bark"
-        ]
-    },
-	"Doge.death" : {
-        "category" : "neutral",
-        "sounds": [
-            "Doge/death"
-        ]
-    },
 	"ception.spawn" : {
         "category" : "record",
         "sounds": [
