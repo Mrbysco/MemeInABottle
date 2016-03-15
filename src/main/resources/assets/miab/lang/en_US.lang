@@ -1,6 +1,7 @@
 item.meme_in_a_bottle.name=Meme In A Bottle
 item.splash_meme_in_a_bottle.name=Splash Meme In A Bottle
 item.MCW_Belt.name=MCW Belt
+item.trump_hair.name=Trumps Hair
 tile.bottle_block.name=Bottle Block (WIP)
 
 itemGroup.tabMIAB=Meme In A Bottle
@@ -11,3 +12,4 @@ entity.miab.BillCipher.name=Bill Cipher
 entity.miab.DogeWolf.name=Doge
 entity.miab.GrumpyCat.name=Grumpy Cat
 entity.miab.Cat.name=Grumpy Cat
+entity.miab.DonaldTrump.name=Donald Trump

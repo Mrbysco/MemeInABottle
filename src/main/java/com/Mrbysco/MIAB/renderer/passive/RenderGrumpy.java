@@ -1,4 +1,4 @@
-package com.Mrbysco.MIAB.entity.passive;
+package com.Mrbysco.MIAB.renderer.passive;
 
 import net.minecraft.client.model.ModelOcelot;
 import net.minecraft.client.renderer.entity.Render;

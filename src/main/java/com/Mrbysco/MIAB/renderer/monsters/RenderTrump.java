@@ -1,4 +1,4 @@
-package com.Mrbysco.MIAB.entity.monsters;
+package com.Mrbysco.MIAB.renderer.monsters;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -7,13 +7,13 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderCena extends RenderZombie {
-	
+public class RenderTrump extends RenderZombie 
+{
 	  public static final Factory FACTORY = new Factory();
 	  
-	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/JohnCena.png");
+	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/Trump.png");
 
-	  public RenderCena(RenderManager p_i46143_1_) {
+	  public RenderTrump(RenderManager p_i46143_1_) {
 	    super(p_i46143_1_);
 	  }
 
@@ -26,8 +26,9 @@ public class RenderCena extends RenderZombie {
 
 	    @Override
 	    public Render<? super EntityZombie> createRenderFor(RenderManager manager) {
-	      return new RenderCena(manager);
+	      return new RenderTrump(manager);
 	    }
 	  }
+}
+
 	  
-	}

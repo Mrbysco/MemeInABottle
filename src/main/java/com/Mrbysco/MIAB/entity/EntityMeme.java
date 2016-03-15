@@ -2,6 +2,7 @@ package com.Mrbysco.MIAB.entity;
 
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
 import com.Mrbysco.MIAB.init.MIABConfig;
@@ -67,6 +68,14 @@ public class EntityMeme extends EntityThrowable{
 	        		EntityBill bill = new EntityBill(worldObj); 
 	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(bill);
+	        	}
+	        	
+	        	if (rand.nextInt(100) <5) 
+	        	{ 
+	        		this.worldObj.playSoundAtEntity(this, "miab:trump.spawn", 1F, 1F); 
+	        		EntityTrump trump = new EntityTrump(worldObj); 
+	        		trump.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(trump);
 	        	}
 
 	        	if (rand.nextInt(100) <6) 

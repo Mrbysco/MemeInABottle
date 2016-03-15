@@ -1,4 +1,7 @@
-package com.Mrbysco.MIAB.entity.monsters;
+package com.Mrbysco.MIAB.renderer.monsters;
+
+import com.Mrbysco.MIAB.entity.monsters.EntityBill;
+import com.Mrbysco.MIAB.entity.monsters.ModelBill;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;

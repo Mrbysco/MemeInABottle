@@ -141,6 +141,34 @@
             "bill/death"
         ]
 	},
+    "trump.spawn" : {
+        "category" : "record",
+        "sounds": [
+            "trump/trumpspawn"
+        ]
+    },
+	"trump.sound" : {
+        "category" : "hostile",
+        "sounds": [
+            "trump/sound",
+            "trump/sound1",
+            "trump/sound2"
+        ]
+    },
+	"trump.hit" : {
+        "category" : "hostile",
+        "sounds": [
+            "trump/hit",
+            "trump/hit1",
+            "trump/hit2"
+        ]
+    },
+	"trump.death" : {
+        "category" : "hostile",
+        "sounds": [
+            "trump/death"
+        ]
+	},
 	"ception.spawn" : {
         "category" : "record",
         "sounds": [
