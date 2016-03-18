@@ -2,11 +2,11 @@
     "meme_soundMature" : {
         "category" : "record",
         "sounds": [
-            "miab:miab:memes/memesound1",
-            "miab:miab:memes/memesound2",
-            "miab:miab:memes/memesound3",
-            "miab:miab:memes/memesound4",
-            "miab:miab:memes/memesound5",
+            "miab:memes/memesound1",
+            "miab:memes/memesound2",
+            "miab:memes/memesound3",
+            "miab:memes/memesound4",
+            "miab:memes/memesound5",
             "miab:memes/memesound6",
             "miab:memes/memesound7",
             "miab:memes/memesound8",
