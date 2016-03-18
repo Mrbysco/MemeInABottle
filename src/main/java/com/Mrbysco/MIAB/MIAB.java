@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB;
 
+import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
@@ -49,6 +50,8 @@ public class MIAB {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+		MiabSoundHandler.init();
+		
     	GameRegistry.addRecipe(new ItemStack(MIABItems.meme_in_a_bottle), new Object[]
     		{" A"
     		," G", 'A', Items.arrow, 'G', Items.glass_bottle });

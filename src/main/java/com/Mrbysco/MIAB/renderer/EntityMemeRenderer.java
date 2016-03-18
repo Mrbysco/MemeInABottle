@@ -3,7 +3,7 @@ package com.Mrbysco.MIAB.renderer;
 import com.Mrbysco.MIAB.entity.EntityMeme;
 import com.Mrbysco.MIAB.init.MIABItems;
 
-import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 

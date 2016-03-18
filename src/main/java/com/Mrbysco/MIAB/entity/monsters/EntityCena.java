@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.entity.EntityLiving;
@@ -9,6 +10,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EntityCena extends EntityZombie 
@@ -28,9 +30,9 @@ public class EntityCena extends EntityZombie
 	@Override
 	public void onLivingUpdate()
     {
-		if (this.isRiding() && this.getAttackTarget() != null && this.ridingEntity instanceof EntityChicken)
+		if (this.isRiding() && this.getAttackTarget() != null && this.getRidingEntity() instanceof EntityChicken)
         {
-            ((EntityLiving)this.ridingEntity).getNavigator().setPath(this.getNavigator().getPath(), 1.5D);
+            ((EntityLiving)this.getRidingEntity()).getNavigator().setPath(this.getNavigator().getPath(), 1.5D);
         }
 		
 		ignoreUndeadFire = true;
@@ -52,26 +54,29 @@ public class EntityCena extends EntityZombie
 	{
 		super.applyEntityAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23D);
-		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8D);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
-		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(6.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
+		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
+		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
 	};
 	
-	    @Override
-	    protected String getLivingSound() {
-	      return "miab:cena.sound";
+		@Override
+		protected SoundEvent getAmbientSound()
+	    {
+	        return MiabSoundHandler.cena_sound;
 	    }
-
-	    @Override
-	    protected String getHurtSound() {
-	      return "miab:cena.sound";
+		
+		@Override
+	    protected SoundEvent getHurtSound()
+	    {
+	        return MiabSoundHandler.cena_sound;
 	    }
-
-	    @Override
-	    protected String getDeathSound() {
-	      return "miab:cena.sound";
+	
+		@Override
+	    protected SoundEvent getDeathSound()
+	    {
+	        return MiabSoundHandler.cena_sound;
 	    }
 	    
 	    @Override

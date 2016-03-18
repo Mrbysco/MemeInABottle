@@ -5,6 +5,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
+import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABConfig;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -12,10 +13,11 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
@@ -38,13 +40,13 @@ public class EntityMeme extends EntityThrowable{
 	    /**
 	     * Called when this EntityThrowable hits a block or entity.
 	     */
-	    protected void onImpact(MovingObjectPosition p_70184_1_)
+	    protected void onImpact(RayTraceResult raytraceresult)
 	    {
-	        if (p_70184_1_.entityHit != null)
+	        if (raytraceresult.entityHit != null)
 	        {
 	            int i = 0;
 
-	            p_70184_1_.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
+	            raytraceresult.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
 	        }
 
 	        for (int j = 0; j < 8; ++j)
@@ -56,7 +58,7 @@ public class EntityMeme extends EntityThrowable{
 	        {
 	        	if (rand.nextInt(100) <2) 
 	        	{ 
-	        		this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); 
 	        		EntityCena cena = new EntityCena(worldObj); 
 	        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(cena);
@@ -64,7 +66,7 @@ public class EntityMeme extends EntityThrowable{
 
 	        	if (rand.nextInt(100) <4) 
 	        	{ 
-	        		this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); 
 	        		EntityBill bill = new EntityBill(worldObj); 
 	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(bill);
@@ -72,7 +74,7 @@ public class EntityMeme extends EntityThrowable{
 	        	
 	        	if (rand.nextInt(100) <5) 
 	        	{ 
-	        		this.worldObj.playSoundAtEntity(this, "miab:trump.spawn", 1F, 1F); 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:trump.spawn", 1F, 1F); 
 	        		EntityTrump trump = new EntityTrump(worldObj); 
 	        		trump.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(trump);
@@ -80,7 +82,7 @@ public class EntityMeme extends EntityThrowable{
 
 	        	if (rand.nextInt(100) <6) 
 	        	{ 
-	        		this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
 	        		EntityDoge Doge = new EntityDoge(worldObj); 
 	        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Doge);
@@ -88,7 +90,7 @@ public class EntityMeme extends EntityThrowable{
 
 	        	if (rand.nextInt(100) <6) 
 	        	{ 
-	        		this.worldObj.playSoundAtEntity(this, "miab:Grumpy.spawn", 1F, 1F); 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:Grumpy.spawn", 1F, 1F); 
 	        		EntityGrumpy Grumpy = new EntityGrumpy(worldObj); 
 	        		Grumpy.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Grumpy);
@@ -96,7 +98,7 @@ public class EntityMeme extends EntityThrowable{
 	        	
 	        	if (rand.nextInt(100) <2) 
 	        	{ 
-	        		this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
 	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.chest.getDefaultState()); 
 	        		TileEntityChest chest = (TileEntityChest) worldObj.getTileEntity(new BlockPos(posX, posY, posZ));
 	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.chest));
@@ -105,11 +107,13 @@ public class EntityMeme extends EntityThrowable{
 	        	
 	        	if(MIABConfig.MatureSounds)
 	        	{
-	        		this.worldObj.playSoundAtEntity(this, "miab:meme.soundMature", 1F, 1F);
+	        		//this.worldObj.playSoundAtEntity(this, "miab:meme.soundMature", 1F, 1F);
+	        		//this.worldObj.playSound(this, posX, posY, posZ, MiabSoundHandler.meme_soundMature, SoundCategory.NEUTRAL, 1F, 1F);
 	        	}
 	        	else
 	        	{
-	        		this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
+	        		//this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
+	        		//this.worldObj.playSound(this, posX, posY, posZ, MiabSoundHandler.meme_sound, SoundCategory.NEUTRAL, 1F, 1F);
 	        	}
 	        	
 	        	this.setDead();

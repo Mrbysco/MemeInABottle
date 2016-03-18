@@ -1,5 +1,5 @@
 {
-    "meme.soundMature" : {
+    "meme_soundMature" : {
         "category" : "record",
         "sounds": [
             "memes/memesound1",
@@ -54,7 +54,7 @@
             "memes/memesound50"
         ]
     },
-        "meme.sound" : {
+        "meme_sound" : {
         "category" : "record",
         "sounds": [
             "memes/memesound1",
@@ -102,52 +102,52 @@
             "memes/memesound50"
         ]
     },
-    "cena.spawn" : {
+    "cena_spawn" : {
         "category" : "record",
         "sounds": [
             "cenaspawn/cenaspawn1",
             "cenaspawn/cenaspawn2"
         ]
     },
-	"cena.sound" : {
+	"cena_sound" : {
         "category" : "hostile",
         "sounds": [
             "cena/Cena1",
             "cena/Cena2"
         ]
 	},
-    "bill.spawn" : {
+    "bill_spawn" : {
         "category" : "record",
         "sounds": [
             "bill/billspawn"
         ]
     },
-	"bill.sound" : {
+	"bill_sound" : {
         "category" : "hostile",
         "sounds": [
             "bill/sound",
             "bill/sound1"
         ]
     },
-	"bill.hit" : {
+	"bill_hit" : {
         "category" : "hostile",
         "sounds": [
             "bill/hit"
         ]
     },
-	"bill.death" : {
+	"bill_death" : {
         "category" : "hostile",
         "sounds": [
             "bill/death"
         ]
 	},
-    "trump.spawn" : {
+    "trump_spawn" : {
         "category" : "record",
         "sounds": [
             "trump/trumpspawn"
         ]
     },
-	"trump.sound" : {
+	"trump_sound" : {
         "category" : "hostile",
         "sounds": [
             "trump/sound",
@@ -155,7 +155,7 @@
             "trump/sound2"
         ]
     },
-	"trump.hit" : {
+	"trump_hit" : {
         "category" : "hostile",
         "sounds": [
             "trump/hit",
@@ -163,13 +163,13 @@
             "trump/hit2"
         ]
     },
-	"trump.death" : {
+	"trump_death" : {
         "category" : "hostile",
         "sounds": [
             "trump/death"
         ]
 	},
-	"ception.spawn" : {
+	"ception_spawn" : {
         "category" : "record",
         "sounds": [
             "inception/inception"

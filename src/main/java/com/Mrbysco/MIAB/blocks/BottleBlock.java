@@ -6,12 +6,13 @@ import java.util.List;
 import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -20,14 +21,14 @@ public class BottleBlock extends Block{
 	public BottleBlock(Material materialIn) 
 	{
 		super(Material.glass);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
-		this.setStepSound(Block.soundTypeGlass);
+		//this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+		this.setStepSound(SoundType.GLASS);
 		this.setTickRandomly(true);
 		this.setHardness(0.2F);
 	}
 	
 	@Override
-	public boolean isFullCube()
+	public boolean isFullBlock(IBlockState state)
     {
         return false;
     }
@@ -39,19 +40,19 @@ public class BottleBlock extends Block{
     }
 	
 	@Override
-	public boolean isOpaqueCube() 
+	public boolean isFullyOpaque(IBlockState state)
 	{
 		return false;
 	}
 
 	@Override
-	public EnumWorldBlockLayer getBlockLayer() 
+	public BlockRenderLayer getBlockLayer()
 	{
-		return EnumWorldBlockLayer.CUTOUT;
+		return BlockRenderLayer.CUTOUT;
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World pos, BlockPos state){
 		return super.getCollisionBoundingBox(worldIn, pos, state);
 	}
 	
