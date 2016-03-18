@@ -9,6 +9,7 @@ import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABConfig;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -40,21 +41,21 @@ public class EntityMeme extends EntityThrowable{
 	    /**
 	     * Called when this EntityThrowable hits a block or entity.
 	     */
-	    protected void onImpact(RayTraceResult raytraceresult)
+	    protected void onImpact(RayTraceResult result)
 	    {
-	        if (raytraceresult.entityHit != null)
+	    	if (result.entityHit != null)
 	        {
 	            int i = 0;
-
-	            raytraceresult.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
+	
+	            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
 	        }
+	        
+	    	 for (int j = 0; j < 8; ++j)
+	         {
+	             this.worldObj.spawnParticle(EnumParticleTypes.NOTE, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
+	         }
 
-	        for (int j = 0; j < 8; ++j)
-	        {
-	            this.worldObj.spawnParticle(EnumParticleTypes.NOTE, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
-	        }
-
-	        if (!this.worldObj.isRemote)
+	    	if (!this.worldObj.isRemote)
 	        {
 	        	if (rand.nextInt(100) <2) 
 	        	{ 
