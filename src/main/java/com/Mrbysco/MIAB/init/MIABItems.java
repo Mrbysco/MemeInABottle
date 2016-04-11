@@ -35,8 +35,7 @@ public class MIABItems {
 		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, EntityEquipmentSlot.HEAD).setUnlocalizedName("trump_hair").setCreativeTab(MIAB.tabMIAB);
 		mcw_belt = new Itemcustom_armor("MCW_Belt", belt, 2, EntityEquipmentSlot.LEGS).setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
 		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, EntityEquipmentSlot.HEAD).setUnlocalizedName("troll_mask").setCreativeTab(MIAB.tabMIAB);
-		//mcw_belt = new Item().setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
-	}
+		}
 	
 	public static void register()
 	{

@@ -2,177 +2,177 @@
     "meme.soundMature" : {
         "category" : "record",
         "sounds": [
-            "memes/memesound1",
-            "memes/memesound2",
-            "memes/memesound3",
-            "memes/memesound4",
-            "memes/memesound5",
-            "memes/memesound6",
-            "memes/memesound7",
-            "memes/memesound8",
-            "memes/memesound9",
-            "memes/memesound10",
-            "memes/memesound11",
-            "memes/memesound12",
-            "memes/memesound13",
-            "memes/memesound14",
-            "memes/memesound15",
-            "memes/memesound16",
-            "memes/memesound17",
-            "memes/memesound18",
-            "memes/memesound19",
-            "memes/memesound20",
-            "memes/memesound21",
-            "memes/memesound22",
-            "memes/memesound23",
-            "memes/memesound24",
-            "memes/memesound25",
-            "memes/memesound26",
-            "memes/memesound27",
-            "memes/memesound28",
-            "memes/memesound29",
-            "memes/memesound30",
-            "memes/memesound31",
-            "memes/memesound32",
-            "memes/memesound33",
-            "memes/memesound34",
-            "memes/memesound35",
-            "memes/memesound36",
-            "memes/memesound37",
-            "memes/memesound38",
-            "memes/memesound39",
-            "memes/memesound40",
-            "memes/memesound41",
-            "memes/memesound42",
-            "memes/memesound43",
-            "memes/memesound44",
-            "memes/memesound45",
-            "memes/memesound46",
-            "memes/memesound47",
-            "memes/memesound48",
-            "memes/memesound49",
-            "memes/memesound50"
+            "miab:memes/memesound1",
+            "miab:memes/memesound2",
+            "miab:memes/memesound3",
+            "miab:memes/memesound4",
+            "miab:memes/memesound5",
+            "miab:memes/memesound6",
+            "miab:memes/memesound7",
+            "miab:memes/memesound8",
+            "miab:memes/memesound9",
+            "miab:memes/memesound10",
+            "miab:memes/memesound11",
+            "miab:memes/memesound12",
+            "miab:memes/memesound13",
+            "miab:memes/memesound14",
+            "miab:memes/memesound15",
+            "miab:memes/memesound16",
+            "miab:memes/memesound17",
+            "miab:memes/memesound18",
+            "miab:memes/memesound19",
+            "miab:memes/memesound20",
+            "miab:memes/memesound21",
+            "miab:memes/memesound22",
+            "miab:memes/memesound23",
+            "miab:memes/memesound24",
+            "miab:memes/memesound25",
+            "miab:memes/memesound26",
+            "miab:memes/memesound27",
+            "miab:memes/memesound28",
+            "miab:memes/memesound29",
+            "miab:memes/memesound30",
+            "miab:memes/memesound31",
+            "miab:memes/memesound32",
+            "miab:memes/memesound33",
+            "miab:memes/memesound34",
+            "miab:memes/memesound35",
+            "miab:memes/memesound36",
+            "miab:memes/memesound37",
+            "miab:memes/memesound38",
+            "miab:memes/memesound39",
+            "miab:memes/memesound40",
+            "miab:memes/memesound41",
+            "miab:memes/memesound42",
+            "miab:memes/memesound43",
+            "miab:memes/memesound44",
+            "miab:memes/memesound45",
+            "miab:memes/memesound46",
+            "miab:memes/memesound47",
+            "miab:memes/memesound48",
+            "miab:memes/memesound49",
+            "miab:memes/memesound50"
         ]
     },
         "meme.sound" : {
         "category" : "record",
         "sounds": [
-            "memes/memesound1",
-            "memes/memesound2",
-            "memes/memesound3",
-            "memes/memesound4",
-            "memes/memesound5",
-            "memes/memesound6",
-            "memes/memesound7",
-            "memes/memesound8",
-            "memes/memesound9",
-            "memes/memesound10",
-            "memes/memesound11",
-            "memes/memesound12",
-            "memes/memesound13",
-            "memes/memesound14",
-            "memes/memesound15",
-            "memes/memesound17",
-            "memes/memesound20",
-            "memes/memesound21",
-            "memes/memesound22",
-            "memes/memesound23",
-            "memes/memesound24",
-            "memes/memesound25",
-            "memes/memesound26",
-            "memes/memesound27",
-            "memes/memesound28",
-            "memes/memesound29",
-            "memes/memesound30",
-            "memes/memesound32",
-            "memes/memesound33",
-            "memes/memesound34",
-            "memes/memesound37",
-            "memes/memesound38",
-            "memes/memesound39",
-            "memes/memesound40",
-            "memes/memesound41",
-            "memes/memesound42",
-            "memes/memesound43",
-            "memes/memesound44",
-            "memes/memesound46",
-            "memes/memesound47",
-            "memes/memesound48",
-            "memes/memesound49",
-            "memes/memesound50"
+            "miab:memes/memesound1",
+            "miab:memes/memesound2",
+            "miab:memes/memesound3",
+            "miab:memes/memesound4",
+            "miab:memes/memesound5",
+            "miab:memes/memesound6",
+            "miab:memes/memesound7",
+            "miab:memes/memesound8",
+            "miab:memes/memesound9",
+            "miab:memes/memesound10",
+            "miab:memes/memesound11",
+            "miab:memes/memesound12",
+            "miab:memes/memesound13",
+            "miab:memes/memesound14",
+            "miab:memes/memesound15",
+            "miab:memes/memesound17",
+            "miab:memes/memesound20",
+            "miab:memes/memesound21",
+            "miab:memes/memesound22",
+            "miab:memes/memesound23",
+            "miab:memes/memesound24",
+            "miab:memes/memesound25",
+            "miab:memes/memesound26",
+            "miab:memes/memesound27",
+            "miab:memes/memesound28",
+            "miab:memes/memesound29",
+            "miab:memes/memesound30",
+            "miab:memes/memesound32",
+            "miab:memes/memesound33",
+            "miab:memes/memesound34",
+            "miab:memes/memesound37",
+            "miab:memes/memesound38",
+            "miab:memes/memesound39",
+            "miab:memes/memesound40",
+            "miab:memes/memesound41",
+            "miab:memes/memesound42",
+            "miab:memes/memesound43",
+            "miab:memes/memesound44",
+            "miab:memes/memesound46",
+            "miab:memes/memesound47",
+            "miab:memes/memesound48",
+            "miab:memes/memesound49",
+            "miab:memes/memesound50"
         ]
     },
     "cena.spawn" : {
         "category" : "record",
         "sounds": [
-            "cenaspawn/cenaspawn1",
-            "cenaspawn/cenaspawn2"
+            "miab:cenaspawn/cenaspawn1",
+            "miab:cenaspawn/cenaspawn2"
         ]
     },
 	"cena.sound" : {
         "category" : "hostile",
         "sounds": [
-            "cena/Cena1",
-            "cena/Cena2"
+            "miab:cena/Cena1",
+            "miab:cena/Cena2"
         ]
 	},
     "bill.spawn" : {
         "category" : "record",
         "sounds": [
-            "bill/billspawn"
+            "miab:bill/billspawn"
         ]
     },
 	"bill.sound" : {
         "category" : "hostile",
         "sounds": [
-            "bill/sound",
-            "bill/sound1"
+            "miab:bill/sound",
+            "miab:bill/sound1"
         ]
     },
 	"bill.hit" : {
         "category" : "hostile",
         "sounds": [
-            "bill/hit"
+            "miab:bill/hit"
         ]
     },
 	"bill.death" : {
         "category" : "hostile",
         "sounds": [
-            "bill/death"
+            "miab:bill/death"
         ]
 	},
     "trump.spawn" : {
         "category" : "record",
         "sounds": [
-            "trump/trumpspawn"
+            "miab:trump/trumpspawn"
         ]
     },
 	"trump.sound" : {
         "category" : "hostile",
         "sounds": [
-            "trump/sound",
-            "trump/sound1",
-            "trump/sound2"
+            "miab:trump/sound",
+            "miab:trump/sound1",
+            "miab:trump/sound2"
         ]
     },
 	"trump.hit" : {
         "category" : "hostile",
         "sounds": [
-            "trump/hit",
-            "trump/hit1",
-            "trump/hit2"
+            "miab:trump/hit",
+            "miab:trump/hit1",
+            "miab:trump/hit2"
         ]
     },
 	"trump.death" : {
         "category" : "hostile",
         "sounds": [
-            "trump/death"
+            "miab:trump/death"
         ]
 	},
 	"ception.spawn" : {
         "category" : "record",
         "sounds": [
-            "inception/inception"
+            "miab:inception/inception"
         ]
     }
 }

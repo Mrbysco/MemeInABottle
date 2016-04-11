@@ -39,7 +39,7 @@ public class MiabSoundEvents {
 	}
 	
 	private static SoundEvent registerSound(String soundName) {
-		final ResourceLocation soundID = new ResourceLocation(Reference.MOD_ID, soundName);
+		final ResourceLocation soundID = new ResourceLocation(Reference.MOD_ID + ":" + soundName);
 		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
 	}
 }
