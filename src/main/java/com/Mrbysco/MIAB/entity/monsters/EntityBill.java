@@ -1,6 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
-import com.Mrbysco.MIAB.handler.MiabSoundHandler;
+import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -61,28 +61,28 @@ public class EntityBill extends EntityZombie
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
 	};
 	
-		@Override
-		protected SoundEvent getAmbientSound()
-	    {
-	        return MiabSoundHandler.bill_sound;
-	    }
-		
-		@Override
-	    protected SoundEvent getHurtSound()
-	    {
-	        return MiabSoundHandler.bill_hit;
-	    }
+	@Override
+    protected SoundEvent getAmbientSound()
+    {
+        return MiabSoundEvents.bill_sound;
+    }
 	
-		@Override
-	    protected SoundEvent getDeathSound()
-	    {
-	        return MiabSoundHandler.bill_death;
-	    }
+	@Override
+    protected SoundEvent getHurtSound()
+    {
+        return MiabSoundEvents.bill_hit;
+    }
+	
+	@Override
+    protected SoundEvent getDeathSound()
+    {
+        return MiabSoundEvents.bill_death;
+    }
 	    
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
 	        if(rand.nextBoolean()) {
-	          dropItem(Items.emerald, 1);
+	          dropItem(Items.gold_ingot, 1);
 	        }
 	    }
 }

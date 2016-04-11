@@ -1,7 +1,7 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
-import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABItems;
+import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -58,25 +58,25 @@ public class EntityTrump extends EntityZombie
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	};
 	
 		@Override
-		protected SoundEvent getAmbientSound()
+	    protected SoundEvent getAmbientSound()
 	    {
-	        return MiabSoundHandler.trump_sound;
+	        return MiabSoundEvents.trump_sound;
 	    }
 		
 		@Override
 	    protected SoundEvent getHurtSound()
 	    {
-	        return MiabSoundHandler.trump_hit;
+	        return MiabSoundEvents.trump_hit;
 	    }
-	
+		
 		@Override
 	    protected SoundEvent getDeathSound()
 	    {
-	        return MiabSoundHandler.trump_death;
+	        return MiabSoundEvents.trump_death;
 	    }
 	    
 	    @Override

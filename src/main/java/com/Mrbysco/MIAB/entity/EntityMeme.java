@@ -5,18 +5,16 @@ import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
-import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABConfig;
+import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -109,12 +107,11 @@ public class EntityMeme extends EntityThrowable{
 	        	if(MIABConfig.MatureSounds)
 	        	{
 	        		//this.worldObj.playSoundAtEntity(this, "miab:meme.soundMature", 1F, 1F);
-	        		//this.worldObj.playSound(this, posX, posY, posZ, MiabSoundHandler.meme_soundMature, SoundCategory.NEUTRAL, 1F, 1F);
+	        		this.playSound(MiabSoundEvents.meme_soundMature ,1F,1F);
 	        	}
 	        	else
 	        	{
 	        		//this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
-	        		//this.worldObj.playSound(this, posX, posY, posZ, MiabSoundHandler.meme_sound, SoundCategory.NEUTRAL, 1F, 1F);
 	        	}
 	        	
 	        	this.setDead();

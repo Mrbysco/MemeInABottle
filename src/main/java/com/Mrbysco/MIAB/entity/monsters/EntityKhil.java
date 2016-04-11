@@ -13,16 +13,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityCena extends EntityZombie 
+public class EntityKhil extends EntityZombie 
 {
-	public static String NAME = "JohnCena";
+	public static String NAME = "EduardKhil";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;
 	
 	private boolean isMounted = false;
 	
-	public EntityCena(World world) {
+	public EntityKhil(World world) {
 	    super(world);
 	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
@@ -54,35 +54,36 @@ public class EntityCena extends EntityZombie
 	{
 		super.applyEntityAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(26.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	};
 	
-	@Override
-    protected SoundEvent getAmbientSound()
-    {
-        return MiabSoundEvents.cena_sound;
-    }
-	
-	@Override
-    protected SoundEvent getHurtSound()
-    {
-        return MiabSoundEvents.cena_sound;
-    }
-	
-	@Override
-    protected SoundEvent getDeathSound()
-    {
-        return MiabSoundEvents.cena_sound;
-    }
+		@Override
+	    protected SoundEvent getAmbientSound()
+	    {
+	        return MiabSoundEvents.khil_sound;
+	    }
+		
+		@Override
+	    protected SoundEvent getHurtSound()
+	    {
+	        return MiabSoundEvents.khil_sound;
+	    }
+		
+		@Override
+	    protected SoundEvent getDeathSound()
+	    {
+	        return MiabSoundEvents.khil_sound;
+	    }
 	    
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
 	        if(rand.nextBoolean()) {
-	          dropItem(MIABItems.mcw_belt, 1);
+	          dropItem(MIABItems.troll_mask, 1);
 	        }
+	        
 	    }
 }

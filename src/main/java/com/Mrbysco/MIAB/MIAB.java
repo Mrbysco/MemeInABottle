@@ -1,10 +1,10 @@
 package com.Mrbysco.MIAB;
 
-import com.Mrbysco.MIAB.handler.MiabSoundHandler;
 import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
+import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
 import net.minecraft.init.Items;
@@ -36,6 +36,7 @@ public class MIAB {
     	Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
     	MIABConfigGen.configOptions(cfg);
     	
+    	MiabSoundEvents.registerSounds();
     	MIABBlocks.init();
     	MIABBlocks.register();
     	MIABItems.init();
@@ -50,8 +51,6 @@ public class MIAB {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-		MiabSoundHandler.init();
-		
     	GameRegistry.addRecipe(new ItemStack(MIABItems.meme_in_a_bottle), new Object[]
     		{" A"
     		," G", 'A', Items.arrow, 'G', Items.glass_bottle });
