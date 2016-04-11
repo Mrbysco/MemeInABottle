@@ -53,11 +53,11 @@ public class EntityTrump extends EntityZombie
 	{
 		super.applyEntityAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0D);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23D);
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
-		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(6.0D);
+		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(3.0D);
 	};
 	
 		@Override
