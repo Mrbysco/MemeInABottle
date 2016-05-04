@@ -30,9 +30,9 @@ public class MIABItems {
 	public static void init(){
 		meme_in_a_bottle = new Itemmeme_in_a_bottle().setUnlocalizedName("meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
 		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle().setUnlocalizedName("splash_meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
-		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, 0) .setUnlocalizedName("trump_hair").setCreativeTab(MIAB.tabMIAB);
-		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, 0) .setUnlocalizedName("troll_mask").setCreativeTab(MIAB.tabMIAB);
-		mcw_belt = new Itemcustom_armor("MCW_Belt", belt, 2, 2) .setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
+		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, 0).setUnlocalizedName("trump_hair").setCreativeTab(MIAB.tabMIAB);
+		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, 0).setUnlocalizedName("troll_mask").setCreativeTab(MIAB.tabMIAB);
+		mcw_belt = new Itemcustom_armor("MCW_Belt", belt, 2, 2).setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
 		//mcw_belt = new Item().setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
 	}
 	
@@ -50,6 +50,7 @@ public class MIABItems {
 		registerRender(meme_in_a_bottle);
 		registerRender(splash_meme_in_a_bottle);
 		registerRender(trump_hair);
+		registerRender(troll_mask);
 		registerRender(mcw_belt);
 	}
 	
