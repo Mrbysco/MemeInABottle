@@ -188,7 +188,8 @@
             "miab:khil/sound2",
             "miab:khil/sound3",
             "miab:khil/sound4",
-            "miab:khil/sound5"
+            "miab:khil/sound5",
+            "miab:khil/sound6"
         ]
     },
     "khil.death" : {

@@ -14,10 +14,13 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BottleBlock extends Block{
-
+	
+    protected static final AxisAlignedBB BOTTLE_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+    
 	public BottleBlock(Material materialIn) 
 	{
 		super(Material.glass);
@@ -28,40 +31,48 @@ public class BottleBlock extends Block{
 	}
 	
 	@Override
-	public boolean isFullBlock(IBlockState state)
+	public boolean isOpaqueCube(IBlockState state)
     {
         return false;
     }
 	
 	@Override
 	public boolean isFullCube(IBlockState state)
-    {
-        return false;
-    }
-	
-	@Override
-	public boolean canCollideCheck(IBlockState state, boolean hitIfLiquid)
-    {
-        return this.isCollidable();
-    }
-	
-	@Override
-	public boolean isFullyOpaque(IBlockState state)
 	{
 		return false;
 	}
 
 	@Override
-	public BlockRenderLayer getBlockLayer()
-	{
-		return BlockRenderLayer.CUTOUT;
-	}
-
+	public boolean canCollideCheck(IBlockState state, boolean hitIfLiquid)
+    {
+        return true;
+    }
+	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World pos, BlockPos state)
+	public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
+    {
+        return true;
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getBlockLayer()
+    {
+        return BlockRenderLayer.CUTOUT;
+    }
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return BOTTLE_AABB;
+    }
+	
+	/*
+	@Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World pos, BlockPos state)
     {
         return worldIn.getBoundingBox(pos, state).offset(state);
     }
+    */
 	
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
