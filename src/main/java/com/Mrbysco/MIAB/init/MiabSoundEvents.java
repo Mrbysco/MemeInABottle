@@ -21,6 +21,9 @@ public class MiabSoundEvents {
 	public static SoundEvent trump_hit;
 	public static SoundEvent trump_death;
 	public static SoundEvent ception_spawn;
+	public static SoundEvent khil_spawn;
+	public static SoundEvent khil_sound;
+	public static SoundEvent khil_death;
 	
 	public static void registerSounds() {
 		meme_soundMature = registerSound("meme.soundMature");
@@ -36,6 +39,9 @@ public class MiabSoundEvents {
 		trump_hit = registerSound("trump.hit");
 		trump_death = registerSound("trump.death");
 		ception_spawn = registerSound("ception.spawn");
+		khil_spawn = registerSound("khil.spawn");
+		khil_sound = registerSound("khil.sound");
+		khil_death = registerSound("khil.death");
 	}
 	
 	private static SoundEvent registerSound(String soundName) {

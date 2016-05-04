@@ -34,6 +34,12 @@ public class BottleBlock extends Block{
     }
 	
 	@Override
+	public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
+	
+	@Override
 	public boolean canCollideCheck(IBlockState state, boolean hitIfLiquid)
     {
         return this.isCollidable();
@@ -52,9 +58,10 @@ public class BottleBlock extends Block{
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World pos, BlockPos state){
-		return super.getCollisionBoundingBox(worldIn, pos, state);
-	}
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState worldIn, World pos, BlockPos state)
+    {
+        return worldIn.getBoundingBox(pos, state).offset(state);
+    }
 	
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {

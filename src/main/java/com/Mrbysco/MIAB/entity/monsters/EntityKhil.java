@@ -61,10 +61,10 @@ public class EntityKhil extends EntityZombie
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	};
 	
-		/*@Override
+		@Override
 	    protected SoundEvent getAmbientSound()
 	    {
-	        return MiabSoundEvents.khil_sound;
+	        return MiabSoundEvents.khil_spawn;
 	    }
 		
 		@Override
@@ -76,8 +76,8 @@ public class EntityKhil extends EntityZombie
 		@Override
 	    protected SoundEvent getDeathSound()
 	    {
-	        return MiabSoundEvents.khil_sound;
-	    }*/
+	        return MiabSoundEvents.khil_death;
+	    }
 	    
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
