@@ -174,5 +174,28 @@
         "sounds": [
             "inception/inception"
         ]
+    },
+    "khil.spawn" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:khil/spawn"
+        ]
+    },
+    "khil.sound" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:khil/sound",
+            "miab:khil/sound2",
+            "miab:khil/sound3",
+            "miab:khil/sound4",
+            "miab:khil/sound5",
+            "miab:khil/sound6"
+        ]
+    },
+    "khil.death" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:khil/death"
+        ]
     }
 }
