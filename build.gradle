@@ -26,7 +26,7 @@ group= "com.miab.miab" // http://maven.apache.org/guides/mini/guide-naming-conve
 archivesBaseName = "MemeInABottle"
 
 minecraft {
-    version = "1.8.9-11.15.1.1855"
+    version = "1.8.9-11.15.1.1875"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
