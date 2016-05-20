@@ -53,11 +53,11 @@ public class MIAB {
     {
     	GameRegistry.addRecipe(new ItemStack(MIABItems.meme_in_a_bottle), new Object[]
     		{" A"
-    		," G", 'A', Items.arrow, 'G', Items.glass_bottle });
+    		," G", 'A', Items.ARROW, 'G', Items.GLASS_BOTTLE });
     	
     	GameRegistry.addRecipe(new ItemStack(MIABItems.splash_meme_in_a_bottle), new Object[]
         	{" G"
-        	," S", 'G', Items.gunpowder, 'S', MIABItems.meme_in_a_bottle });
+        	," S", 'G', Items.GUNPOWDER, 'S', MIABItems.meme_in_a_bottle });
     }
     
     @EventHandler

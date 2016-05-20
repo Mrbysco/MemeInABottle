@@ -96,7 +96,7 @@ public class EntityMeme extends EntityThrowable{
 	        	if (rand.nextInt(100) <6) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
-	        		this.playSound(SoundEvents.entity_wolf_growl, 1F, 1F);
+	        		this.playSound(SoundEvents.ENTITY_WOLF_GROWL, 1F, 1F);
 	        		EntityDoge Doge = new EntityDoge(worldObj); 
 	        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Doge);
@@ -105,7 +105,7 @@ public class EntityMeme extends EntityThrowable{
 	        	if (rand.nextInt(100) <6) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:Grumpy.spawn", 1F, 1F); 
-	        		this.playSound(SoundEvents.entity_cat_purreow, 1F, 1F);
+	        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
 	        		EntityGrumpy Grumpy = new EntityGrumpy(worldObj); 
 	        		Grumpy.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Grumpy);
@@ -115,9 +115,9 @@ public class EntityMeme extends EntityThrowable{
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.ception_spawn, 1F, 1F);
-	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.chest.getDefaultState()); 
+	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.CHEST.getDefaultState()); 
 	        		TileEntityChest chest = (TileEntityChest) worldObj.getTileEntity(new BlockPos(posX, posY, posZ));
-	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.chest));
+	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.CHEST));
 	        		chest.setCustomName("Chestception");
 	    		}
 	        	

@@ -25,25 +25,25 @@ public class MIABItems {
 	public static Item trump_hair;
 	public static Item troll_mask;
 	
-	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.item_armor_equip_leather);
-	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.item_armor_equip_gold);
-	public static final ArmorMaterial trollmask = EnumHelper.addArmorMaterial("trollmask", "miab:trollmask", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.item_armor_equip_generic);
+	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER);
+	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD);
+	public static final ArmorMaterial trollmask = EnumHelper.addArmorMaterial("trollmask", "miab:trollmask", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER);
 	
 	public static void init(){
-		meme_in_a_bottle = new Itemmeme_in_a_bottle().setUnlocalizedName("meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
-		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle().setUnlocalizedName("splash_meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
-		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, EntityEquipmentSlot.HEAD).setUnlocalizedName("trump_hair").setCreativeTab(MIAB.tabMIAB);
-		mcw_belt = new Itemcustom_armor("MCW_Belt", belt, 2, EntityEquipmentSlot.LEGS).setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
-		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, EntityEquipmentSlot.HEAD).setUnlocalizedName("troll_mask").setCreativeTab(MIAB.tabMIAB);
+		meme_in_a_bottle = new Itemmeme_in_a_bottle().setRegistryName("meme_in_a_bottle").setUnlocalizedName("meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
+		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle().setRegistryName("splash_meme_in_a_bottle").setUnlocalizedName("splash_meme_in_a_bottle").setCreativeTab(MIAB.tabMIAB);
+		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, EntityEquipmentSlot.HEAD).setRegistryName("trump_hair").setUnlocalizedName("trump_hair").setCreativeTab(MIAB.tabMIAB);
+		mcw_belt = new Itemcustom_armor("MCW_Belt", belt, 2, EntityEquipmentSlot.LEGS).setRegistryName("MCW_Belt").setUnlocalizedName("MCW_Belt").setCreativeTab(MIAB.tabMIAB);
+		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, EntityEquipmentSlot.HEAD).setRegistryName("troll_mask").setUnlocalizedName("troll_mask").setCreativeTab(MIAB.tabMIAB);
 		}
 	
 	public static void register()
 	{
-		GameRegistry.registerItem(meme_in_a_bottle, meme_in_a_bottle.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(splash_meme_in_a_bottle, splash_meme_in_a_bottle.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(trump_hair, trump_hair.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(mcw_belt, mcw_belt.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(troll_mask, troll_mask.getUnlocalizedName().substring(5));
+		GameRegistry.register(meme_in_a_bottle);
+		GameRegistry.register(splash_meme_in_a_bottle);
+		GameRegistry.register(trump_hair);
+		GameRegistry.register(mcw_belt);
+		GameRegistry.register(troll_mask);
 	}
 	
 	public static void registerRenders()

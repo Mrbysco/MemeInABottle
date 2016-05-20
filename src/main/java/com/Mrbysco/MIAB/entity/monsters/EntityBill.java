@@ -82,7 +82,7 @@ public class EntityBill extends EntityZombie
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
 	        if(rand.nextBoolean()) {
-	          dropItem(Items.gold_ingot, 1);
+	          dropItem(Items.GOLD_INGOT, 1);
 	        }
 	    }
 }

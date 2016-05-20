@@ -3,6 +3,7 @@ package com.Mrbysco.MIAB.items;
 import com.Mrbysco.MIAB.entity.EntityMeme;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,7 +22,7 @@ public class Itemsplash_meme_in_a_bottle extends Item {
 	    /**
 	     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
 	     */
-	    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand)
 	    {
 	        if (!playerIn.capabilities.isCreativeMode)
 	        {
@@ -29,15 +30,14 @@ public class Itemsplash_meme_in_a_bottle extends Item {
 	        }
 
 	        //worldIn.playSoundAtEntity(playerIn, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-	        worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.entity_snowball_throw, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+	        worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 	        
 	        if (!worldIn.isRemote)
 	        {
 	        	EntityMeme entitymeme = new EntityMeme(worldIn, playerIn);
-	        	entitymeme.func_184538_a(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+	        	entitymeme.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 	            worldIn.spawnEntityInWorld(entitymeme);
 	        }
-	        
 	        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
 	    }
 	}

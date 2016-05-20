@@ -23,9 +23,9 @@ public class BottleBlock extends Block{
     
 	public BottleBlock(Material materialIn) 
 	{
-		super(Material.glass);
+		super(Material.GLASS);
 		//this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
-		this.setStepSound(SoundType.GLASS);
+		this.setSoundType(SoundType.GLASS);
 		this.setTickRandomly(true);
 		this.setHardness(0.2F);
 	}

@@ -19,12 +19,13 @@ public class MIABBlocks {
 	
 	public static void init()
 	{
-		bottle_block = new BottleBlock(Material.glass).setUnlocalizedName("bottle_block").setCreativeTab(MIAB.tabMIAB);;
+		bottle_block = new BottleBlock(Material.GLASS).setRegistryName("bottle_block").setUnlocalizedName("bottle_block").setCreativeTab(MIAB.tabMIAB);;
 	}
 	
 	public static void register()
 	{
-		GameRegistry.registerBlock(bottle_block, bottle_block.getUnlocalizedName().substring(5));
+		GameRegistry.register(bottle_block);
+		GameRegistry.registerWithItem(bottle_block);
 	}
 	
 	public static void registerRenders()
