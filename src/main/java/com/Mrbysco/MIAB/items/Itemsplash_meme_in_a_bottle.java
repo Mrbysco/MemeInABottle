@@ -3,7 +3,6 @@ package com.Mrbysco.MIAB.items;
 import com.Mrbysco.MIAB.entity.EntityMeme;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
