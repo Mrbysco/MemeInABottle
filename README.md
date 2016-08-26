@@ -1,6 +1,6 @@
 # Memes In A Bottle #
 
-<img alt='MemeInABottle' width='400' height='400' src="http://i.imgur.com/MGL5Z1V.png">
+<a href="http://minecraft.curseforge.com/projects/meme-in-a-bottle"><img alt='MemeInABottle' width='400' height='400' src="http://i.imgur.com/MGL5Z1V.png"></a>
 ## About ##
 Meme In A Bottle is a mod that was a suggestion by Pahimar and taken serious by me to see how far I can go.
 
