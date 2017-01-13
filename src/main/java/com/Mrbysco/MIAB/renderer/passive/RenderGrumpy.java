@@ -12,7 +12,7 @@ public class RenderGrumpy extends RenderOcelot
 	{
 		public static final Factory FACTORY = new Factory();
 		
-		private static final ResourceLocation texture = new ResourceLocation("miab:entity/Grumpy.png");
+		private static final ResourceLocation texture = new ResourceLocation("miab:entity/grumpy.png");
 		
 		public RenderGrumpy(RenderManager renderManagerIn) {
 			super(renderManagerIn, new ModelOcelot(), 0.5F);

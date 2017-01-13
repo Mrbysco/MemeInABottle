@@ -11,7 +11,7 @@ public class RenderKhil extends RenderZombie
 {
 	  public static final Factory FACTORY = new Factory();
 	  
-	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/Khil.png");
+	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/khil.png");
 
 	  public RenderKhil(RenderManager p_i46143_1_) {
 	    super(p_i46143_1_);

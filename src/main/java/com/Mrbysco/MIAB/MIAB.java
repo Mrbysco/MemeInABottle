@@ -4,11 +4,10 @@ import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
+import com.Mrbysco.MIAB.init.MIABRecipes;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -17,9 +16,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS)
 public class MIAB {
 	
 	@Instance(Reference.MOD_ID)
@@ -37,10 +35,13 @@ public class MIAB {
     	MIABConfigGen.configOptions(cfg);
     	
     	MiabSoundEvents.registerSounds();
+    	
     	MIABBlocks.init();
     	MIABBlocks.register();
     	MIABItems.init();
     	MIABItems.register();
+    	
+    	MIABRecipes.init();
     	
     	MIABEntities.register();
     	proxy.registerRenderingFactories();
@@ -51,13 +52,7 @@ public class MIAB {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	GameRegistry.addRecipe(new ItemStack(MIABItems.meme_in_a_bottle), new Object[]
-    		{" A"
-    		," G", 'A', Items.ARROW, 'G', Items.GLASS_BOTTLE });
     	
-    	GameRegistry.addRecipe(new ItemStack(MIABItems.splash_meme_in_a_bottle), new Object[]
-        	{" G"
-        	," S", 'G', Items.GUNPOWDER, 'S', MIABItems.meme_in_a_bottle });
     }
     
     @EventHandler

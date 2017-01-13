@@ -3,8 +3,56 @@ package com.Mrbysco.MIAB;
 public class Reference {
 	public static final String MOD_ID = "miab";
 	public static final String MOD_NAME = "Meme In A Bottle";
-	public static final String VERSION = "1.4.2";
+	public static final String VERSION = "2.0.0";
+	public static final String ACCEPTED_VERSIONS = "[1.10.2]";
+	
 	public static final String CLIENT_PROXY_CLASS = "com.Mrbysco.MIAB.proxy.ClientProxy";
 	public static final String SERVER_PROXY_CLASS = "com.Mrbysco.MIAB.proxy.CommonProxy";
+
+public static enum MIABItems {
 	
+	MEMEINABOTTLE("memeinabottle", "itemmemeinabottle"),
+	SPLASHMEMEINABOTTLE("splashmemeinabottle", "itemsplashmemeinabottle"),
+	MCWBELT("mcwbelt", "itemmcwbelt"),
+	TRUMPHAIR("trumphair", "itemtrumphair"),
+	TROLLMASK("trollmask", "itemtrollmask");
+	
+	
+	private String unlocalisedName;
+	private String registryName;
+	
+	MIABItems(String unlocalisedName, String registryName) {
+		this.unlocalisedName = unlocalisedName;
+		this.registryName = registryName;
+	}
+	
+	public String getUnlocalisedName() {
+		return unlocalisedName;
+	}
+	
+	public String getRegistryName() {
+		return registryName;
+	}
+}
+
+public static enum MIABBlocks {
+	
+	BOTTLEBLOCK("bottleblock", "bottle_block");
+	
+	private String unlocalisedName;
+	private String registryName;
+	
+	MIABBlocks(String unlocalisedName, String registryName) {
+		this.unlocalisedName = unlocalisedName;
+		this.registryName = registryName;
+	}
+	
+	public String getUnlocalisedName() {
+		return unlocalisedName;
+	}
+	
+	public String getRegistryName() {
+		return registryName;
+	}
+}
 }

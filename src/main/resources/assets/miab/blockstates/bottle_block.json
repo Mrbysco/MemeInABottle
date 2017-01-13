@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "miab:bottle_block" },
+            { "model": "miab:bottle_block", "y": 90 },
+            { "model": "miab:bottle_block", "y": 180 },
+            { "model": "miab:bottle_block", "y": 270 }
+        ]
+    }
+}

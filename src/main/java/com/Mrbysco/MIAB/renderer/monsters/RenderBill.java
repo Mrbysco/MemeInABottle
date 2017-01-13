@@ -13,7 +13,7 @@ public class RenderBill extends RenderLiving<EntityBill> {
 	
 	  public static final Factory FACTORY = new Factory();
 	  
-	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/BillCipher.png");
+	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/billcipher.png");
 
 	  public RenderBill(RenderManager renderManagerIn) {
 		super(renderManagerIn, new ModelBill(), 0.5F);

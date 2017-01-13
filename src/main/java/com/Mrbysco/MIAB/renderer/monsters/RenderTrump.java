@@ -11,7 +11,7 @@ public class RenderTrump extends RenderZombie
 {
 	  public static final Factory FACTORY = new Factory();
 	  
-	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/Trump.png");
+	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/trump.png");
 
 	  public RenderTrump(RenderManager p_i46143_1_) {
 	    super(p_i46143_1_);

@@ -3,6 +3,8 @@ package com.Mrbysco.MIAB.blocks;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.Mrbysco.MIAB.MIAB;
+import com.Mrbysco.MIAB.Reference;
 import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.block.Block;
@@ -24,7 +26,9 @@ public class BottleBlock extends Block{
 	public BottleBlock(Material materialIn) 
 	{
 		super(Material.GLASS);
-		//this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+		setUnlocalizedName(Reference.MIABBlocks.BOTTLEBLOCK.getUnlocalisedName());
+		setRegistryName(Reference.MIABBlocks.BOTTLEBLOCK.getRegistryName());
+		setCreativeTab(MIAB.tabMIAB);
 		this.setSoundType(SoundType.GLASS);
 		this.setTickRandomly(true);
 		this.setHardness(0.2F);

@@ -3,6 +3,7 @@ package com.Mrbysco.MIAB.entity;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
@@ -119,6 +120,20 @@ public class EntityMeme extends EntityThrowable{
 	        		TileEntityChest chest = (TileEntityChest) worldObj.getTileEntity(new BlockPos(posX, posY, posZ));
 	        		chest.setInventorySlotContents(0, new ItemStack(Blocks.CHEST));
 	        		chest.setCustomName("Chestception");
+	    		}
+	        	
+	        	if (rand.nextInt(100) <5) 
+	        	{ 
+	        		//this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
+	        		this.playSound(MiabSoundEvents.ppap_spawn, 1F, 1F);
+	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.CHEST.getDefaultState()); 
+	        		EntityPpap Ppap = new EntityPpap(worldObj); 
+	        		Ppap.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(Ppap);
+	        		if (rand.nextInt(100) <50) 
+					{
+	        			Ppap.setCustomNameTag("Kosaka Daimaou");
+					}
 	    		}
 	        	
 	        	if(MIABConfig.MatureSounds)

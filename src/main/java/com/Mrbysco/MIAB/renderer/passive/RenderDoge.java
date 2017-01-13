@@ -12,7 +12,7 @@ public class RenderDoge extends RenderWolf
 	{
 		public static final Factory FACTORY = new Factory();
 		
-		private static final ResourceLocation texture = new ResourceLocation("miab:entity/Doge.png");
+		private static final ResourceLocation texture = new ResourceLocation("miab:entity/doge.png");
 		
 		public RenderDoge(RenderManager renderManagerIn) {
 			super(renderManagerIn, new ModelWolf(), 0.5F);

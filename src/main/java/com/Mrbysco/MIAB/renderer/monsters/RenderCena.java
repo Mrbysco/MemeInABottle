@@ -11,7 +11,7 @@ public class RenderCena extends RenderZombie
 {
 	  public static final Factory FACTORY = new Factory();
 	  
-	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/JohnCena.png");
+	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/johncena.png");
 
 	  public RenderCena(RenderManager p_i46143_1_) {
 	    super(p_i46143_1_);
