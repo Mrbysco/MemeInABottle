@@ -2,6 +2,8 @@ package com.Mrbysco.MIAB.init;
 
 import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.Reference;
+import com.Mrbysco.MIAB.items.ItemPen;
+import com.Mrbysco.MIAB.items.ItemPineapple;
 import com.Mrbysco.MIAB.items.Itemcustom_armor;
 import com.Mrbysco.MIAB.items.Itemmeme_in_a_bottle;
 import com.Mrbysco.MIAB.items.Itemsplash_meme_in_a_bottle;
@@ -11,6 +13,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -22,6 +25,8 @@ public class MIABItems {
 	public static Item mcw_belt;
 	public static Item trump_hair;
 	public static Item troll_mask;
+	public static ItemFood pineapple;
+	public static Item pen;
 	
 	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
@@ -33,6 +38,8 @@ public class MIABItems {
 		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TRUMPHAIR.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TRUMPHAIR.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
 		mcw_belt = new Itemcustom_armor("mcw_belt", belt, 2, EntityEquipmentSlot.LEGS).setRegistryName(Reference.MIABItems.MCWBELT.getRegistryName()).setUnlocalizedName(Reference.MIABItems.MCWBELT.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
 		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TROLLMASK.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TROLLMASK.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
+		pineapple = new ItemPineapple(3, 4, false);
+		pen = new ItemPen();
 		}
 	
 	public static void register()
@@ -42,6 +49,8 @@ public class MIABItems {
 		GameRegistry.register(trump_hair);
 		GameRegistry.register(mcw_belt);
 		GameRegistry.register(troll_mask);
+		GameRegistry.register(pineapple);
+		GameRegistry.register(pen);
 	}
 	
 	public static void registerRenders()
@@ -51,6 +60,8 @@ public class MIABItems {
 		registerRender(trump_hair);
 		registerRender(mcw_belt);
 		registerRender(troll_mask);
+		registerRender(pineapple);
+		registerRender(pen);
 	}
 	
 	public static void registerRender(Item item)
