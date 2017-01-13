@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -83,7 +84,7 @@ public class EntityPpap extends EntityZombie
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
 	        if(rand.nextBoolean()) {
 	        	//Placeholder
-	          dropItem(MIABItems.trump_hair, 1);
+	          dropItem(Items.APPLE, 1);
 	        }
 	        
 	    }
