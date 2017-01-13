@@ -15,8 +15,9 @@ public static enum MIABItems {
 	SPLASHMEMEINABOTTLE("splashmemeinabottle", "itemsplashmemeinabottle"),
 	MCWBELT("mcwbelt", "itemmcwbelt"),
 	TRUMPHAIR("trumphair", "itemtrumphair"),
-	TROLLMASK("trollmask", "itemtrollmask");
-	
+	TROLLMASK("trollmask", "itemtrollmask"),
+	PINEAPPLE("pineapple", "itempineapple"),
+	PEN("pen", "itempen");
 	
 	private String unlocalisedName;
 	private String registryName;
