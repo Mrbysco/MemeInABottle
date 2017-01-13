@@ -176,7 +176,7 @@
         ]
     },
     "khil.spawn" : {
-        "category" : "hostile",
+        "category" : "record",
         "sounds": [
             "miab:khil/spawn"
         ]
@@ -199,7 +199,7 @@
         ]
     },
 	"ppap.spawn" : {
-        "category" : "hostile",
+        "category" : "record",
         "sounds": [
             "miab:ppap/ppapspawn"
         ]
