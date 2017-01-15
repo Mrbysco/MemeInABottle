@@ -220,5 +220,23 @@
         "sounds": [
             "miab:ppap/ppapdeath"
         ]
+    },
+	"ppap.havepen" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:ppap/sound1"
+        ]
+    },
+	"ppap.havepineapple" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:ppap/sound4"
+        ]
+    },
+	"ppap.haveapple" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:ppap/sound2"
+        ]
     }
 }

@@ -27,6 +27,9 @@ public class MiabSoundEvents {
 	public static SoundEvent ppap_spawn;
 	public static SoundEvent ppap_sound;
 	public static SoundEvent ppap_death;
+	public static SoundEvent ppap_havepen;
+	public static SoundEvent ppap_havepineapple;
+	public static SoundEvent ppap_haveapple;
 	
 	public static void registerSounds() {
 		meme_soundMature = registerSound("meme.soundMature");
@@ -48,6 +51,9 @@ public class MiabSoundEvents {
 		ppap_spawn = registerSound("ppap.spawn");
 		ppap_sound = registerSound("ppap.sound");
 		ppap_death = registerSound("ppap.death");
+		ppap_havepen = registerSound("ppap.havepen");
+		ppap_havepineapple = registerSound("ppap.havepineapple");
+		ppap_haveapple = registerSound("ppap.haveapple");
 	}
 	
 	private static SoundEvent registerSound(String soundName) {

@@ -86,7 +86,7 @@ public class EntityPpap extends EntityZombie
 	    	super.dropFewItems(wasRecentlyHit, lootingModifier);
 		        if(rand.nextBoolean()) {
 		        	//Placeholder
-		          dropItem(Items.APPLE, 1);
+		          dropItem(MIABItems.apple, 1);
 		          dropItem(MIABItems.pineapple, 1);
 		          dropItem(MIABItems.pen, 1);
 		        }

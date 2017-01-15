@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -79,6 +80,11 @@ public class EntityKhil extends EntityZombie
 	        return MiabSoundEvents.khil_death;
 	    }
 	    
+		@Override
+		protected Item getDropItem() {
+			return MIABItems.troll_mask;
+		}
+		
 	    @Override
 	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
 	        if(rand.nextBoolean()) {
