@@ -80,16 +80,4 @@ public class EntityPpap extends EntityZombie
 	        return MiabSoundEvents.ppap_death;
 	    }
 	    
-	    @Override
-	    protected void dropFewItems(boolean wasRecentlyHit, int lootingModifier) {
-	    	// TODO Auto-generated method stub
-	    	super.dropFewItems(wasRecentlyHit, lootingModifier);
-		        if(rand.nextBoolean()) {
-		        	//Placeholder
-		          dropItem(MIABItems.apple, 1);
-		          dropItem(MIABItems.pineapple, 1);
-		          dropItem(MIABItems.pen, 1);
-		        }
-	        
-	    }
 }

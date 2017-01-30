@@ -78,12 +78,5 @@ public class EntityTrump extends EntityZombie
 	    {
 	        return MiabSoundEvents.trump_death;
 	    }
-	    
-	    @Override
-	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
-	        if(rand.nextBoolean()) {
-	          dropItem(MIABItems.trump_hair, 1);
-	        }
-	        
-	    }
+
 }

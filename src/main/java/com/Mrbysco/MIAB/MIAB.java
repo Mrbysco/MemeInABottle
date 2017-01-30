@@ -8,6 +8,7 @@ import com.Mrbysco.MIAB.init.MIABRecipes;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -52,7 +53,7 @@ public class MIAB {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	
+    	MinecraftForge.EVENT_BUS.register(new com.Mrbysco.MIAB.handler.EventHandler());
     }
     
     @EventHandler

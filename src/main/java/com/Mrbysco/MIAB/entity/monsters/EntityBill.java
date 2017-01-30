@@ -78,11 +78,5 @@ public class EntityBill extends EntityZombie
     {
         return MiabSoundEvents.bill_death;
     }
-	    
-	    @Override
-	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
-	        if(rand.nextBoolean()) {
-	          dropItem(Items.GOLD_INGOT, 1);
-	        }
-	    }
+
 }

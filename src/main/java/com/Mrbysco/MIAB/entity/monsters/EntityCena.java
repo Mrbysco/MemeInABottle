@@ -78,11 +78,5 @@ public class EntityCena extends EntityZombie
     {
         return MiabSoundEvents.cena_sound;
     }
-	    
-	    @Override
-	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
-	        if(rand.nextBoolean()) {
-	          dropItem(MIABItems.mcw_belt, 1);
-	        }
-	    }
+
 }

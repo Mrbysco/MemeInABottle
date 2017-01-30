@@ -84,12 +84,5 @@ public class EntityKhil extends EntityZombie
 		protected Item getDropItem() {
 			return MIABItems.troll_mask;
 		}
-		
-	    @Override
-	    protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
-	        if(rand.nextBoolean()) {
-	          dropItem(MIABItems.troll_mask, 1);
-	        }
-	        
-	    }
+
 }
