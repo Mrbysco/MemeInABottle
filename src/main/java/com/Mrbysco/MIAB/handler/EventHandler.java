@@ -9,6 +9,7 @@ import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -63,14 +64,14 @@ public class EventHandler {
             		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
 
-            if (random_chance < 0.5)
+            if (random_chance < 0.7)
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.pen, 1);
             	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
             			
             			event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
-            if (random_chance < 0.4)
+            if (random_chance < 0.5)
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.pen, 1);
             	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
