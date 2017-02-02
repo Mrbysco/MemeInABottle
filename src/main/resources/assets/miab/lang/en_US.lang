@@ -8,6 +8,7 @@ item.apple.name=Apple
 item.pen.name=Pen
 
 tile.bottleblock.name=Bottle Block (WIP)
+tile.keyboardmechanical.name=Keyboard Mechanical
 
 Group.tabMIAB=Meme In A Bottle
 
@@ -18,3 +19,4 @@ entity.miab.DogeWolf.name=Doge
 entity.miab.GrumpyCat.name=Grumpy Cat
 entity.miab.Cat.name=Grumpy Cat
 entity.miab.DonaldTrump.name=Donald Trump
+entity.Villager.keyboardreviewer=Keyboard Reviewer

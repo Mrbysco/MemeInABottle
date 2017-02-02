@@ -238,5 +238,11 @@
         "sounds": [
             "miab:ppap/sound2"
         ]
+    },
+    "meme.keyboardmechanical" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:memes/keybmech"
+        ]
     }
 }

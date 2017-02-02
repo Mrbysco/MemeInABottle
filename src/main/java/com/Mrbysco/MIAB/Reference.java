@@ -39,7 +39,8 @@ public static enum MIABItems {
 
 public static enum MIABBlocks {
 	
-	BOTTLEBLOCK("bottleblock", "bottle_block");
+	BOTTLEBLOCK("bottleblock", "bottle_block"),
+	KEYBOARD("keyboardmechanical", "blockkeyboardmechanical");
 	
 	private String unlocalisedName;
 	private String registryName;

@@ -5,6 +5,7 @@ import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MIABRecipes;
+import com.Mrbysco.MIAB.init.MIABVillagers;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
@@ -43,11 +44,11 @@ public class MIAB {
     	MIABItems.register();
     	
     	MIABRecipes.init();
-    	
     	MIABEntities.register();
+    	MIABVillagers.init();
+    	
     	proxy.registerRenderingFactories();
     	proxy.registerRenders();
-    	
     }
 
     @EventHandler

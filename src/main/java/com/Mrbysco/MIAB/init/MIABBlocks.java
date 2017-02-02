@@ -1,9 +1,6 @@
 package com.Mrbysco.MIAB.init;
 
-import java.util.Locale;
-
-import com.Mrbysco.MIAB.MIAB;
-import com.Mrbysco.MIAB.Reference;
+import com.Mrbysco.MIAB.blocks.BlockKeyboardMechanical;
 import com.Mrbysco.MIAB.blocks.BottleBlock;
 
 import net.minecraft.block.Block;
@@ -17,15 +14,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class MIABBlocks {
 	
 	public static Block bottle_block;
+	public static Block keyboard;
 	
 	public static void init()
 	{
 		bottle_block = new BottleBlock(Material.GLASS);
+		keyboard = new BlockKeyboardMechanical();
 	}
 	
 	public static void register()
 	{
 		registerBlock(bottle_block);
+		registerBlock(keyboard);
 	}
 	
 	public static void registerBlock(Block block) 
@@ -43,6 +43,7 @@ public class MIABBlocks {
 	public static void registerRenders()
 	{
 		registerRender(bottle_block);
+		registerRender(keyboard);
 	}
 	
 	public static void registerRender(Block block)

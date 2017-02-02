@@ -45,5 +45,4 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityShrek.class, RenderShrek.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityDatBoi.class, RenderDatBoi.FACTORY);
 	}
-	
 }

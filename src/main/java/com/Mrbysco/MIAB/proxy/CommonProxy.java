@@ -8,5 +8,5 @@ public class CommonProxy {
 	public void registerRenderingFactories(){
 		
 	}
-	
+
 }
