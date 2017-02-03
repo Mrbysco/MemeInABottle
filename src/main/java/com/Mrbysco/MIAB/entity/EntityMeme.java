@@ -57,7 +57,7 @@ public class EntityMeme extends EntityThrowable{
 	         }
 
 	    	if (!this.worldObj.isRemote)
-	        {
+	        {	
 	        	if (rand.nextInt(100) <2) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); 
