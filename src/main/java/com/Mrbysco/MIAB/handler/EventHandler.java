@@ -2,14 +2,16 @@ package com.Mrbysco.MIAB.handler;
 
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
+import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -78,17 +80,54 @@ public class EventHandler {
             			
             			event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
-		
-            if (event.getEntity() instanceof EntityTrump) {
-    			random_drop = Math.random();
-                if ( random_drop < MIABConfig.DropChance )
-                {
-                	ItemStack itemStackToDrop = new ItemStack(MIABItems.trump_hair, 1);
-                	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
-                			
-                		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
-                }
-            }
          }
+		
+        if (event.getEntity() instanceof EntityTrump) {
+			random_drop = Math.random();
+            if ( random_drop < MIABConfig.DropChance )
+            {
+            	ItemStack itemStackToDrop = new ItemStack(MIABItems.trump_hair, 1);
+            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            			
+            		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+            }
+        }
+        
+        if (event.getEntity() instanceof EntityDatBoi) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(Items.SLIME_BALL, 1);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
+        
+        /*
+        if (event.getEntity() instanceof EntityShrek) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.onion, 1);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
+        
+        if (event.getEntity() instanceof EntityMoonman) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.mineburger, 1);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
+        
+        */
+        
 	}
 }

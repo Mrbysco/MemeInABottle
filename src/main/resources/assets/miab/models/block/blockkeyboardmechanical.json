@@ -1,10 +1,10 @@
 {
 	"__comment": "Designed by Mrbysco with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "items/keyboardbase",
-		"Base": "items/keyboardbase",
-		"Keys": "items/keyboardbase",
-		"Logo": "items/keyboardbase"
+		"particle": "miab:blocks/keyboardbase",
+		"Base": "miab:blocks/keyboardbase",
+		"Keys": "miab:blocks/keyboardbase",
+		"Logo": "miab:blocks/keyboardbase"
 	},
 	"elements": [
 		{
