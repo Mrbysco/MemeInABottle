@@ -3,6 +3,8 @@ package com.Mrbysco.MIAB.init;
 import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.Reference;
 import com.Mrbysco.MIAB.items.ItemApple;
+import com.Mrbysco.MIAB.items.ItemMineBurger;
+import com.Mrbysco.MIAB.items.ItemOnion;
 import com.Mrbysco.MIAB.items.ItemPen;
 import com.Mrbysco.MIAB.items.ItemPineapple;
 import com.Mrbysco.MIAB.items.Itemcustom_armor;
@@ -29,6 +31,8 @@ public class MIABItems {
 	public static ItemFood pineapple;
 	public static Item apple;
 	public static Item pen;
+	public static Item onion;
+	public static Item burger;
 	
 	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
@@ -42,6 +46,8 @@ public class MIABItems {
 		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TROLLMASK.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TROLLMASK.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
 		pineapple = new ItemPineapple(3, 4, false);
 		apple = new ItemApple(2, 4, false);
+		onion = new ItemOnion(2, 4, false);
+		burger = new ItemMineBurger(4, 4, false);
 		pen = new ItemPen();
 		}
 	
@@ -55,6 +61,8 @@ public class MIABItems {
 		GameRegistry.register(pineapple);
 		GameRegistry.register(apple);
 		GameRegistry.register(pen);
+		GameRegistry.register(onion);
+		GameRegistry.register(burger);
 	}
 	
 	public static void registerRenders()
@@ -67,6 +75,8 @@ public class MIABItems {
 		registerRender(pineapple);
 		registerRender(apple);
 		registerRender(pen);
+		registerRender(onion);
+		registerRender(burger);
 	}
 	
 	public static void registerRender(Item item)
