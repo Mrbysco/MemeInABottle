@@ -6,14 +6,12 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityBill extends EntityZombie 
+public class EntityBill extends EntityMemeBase 
 {
 	public static String NAME = "BillCipher";
 	

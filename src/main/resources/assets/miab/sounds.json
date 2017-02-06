@@ -239,10 +239,52 @@
             "miab:ppap/sound2"
         ]
     },
-    "meme.keyboardmechanical" : {
-        "category" : "neutral",
+    "moonman.spawn" : {
+        "category" : "hostile",
         "sounds": [
-            "miab:memes/keybmech"
+            "miab:moonman/moonman_spawn"
+        ]
+    },
+    "moonman.hit" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:moonman/moonman_attacked"
+        ]
+    },
+    "moonman.passive" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:moonman/moonman_passive",
+            "miab:moonman/moonman_passive1"
+        ]
+    },
+    "moonman.death" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:moonman/moonman_death"
+        ]
+    },
+    "boi.spawn" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:boi/dat_main"
+        ]
+    },
+    "boi.passive" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:boi/dat_main",
+            "miab:boi/dat_oh",
+            "miab:boi/dat_waddup",
+            "miab:boi/dat_ohwaddup"
+        ]
+    },
+    "boi.death" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:boi/dat_ohwaddup"
         ]
     }
+    
+    
 }

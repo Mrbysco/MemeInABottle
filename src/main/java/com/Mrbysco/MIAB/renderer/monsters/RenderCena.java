@@ -1,13 +1,13 @@
 package com.Mrbysco.MIAB.renderer.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.EntityMemeBase;
+
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RenderZombie;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderCena extends RenderZombie 
+public class RenderCena extends RenderMemeBase 
 {
 	  public static final Factory FACTORY = new Factory();
 	  
@@ -18,14 +18,14 @@ public class RenderCena extends RenderZombie
 	  }
 
 	  @Override
-	  protected ResourceLocation getEntityTexture(EntityZombie entity) {
+	  protected ResourceLocation getEntityTexture(EntityMemeBase entity) {
 	    return texture;
 	  }
 
-	  public static class Factory implements IRenderFactory<EntityZombie> {
+	  public static class Factory implements IRenderFactory<EntityMemeBase> {
 
 	    @Override
-	    public Render<? super EntityZombie> createRenderFor(RenderManager manager) {
+	    public Render<? super EntityMemeBase> createRenderFor(RenderManager manager) {
 	      return new RenderCena(manager);
 	    }
 	  }
