@@ -18,7 +18,9 @@ public static enum MIABItems {
 	TROLLMASK("trollmask", "itemtrollmask"),
 	PINEAPPLE("pineapple", "itempineapple"),
 	PEN("pen", "itempen"),
-	APPLE("apple", "itemapple");
+	APPLE("apple", "itemapple"),
+	ONION("onion", "itemonion"),
+	MINEBURGER("mineburger", "itemmineburger");
 	
 	private String unlocalisedName;
 	private String registryName;

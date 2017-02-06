@@ -288,7 +288,7 @@
     "shrek.spawn" : {
         "category" : "hostile",
         "sounds": [
-            "miab:shrek/shrek_death"
+            "miab:shrek/shrek_swamp"
         ]
     },
     "shrek.hit" : {
@@ -309,6 +309,12 @@
         "category" : "hostile",
         "sounds": [
             "miab:shrek/shrek_donkey"
+        ]
+    },
+    "shrek.onion" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:shrek/shrek_onions"
         ]
     }
     
