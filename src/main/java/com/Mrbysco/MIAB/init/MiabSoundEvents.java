@@ -38,6 +38,10 @@ public class MiabSoundEvents {
 	public static SoundEvent boi_summon;
 	public static SoundEvent boi_passive;
 	public static SoundEvent boi_death;
+	public static SoundEvent shrek_summon;
+	public static SoundEvent shrek_passive;
+	public static SoundEvent shrek_hit;
+	public static SoundEvent shrek_death;
 	
 	public static void registerSounds() {
 		meme_soundMature = registerSound("meme.soundMature");
@@ -70,6 +74,10 @@ public class MiabSoundEvents {
 		boi_summon = registerSound("boi.spawn");
 		boi_passive = registerSound("boi.passive");
 		boi_death = registerSound("boi.death");
+		shrek_death = registerSound("shrek.spawn");
+		shrek_death = registerSound("shrek.passive");
+		shrek_death = registerSound("shrek.hit");
+		shrek_death = registerSound("shrek.death");
 	}
 	
 	private static SoundEvent registerSound(String soundName) {

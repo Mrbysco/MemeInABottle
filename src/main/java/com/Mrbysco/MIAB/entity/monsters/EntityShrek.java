@@ -39,19 +39,19 @@ public class EntityShrek extends EntityMemeBase
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MiabSoundEvents.bill_sound;
+        return MiabSoundEvents.shrek_passive;
     }
 	
 	@Override
     protected SoundEvent getHurtSound()
     {
-        return MiabSoundEvents.bill_hit;
+        return MiabSoundEvents.shrek_hit;
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MiabSoundEvents.bill_death;
+        return MiabSoundEvents.shrek_death;
     }
 
 }

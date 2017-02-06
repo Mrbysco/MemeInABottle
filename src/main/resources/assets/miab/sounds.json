@@ -284,7 +284,32 @@
         "sounds": [
             "miab:boi/dat_ohwaddup"
         ]
+    },
+    "shrek.spawn" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:shrek/shrek_death"
+        ]
+    },
+    "shrek.hit" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:shrek/shrek_donkey"
+        ]
+    },
+    "shrek.passive" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:shrek/shrek_death",
+            "miab:shrek/shrek_layers",
+            "miab:shrek/shrek_onions"
+        ]
+    },
+    "shrek.death" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:shrek/shrek_donkey"
+        ]
     }
-    
     
 }
