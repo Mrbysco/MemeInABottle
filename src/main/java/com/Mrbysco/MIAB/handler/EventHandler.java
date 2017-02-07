@@ -104,7 +104,6 @@ public class EventHandler {
         	}
         }
         
-        /*
         if (event.getEntity() instanceof EntityShrek) {
         	random_drop = Math.random();
         	if ( random_drop < MIABConfig.DropChance )
@@ -120,14 +119,12 @@ public class EventHandler {
         	random_drop = Math.random();
         	if ( random_drop < MIABConfig.DropChance )
         	{
-        		ItemStack itemStackToDrop = new ItemStack(MIABItems.mineburger, 1);
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.burger, 1);
         		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
         }
-        
-        */
         
 	}
 }
