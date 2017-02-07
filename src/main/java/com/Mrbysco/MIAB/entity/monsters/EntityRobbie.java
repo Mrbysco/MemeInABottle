@@ -14,7 +14,7 @@ public class EntityRobbie extends EntityMemeBase
 
 	ItemStack itemstack = this.getHeldItemMainhand();
 	
-	public static String NAME = "Rotten Robbie";
+	public static String NAME = "Robbie Rotten";
 	boolean holdingSax = false;
 	
 	private boolean isMounted = false;
