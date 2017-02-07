@@ -1,10 +1,10 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
 import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
+import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -42,9 +42,10 @@ public class EntityRobbie extends EntityMemeBase
 		//Check if he's holding the item
 		if (this.worldObj != null && !this.worldObj.isRemote)
 		{
-			if (itemstack != null && itemstack.getItem() == Items.APPLE)
+			if (itemstack != null && itemstack.getItem() == MIABItems.sax)
 	        {
 				holdingSax = true;
+				return MiabSoundEvents.robbie_sax;
 	        }
 	    }
 		
