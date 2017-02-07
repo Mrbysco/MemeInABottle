@@ -2,11 +2,6 @@ package com.Mrbysco.MIAB.entity.passive;
 
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EntityDoge extends EntityWolf
