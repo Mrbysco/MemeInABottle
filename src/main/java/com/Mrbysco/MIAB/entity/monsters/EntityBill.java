@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class EntityBill extends EntityMemeBase 
 {
-	public static String NAME = "BillCipher";
+	public static String NAME = "Bill Cipher";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;

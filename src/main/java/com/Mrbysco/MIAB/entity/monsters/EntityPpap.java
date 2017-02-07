@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityPpap extends EntityMemeBase 
 {
-	public static String NAME = "KosakaDaimaou";
+	public static String NAME = "Kosaka Daimaou";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;

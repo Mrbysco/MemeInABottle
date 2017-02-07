@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class EntityKhil extends EntityMemeBase 
 {
-	public static String NAME = "EduardKhil";
+	public static String NAME = "Eduard Khil";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;

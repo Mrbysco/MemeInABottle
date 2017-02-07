@@ -6,6 +6,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
+import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.init.MIABConfig;
@@ -120,6 +121,17 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.burger, 1);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
+        
+        if (event.getEntity() instanceof EntityRobbie) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.sax, 1);
         		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));

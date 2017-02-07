@@ -36,7 +36,6 @@
 			"miab:memes/oxyclean",
 			"miab:memes/rightinthe",
 			"miab:memes/sandwich",
-			"miab:memes/shrekislove",
 			"miab:memes/smokeweed",
 			"miab:memes/snooppengas",
 			"miab:memes/somebodystopme",
@@ -86,7 +85,6 @@
 			"miab:memes/oldspicepower",
 			"miab:memes/oxyclean",
 			"miab:memes/sandwich",
-			"miab:memes/shrekislove",
 			"miab:memes/somebodystopme",
 			"miab:memes/sparta",
 			"miab:memes/spongebobsound",
@@ -288,7 +286,7 @@
     "shrek.spawn" : {
         "category" : "hostile",
         "sounds": [
-            "miab:shrek/shrek_swamp"
+            "miab:memes/shrekislove"
         ]
     },
     "shrek.hit" : {
@@ -300,6 +298,7 @@
     "shrek.passive" : {
         "category" : "hostile",
         "sounds": [
+            "miab:shrek/shrek_swamp",
             "miab:shrek/shrek_death",
             "miab:shrek/shrek_layers",
             "miab:shrek/shrek_onions"
@@ -316,6 +315,45 @@
         "sounds": [
             "miab:shrek/shrek_onions"
         ]
+    },
+    "robbie.summon" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:robbie/robbie_number"
+        ]
+    },
+    "robbie.passive" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:robbie/robbie_banana",
+            "miab:robbie/robbie_history",
+            "miab:robbie/robbie_listen",
+            "miab:robbie/robbie_net",
+            "miab:robbie/robbie_nosound",
+            "miab:robbie/robbie_number",
+            "miab:robbie/robbie_trickery",
+            "miab:robbie/robbie_try"
+        ]
+    },
+    "robbie.sax" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:robbie/sax_full",
+            "miab:robbie/sax_epic",
+            "miab:robbie/sax_first",
+            "miab:robbie/sax_last"
+        ]
+        },
+    "robbie.hit" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:robbie/robbie_hit"
+        ]
+    },
+    "robbie.death" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:robbie/robbie_death"
+        ]
     }
-    
 }

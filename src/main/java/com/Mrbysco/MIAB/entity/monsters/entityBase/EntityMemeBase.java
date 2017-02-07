@@ -22,7 +22,6 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityOcelot;
@@ -51,8 +50,6 @@ public class EntityMemeBase extends EntityMob
 {
 	 /** The attribute which determines the chance that this mob will spawn reinforcements */
     private static final UUID BABY_SPEED_BOOST_ID = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
-    private static final AttributeModifier BABY_SPEED_BOOST = new AttributeModifier(BABY_SPEED_BOOST_ID, "Baby speed boost", 0.5D, 1);
-    private static final DataParameter<Boolean> IS_CHILD = EntityDataManager.<Boolean>createKey(EntityMob.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Integer> VILLAGER_TYPE = EntityDataManager.<Integer>createKey(EntityMob.class, DataSerializers.VARINT);
     private static final DataParameter<Boolean> CONVERTING = EntityDataManager.<Boolean>createKey(EntityMob.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.<Boolean>createKey(EntityMob.class, DataSerializers.BOOLEAN);
@@ -131,25 +128,6 @@ public class EntityMemeBase extends EntityMob
     protected int getExperiencePoints(EntityPlayer player)
     {
         return super.getExperiencePoints(player);
-    }
-
-    /**
-     * Set whether this meme is a child.
-     */
-    public void setChild(boolean childMob)
-    {
-        this.getDataManager().set(IS_CHILD, Boolean.valueOf(childMob));
-
-        if (this.worldObj != null && !this.worldObj.isRemote)
-        {
-            IAttributeInstance iattributeinstance = this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
-            iattributeinstance.removeModifier(BABY_SPEED_BOOST);
-
-            if (childMob)
-            {
-                iattributeinstance.applyModifier(BABY_SPEED_BOOST);
-            }
-        }
     }
     
     public void onLivingUpdate()
@@ -259,11 +237,6 @@ public class EntityMemeBase extends EntityMob
     public void readEntityFromNBT(NBTTagCompound compound)
     {
         super.readEntityFromNBT(compound);
-
-        if (compound.getBoolean("IsBaby"))
-        {
-            this.setChild(true);
-        }
 
         this.setBreakDoorsAItask(compound.getBoolean("CanBreakDoors"));
     }

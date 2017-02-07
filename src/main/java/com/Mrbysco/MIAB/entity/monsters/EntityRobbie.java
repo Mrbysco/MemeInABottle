@@ -4,19 +4,22 @@ import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBreakDoor;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityTrump extends EntityMemeBase 
+public class EntityRobbie extends EntityMemeBase 
 {
-	public static String NAME = "Donald Trump";
+
+	ItemStack itemstack = this.getHeldItemMainhand();
+	
+	public static String NAME = "Rotten Robbie";
+	boolean holdingSax = false;
 	
 	private boolean isMounted = false;
 	
-	public EntityTrump(World world) {
+	public EntityRobbie(World world) {
 	    super(world);
 	    }
 	
@@ -25,8 +28,8 @@ public class EntityTrump extends EntityMemeBase
 	{
 		super.applyEntityAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(24.0D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.245D);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
@@ -35,19 +38,35 @@ public class EntityTrump extends EntityMemeBase
 		@Override
 	    protected SoundEvent getAmbientSound()
 	    {
-	        return MiabSoundEvents.trump_sound;
+		
+		//Check if he's holding the item
+		if (this.worldObj != null && !this.worldObj.isRemote)
+		{
+			if (itemstack != null && itemstack.getItem() == Items.APPLE)
+	        {
+				holdingSax = true;
+	        }
+	    }
+		
+		//if the item is held sound changes
+		if (holdingSax == true)
+		{
+		return MiabSoundEvents.robbie_sax;
+		}
+		else
+		return MiabSoundEvents.robbie_passive;
 	    }
 		
 		@Override
 	    protected SoundEvent getHurtSound()
 	    {
-	        return MiabSoundEvents.trump_hit;
+	        return MiabSoundEvents.robbie_hit;
 	    }
 		
 		@Override
 	    protected SoundEvent getDeathSound()
 	    {
-	        return MiabSoundEvents.trump_death;
+	        return MiabSoundEvents.robbie_death;
 	    }
 
 }

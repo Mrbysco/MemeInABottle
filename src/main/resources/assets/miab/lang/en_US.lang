@@ -8,11 +8,12 @@ item.apple.name=Apple
 item.pen.name=Pen
 item.onion.name=Onion
 item.mineburger.name=MineBurger
+item.sax.name=Saxophone
 
 tile.bottleblock.name=Bottle Block (WIP)
 tile.keyboardmechanical.name=Keyboard Mechanical
 
-Group.tabMIAB=Meme In A Bottle
+itemGroup.tabMIAB=Meme In A Bottle
 
 entity.miab.EntityMeme.name=Splash Meme In A Bottle
 entity.miab.JohnCena.name=John Cena

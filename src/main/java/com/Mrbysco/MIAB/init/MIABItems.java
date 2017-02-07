@@ -7,6 +7,7 @@ import com.Mrbysco.MIAB.items.ItemMineBurger;
 import com.Mrbysco.MIAB.items.ItemOnion;
 import com.Mrbysco.MIAB.items.ItemPen;
 import com.Mrbysco.MIAB.items.ItemPineapple;
+import com.Mrbysco.MIAB.items.ItemSax;
 import com.Mrbysco.MIAB.items.Itemcustom_armor;
 import com.Mrbysco.MIAB.items.Itemmeme_in_a_bottle;
 import com.Mrbysco.MIAB.items.Itemsplash_meme_in_a_bottle;
@@ -33,6 +34,7 @@ public class MIABItems {
 	public static Item pen;
 	public static Item onion;
 	public static Item burger;
+	public static Item sax;
 	
 	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
@@ -49,6 +51,7 @@ public class MIABItems {
 		onion = new ItemOnion(2, 4, false);
 		burger = new ItemMineBurger(4, 4, false);
 		pen = new ItemPen();
+		sax = new ItemSax();
 		}
 	
 	public static void register()
@@ -63,6 +66,7 @@ public class MIABItems {
 		GameRegistry.register(pen);
 		GameRegistry.register(onion);
 		GameRegistry.register(burger);
+		GameRegistry.register(sax);
 	}
 	
 	public static void registerRenders()
@@ -77,6 +81,7 @@ public class MIABItems {
 		registerRender(pen);
 		registerRender(onion);
 		registerRender(burger);
+		registerRender(sax);
 	}
 	
 	public static void registerRender(Item item)

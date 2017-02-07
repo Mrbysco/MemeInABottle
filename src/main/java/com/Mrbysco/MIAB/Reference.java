@@ -20,7 +20,8 @@ public static enum MIABItems {
 	PEN("pen", "itempen"),
 	APPLE("apple", "itemapple"),
 	ONION("onion", "itemonion"),
-	MINEBURGER("mineburger", "itemmineburger");
+	MINEBURGER("mineburger", "itemmineburger"),
+	SAX("sax", "itemsax");
 	
 	private String unlocalisedName;
 	private String registryName;
