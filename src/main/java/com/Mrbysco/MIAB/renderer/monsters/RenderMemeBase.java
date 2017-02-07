@@ -2,7 +2,7 @@ package com.Mrbysco.MIAB.renderer.monsters;
 
 import java.util.List;
 
-import com.Mrbysco.MIAB.entity.monsters.EntityMemeBase;
+import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.google.common.collect.Lists;
 
 import net.minecraft.client.model.ModelBiped;

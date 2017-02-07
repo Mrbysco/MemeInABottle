@@ -1,4 +1,4 @@
-package com.Mrbysco.MIAB.entity.monsters;
+package com.Mrbysco.MIAB.entity.monsters.entityBase;
 
 import java.util.Calendar;
 import java.util.UUID;

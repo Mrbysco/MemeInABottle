@@ -1,4 +1,4 @@
-package com.Mrbysco.MIAB.renderer;
+package com.Mrbysco.MIAB.renderer.models.base;
 
 import com.Mrbysco.MIAB.entity.EntityMeme;
 import com.Mrbysco.MIAB.init.MIABItems;

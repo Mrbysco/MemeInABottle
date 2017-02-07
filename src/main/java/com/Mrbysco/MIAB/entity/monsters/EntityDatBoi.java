@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,7 +22,6 @@ public class EntityDatBoi extends EntityMemeBase
 	public EntityDatBoi(World world) {
 	    super(world);
 	    super.setSize(0.6F, 2.7F);
-	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;

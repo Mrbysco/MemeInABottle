@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
@@ -22,7 +23,6 @@ public class EntityKhil extends EntityMemeBase
 	
 	public EntityKhil(World world) {
 	    super(world);
-	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
 
 	@Override
@@ -54,10 +54,5 @@ public class EntityKhil extends EntityMemeBase
 	    {
 	        return MiabSoundEvents.khil_death;
 	    }
-	    
-		@Override
-		protected Item getDropItem() {
-			return MIABItems.troll_mask;
-		}
 
 }

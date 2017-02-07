@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,7 +21,6 @@ public class EntityMoonman extends EntityMemeBase
 	
 	public EntityMoonman(World world) {
 	    super(world);
-	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
 	
 	@Override

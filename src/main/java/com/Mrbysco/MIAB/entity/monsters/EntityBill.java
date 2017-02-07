@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
+import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLiving;
@@ -24,28 +25,6 @@ public class EntityBill extends EntityMemeBase
 	    super(world);
 	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 		}
-	
-	@Override
-	public void onLivingUpdate()
-    {
-		if (this.isRiding() && this.getAttackTarget() != null && this.getRidingEntity() instanceof EntityChicken)
-        {
-            ((EntityLiving)this.getRidingEntity()).getNavigator().setPath(this.getNavigator().getPath(), 1.5D);
-        }
-		
-		ignoreUndeadFire = true;
-	       
-        super.onLivingUpdate();
-       
-        ignoreUndeadFire = false;
-    }
-	
-	private boolean ignoreUndeadFire = false;
-	   
-    @Override
-    public float getBrightness(float partialTicks) {
-        return ignoreUndeadFire ? 0f : super.getBrightness(partialTicks);
-    }
 	
 	@Override
 	protected void applyEntityAttributes() 

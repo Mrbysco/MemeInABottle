@@ -1,6 +1,7 @@
 package com.Mrbysco.MIAB.renderer;
 
 import com.Mrbysco.MIAB.entity.EntityMeme;
+import com.Mrbysco.MIAB.renderer.models.base.EntityMemeRenderer;
 
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.entity.Render;
