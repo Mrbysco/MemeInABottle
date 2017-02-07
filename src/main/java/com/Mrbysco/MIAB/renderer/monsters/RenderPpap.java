@@ -26,7 +26,7 @@ public class RenderPpap extends RenderMemeBase
 
 	    @Override
 	    public Render<? super EntityMemeBase> createRenderFor(RenderManager manager) {
-		      return new RenderTrump(manager);
+		      return new RenderPpap(manager);
 	    }
 	  }
 }
