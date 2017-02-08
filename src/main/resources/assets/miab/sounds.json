@@ -355,5 +355,33 @@
         "sounds": [
             "miab:robbie/robbie_death"
         ]
+    },
+    "dad.summon" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dad/dad_summon"
+        ]
+    },
+    "dad.passive" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dad/dad_passive1",
+            "miab:dad/dad_passive2",
+            "miab:dad/dad_passive3",
+            "miab:dad/dad_passive4",
+            "miab:dad/dad_passive5"
+        ]
+        },
+    "dad.hit" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dad/dad_hit"
+        ]
+    },
+    "dad.death" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dad/dad_death"
+        ]
     }
 }

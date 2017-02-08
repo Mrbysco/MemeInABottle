@@ -4,6 +4,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
@@ -132,6 +133,17 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.sax, 1);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
+
+        if (event.getEntity() instanceof EntityMario7) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.ripoff_hat, 1);
         		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));

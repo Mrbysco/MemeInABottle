@@ -16,6 +16,7 @@ public static enum MIABItems {
 	MCWBELT("mcwbelt", "itemmcwbelt"),
 	TRUMPHAIR("trumphair", "itemtrumphair"),
 	TROLLMASK("trollmask", "itemtrollmask"),
+	RIPOFFHAT("rippoffhat", "itemripoffhat"),
 	PINEAPPLE("pineapple", "itempineapple"),
 	PEN("pen", "itempen"),
 	APPLE("apple", "itemapple"),

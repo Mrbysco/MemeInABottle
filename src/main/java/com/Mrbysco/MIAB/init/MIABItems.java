@@ -29,16 +29,18 @@ public class MIABItems {
 	public static Item mcw_belt;
 	public static Item trump_hair;
 	public static Item troll_mask;
+	public static Item ripoff_hat;
 	public static ItemFood pineapple;
-	public static Item apple;
+	public static ItemFood apple;
 	public static Item pen;
-	public static Item onion;
-	public static Item burger;
+	public static ItemFood onion;
+	public static ItemFood burger;
 	public static Item sax;
 	
 	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
 	public static final ArmorMaterial trollmask = EnumHelper.addArmorMaterial("trollmask", "miab:trollmask", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
+	public static final ArmorMaterial ripoffhat = EnumHelper.addArmorMaterial("rippoffhat", "miab:rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	
 	public static void init(){
 		meme_in_a_bottle = new Itemmeme_in_a_bottle();
@@ -46,6 +48,7 @@ public class MIABItems {
 		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 2, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TRUMPHAIR.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TRUMPHAIR.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
 		mcw_belt = new Itemcustom_armor("mcw_belt", belt, 2, EntityEquipmentSlot.LEGS).setRegistryName(Reference.MIABItems.MCWBELT.getRegistryName()).setUnlocalizedName(Reference.MIABItems.MCWBELT.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
 		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 2, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TROLLMASK.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TROLLMASK.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
+		ripoff_hat = new Itemcustom_armor("ripoff_hat", ripoffhat, 2, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.RIPOFFHAT.getRegistryName()).setUnlocalizedName(Reference.MIABItems.RIPOFFHAT.getUnlocalisedName()).setCreativeTab(MIAB.tabMIAB);
 		pineapple = new ItemPineapple(3, 4, false);
 		apple = new ItemApple(2, 4, false);
 		onion = new ItemOnion(2, 4, false);
@@ -61,6 +64,7 @@ public class MIABItems {
 		GameRegistry.register(trump_hair);
 		GameRegistry.register(mcw_belt);
 		GameRegistry.register(troll_mask);
+		GameRegistry.register(ripoff_hat);
 		GameRegistry.register(pineapple);
 		GameRegistry.register(apple);
 		GameRegistry.register(pen);
@@ -76,6 +80,7 @@ public class MIABItems {
 		registerRender(trump_hair);
 		registerRender(mcw_belt);
 		registerRender(troll_mask);
+		registerRender(ripoff_hat);
 		registerRender(pineapple);
 		registerRender(apple);
 		registerRender(pen);

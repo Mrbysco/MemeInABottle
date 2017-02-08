@@ -5,6 +5,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
@@ -19,6 +20,7 @@ import com.Mrbysco.MIAB.renderer.monsters.RenderBill;
 import com.Mrbysco.MIAB.renderer.monsters.RenderCena;
 import com.Mrbysco.MIAB.renderer.monsters.RenderDatBoi;
 import com.Mrbysco.MIAB.renderer.monsters.RenderKhil;
+import com.Mrbysco.MIAB.renderer.monsters.RenderMario7;
 import com.Mrbysco.MIAB.renderer.monsters.RenderMoonman;
 import com.Mrbysco.MIAB.renderer.monsters.RenderPpap;
 import com.Mrbysco.MIAB.renderer.monsters.RenderRobbie;
@@ -50,5 +52,6 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDatBoi.class, RenderDatBoi.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMoonman.class, RenderMoonman.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobbie.class, RenderRobbie.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMario7.class, RenderMario7.FACTORY);
 	}
 }

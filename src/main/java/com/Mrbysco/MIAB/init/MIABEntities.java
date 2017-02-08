@@ -6,6 +6,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
@@ -31,6 +32,7 @@ public class MIABEntities {
 		EntityRegistry.registerModEntity(EntityDatBoi.class, "DatBoi", 9, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityMoonman.class, "MoonMan", 10, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityRobbie.class, "RottenRobbie", 11, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityMario7.class, "GrandDad", 12, MIAB.instance, 80, 3, true);
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
 import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
-import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -9,17 +8,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityRobbie extends EntityMemeBase 
+public class EntityMario7 extends EntityMemeBase 
 {
 
 	ItemStack itemstack = this.getHeldItemMainhand();
 	
-	public static String NAME = "Robbie Rotten";
-	boolean holdingSax = false;
+	public static String NAME = "Grand Dad";
 	
 	private boolean isMounted = false;
 	
-	public EntityRobbie(World world) {
+	public EntityMario7(World world) {
 	    super(world);
 	    }
 	
@@ -38,36 +36,19 @@ public class EntityRobbie extends EntityMemeBase
 		@Override
 	    protected SoundEvent getAmbientSound()
 	    {
-			
-		//Check if he's holding the item
-		if (this.worldObj != null && !this.worldObj.isRemote)
-		{
-			if (itemstack != null && itemstack.getItem() == MIABItems.sax)
-	        {
-				holdingSax = true;
-				return MiabSoundEvents.robbie_sax;
-	        }
-	    }
-		
-		//if the item is held sound changes
-		if (holdingSax == true)
-		{
-		return MiabSoundEvents.robbie_sax;
-		}
-		else
-		return MiabSoundEvents.robbie_passive;
+		return MiabSoundEvents.dad_passive;
 	    }
 		
 		@Override
 	    protected SoundEvent getHurtSound()
 	    {
-	        return MiabSoundEvents.robbie_hit;
+	        return MiabSoundEvents.dad_hit;
 	    }
 		
 		@Override
 	    protected SoundEvent getDeathSound()
 	    {
-	        return MiabSoundEvents.robbie_death;
+	        return MiabSoundEvents.dad_death;
 	    }
 
 }
