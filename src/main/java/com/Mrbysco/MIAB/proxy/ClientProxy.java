@@ -4,6 +4,7 @@ import com.Mrbysco.MIAB.entity.EntityMeme;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
+import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
 import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
@@ -12,15 +13,18 @@ import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
+import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.renderer.EntityRenderingFactory;
 import com.Mrbysco.MIAB.renderer.monsters.RenderBill;
 import com.Mrbysco.MIAB.renderer.monsters.RenderCena;
 import com.Mrbysco.MIAB.renderer.monsters.RenderDatBoi;
+import com.Mrbysco.MIAB.renderer.monsters.RenderFA;
 import com.Mrbysco.MIAB.renderer.monsters.RenderKhil;
 import com.Mrbysco.MIAB.renderer.monsters.RenderMario7;
 import com.Mrbysco.MIAB.renderer.monsters.RenderMoonman;
@@ -29,9 +33,11 @@ import com.Mrbysco.MIAB.renderer.monsters.RenderPpap;
 import com.Mrbysco.MIAB.renderer.monsters.RenderRobbie;
 import com.Mrbysco.MIAB.renderer.monsters.RenderSanic;
 import com.Mrbysco.MIAB.renderer.monsters.RenderShrek;
+import com.Mrbysco.MIAB.renderer.monsters.RenderTacNyan;
 import com.Mrbysco.MIAB.renderer.monsters.RenderTrump;
 import com.Mrbysco.MIAB.renderer.passive.RenderDoge;
 import com.Mrbysco.MIAB.renderer.passive.RenderGrumpy;
+import com.Mrbysco.MIAB.renderer.passive.RenderNyanCat;
 
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -59,5 +65,8 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMario7.class, RenderMario7.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySanic.class, RenderSanic.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityPepe.class, RenderPepe.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFA.class, RenderFA.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityNyanCat.class, RenderNyanCat.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTacNyan.class, RenderTacNyan.FACTORY);
 	}
 }

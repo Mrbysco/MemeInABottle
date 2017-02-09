@@ -8,26 +8,26 @@ import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityShrek extends EntityMemeBase 
+public class EntityFA extends EntityMemeBase 
 {
-	public static String NAME = "Shrek";
+	public static String NAME = "Forever Alone Guy";
 	
 	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
 	private boolean canBreakDoors = true;
 	
 	private boolean isMounted = false;
 	
-	public EntityShrek(World world) {
+	public EntityFA(World world) {
 	    super(world);
-	    super.setSize(0.6F, 2.2F);
+	    super.setSize(0.6F, 2.1F);
 		}
-
+	
 	@Override
 	protected void applyEntityAttributes() 
 	{
 		super.applyEntityAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(22.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
@@ -37,19 +37,19 @@ public class EntityShrek extends EntityMemeBase
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MiabSoundEvents.shrek_passive;
+        return MiabSoundEvents.moonman_passive;
     }
 	
 	@Override
     protected SoundEvent getHurtSound()
     {
-        return MiabSoundEvents.shrek_hit;
+        return MiabSoundEvents.moonman_hit;
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MiabSoundEvents.shrek_death;
+        return MiabSoundEvents.moonman_death;
     }
 
 }

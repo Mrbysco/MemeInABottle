@@ -1,6 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
-import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
+import com.Mrbysco.MIAB.entity.entitybases.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 

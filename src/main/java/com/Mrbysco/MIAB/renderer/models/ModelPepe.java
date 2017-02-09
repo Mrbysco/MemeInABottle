@@ -3,6 +3,7 @@ package com.Mrbysco.MIAB.renderer.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.math.MathHelper;
 
 public class ModelPepe extends ModelBase {
@@ -12,23 +13,23 @@ public class ModelPepe extends ModelBase {
     public ModelRenderer left_arm;
     public ModelRenderer left_leg;
     public ModelRenderer head;
-    public ModelRenderer righteye;
-    public ModelRenderer lefteye;
-    public ModelRenderer headpart;
-    public ModelRenderer mouth;
 
     public ModelPepe() {
         this.textureWidth = 64;
         this.textureHeight = 64;
-        this.mouth = new ModelRenderer(this, 8, 13);
-        this.mouth.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.mouth.addBox(-3.0F, -2.0F, -4.5F, 6, 1, 1, 0.0F);
-        this.headpart = new ModelRenderer(this, 5, 1);
-        this.headpart.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.headpart.addBox(-0.5F, -6.0F, -4.0F, 1, 2, 6, 0.0F);
-        this.head = new ModelRenderer(this, 1, 5);
-        this.head.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.head.addBox(-4.0F, -4.0F, -4.0F, 8, 4, 7, 0.0F);
+        
+        this.setTextureOffset("head.headmain", 1, 5);
+        this.setTextureOffset("head.mouth", 8, 13);
+        this.setTextureOffset("head.headpart", 5, 1);
+        this.setTextureOffset("head.righteye", 1, 2);
+        this.setTextureOffset("head.lefteye", 6, 2);
+        
+        this.head = new ModelRenderer(this, "head");
+        this.head.addBox("headmain", -4.0F, -4.0F, -4.0F, 8, 4, 7);
+        this.head.addBox("mouth",-3.0F, -2.0F, -4.5F, 6, 1, 1);
+        this.head.addBox("headpart",-0.5F, -6.0F, -4.0F, 1, 2, 6);
+        this.head.addBox("righteye",-3.5F, -7.0F, -4.0F, 3, 3, 7);
+        this.head.addBox("lefteye",0.5F, -7.0F, -4.0F, 3, 3, 7);
         this.right_leg = new ModelRenderer(this, 0, 16);
         this.right_leg.setRotationPoint(-1.9F, 12.0F, 0.1F);
         this.right_leg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
@@ -36,9 +37,6 @@ public class ModelPepe extends ModelBase {
         this.left_leg.mirror = true;
         this.left_leg.setRotationPoint(1.9F, 12.0F, 0.1F);
         this.left_leg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
-        this.righteye = new ModelRenderer(this, 1, 2);
-        this.righteye.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.righteye.addBox(-3.5F, -7.0F, -4.0F, 3, 3, 7, 0.0F);
         this.torso = new ModelRenderer(this, 16, 16);
         this.torso.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.torso.addBox(-4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F);
@@ -46,9 +44,6 @@ public class ModelPepe extends ModelBase {
         this.right_arm.setRotationPoint(-5.0F, 2.0F, 0.0F);
         this.right_arm.addBox(-3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F);
         this.setRotation(right_arm, -1.5707963267948966F, -0.10000736613927509F, 0.10000736613927509F);
-        this.lefteye = new ModelRenderer(this, 6, 2);
-        this.lefteye.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.lefteye.addBox(0.5F, -7.0F, -4.0F, 3, 3, 7, 0.0F);
         this.left_arm = new ModelRenderer(this, 40, 16);
         this.left_arm.mirror = true;
         this.left_arm.setRotationPoint(5.0F, 2.0F, -0.0F);
@@ -58,15 +53,11 @@ public class ModelPepe extends ModelBase {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        this.mouth.render(f5);
-        this.headpart.render(f5);
         this.head.render(f5);
         this.right_leg.render(f5);
         this.left_leg.render(f5);
-        this.righteye.render(f5);
         this.torso.render(f5);
         this.right_arm.render(f5);
-        this.lefteye.render(f5);
         this.left_arm.render(f5);
     }
 

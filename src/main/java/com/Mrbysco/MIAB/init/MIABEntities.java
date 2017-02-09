@@ -5,6 +5,7 @@ import com.Mrbysco.MIAB.entity.EntityMeme;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
+import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
 import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
@@ -13,9 +14,11 @@ import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
+import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
@@ -37,6 +40,9 @@ public class MIABEntities {
 		EntityRegistry.registerModEntity(EntityMario7.class, "GrandDad", 12, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntitySanic.class, "Sanic", 13, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityPepe.class, "Pepe", 14, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityFA.class, "ForeverAlone", 15, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityNyanCat.class, "NyanCat", 16, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityTacNyan.class, "TacNyan", 17, MIAB.instance, 80, 3, true);
 	}
 
 }

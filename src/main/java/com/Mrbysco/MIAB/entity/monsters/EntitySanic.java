@@ -1,6 +1,6 @@
 package com.Mrbysco.MIAB.entity.monsters;
 
-import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
+import com.Mrbysco.MIAB.entity.entitybases.EntityMemeBase;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -19,7 +19,7 @@ public class EntitySanic extends EntityMemeBase
 	
 	public EntitySanic(World world) {
 	    super(world);
-	    super.setSize(0.6F, 1.2F);
+	    super.setSize(1.2F, 1.2F);
 		}
 	
 	@Override

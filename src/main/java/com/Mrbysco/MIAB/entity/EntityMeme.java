@@ -2,15 +2,26 @@ package com.Mrbysco.MIAB.entity;
 
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
+import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
+import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
+import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
+import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
+import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
+import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -24,6 +35,8 @@ import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
 
+ 		public EntityPlayer player;
+ 	
 		public EntityMeme(World worldIn)
 	    {
 	        super(worldIn);
@@ -58,6 +71,7 @@ public class EntityMeme extends EntityThrowable{
 
 	    	 	if (!this.worldObj.isRemote)
 	        {	
+	    	 		
 	        	if (rand.nextInt(100) <2) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); 
@@ -65,56 +79,82 @@ public class EntityMeme extends EntityThrowable{
 	        		EntityCena cena = new EntityCena(worldObj); 
 	        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(cena);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			cena.setCustomNameTag("John Cena");
+	        		}
 	        	}
 
-	        	if (rand.nextInt(100) <4) 
+	        	else if (rand.nextInt(100) <4) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.bill_spawn, 1F, 1F);
 	        		EntityBill bill = new EntityBill(worldObj); 
 	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(bill);
+	        		
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			bill.setCustomNameTag("Bill Cipher");
+	        		}
 	        	}
 	        	
-	        	if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(100) <5) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:trump.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.trump_spawn, 1F, 1F);
 	        		EntityTrump trump = new EntityTrump(worldObj); 
 	        		trump.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(trump);
+	        		
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			trump.setCustomNameTag("Donald Drumpf");
+	        		}
 	        	}
 	        	
-	        	if (rand.nextInt(100) <10) 
+	        	else if (rand.nextInt(100) <10) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:khil.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.khil_spawn, 1F, 1F);
 	        		EntityKhil khil = new EntityKhil(worldObj); 
 	        		khil.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(khil);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			khil.setCustomNameTag("Eduard Khil");
+	        		}
 	        	}
 
-	        	if (rand.nextInt(100) <6) 
+	        	else if (rand.nextInt(100) <6) 
 	        	{ 
 	        		//this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
 	        		this.playSound(SoundEvents.ENTITY_WOLF_GROWL, 1F, 1F);
 	        		EntityDoge Doge = new EntityDoge(worldObj); 
 	        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Doge);
+	        		
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			Doge.setCustomNameTag("Doge");
+	        		}
 	        	}
 
-	        	if (rand.nextInt(100) <6) 
+	        	else if (rand.nextInt(100) <6) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:Grumpy.spawn", 1F, 1F); 
 	        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
 	        		EntityGrumpy Grumpy = new EntityGrumpy(worldObj); 
 	        		Grumpy.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(Grumpy);
+	        		
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			Grumpy.setCustomNameTag("Grumpy");
+	        		}
 	        	}
 	        	
-	        	if (rand.nextInt(100) <2) 
+	        	else if (rand.nextInt(100) <2) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.ception_spawn, 1F, 1F);
 	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.CHEST.getDefaultState()); 
 	        		TileEntityChest chest = (TileEntityChest) worldObj.getTileEntity(new BlockPos(posX, posY, posZ));
@@ -122,29 +162,143 @@ public class EntityMeme extends EntityThrowable{
 	        		chest.setCustomName("Chestception");
 	    		}
 	        	
-	        	if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(100) <5) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:ception.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.ppap_spawn, 1F, 1F);
-	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.CHEST.getDefaultState()); 
-	        		EntityPpap Ppap = new EntityPpap(worldObj); 
-	        		Ppap.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-	        		worldObj.spawnEntityInWorld(Ppap);
+	        		EntityPpap ppap = new EntityPpap(worldObj); 
+	        		ppap.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(ppap);
 	        		if (rand.nextInt(100) <50) 
 					{
-	        			Ppap.setCustomNameTag("Kosaka Daimaou");
+	        			ppap.setCustomNameTag("Kosaka Daimaou");
 					}
 	    		}
 	        	
+	        	else if (rand.nextInt(100) <8) 
+	        	{ 
+	        		this.playSound(MiabSoundEvents.keyboard_mechanical, 1F, 1F);
+	        		EntityVillager villagememe = new EntityVillager(worldObj); 
+	        		villagememe.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(villagememe);
+	        		//villagememe.set
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			villagememe.setCustomNameTag("Toby");
+	        		}
+	        	}
+	        		
+	        	else if (rand.nextInt(100) <10) 
+	        	{ 
+	        		this.playSound(MiabSoundEvents.moonman_summon, 1F, 1F);
+	        		EntityMoonman moonman = new EntityMoonman(worldObj); 
+	        		moonman.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(moonman);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			moonman.setCustomNameTag("Moon Man");
+	        		}
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <8) 
+	        	{ 
+	        		this.playSound(MiabSoundEvents.boi_summon, 1F, 1F);
+	        		EntityDatBoi datboi = new EntityDatBoi(worldObj); 
+	        		datboi.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(datboi);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			datboi.setCustomNameTag("Dat Boi");
+	        		}
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <5) 
+	        	{ 
+	        		this.playSound(MiabSoundEvents.shrek_summon, 1F, 1F);
+	        		EntityShrek shrek = new EntityShrek(worldObj); 
+	        		shrek.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(shrek);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			shrek.setCustomNameTag("Shrek");
+	        		}
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <10) 
+	        	{ 
+	        		this.playSound(MiabSoundEvents.robbie_summon, 1F, 1F);
+	        		EntityRobbie rotten = new EntityRobbie(worldObj); 
+	        		rotten.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(rotten);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			rotten.setCustomNameTag("Robbie Rotten");
+	        		}
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <7) 
+	        	{ 
+	        		this.playSound(MiabSoundEvents.dad_summon, 1F, 1F);
+	        		EntityMario7 grand = new EntityMario7(worldObj); 
+	        		grand.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(grand);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			grand.setCustomNameTag("Grand Dad?!");
+	        		}
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <5) 
+	        	{ 
+	        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
+	        		EntityNyanCat nyancat = new EntityNyanCat(worldObj); 
+	        		nyancat.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(nyancat);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			nyancat.setCustomNameTag("Nyan Cat");
+	        		}
+	        		EntityTacNyan tacnyan = new EntityTacNyan(worldObj); 
+	        		tacnyan.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(tacnyan);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			tacnyan.setCustomNameTag("Tac Nyan");
+	        		}
+	        		
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <5) 
+	        	{ 
+	        		this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1F, 1F);
+	        		EntityFA forever = new EntityFA(worldObj); 
+	        		forever.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(forever);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			forever.setCustomNameTag("Forever Alone");
+	        		}
+	        		
+	        	}
+	        	
+	        	else if (rand.nextInt(100) <5) 
+	        	{ 
+	        		this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1F, 1F);
+	        		EntitySanic sanic = new EntitySanic(worldObj); 
+	        		sanic.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(sanic);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			sanic.setCustomNameTag("Sanic");
+	        		}
+	        		
+	        	}
+	        	
 	        	if(MIABConfig.MatureSounds)
 	        	{
-	        		//this.worldObj.playSoundAtEntity(this, "miab:meme.soundMature", 1F, 1F);
 	        		this.playSound(MiabSoundEvents.meme_soundMature ,1F,1F);
 	        	}
 	        	else
 	        	{
-	        		//this.worldObj.playSoundAtEntity(this, "miab:meme.sound", 1F, 1F);
-	        		//this.worldObj.playSound(this, getPosition(), MiabSoundEvents.meme_soundMature, SoundCategory.HOSTILE, 1F, 1F);
 	        		this.playSound(MiabSoundEvents.meme_sound, 1F, 1F);
 	        	}
 	        	this.setDead();

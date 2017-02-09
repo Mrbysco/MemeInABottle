@@ -1,4 +1,4 @@
-package com.Mrbysco.MIAB.entity.monsters.entityBase;
+package com.Mrbysco.MIAB.entity.entitybases;
 
 import java.util.Calendar;
 import java.util.UUID;
@@ -61,7 +61,6 @@ public class EntityMemeBase extends EntityMob
 	public EntityMemeBase(World worldIn) {
 		super(worldIn);
 		this.setSize(0.6F, 1.99F);
-		
 	}
 	
     protected void initEntityAI()

@@ -1,6 +1,7 @@
 package com.Mrbysco.MIAB.renderer.monsters;
 
-import com.Mrbysco.MIAB.entity.monsters.entityBase.EntityMemeBase;
+import com.Mrbysco.MIAB.entity.entitybases.EntityMemeBase;
+import com.Mrbysco.MIAB.renderer.baserender.RenderMemeBase;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
