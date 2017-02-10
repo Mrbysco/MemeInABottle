@@ -1,6 +1,7 @@
 item.memeinabottle.name=Meme In A Bottle
 item.splashmemeinabottle.name=Splash Meme In A Bottle
 item.mcwbelt.name=MCW Belt
+item.leatherbelt.name=Leather Belt
 item.trumphair.name=Trumps Hair
 item.trollmask.name=Trollface mask
 item.pineapple.name=Pineapple
@@ -36,3 +37,8 @@ entity.miab.ForeverAlone.name=Pepe
 entity.miab.NyanCat.name=Nyan Cat
 entity.miab.TacNyan.name=Tac Nyan
 entity.Villager.keyboardreviewer=Keyboard Reviewer
+
+stats.belt.addInfo=4+ Strength
+stats.belt.addInfo1=4+ Stamina
+stats.belt.addInfo2=
+stats.belt.addInfo3=Required level 18
