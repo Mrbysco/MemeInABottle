@@ -56,7 +56,7 @@ public class BottleBlock extends Block{
 	public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
     {
         return true;
-    }
+	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
