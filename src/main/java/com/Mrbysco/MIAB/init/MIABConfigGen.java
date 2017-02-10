@@ -10,7 +10,7 @@ public class MIABConfigGen {
 		// Drop chance
 		MIABConfig.DropChance = config.get("Special Drop Chance", "DropChance", 0.8).getDouble(0.8);
 		// Meme Spawn percentage
-		MIABConfig.MemeSpawnPercentage = config.get("Meme Spawn Percentage", "MemeSpawnPercentage", 30).getInt(30);
+		//MIABConfig.MemeSpawnPercentage = config.get("Meme Spawn Percentage", "MemeSpawnPercentage", 30).getInt(30);
 		
 		config.save();
 		config.load();

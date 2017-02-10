@@ -36,8 +36,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
-
- 		int c = MIABConfig.MemeSpawnPercentage;
  	
 		public EntityMeme(World worldIn)
 	    {
