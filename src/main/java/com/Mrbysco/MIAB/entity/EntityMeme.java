@@ -21,7 +21,6 @@ import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
@@ -299,7 +298,7 @@ public class EntityMeme extends EntityThrowable{
 	             	ItemStack itemStackToDrop = new ItemStack(MIABItems.splash_meme_in_a_bottle, 1);
 	        	}
 	        	
-	        	if(MIABConfig.MatureSounds)
+	        	else if(MIABConfig.MatureSounds)
 	        	{
 	        		this.playSound(MiabSoundEvents.meme_soundMature ,1F,1F);
 	        	}
