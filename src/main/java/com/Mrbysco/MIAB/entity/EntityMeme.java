@@ -1,16 +1,37 @@
 package com.Mrbysco.MIAB.entity;
 
+import com.Mrbysco.MIAB.entity.monsters.EntityBill;
+import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
+import com.Mrbysco.MIAB.entity.monsters.EntityFA;
+import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
+import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
+import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
+import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
+import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
+import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
+import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
+import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
+import com.Mrbysco.MIAB.entity.passive.EntityDoge;
+import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
+import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -58,7 +79,7 @@ public class EntityMeme extends EntityThrowable{
 	    	 
 	    	 	if (!this.worldObj.isRemote)
 	        {	
-	    	 	/*
+
 	        	if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
@@ -275,15 +296,19 @@ public class EntityMeme extends EntityThrowable{
 	        		
 	        	}
 	        	
-	        	else */ if (rand.nextInt(c) == 0)
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.meme_sound, 1F, 1F);
 	        		worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX + 0.5, posY, posZ, new ItemStack(MIABItems.leather_belt)));
 	        	}
+	        	else if (rand.nextInt(c) == 0)
+	        	{ 			
+	        		worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX + 0.5, posY, posZ, new ItemStack(MIABItems.splash_meme_in_a_bottle)));
+	        	}
 	        	
 	        	else if (rand.nextInt(c) == 0)
-	        	{ 	
-	        		worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX + 0.5, posY, posZ, new ItemStack(MIABItems.splash_meme_in_a_bottle)));
+	        	{ 			
+	        		//Add Chat message meme
 	        	}
 	        	
 	        	else if(MIABConfig.MatureSounds)
