@@ -9,6 +9,7 @@ import com.Mrbysco.MIAB.init.MIABVillagers;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
+import net.minecraft.block.BlockDispenser;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -46,7 +47,7 @@ public class MIAB {
     	MIABRecipes.init();
     	MIABEntities.register();
     	MIABVillagers.init();
-    	
+    	    	
     	proxy.registerRenderingFactories();
     	proxy.registerRenders();
     }

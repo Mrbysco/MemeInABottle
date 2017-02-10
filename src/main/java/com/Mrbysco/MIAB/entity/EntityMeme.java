@@ -74,7 +74,6 @@ public class EntityMeme extends EntityThrowable{
 	    	 		
 	        	if (rand.nextInt(100) <2) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:cena.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
 	        		EntityCena cena = new EntityCena(worldObj); 
 	        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
@@ -87,7 +86,6 @@ public class EntityMeme extends EntityThrowable{
 
 	        	else if (rand.nextInt(100) <4) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:bill.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.bill_spawn, 1F, 1F);
 	        		EntityBill bill = new EntityBill(worldObj); 
 	        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
@@ -101,7 +99,6 @@ public class EntityMeme extends EntityThrowable{
 	        	
 	        	else if (rand.nextInt(100) <5) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:trump.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.trump_spawn, 1F, 1F);
 	        		EntityTrump trump = new EntityTrump(worldObj); 
 	        		trump.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
@@ -115,7 +112,6 @@ public class EntityMeme extends EntityThrowable{
 	        	
 	        	else if (rand.nextInt(100) <10) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:khil.spawn", 1F, 1F); 
 	        		this.playSound(MiabSoundEvents.khil_spawn, 1F, 1F);
 	        		EntityKhil khil = new EntityKhil(worldObj); 
 	        		khil.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
@@ -128,7 +124,6 @@ public class EntityMeme extends EntityThrowable{
 
 	        	else if (rand.nextInt(100) <6) 
 	        	{ 
-	        		//this.worldObj.playSoundAtEntity(this, "miab:Doge.spawn", 1F, 1F); 
 	        		this.playSound(SoundEvents.ENTITY_WOLF_GROWL, 1F, 1F);
 	        		EntityDoge Doge = new EntityDoge(worldObj); 
 	        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
