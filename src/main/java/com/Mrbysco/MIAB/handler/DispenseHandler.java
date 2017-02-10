@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class DispenseHandler extends BehaviorProjectileDispense  {
+public class DispenseHandler extends BehaviorProjectileDispense {
 	public ItemStack dispenseStack(IBlockSource BlockSource, ItemStack stack) {
 		World world = BlockSource.getWorld();
         IPosition iposition = BlockDispenser.getDispensePosition(BlockSource);

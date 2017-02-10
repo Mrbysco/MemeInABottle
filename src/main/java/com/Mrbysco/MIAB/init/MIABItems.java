@@ -74,7 +74,7 @@ public class MIABItems {
 		GameRegistry.register(burger);
 		GameRegistry.register(sax);
 		
-    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(splash_meme_in_a_bottle, new DispenseHandler());
+    	//BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(splash_meme_in_a_bottle, new DispenseHandler());
 	}
 	
 	public static void registerRenders()

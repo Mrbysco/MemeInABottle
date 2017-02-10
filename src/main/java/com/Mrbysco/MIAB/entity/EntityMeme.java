@@ -21,7 +21,6 @@ import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -29,13 +28,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
 
- 		public EntityPlayer player;
+ 		int c = MIABConfig.MemeSpawnPercentage;
  	
 		public EntityMeme(World worldIn)
 	    {
@@ -52,6 +52,11 @@ public class EntityMeme extends EntityThrowable{
 	        super(worldIn, x, y, z);
 	    }
 
+	    public static void registerFixesMeme(DataFixer fixer)
+	    {
+	        EntityThrowable.registerFixesThrowable(fixer, "memeSplash");
+	    }
+	    
 	    /**
 	     * Called when this EntityThrowable hits a block or entity.
 	     */
@@ -71,8 +76,7 @@ public class EntityMeme extends EntityThrowable{
 
 	    	 	if (!this.worldObj.isRemote)
 	        {	
-	    	 		
-	        	if (rand.nextInt(100) <2) 
+	        	if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
 	        		EntityCena cena = new EntityCena(worldObj); 
@@ -84,7 +88,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 
-	        	else if (rand.nextInt(100) <4) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.bill_spawn, 1F, 1F);
 	        		EntityBill bill = new EntityBill(worldObj); 
@@ -97,7 +101,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.trump_spawn, 1F, 1F);
 	        		EntityTrump trump = new EntityTrump(worldObj); 
@@ -110,7 +114,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <10) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.khil_spawn, 1F, 1F);
 	        		EntityKhil khil = new EntityKhil(worldObj); 
@@ -122,7 +126,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 
-	        	else if (rand.nextInt(100) <6) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(SoundEvents.ENTITY_WOLF_GROWL, 1F, 1F);
 	        		EntityDoge Doge = new EntityDoge(worldObj); 
@@ -135,7 +139,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 
-	        	else if (rand.nextInt(100) <6) 
+	        	else if (rand.nextInt(c) == 0) 
 	        	{ 
 	        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
 	        		EntityGrumpy Grumpy = new EntityGrumpy(worldObj); 
@@ -148,7 +152,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <2) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.ception_spawn, 1F, 1F);
 	        		worldObj.setBlockState(new BlockPos(posX,  posY, posZ), Blocks.CHEST.getDefaultState()); 
@@ -157,7 +161,7 @@ public class EntityMeme extends EntityThrowable{
 	        		chest.setCustomName("Chestception");
 	    		}
 	        	
-	        	else if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.ppap_spawn, 1F, 1F);
 	        		EntityPpap ppap = new EntityPpap(worldObj); 
@@ -169,7 +173,7 @@ public class EntityMeme extends EntityThrowable{
 					}
 	    		}
 	        	
-	        	else if (rand.nextInt(100) <8) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.keyboard_mechanical, 1F, 1F);
 	        		EntityVillager villagememe = new EntityVillager(worldObj); 
@@ -182,7 +186,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        		
-	        	else if (rand.nextInt(100) <10) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.moonman_summon, 1F, 1F);
 	        		EntityMoonman moonman = new EntityMoonman(worldObj); 
@@ -194,7 +198,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <8) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.boi_summon, 1F, 1F);
 	        		EntityDatBoi datboi = new EntityDatBoi(worldObj); 
@@ -206,7 +210,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(MiabSoundEvents.shrek_summon, 1F, 1F);
 	        		EntityShrek shrek = new EntityShrek(worldObj); 
@@ -218,7 +222,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <10) 
+	        	else if (rand.nextInt(c) == 0) 
 	        	{ 
 	        		this.playSound(MiabSoundEvents.robbie_summon, 1F, 1F);
 	        		EntityRobbie rotten = new EntityRobbie(worldObj); 
@@ -230,7 +234,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <7) 
+	        	else if (rand.nextInt(c) == 0) 
 	        	{ 
 	        		this.playSound(MiabSoundEvents.dad_summon, 1F, 1F);
 	        		EntityMario7 grand = new EntityMario7(worldObj); 
@@ -242,7 +246,7 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
 	        		EntityNyanCat nyancat = new EntityNyanCat(worldObj); 
@@ -262,7 +266,7 @@ public class EntityMeme extends EntityThrowable{
 	        		
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1F, 1F);
 	        		EntityFA forever = new EntityFA(worldObj); 
@@ -275,7 +279,7 @@ public class EntityMeme extends EntityThrowable{
 	        		
 	        	}
 	        	
-	        	else if (rand.nextInt(100) <5) 
+	        	else if (rand.nextInt(c) == 0)
 	        	{ 
 	        		this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1F, 1F);
 	        		EntitySanic sanic = new EntitySanic(worldObj); 
