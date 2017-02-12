@@ -13,7 +13,7 @@ public class RenderDankey extends RenderLiving<EntityDankey> {
 	
 	  public static final Factory FACTORY = new Factory();
 	  
-	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/pepe.png");
+	  private static final ResourceLocation texture = new ResourceLocation("miab:entity/dankeykang.png");
 
 	  public RenderDankey(RenderManager renderManagerIn) {
 		super(renderManagerIn, new ModelDankey(), 0.5F);
