@@ -3,6 +3,7 @@ package com.Mrbysco.MIAB.proxy;
 import com.Mrbysco.MIAB.entity.EntityMeme;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
@@ -23,6 +24,7 @@ import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.renderer.EntityRenderingFactory;
 import com.Mrbysco.MIAB.renderer.monsters.RenderBill;
 import com.Mrbysco.MIAB.renderer.monsters.RenderCena;
+import com.Mrbysco.MIAB.renderer.monsters.RenderDankey;
 import com.Mrbysco.MIAB.renderer.monsters.RenderDatBoi;
 import com.Mrbysco.MIAB.renderer.monsters.RenderFA;
 import com.Mrbysco.MIAB.renderer.monsters.RenderKhil;
@@ -68,5 +70,6 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFA.class, RenderFA.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityNyanCat.class, RenderNyanCat.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTacNyan.class, RenderTacNyan.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDankey.class, RenderDankey.FACTORY);
 	}
 }

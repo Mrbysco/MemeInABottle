@@ -37,19 +37,19 @@ public class EntitySanic extends EntityMemeBase
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MiabSoundEvents.moonman_passive;
+        return MiabSoundEvents.sanic_slow;
     }
 	
 	@Override
     protected SoundEvent getHurtSound()
     {
-        return MiabSoundEvents.moonman_hit;
+        return MiabSoundEvents.sanic_slow;
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MiabSoundEvents.moonman_death;
+        return MiabSoundEvents.sanic_slow;
     }
 
 }

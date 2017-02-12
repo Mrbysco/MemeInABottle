@@ -9,7 +9,9 @@ import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
+import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 
@@ -150,5 +152,26 @@ public class EventHandler {
         	}
         }
         
+        if (event.getEntity() instanceof EntityNyanCat) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.poptart, 2);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
+        
+        if (event.getEntity() instanceof EntityTacNyan) {
+        	random_drop = Math.random();
+        	if ( random_drop < MIABConfig.DropChance )
+        	{
+        		ItemStack itemStackToDrop = new ItemStack(MIABItems.waffle, 1);
+        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        				
+        				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
+        	}
+        }
 	}
 }

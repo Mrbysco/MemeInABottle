@@ -2,6 +2,7 @@ package com.Mrbysco.MIAB.entity;
 
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
@@ -77,7 +78,7 @@ public class EntityMeme extends EntityThrowable{
 	    	 
 	    	 	if (!this.worldObj.isRemote)
 	        {	
-	    	 		
+
     	 		if (rand.nextInt(100) <1) 
 	        	{ 
 	        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
@@ -265,12 +266,11 @@ public class EntityMeme extends EntityThrowable{
 	        		{
 	        			tacnyan.setCustomNameTag("Tac Nyan");
 	        		}
-	        		
 	        	}
 	        	
 	        	else if (rand.nextInt(100) <17) 
 	        	{ 
-	        		this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1F, 1F);
+	        		this.playSound(MiabSoundEvents.cry, 1F, 1F);
 	        		EntityFA forever = new EntityFA(worldObj); 
 	        		forever.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(forever);
@@ -278,12 +278,11 @@ public class EntityMeme extends EntityThrowable{
 	        		{
 	        			forever.setCustomNameTag("Forever Alone");
 	        		}
-	        		
 	        	}
 	        	
 	        	else if (rand.nextInt(100) <18) 
 	        	{ 
-	        		this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1F, 1F);
+	        		this.playSound(MiabSoundEvents.sanic_slow, 1F, 1F);
 	        		EntitySanic sanic = new EntitySanic(worldObj); 
 	        		sanic.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 	        		worldObj.spawnEntityInWorld(sanic);
@@ -291,21 +290,44 @@ public class EntityMeme extends EntityThrowable{
 	        		{
 	        			sanic.setCustomNameTag("Sanic");
 	        		}
-	        		
 	        	}
 	        	
 	        	else if (rand.nextInt(100) <19) 
 	        	{ 
-	        		this.playSound(MiabSoundEvents.meme_sound, 1F, 1F);
+	        		this.playSound(MiabSoundEvents.leather_belt, 1F, 1F);
 	        		worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX + 0.5, posY, posZ, new ItemStack(MIABItems.leather_belt)));
 	        	}
 	        	else if (rand.nextInt(100) <20) 
 	        	{ 			
+	        		this.playSound(MiabSoundEvents.ception_spawn, 1F, 1F);
 	        		worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX + 0.5, posY, posZ, new ItemStack(MIABItems.splash_meme_in_a_bottle)));
 	        	}
-	        	
-	        	
-	        	if(MIABConfig.MatureSounds)
+    	 		
+	        	else if (rand.nextInt(100) <21) 
+	        	{ 			
+	        		this.playSound(MiabSoundEvents.dankey_summon, 1F, 1F);
+	        		EntityDankey dankey = new EntityDankey(worldObj); 
+	        		dankey.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(dankey);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			dankey.setCustomNameTag("Dankey Kang");
+	        		}
+	        	}
+    	 		
+    	 		/*
+	        	else if (rand.nextInt(100) <22) 
+	        	{ 	
+	        		soon
+	        	}
+    	 		
+	        	else if (rand.nextInt(100) <23) 
+	        	{ 			
+	        		soon
+	        	}
+	        	*/
+
+	    	 	else if(MIABConfig.MatureSounds)
 	        	{
 	        		this.playSound(MiabSoundEvents.meme_soundMature ,1F,1F);
 	        	}

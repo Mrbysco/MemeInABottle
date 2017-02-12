@@ -384,5 +384,57 @@
         "sounds": [
             "miab:dad/dad_death"
         ]
+    },
+   "leather.belt" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:memes/leatherbelt"
+        ]
+    },
+   "fa.cry" : {
+        "category" : "hostile",
+        "sounds": [
+            "miab:foreveralone/cry1",
+            "miab:foreveralone/cry2",
+            "miab:foreveralone/cry3",
+            "miab:foreveralone/cry4",
+            "miab:foreveralone/cry5"
+        ]
+    },
+    "dankey.summon" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dankey/dankey_passive3"
+        ]
+    },
+    "dankey.passive" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dankey/dankey_passive",
+            "miab:dankey/dankey_passive1",
+            "miab:dankey/dankey_passive2",
+            "miab:dankey/dankey_passive3",
+            "miab:dankey/dankey_passive4"
+        ]
+    },
+    "dankey.hit" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dankey/dankey_hit",
+            "miab:dankey/dankey_hit1"
+        ]
+    },
+    "dankey.death" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:dankey/dankey_death"
+        ]
+    },
+    "sanic.slow" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:sanic/yts",
+            "miab:sanic/ts"
+        ]
     }
 }

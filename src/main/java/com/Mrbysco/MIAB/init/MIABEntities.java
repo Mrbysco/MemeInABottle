@@ -4,6 +4,7 @@ import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.entity.EntityMeme;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
+import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
 import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
 import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
@@ -43,6 +44,7 @@ public class MIABEntities {
 		EntityRegistry.registerModEntity(EntityFA.class, "ForeverAlone", 15, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityNyanCat.class, "NyanCat", 16, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityTacNyan.class, "TacNyan", 17, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityDankey.class, "DankeyKang", 18, MIAB.instance, 80, 3, true);
 	}
 
 }
