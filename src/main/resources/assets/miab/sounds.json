@@ -436,5 +436,11 @@
             "miab:sanic/yts",
             "miab:sanic/ts"
         ]
-    }
+    },
+   "nigel.blagh" : {
+   "category" : "hostile",
+        "sounds": [
+            "miab:memes/blagh"
+        ]
+   }
 }

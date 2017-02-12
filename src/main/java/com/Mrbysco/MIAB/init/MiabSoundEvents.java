@@ -59,6 +59,7 @@ public class MiabSoundEvents {
 	public static SoundEvent dankey_hit;
 	public static SoundEvent dankey_death;
 	public static SoundEvent sanic_slow;
+	public static SoundEvent nigel_blagh;
 	
 	public static void registerSounds() {
 		meme_soundMature = registerSound("meme.soundMature");
@@ -112,6 +113,7 @@ public class MiabSoundEvents {
 		dankey_hit = registerSound("dankey.hit");
 		dankey_death = registerSound("dankey.death");
 		sanic_slow = registerSound("sanic.slow");
+		nigel_blagh = registerSound("nigel.blagh");
 	}
 	
 	private static SoundEvent registerSound(String soundName) {

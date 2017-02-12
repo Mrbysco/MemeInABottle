@@ -8,6 +8,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityFA;
 import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
 import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
 import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
+import com.Mrbysco.MIAB.entity.monsters.EntityNigel;
 import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
@@ -315,12 +316,18 @@ public class EntityMeme extends EntityThrowable{
 	        		}
 	        	}
     	 		
-    	 		/*
 	        	else if (rand.nextInt(100) <22) 
 	        	{ 	
-	        		soon
+	        		this.playSound(MiabSoundEvents.nigel_blagh, 1F, 1F);
+	        		EntityNigel nigel = new EntityNigel(worldObj); 
+	        		nigel.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	        		worldObj.spawnEntityInWorld(nigel);
+	        		if (rand.nextInt(100) <50) 
+	        		{
+	        			nigel.setCustomNameTag("Nigel Thornberry");
+	        		}
 	        	}
-    	 		
+    	 		/*
 	        	else if (rand.nextInt(100) <23) 
 	        	{ 			
 	        		soon
