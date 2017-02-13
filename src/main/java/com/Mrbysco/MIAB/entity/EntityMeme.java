@@ -24,7 +24,6 @@ import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -177,6 +176,9 @@ public class EntityMeme extends EntityThrowable{
 					}
 	    		}
 	        	
+    	 		
+    	 		//Disabled till I figure out how to summon a modded villager
+    	 		/*
 	        	else if (rand.nextInt(100) <9) 
 	        	{ 
 	        		this.playSound(MiabSoundEvents.keyboard_mechanical, 1F, 1F);
@@ -189,6 +191,7 @@ public class EntityMeme extends EntityThrowable{
 	        			villagememe.setCustomNameTag("Toby");
 	        		}
 	        	}
+	        	*/
 	        		
 	        	else if (rand.nextInt(100) <11) 
 	        	{ 
