@@ -6,6 +6,7 @@ import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.dispenser.IPosition;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -18,13 +19,14 @@ public class DispenseHandler extends BehaviorProjectileDispense {
         EnumFacing enumfacing = (EnumFacing)BlockSource.getBlockState().getValue(BlockDispenser.FACING);
         IProjectile iprojectile = this.getProjectileEntity(world, iposition, stack);
         iprojectile.setThrowableHeading((double)enumfacing.getFrontOffsetX(), (double)((float)enumfacing.getFrontOffsetY() + 0.1F), (double)enumfacing.getFrontOffsetZ(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
-        world.spawnEntityInWorld((EntityMeme)iprojectile);
+        world.spawnEntityInWorld((Entity)iprojectile);
         stack.splitStack(1);
         return stack;
 	}
 
 	@Override
 	protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-		return null;
+		EntityMeme meme = new EntityMeme(worldIn, position.getX(), position.getY(), position.getZ());
+		return meme;
 	}
 }

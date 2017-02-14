@@ -1,6 +1,7 @@
 package com.Mrbysco.MIAB.init;
 
 import com.Mrbysco.MIAB.Reference;
+import com.Mrbysco.MIAB.handler.DispenseHandler;
 import com.Mrbysco.MIAB.items.ItemApple;
 import com.Mrbysco.MIAB.items.ItemLeather_belt;
 import com.Mrbysco.MIAB.items.ItemMineBurger;
@@ -14,6 +15,7 @@ import com.Mrbysco.MIAB.items.Itemcustom_armor;
 import com.Mrbysco.MIAB.items.Itemmeme_in_a_bottle;
 import com.Mrbysco.MIAB.items.Itemsplash_meme_in_a_bottle;
 
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -84,7 +86,7 @@ public class MIABItems {
 		GameRegistry.register(poptart);
 		GameRegistry.register(sax);
 		
-    	//BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(splash_meme_in_a_bottle, new DispenseHandler());
+    	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(MIABItems.splash_meme_in_a_bottle, new DispenseHandler());
 	}
 	
 	public static void registerRenders()
