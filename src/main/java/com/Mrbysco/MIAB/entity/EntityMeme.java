@@ -22,22 +22,26 @@ import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
- 	
+	
 		public EntityMeme(World worldIn)
 	    {
 	        super(worldIn);
@@ -62,14 +66,7 @@ public class EntityMeme extends EntityThrowable{
 	     * Called when this EntityThrowable hits a block or entity.
 	     */
 	    protected void onImpact(RayTraceResult result)
-	    {
-	    	if (result.entityHit != null)
-	        {
-	            int i = 0;
-	
-	            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
-	        }
-	        
+	    {	        
 	    	 for (int j = 0; j < 8; ++j)
 	         {
 	             this.worldObj.spawnParticle(EnumParticleTypes.NOTE, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
@@ -78,8 +75,18 @@ public class EntityMeme extends EntityThrowable{
 	    	 
 	    	 	if (!this.worldObj.isRemote)
 	        {		 
-	    	 		
-    	 		if (rand.nextInt(100) <1) 
+	    	 	EntityPlayer player = this.worldObj.getClosestPlayerToEntity(this, 100.0);
+	    	 	
+	    	 	if(rand.nextInt(100) <100)
+	    	 	{
+	    	 		player.addChatMessage(new TextComponentTranslation("memebee.part1"));	
+	    	 		player.addChatMessage(new TextComponentTranslation("memebee.part2"));	
+	    	 		player.addChatMessage(new TextComponentTranslation("memebee.part3"));	
+	    	 		player.addChatMessage(new TextComponentTranslation("memebee.part4"));	
+	    	 		player.addChatMessage(new TextComponentTranslation("memebee.part5"));	
+	    	 		player.addChatMessage(new TextComponentTranslation("memebee.part6"));	
+	    	 	}
+	    	 	else if (rand.nextInt(100) <1) 
 	        	{ 
 	        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
 	        		EntityCena cena = new EntityCena(worldObj); 
