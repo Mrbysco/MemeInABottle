@@ -35,6 +35,7 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class EntityMeme extends EntityThrowable{
@@ -80,7 +81,7 @@ public class EntityMeme extends EntityThrowable{
 		        		EntityCena cena = new EntityCena(worldObj); 
 		        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
 		        		worldObj.spawnEntityInWorld(cena);
-		        		player.addChatMessage(new TextComponentTranslation("cena.itscena"));	
+		        		player.addChatMessage(new TextComponentTranslation(TextFormatting.YELLOW + "cena.itscena"));	
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			cena.setCustomNameTag("John Cena");
