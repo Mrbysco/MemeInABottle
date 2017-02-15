@@ -44,7 +44,7 @@ entity.miab.NyanCat.name=Nyan Cat
 entity.miab.TacNyan.name=Tac Nyan
 entity.Villager.keyboardreviewer=Keyboard Reviewer
 
-#item strings
+#item strings (2 stays empty because of it needing an empty line)
 stats.belt.addInfo=4+ Strength
 stats.belt.addInfo1=4+ Stamina
 stats.belt.addInfo2=

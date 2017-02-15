@@ -72,7 +72,6 @@ public class EntityMeme extends EntityThrowable{
 	             this.worldObj.spawnParticle(EnumParticleTypes.NOTE, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
 	         }
 
-	    	 
 	    	 	if (!this.worldObj.isRemote)
 	    	 	{
 		    	 	if (rand.nextInt(100) <1) 
@@ -359,7 +358,12 @@ public class EntityMeme extends EntityThrowable{
 		    	 	
 		        	else if (rand.nextInt(100) <26)
 		        	{
-		        		//Placeholder
+		        		player.addChatMessage(new TextComponentTranslation(TextFormatting.DARK_GRAY + "Stormcloak Soldier" + TextFormatting.WHITE + ": I used to be an adventurer like you, then I took an arrow in the knee."));
+		        	}
+		    	 	
+		        	else if(rand.nextInt(100) <27)
+		        	{
+		        		// Lenny perhaps?
 		        	}
 	
 		    	 	else if(MIABConfig.MatureSounds)
