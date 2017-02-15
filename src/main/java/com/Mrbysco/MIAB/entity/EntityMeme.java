@@ -356,6 +356,11 @@ public class EntityMeme extends EntityThrowable{
 		        		player.addChatMessage(new TextComponentTranslation("lm.part4"));	
 		        		player.addChatMessage(new TextComponentTranslation("lm.part5"));	
 		        	}
+		    	 	
+		        	else if (rand.nextInt(100) <26)
+		        	{
+		        		//Placeholder
+		        	}
 	
 		    	 	else if(MIABConfig.MatureSounds)
 		        	{
