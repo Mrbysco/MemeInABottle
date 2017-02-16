@@ -1,5 +1,6 @@
 package com.Mrbysco.MIAB.entity;
 
+import com.Mrbysco.MIAB.LennyStructure;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
@@ -74,7 +75,12 @@ public class EntityMeme extends EntityThrowable{
 
 	    	 	if (!this.worldObj.isRemote)
 	    	 	{
-		    	 	if (rand.nextInt(100) <1) 
+	    	 		if(rand.nextInt(100) <100)
+		        	{
+		        		LennyStructure.buildLenny(worldObj);
+		        	}
+	    	 		
+	    	 		else if (rand.nextInt(100) <1) 
 		        	{ 
 		        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
 		        		EntityCena cena = new EntityCena(worldObj); 
@@ -363,7 +369,7 @@ public class EntityMeme extends EntityThrowable{
 		    	 	
 		        	else if(rand.nextInt(100) <27)
 		        	{
-		        		// Lenny perhaps?
+		        		LennyStructure.buildLenny(worldObj);
 		        	}
 	
 		    	 	else if(MIABConfig.MatureSounds)
