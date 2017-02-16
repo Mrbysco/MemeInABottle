@@ -1,6 +1,5 @@
 package com.Mrbysco.MIAB.entity;
 
-import com.Mrbysco.MIAB.LennyStructure;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
@@ -22,6 +21,7 @@ import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
+import com.Mrbysco.MIAB.memestructures.LennyStructure;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
