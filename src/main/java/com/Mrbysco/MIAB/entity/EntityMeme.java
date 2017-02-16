@@ -77,7 +77,7 @@ public class EntityMeme extends EntityThrowable{
 	    	 	{
 	    	 		if(rand.nextInt(100) <100)
 		        	{
-		        		LennyStructure.buildLenny(worldObj);
+		        		LennyStructure.buildLenny(worldObj, this.posX, this.posY, this.posZ);
 		        	}
 	    	 		
 	    	 		else if (rand.nextInt(100) <1) 
@@ -369,7 +369,7 @@ public class EntityMeme extends EntityThrowable{
 		    	 	
 		        	else if(rand.nextInt(100) <27)
 		        	{
-		        		LennyStructure.buildLenny(worldObj);
+		        		LennyStructure.buildLenny(worldObj, this.posX, this.posY, this.posZ);
 		        	}
 	
 		    	 	else if(MIABConfig.MatureSounds)

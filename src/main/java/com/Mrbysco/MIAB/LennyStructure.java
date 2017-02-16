@@ -5,15 +5,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class LennyStructure {
-	private static int posX;
-	private static int posY;
-	private static int posZ;
 
-
-
-	public static void buildLenny(World worldObj)
+	public static void buildLenny(World worldObj, double x, double y, double z)
 	{
-		worldObj.setBlockState(new BlockPos(posX, posY +10, posZ), Blocks.SAND.getDefaultState());
+		worldObj.setBlockState(new BlockPos(x, y +10, z), Blocks.SAND.getDefaultState());
 
 	}
 }
