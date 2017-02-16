@@ -21,7 +21,8 @@ import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
-import com.Mrbysco.MIAB.memestructures.LennyStructure;
+import com.Mrbysco.MIAB.memes.BasicSummoning;
+import com.Mrbysco.MIAB.memes.LennyStructure;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -35,6 +36,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -74,19 +76,13 @@ public class EntityMeme extends EntityThrowable{
 	         }
 
 	    	 	if (!this.worldObj.isRemote)
-	    	 	{
-	    	 		if(rand.nextInt(100) <100)
-		        	{
-		        		LennyStructure.buildLenny(worldObj, posX, posY, posZ);
-		        	}
-	    	 		
-	    	 		else if (rand.nextInt(100) <1) 
+	    	 	{	    	 		
+	    	 		if (rand.nextInt(100) <1) 
 		        	{ 
 		        		this.playSound(MiabSoundEvents.cena_spawn, 1F, 1F);
 		        		EntityCena cena = new EntityCena(worldObj); 
-		        		cena.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(cena);
-		        		player.addChatMessage(new TextComponentTranslation(TextFormatting.YELLOW + "cena.itscena"));	
+		        		BasicSummoning.Summon(cena, worldObj, posX, posY, posZ);
+		        		player.addChatMessage(new TextComponentTranslation("cena.itscena").setStyle(new Style().setColor(TextFormatting.YELLOW)));
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			cena.setCustomNameTag("John Cena");
@@ -97,9 +93,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.bill_spawn, 1F, 1F);
 		        		EntityBill bill = new EntityBill(worldObj); 
-		        		bill.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(bill);
-		        		
+		        		BasicSummoning.Summon(bill, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			bill.setCustomNameTag("Bill Cipher");
@@ -110,9 +104,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.trump_spawn, 1F, 1F);
 		        		EntityTrump trump = new EntityTrump(worldObj); 
-		        		trump.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(trump);
-		        		
+		        		BasicSummoning.Summon(trump, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			trump.setCustomNameTag("Donald Drumpf");
@@ -123,8 +115,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.khil_spawn, 1F, 1F);
 		        		EntityKhil khil = new EntityKhil(worldObj); 
-		        		khil.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(khil);
+		        		BasicSummoning.Summon(khil, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			khil.setCustomNameTag("Eduard Khil");
@@ -135,9 +126,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(SoundEvents.ENTITY_WOLF_HOWL, 1F, 1F);
 		        		EntityDoge Doge = new EntityDoge(worldObj); 
-		        		Doge.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(Doge);
-		        		
+		        		BasicSummoning.Summon(Doge, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			Doge.setCustomNameTag("Doge");
@@ -148,9 +137,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
 		        		EntityGrumpy Grumpy = new EntityGrumpy(worldObj); 
-		        		Grumpy.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(Grumpy);
-		        		
+		        		BasicSummoning.Summon(Grumpy, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			Grumpy.setCustomNameTag("Grumpy");
@@ -170,8 +157,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.ppap_spawn, 1F, 1F);
 		        		EntityPpap ppap = new EntityPpap(worldObj); 
-		        		ppap.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(ppap);
+		        		BasicSummoning.Summon(ppap, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 						{
 		        			ppap.setCustomNameTag("Kosaka Daimaou");
@@ -185,8 +171,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.keyboard_mechanical, 1F, 1F);
 		        		EntityVillager villagememe = new EntityVillager(worldObj); 
-		        		villagememe.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(villagememe);
+		        		BasicSummoning.Summon(villagememe, worldObj, posX, posY, posZ);
 		        		//villagememe.set
 		        		if (rand.nextInt(100) <10) 
 		        		{
@@ -199,8 +184,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.moonman_summon, 1F, 1F);
 		        		EntityMoonman moonman = new EntityMoonman(worldObj); 
-		        		moonman.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(moonman);
+		        		BasicSummoning.Summon(moonman, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			moonman.setCustomNameTag("Moon Man");
@@ -211,8 +195,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.boi_summon, 1F, 1F);
 		        		EntityDatBoi datboi = new EntityDatBoi(worldObj); 
-		        		datboi.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(datboi);
+		        		BasicSummoning.Summon(datboi, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			datboi.setCustomNameTag("Dat Boi");
@@ -223,8 +206,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.shrek_summon, 1F, 1F);
 		        		EntityShrek shrek = new EntityShrek(worldObj); 
-		        		shrek.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(shrek);
+		        		BasicSummoning.Summon(shrek, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			shrek.setCustomNameTag("Shrek");
@@ -235,8 +217,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.robbie_summon, 1F, 1F);
 		        		EntityRobbie rotten = new EntityRobbie(worldObj); 
-		        		rotten.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(rotten);
+		        		BasicSummoning.Summon(rotten, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			rotten.setCustomNameTag("Robbie Rotten");
@@ -248,8 +229,7 @@ public class EntityMeme extends EntityThrowable{
 		        		this.playSound(MiabSoundEvents.dad_summon, 1F, 1F);
 		        		EntityMario7 grand = new EntityMario7(worldObj); 
 		        		grand.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(grand);
-		        		if (rand.nextInt(100) <50) 
+		        		BasicSummoning.Summon(grand, worldObj, posX, posY, posZ);
 		        		{
 		        			grand.setCustomNameTag("Grand Dad?!");
 		        		}
@@ -259,15 +239,13 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(SoundEvents.ENTITY_CAT_PURR, 1F, 1F);
 		        		EntityNyanCat nyancat = new EntityNyanCat(worldObj); 
-		        		nyancat.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(nyancat);
+		        		BasicSummoning.Summon(nyancat, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			nyancat.setCustomNameTag("Nyan Cat");
 		        		}
 		        		EntityTacNyan tacnyan = new EntityTacNyan(worldObj); 
-		        		tacnyan.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(tacnyan);
+		        		BasicSummoning.Summon(tacnyan, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			tacnyan.setCustomNameTag("Tac Nyan");
@@ -278,8 +256,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.cry, 1F, 1F);
 		        		EntityFA forever = new EntityFA(worldObj); 
-		        		forever.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(forever);
+		        		BasicSummoning.Summon(forever, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			forever.setCustomNameTag("Forever Alone");
@@ -290,8 +267,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 
 		        		this.playSound(MiabSoundEvents.sanic_slow, 1F, 1F);
 		        		EntitySanic sanic = new EntitySanic(worldObj); 
-		        		sanic.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(sanic);
+		        		BasicSummoning.Summon(sanic, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			sanic.setCustomNameTag("Sanic");
@@ -313,8 +289,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 			
 		        		this.playSound(MiabSoundEvents.dankey_summon, 1F, 1F);
 		        		EntityDankey dankey = new EntityDankey(worldObj); 
-		        		dankey.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(dankey);
+		        		BasicSummoning.Summon(dankey, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			dankey.setCustomNameTag("Dankey Kang");
@@ -325,8 +300,7 @@ public class EntityMeme extends EntityThrowable{
 		        	{ 	
 		        		this.playSound(MiabSoundEvents.nigel_blagh, 1F, 1F);
 		        		EntityNigel nigel = new EntityNigel(worldObj); 
-		        		nigel.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
-		        		worldObj.spawnEntityInWorld(nigel);
+		        		BasicSummoning.Summon(nigel, worldObj, posX, posY, posZ);
 		        		if (rand.nextInt(100) <50) 
 		        		{
 		        			nigel.setCustomNameTag("Nigel Thornberry");
@@ -369,7 +343,7 @@ public class EntityMeme extends EntityThrowable{
 		    	 	
 		        	else if(rand.nextInt(100) <27)
 		        	{
-		        		LennyStructure.buildLenny(worldObj, this.posX, this.posY, this.posZ);
+		        		LennyStructure.buildLenny(worldObj, posX, posY, posZ);
 		        	}
 	
 		    	 	else if(MIABConfig.MatureSounds)
