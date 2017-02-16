@@ -77,7 +77,7 @@ public class EntityMeme extends EntityThrowable{
 	    	 	{
 	    	 		if(rand.nextInt(100) <100)
 		        	{
-		        		LennyStructure.buildLenny(worldObj, this.posX, this.posY, this.posZ);
+		        		LennyStructure.buildLenny(worldObj, posX, posY, posZ);
 		        	}
 	    	 		
 	    	 		else if (rand.nextInt(100) <1) 
