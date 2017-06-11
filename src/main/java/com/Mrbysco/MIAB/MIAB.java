@@ -42,7 +42,7 @@ public class MIAB {
     	MIABItems.init();
     	MIABItems.register();
     	
-    	MIABRecipes.init();
+    	//MIABRecipes.init();
     	MIABEntities.register();
     	//MIABVillagers.init();
     	    	

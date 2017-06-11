@@ -135,6 +135,7 @@ public class EntityMemeBase extends EntityMob
         {
             ((EntityLiving)this.getRidingEntity()).getNavigator().setPath(this.getNavigator().getPath(), 1.5D);
         }
+		float f = this.getBrightness();
 		
 		ignoreUndeadFire = true;
 	       
@@ -144,11 +145,6 @@ public class EntityMemeBase extends EntityMob
     }
     
     private boolean ignoreUndeadFire = false;
-	   
-    @Override
-    public float getBrightness(float partialTicks) {
-        return ignoreUndeadFire ? 0f : super.getBrightness(partialTicks);
-    }
     
     public void onUpdate()
     {
