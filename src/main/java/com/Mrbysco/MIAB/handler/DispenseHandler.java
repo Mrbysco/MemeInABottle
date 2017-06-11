@@ -13,20 +13,22 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class DispenseHandler extends BehaviorProjectileDispense {
-	public ItemStack dispenseStack(IBlockSource BlockSource, ItemStack stack) {
-		World world = BlockSource.getWorld();
-        IPosition iposition = BlockDispenser.getDispensePosition(BlockSource);
-        EnumFacing enumfacing = (EnumFacing)BlockSource.getBlockState().getValue(BlockDispenser.FACING);
+	
+	
+	public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+        World world = source.getWorld();
+        IPosition iposition = BlockDispenser.getDispensePosition(source);
+        EnumFacing enumfacing = (EnumFacing)source.getBlockState().getValue(BlockDispenser.FACING);
         IProjectile iprojectile = this.getProjectileEntity(world, iposition, stack);
         iprojectile.setThrowableHeading((double)enumfacing.getFrontOffsetX(), (double)((float)enumfacing.getFrontOffsetY() + 0.1F), (double)enumfacing.getFrontOffsetZ(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
-        world.spawnEntityInWorld((Entity)iprojectile);
-        stack.splitStack(1);
+        world.spawnEntity((Entity)iprojectile);
+        stack.shrink(1);
         return stack;
 	}
 
 	@Override
 	protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-		EntityMeme meme = new EntityMeme(worldIn, position.getX(), position.getY(), position.getZ());
-		return meme;
+			EntityMeme meme = new EntityMeme(worldIn, position.getX(), position.getY(), position.getZ());
+			return meme;
 	}
 }

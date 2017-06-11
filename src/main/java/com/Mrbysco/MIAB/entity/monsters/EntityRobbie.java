@@ -40,7 +40,7 @@ public class EntityRobbie extends EntityMemeBase
 	    {
 			
 		//Check if he's holding the item
-		if (this.worldObj != null && !this.worldObj.isRemote)
+		if (this.world != null && !this.world.isRemote)
 		{
 			if (itemstack != null && itemstack.getItem() == MIABItems.sax)
 	        {

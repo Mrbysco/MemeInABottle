@@ -2,6 +2,7 @@ package com.Mrbysco.MIAB.handler;
 
 import java.util.Random;
 
+import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -27,20 +28,19 @@ public class VillagerTradeHandler {
  			this.priceInfo = priceIn;
  		}
 
+        /*
         public static ItemStack copyStackWithAmount(ItemStack stack, int amount)
-        {
+        {    	
             if(stack==null)
                 return null;
-            ItemStack s2 = stack.copy();
-            s2.stackSize=amount;
-            return s2;
+            ItemStack Stack2 = stack.copy();
+            Stack2.stackSize=amount;
+            return Stack2;
         }
-        
-         /**
-          * Affects the given MerchantRecipeList to possibly add or remove MerchantRecipes.
-          */
-        @Override
-        public void modifyMerchantRecipeList(MerchantRecipeList recipeList, Random random) {
+        */
+		@Override
+		public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random) {
+			/*
             int i = 1;
             if (this.priceInfo != null)
                 i = this.priceInfo.getPrice(random);
@@ -54,6 +54,8 @@ public class VillagerTradeHandler {
                 itemStack2 = copyStackWithAmount(sellingItem, i);
             }
             recipeList.add(new MerchantRecipe(itemStack1, itemStack2));
+            */
         	}
+
+		}
      }
-}

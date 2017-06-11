@@ -161,7 +161,7 @@ public class EntityMemeBase extends EntityMob
 
         if (flag)
         {
-            float f = this.worldObj.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
+            float f = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
 
             if (this.getHeldItemMainhand() == null)
             {
@@ -206,7 +206,7 @@ public class EntityMemeBase extends EntityMob
     {
         super.setEquipmentBasedOnDifficulty(difficulty);
 
-        if (this.rand.nextFloat() < (this.worldObj.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F))
+        if (this.rand.nextFloat() < (this.world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F))
         {
             int i = this.rand.nextInt(3);
 
@@ -223,7 +223,7 @@ public class EntityMemeBase extends EntityMob
     
     public static void registerFixesZombie(DataFixer fixer)
     {
-        EntityLiving.registerFixesMob(fixer, "Zombie");
+        EntityLiving.registerFixesMob(fixer, EntityMemeBase.class);
     }
     
     public void writeEntityToNBT(NBTTagCompound compound)
@@ -244,20 +244,20 @@ public class EntityMemeBase extends EntityMob
     {
         super.onKillEntity(entityLivingIn);
 
-        if ((this.worldObj.getDifficulty() == EnumDifficulty.NORMAL || this.worldObj.getDifficulty() == EnumDifficulty.HARD) && entityLivingIn instanceof EntityVillager)
+        if ((this.world.getDifficulty() == EnumDifficulty.NORMAL || this.world.getDifficulty() == EnumDifficulty.HARD) && entityLivingIn instanceof EntityVillager)
         {
-            if (this.worldObj.getDifficulty() != EnumDifficulty.HARD && this.rand.nextBoolean())
+            if (this.world.getDifficulty() != EnumDifficulty.HARD && this.rand.nextBoolean())
             {
                 return;
             }
             
-            EntityMemeBase entitymemebase = new EntityMemeBase(this.worldObj);
+            EntityMemeBase entitymemebase = new EntityMemeBase(this.world);
             entitymemebase.copyLocationAndAnglesFrom(entityLivingIn);
-            this.worldObj.removeEntity(entityLivingIn);
-            entitymemebase.onInitialSpawn(this.worldObj.getDifficultyForLocation(new BlockPos(entitymemebase)), null);
+            this.world.removeEntity(entityLivingIn);
+            entitymemebase.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entitymemebase)), null);
 
-            this.worldObj.spawnEntityInWorld(entitymemebase);
-            this.worldObj.playEvent((EntityPlayer)null, 1026, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
+            this.world.spawnEntity(entitymemebase);
+            this.world.playEvent((EntityPlayer)null, 1026, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
         }
     }
 
@@ -285,7 +285,7 @@ public class EntityMemeBase extends EntityMob
 
         if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD) == null)
         {
-            Calendar calendar = this.worldObj.getCurrentDate();
+            Calendar calendar = this.world.getCurrentDate();
 
             if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31 && this.rand.nextFloat() < 0.25F)
             {

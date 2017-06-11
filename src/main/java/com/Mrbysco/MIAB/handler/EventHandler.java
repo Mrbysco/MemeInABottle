@@ -33,7 +33,7 @@ public class EventHandler {
             if ( random_drop < MIABConfig.DropChance )
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.mcw_belt, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
@@ -43,7 +43,7 @@ public class EventHandler {
             if ( random_drop < MIABConfig.DropChance )
             {
             	ItemStack itemStackToDrop = new ItemStack(Items.GOLD_INGOT, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
@@ -53,7 +53,7 @@ public class EventHandler {
             if ( random_drop < MIABConfig.DropChance )
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.troll_mask, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
@@ -65,7 +65,7 @@ public class EventHandler {
             if ( random_chance < 0.6)
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.pen, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
@@ -73,14 +73,14 @@ public class EventHandler {
             if (random_chance < 0.7)
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.pen, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             			event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
             if (random_chance < 0.5)
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.pen, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             			event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
@@ -91,7 +91,7 @@ public class EventHandler {
             if ( random_drop < MIABConfig.DropChance )
             {
             	ItemStack itemStackToDrop = new ItemStack(MIABItems.trump_hair, 1);
-            	event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+            	event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
             			
             		event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
             }
@@ -102,7 +102,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(Items.SLIME_BALL, 1);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
@@ -113,7 +113,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.onion, 1);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
@@ -124,7 +124,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.burger, 1);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
@@ -135,7 +135,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.sax, 1);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
@@ -146,7 +146,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.ripoff_hat, 1);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
@@ -157,7 +157,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.poptart, 2);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}
@@ -168,7 +168,7 @@ public class EventHandler {
         	if ( random_drop < MIABConfig.DropChance )
         	{
         		ItemStack itemStackToDrop = new ItemStack(MIABItems.waffle, 1);
-        		event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, 
+        		event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, 
         				
         				event.getEntity().posY, event.getEntity().posZ, itemStackToDrop));
         	}

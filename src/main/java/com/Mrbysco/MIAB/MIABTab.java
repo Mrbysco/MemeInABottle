@@ -3,7 +3,7 @@ package com.Mrbysco.MIAB;
 import com.Mrbysco.MIAB.init.MIABItems;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class MIABTab extends CreativeTabs {
 	
@@ -13,8 +13,8 @@ public class MIABTab extends CreativeTabs {
 	}
 
 	@Override
-	public Item getTabIconItem() {
-		return MIABItems.splash_meme_in_a_bottle;
+	public ItemStack getTabIconItem() {
+		return new ItemStack(MIABItems.splash_meme_in_a_bottle);
 	}
 
 	public MIABTab setCreativeTab(MIABTab tabmiab) {

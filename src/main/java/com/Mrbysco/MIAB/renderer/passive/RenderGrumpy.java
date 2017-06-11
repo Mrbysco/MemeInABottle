@@ -15,7 +15,7 @@ public class RenderGrumpy extends RenderOcelot
 		private static final ResourceLocation texture = new ResourceLocation("miab:entity/grumpy.png");
 		
 		public RenderGrumpy(RenderManager renderManagerIn) {
-			super(renderManagerIn, new ModelOcelot(), 0.5F);
+			super(renderManagerIn);
 		  }
 		
 		@Override

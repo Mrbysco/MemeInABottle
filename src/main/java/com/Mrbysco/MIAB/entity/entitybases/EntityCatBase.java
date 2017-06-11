@@ -8,8 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAIOcelotAttack;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -107,7 +105,7 @@ public class EntityCatBase extends EntityMob
 
     public static void registerFixesOcelot(DataFixer fixer)
     {
-        EntityLiving.registerFixesMob(fixer, "Ozelot");
+        EntityLiving.registerFixesMob(fixer, EntityOcelot.class);
     }
 
     /**
@@ -166,7 +164,7 @@ public class EntityCatBase extends EntityMob
      */
     public boolean getCanSpawnHere()
     {
-        return this.worldObj.rand.nextInt(3) != 0;
+        return this.world.rand.nextInt(3) != 0;
     }
 
     /**
@@ -174,19 +172,19 @@ public class EntityCatBase extends EntityMob
      */
     public boolean isNotColliding()
     {
-        if (this.worldObj.checkNoEntityCollision(this.getEntityBoundingBox(), this) && this.worldObj.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.worldObj.containsAnyLiquid(this.getEntityBoundingBox()))
+    	if (this.world.checkNoEntityCollision(this.getEntityBoundingBox(), this) && this.world.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty() && !this.world.containsAnyLiquid(this.getEntityBoundingBox()))
         {
             BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
-            if (blockpos.getY() < this.worldObj.getSeaLevel())
+            if (blockpos.getY() < this.world.getSeaLevel())
             {
                 return false;
             }
 
-            IBlockState iblockstate = this.worldObj.getBlockState(blockpos.down());
+            IBlockState iblockstate = this.world.getBlockState(blockpos.down());
             Block block = iblockstate.getBlock();
 
-            if (block == Blocks.GRASS || block.isLeaves(iblockstate, this.worldObj, blockpos.down()))
+            if (block == Blocks.GRASS || block.isLeaves(iblockstate, this.world, blockpos.down()))
             {
                 return true;
             }

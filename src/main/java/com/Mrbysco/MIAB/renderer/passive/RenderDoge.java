@@ -15,7 +15,7 @@ public class RenderDoge extends RenderWolf
 		private static final ResourceLocation texture = new ResourceLocation("miab:entity/doge.png");
 		
 		public RenderDoge(RenderManager renderManagerIn) {
-			super(renderManagerIn, new ModelWolf(), 0.5F);
+			super(renderManagerIn);
 		  }
 		
 		@Override
