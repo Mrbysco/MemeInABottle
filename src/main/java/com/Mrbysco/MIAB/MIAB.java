@@ -4,7 +4,6 @@ import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
-import com.Mrbysco.MIAB.init.MIABRecipes;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
 
