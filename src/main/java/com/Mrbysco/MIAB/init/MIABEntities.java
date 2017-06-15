@@ -32,7 +32,7 @@ public class MIABEntities {
 		EntityRegistry.registerModEntity(MIABEntityNames.BILL_CIPHER_REGISTRY, EntityBill.class, MIABEntityNames.BILL_CIPHER, 2, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.DOGE_WOLF_REGISTRY, EntityDoge.class, MIABEntityNames.DOGE_WOLF, 3, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.GRUMPY_CAT_REGISTRY, EntityGrumpy.class, MIABEntityNames.GRUMPY_CAT, 4, MIAB.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(MIABEntityNames.DONALD_TRUMP_REGISTRY, EntityTrump.class, MIABEntityNames.DONALD_TRUMP, 5, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(MIABEntityNames.DONALD_TRUMP_REGISTRY, EntityTrump.class, MIABEntityNames.DONALD_TRUMP, 5, MIAB.instance, 80, 3, true, 16753920, 16766720);
 		EntityRegistry.registerModEntity(MIABEntityNames.EDUARD_KHIL_REGISTRY, EntityKhil.class, MIABEntityNames.EDUARD_KHIL, 6, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.PPAP_GUY_REGISTRY, EntityPpap.class, MIABEntityNames.PPAP_GUY, 7, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.SHREK_REGISTRY, EntityShrek.class, MIABEntityNames.SHREK, 8, MIAB.instance, 80, 3, true);
