@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:arrow"
+		},
+		{
+			"item": "minecraft:glass_bottle"
+		}
+	],
+	"result": {
+		"item": "miab:itemmemeinabottle"
+	}
+}

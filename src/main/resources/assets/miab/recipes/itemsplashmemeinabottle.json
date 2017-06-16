@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "miab:itemmemeinabottle"
+		},
+		{
+			"item": "minecraft:gunpowder"
+		}
+	],
+	"result": {
+		"item": "miab:itemsplashmemeinabottle"
+	}
+}
