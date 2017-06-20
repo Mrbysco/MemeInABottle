@@ -437,6 +437,13 @@
             "miab:sanic/ts"
         ]
     },
+    "keyboardmechanical" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:memes/keybmech",
+            "miab:memes/keybmech"
+        ]
+    },
    "nigel.blagh" : {
    "category" : "hostile",
         "sounds": [

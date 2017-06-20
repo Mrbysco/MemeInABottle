@@ -7,6 +7,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -43,10 +44,9 @@ public class EntityBill extends EntityMemeBase
     }
 	
 	@Override
-    protected SoundEvent getHurtSound()
-    {
-        return MiabSoundEvents.bill_hit;
-    }
+	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+		return MiabSoundEvents.bill_hit;
+	}
 	
 	@Override
     protected SoundEvent getDeathSound()

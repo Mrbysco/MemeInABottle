@@ -84,7 +84,7 @@ public class MiabSoundEvents {
 		ppap_havepen = registerSound("ppap.havepen");
 		ppap_havepineapple = registerSound("ppap.havepineapple");
 		ppap_haveapple = registerSound("ppap.haveapple");
-		keyboard_mechanical = registerSound("meme.keyboardmechanical");
+		keyboard_mechanical = registerSound("keyboardmechanical");
 		moonman_summon = registerSound("moonman.spawn");
 		moonman_hit = registerSound("moonman.hit");
 		moonman_passive = registerSound("moonman.passive");

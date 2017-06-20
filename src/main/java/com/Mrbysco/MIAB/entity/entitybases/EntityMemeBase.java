@@ -37,6 +37,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNavigateGround;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.datafix.DataFixer;
@@ -171,20 +172,36 @@ public class EntityMemeBase extends EntityMob
         return flag;
     }
     
-    protected SoundEvent getAmbientSound()
+    protected SoundEvent getSwimSound()
     {
-        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_AMBIENT;
+        return SoundEvents.ENTITY_HOSTILE_SWIM;
     }
 
-    protected SoundEvent getHurtSound()
+    protected SoundEvent getSplashSound()
     {
-        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_HURT;
+        return SoundEvents.ENTITY_HOSTILE_SPLASH;
+    }
+    
+    protected SoundEvent getAmbientSound()
+    {
+        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+    }
+    
+    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
+    {
+        return SoundEvents.ENTITY_HOSTILE_HURT;
     }
 
     protected SoundEvent getDeathSound()
     {
-        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_DEATH;
+        return SoundEvents.ENTITY_HOSTILE_DEATH;
     }
+
+    protected SoundEvent getFallSound(int heightIn)
+    {
+        return heightIn > 4 ? SoundEvents.ENTITY_HOSTILE_BIG_FALL : SoundEvents.ENTITY_HOSTILE_SMALL_FALL;
+    }
+
 
     protected void playStepSound(BlockPos pos, Block blockIn)
     {

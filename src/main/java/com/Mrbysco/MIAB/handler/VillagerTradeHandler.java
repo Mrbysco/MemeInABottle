@@ -4,14 +4,14 @@ import java.util.Random;
 
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.init.Items;
+import net.minecraft.entity.passive.EntityVillager.ITradeList;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
+import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 
 public class VillagerTradeHandler {
-	 public static class ItemstackForEmerald  implements EntityVillager.ITradeList
+	 public static class ItemstackForEmerald  implements ITradeList
      {
 		 public ItemStack sellingItem;
 		 public EntityVillager.PriceInfo priceInfo;

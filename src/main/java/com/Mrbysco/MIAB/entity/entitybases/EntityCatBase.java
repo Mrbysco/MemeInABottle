@@ -130,7 +130,7 @@ public class EntityCatBase extends EntityMob
         return SoundEvents.ENTITY_CAT_AMBIENT;
     }
 
-    protected SoundEvent getHurtSound()
+    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
     {
         return SoundEvents.ENTITY_CAT_HURT;
     }

@@ -6,6 +6,7 @@ import com.Mrbysco.MIAB.init.MiabSoundEvents;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -59,7 +60,7 @@ public class EntityRobbie extends EntityMemeBase
 	    }
 		
 		@Override
-	    protected SoundEvent getHurtSound()
+	    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
 	    {
 	        return MiabSoundEvents.robbie_hit;
 	    }
