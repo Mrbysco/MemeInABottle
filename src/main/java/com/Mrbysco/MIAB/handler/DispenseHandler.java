@@ -28,7 +28,7 @@ public class DispenseHandler extends BehaviorProjectileDispense {
 
 	@Override
 	protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-			EntityMeme meme = new EntityMeme(worldIn, position.getX(), position.getY(), position.getZ());
+			EntityMeme meme = new EntityMeme(worldIn, position.getX(), position.getY(), position.getZ(), stackIn);
 			return meme;
 	}
 }

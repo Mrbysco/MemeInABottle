@@ -35,7 +35,7 @@ public class MIAB {
 			return new ItemStack(MIABItems.splash_meme_in_a_bottle);
 		}
 	};
-
+	
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event)
     {
@@ -52,7 +52,7 @@ public class MIAB {
     	//MIABRecipes.init();
     	MIABEntities.register();
     	MIABVillagers.init();
-    	    	
+    	
     	proxy.registerRenderingFactories();
     	proxy.registerRenders();
     }

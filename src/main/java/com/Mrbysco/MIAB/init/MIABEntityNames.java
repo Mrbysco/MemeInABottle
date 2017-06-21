@@ -1,30 +1,8 @@
 package com.Mrbysco.MIAB.init;
 
-import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.Reference;
-import com.Mrbysco.MIAB.entity.EntityMeme;
-import com.Mrbysco.MIAB.entity.monsters.EntityBill;
-import com.Mrbysco.MIAB.entity.monsters.EntityCena;
-import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
-import com.Mrbysco.MIAB.entity.monsters.EntityDatBoi;
-import com.Mrbysco.MIAB.entity.monsters.EntityFA;
-import com.Mrbysco.MIAB.entity.monsters.EntityKhil;
-import com.Mrbysco.MIAB.entity.monsters.EntityMario7;
-import com.Mrbysco.MIAB.entity.monsters.EntityMoonman;
-import com.Mrbysco.MIAB.entity.monsters.EntityNigel;
-import com.Mrbysco.MIAB.entity.monsters.EntityPepe;
-import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
-import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
-import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
-import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
-import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
-import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
-import com.Mrbysco.MIAB.entity.passive.EntityDoge;
-import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
-import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public final class MIABEntityNames {
 	

@@ -1,5 +1,6 @@
 item.memeinabottle.name=Meme In A Bottle
 item.splashmemeinabottle.name=Splash Meme In A Bottle
+item.lingeringmemeinabottle.name=Lingering Meme In A Bottle
 item.mcwbelt.name=MCW Belt
 item.leatherbelt.name=Leather Belt
 item.trumphair.name=Trumps Hair
@@ -13,6 +14,9 @@ item.sax.name=Saxophone
 item.rippoffhat.name=Grand Hat
 item.waffle.name=Waffle
 item.poptart.name=Poptart
+item.memerecord1.name=Music Disc
+
+item.record.memesong1.desc=We Are Inverted
 
 tile.bottleblock.name=Bottle Block (WIP)
 tile.keyboardmechanical.name=Keyboard Mechanical
@@ -44,3 +48,26 @@ stats.belt.addInfo=4+ Strength
 stats.belt.addInfo1=4+ Stamina
 stats.belt.addInfo2=
 stats.belt.addInfo3=Required level 18
+
+#Chat messages
+memebee.part1=According to all known laws of gravitation,
+memebee.part2=there is no way a dirt block should be able to float.
+memebee.part3=There is no logic behind it holding it up in the air.
+memebee.part4=The dirt block, of course. Floats anyway.
+memebee.part5=Dirt, air, dirt, air, dirt, air, dirt, air.
+memebee.part6=Ooh, air and dirt! let's shake it up a little.
+
+navy.part1=What the did you just say about me?
+navy.part2=I’ll have you know I graduated top of my class in the Navy Seals,
+navy.part3=and I’ve been involved in numerous secret raids,
+navy.part4=and I have over 300 confirmed kills.
+navy.part5=I am trained in gorilla warfare and 
+navy.part6=I’m the top sniper in the entire MC armed forces. 
+
+lm.part1=This is me. Literally me.
+lm.part2=No other game can come close to relating to me like this.
+lm.part3=There is no way you can convince me this is not me.
+lm.part4=This game could not possibly be anymore me.
+lm.part5=It’s me, and nobody can convince me otherwise. 
+
+cena.itscena=And his name is! JOHN CENA

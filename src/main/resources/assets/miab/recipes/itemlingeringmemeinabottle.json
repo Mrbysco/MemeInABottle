@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "miab:itemsplashmemeinabottle"
+		},
+		{
+			"item": "minecraft:dragon_breath"
+		}
+	],
+	"result": {
+		"item": "miab:itemlingeringmemeinabottle"
+	}
+}

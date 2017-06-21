@@ -440,7 +440,6 @@
     "keyboardmechanical" : {
     "category" : "hostile",
         "sounds": [
-            "miab:memes/keybmech",
             "miab:memes/keybmech"
         ]
     },
@@ -448,6 +447,15 @@
    "category" : "hostile",
         "sounds": [
             "miab:memes/blagh"
+        ]
+   },
+   "meme.record1" : {
+   "category" : "record",
+        "sounds": [
+            {
+            "name": "miab:record/invertednumberone",
+            "stream": true
+            }
         ]
    }
 }

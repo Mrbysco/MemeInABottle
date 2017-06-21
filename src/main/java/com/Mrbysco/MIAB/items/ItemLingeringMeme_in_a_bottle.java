@@ -15,22 +15,20 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class Itemsplash_meme_in_a_bottle extends Item {
-
-	public Itemsplash_meme_in_a_bottle()
-    {
-        this.maxStackSize = 8;
-        setUnlocalizedName(Reference.MIABItems.SPLASHMEMEINABOTTLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.SPLASHMEMEINABOTTLE.getRegistryName());
+public class ItemLingeringMeme_in_a_bottle extends Item{
+	public ItemLingeringMeme_in_a_bottle() {
+		this.maxStackSize = 8;
+        setUnlocalizedName(Reference.MIABItems.LINGERINGMEMEINABOTTLE.getUnlocalisedName());
+		setRegistryName(Reference.MIABItems.LINGERINGMEMEINABOTTLE.getRegistryName());
 		setCreativeTab(MIAB.tabMIAB);
-    }
-
+	}
+	
 	@Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         ItemStack itemstack1 = playerIn.capabilities.isCreativeMode ? itemstack.copy() : itemstack.splitStack(1);
-        worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_LINGERINGPOTION_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         if (!worldIn.isRemote)
         {
