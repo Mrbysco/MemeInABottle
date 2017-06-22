@@ -21,6 +21,8 @@ item.record.memesong1.desc=We Are Inverted
 tile.bottleblock.name=Bottle Block (WIP)
 tile.keyboardmechanical.name=Keyboard Mechanical
 
+effect.miab.memed=Memed
+
 itemGroup.tabMIAB=Meme In A Bottle
 
 entity.miab:EntityMeme.name=Splash Meme In A Bottle
