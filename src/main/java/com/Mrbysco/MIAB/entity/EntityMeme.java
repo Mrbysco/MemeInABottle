@@ -23,9 +23,6 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackData;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -126,7 +123,7 @@ public class EntityMeme extends EntityThrowable{
                 if (this.isLingering())
                 {
                     this.makeAreaOfEffectCloud(itemstack);
-                    memes.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random, true);
+                	memes.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random, true);
                 }
                 else
                 {
@@ -137,12 +134,6 @@ public class EntityMeme extends EntityThrowable{
         this.setDead();
     }
     
-    public void sendMessage(String message, TextFormatting color)
-    {
-    	player.sendMessage(new TextComponentTranslation(message).setStyle(new Style().setColor(color)));
-    }
-    
-    	
     private void makeAreaOfEffectCloud(ItemStack stack)
     {
     	EntityAreaEffectCloud entitytrollcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);

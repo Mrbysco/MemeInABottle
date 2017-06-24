@@ -120,8 +120,8 @@ public class MiabSoundEvents {
 	
 	private static SoundEvent registerSound(String soundName)
     {
-        ResourceLocation location = new ResourceLocation(Reference.MOD_ID, soundName);
-        SoundEvent event = new SoundEvent(location);
+		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, soundName);
+		SoundEvent event = new SoundEvent(location);
         event.setRegistryName(location);
         ForgeRegistries.SOUND_EVENTS.register(event);
         return event;

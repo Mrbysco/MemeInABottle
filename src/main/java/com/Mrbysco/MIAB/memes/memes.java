@@ -1,11 +1,8 @@
 package com.Mrbysco.MIAB.memes;
 
-import java.util.Random;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.MemeText;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
@@ -48,7 +45,6 @@ public class memes {
 	
     public static void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
     {	
-    	Random random;
     	if (canSummon == true)
     	{
 	    	if (RandomValue <1 ) 
