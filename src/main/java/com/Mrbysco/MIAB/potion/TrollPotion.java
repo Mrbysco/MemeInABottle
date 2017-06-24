@@ -9,8 +9,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -20,7 +18,6 @@ public class TrollPotion extends Potion{
 	private Random rand = new Random();
 	public static final ResourceLocation POTION_ICON = new ResourceLocation("miab:textures/potion/memedfx.png");
 	public static final TrollPotion INSTANCE = new TrollPotion();
-	public static PotionType type = new PotionType(new PotionEffect(INSTANCE, 60 * 20));
 	
 	public TrollPotion() {
 		super(true, 13882323);

@@ -53,6 +53,7 @@ public class MIAB {
     	MIABPotions.init();
     	
     	//MIABRecipes.init();
+    	
     	MIABEntities.register();
     	MIABVillagers.init();
     	

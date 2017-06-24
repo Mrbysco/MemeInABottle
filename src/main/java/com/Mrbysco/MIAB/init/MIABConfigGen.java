@@ -10,7 +10,7 @@ public class MIABConfigGen {
 		// Drop chance
 		MIABConfig.DropChance = config.get("Special Drop Chance", "DropChance", 0.8).getDouble(0.8);
 		// Use narrator
-		MIABConfig.UseNarator = config.get("Use Narrator", "UseNarrator", true).getBoolean(true);
+		MIABConfig.UseNarator = config.get("Use Narrator", "UseNarrator", false).getBoolean(false);
 		// Meme random value
 		MIABConfig.MemeRandomness = config.get("Meme Random Value, the less the value the more chance of meme summons. (default: 100)", "MemeRandomness", 100).getInt(100);
 		
