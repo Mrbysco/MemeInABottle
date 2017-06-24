@@ -63,7 +63,7 @@ public class MiabSoundEvents {
 	public static SoundEvent meme_music;
 	
 	public static void registerSounds() {
-		meme_soundMature = registerSound("meme.soundMature");
+		meme_soundMature = registerSound("meme.soundmature");
 		meme_sound = registerSound("meme.sound");
 		cena_spawn = registerSound("cena.spawn");
 		cena_sound = registerSound("cena.sound");

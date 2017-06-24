@@ -21,7 +21,11 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, dependencies = "required-after:forge@[14.21.0.2348,)")
+@Mod(modid = Reference.MOD_ID, 
+	name = Reference.MOD_NAME, 
+	version = Reference.VERSION, 
+	acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, 
+	dependencies = "required-after:forge@[14.21.0.2348,)")
 public class MIAB {
 	
 	@Instance(Reference.MOD_ID)

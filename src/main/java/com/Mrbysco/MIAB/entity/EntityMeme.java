@@ -5,8 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
-import com.Mrbysco.MIAB.init.MIABPotions;
 import com.Mrbysco.MIAB.memes.memes;
+import com.Mrbysco.MIAB.potion.TrollPotion;
 
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,7 +17,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionUtils;
+import net.minecraft.potion.PotionType;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
@@ -119,7 +119,6 @@ public class EntityMeme extends EntityThrowable{
             ItemStack itemstack = this.getItemName();
             int color = 13882323;
 
-            
                 if (this.isLingering())
                 {
                     this.makeAreaOfEffectCloud(itemstack);
@@ -129,28 +128,23 @@ public class EntityMeme extends EntityThrowable{
                 {
                 	memes.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random, true);
                 }
-        }
-        this.world.setEntityState(this, (byte)3);
+                
+        }  
         this.setDead();
     }
-    
+
     private void makeAreaOfEffectCloud(ItemStack stack)
     {
-    	EntityAreaEffectCloud entitytrollcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
-        entitytrollcloud.setOwner(this.getThrower());
-        entitytrollcloud.setRadius(3.0F);
-        entitytrollcloud.setRadiusOnUse(-0.5F);
-        entitytrollcloud.setWaitTime(10);
-        entitytrollcloud.setRadiusPerTick(-entitytrollcloud.getRadius() / (float)entitytrollcloud.getDuration());
-        entitytrollcloud.setColor(13882323);
-        entitytrollcloud.setPotion(MIABPotions.memedType);
+        EntityAreaEffectCloud entityareaeffectcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
+        entityareaeffectcloud.setOwner(this.getThrower());
+        entityareaeffectcloud.setRadius(3.0F);
+        entityareaeffectcloud.setRadiusOnUse(-0.5F);
+        entityareaeffectcloud.setWaitTime(10);
+        entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float)entityareaeffectcloud.getDuration());
+        entityareaeffectcloud.setColor(13882323);
+        entityareaeffectcloud.setPotion(new PotionType(new PotionEffect(TrollPotion.INSTANCE, 60 * 20)));
         
-        for (PotionEffect potioneffect : PotionUtils.getFullEffectsFromItem(stack))
-        {
-        	entitytrollcloud.addEffect(new PotionEffect(potioneffect));
-        }
-        
-        this.world.spawnEntity(entitytrollcloud);
+        this.world.spawnEntity(entityareaeffectcloud);
     }
 
     private boolean isLingering()

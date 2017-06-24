@@ -358,7 +358,7 @@ public class memes {
 		}
 		else if(MIABConfig.MatureSounds)
     	{
-			entity.playSound(MiabSoundEvents.meme_soundMature ,1F,1F);
+			entity.playSound(MiabSoundEvents.meme_soundMature, 1F, 1F);
 			LOGGER.info("Playing a sound Mature"); 
     	}
     	else

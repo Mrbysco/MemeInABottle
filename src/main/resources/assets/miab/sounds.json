@@ -1,5 +1,5 @@
 {
-    "meme.soundMature" : {
+    "meme.soundmature" : {
         "category" : "record",
         "sounds": [
 			"miab:memes/9000",
@@ -103,15 +103,16 @@
     "cena.spawn" : {
         "category" : "record",
         "sounds": [
-            "miab:cenaspawn/cenaspawn1",
-            "miab:cenaspawn/cenaspawn2"
+            "miab:cena/cenaspawn1",
+            "miab:cena/cenaspawn2",
+            "miab:cena/cenaspawn3"
         ]
     },
 	"cena.sound" : {
         "category" : "hostile",
         "sounds": [
-            "miab:cena/Cena1",
-            "miab:cena/Cena2"
+            "miab:cena/cena1",
+            "miab:cena/cena2"
         ]
 	},
     "bill.spawn" : {
