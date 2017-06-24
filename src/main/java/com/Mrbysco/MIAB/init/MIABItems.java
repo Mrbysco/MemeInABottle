@@ -27,7 +27,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemRecord;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class MIABItems {
 	
@@ -77,23 +77,23 @@ public class MIABItems {
 	
 	public static void register()
 	{
-		GameRegistry.register(meme_in_a_bottle);
-		GameRegistry.register(splash_meme_in_a_bottle);
-		GameRegistry.register(lingering_meme_in_a_bottle);
-		GameRegistry.register(trump_hair);
-		GameRegistry.register(mcw_belt);
-		GameRegistry.register(leather_belt);
-		GameRegistry.register(troll_mask);
-		GameRegistry.register(ripoff_hat);
-		GameRegistry.register(pineapple);
-		GameRegistry.register(apple);
-		GameRegistry.register(pen);
-		GameRegistry.register(onion);
-		GameRegistry.register(burger);
-		GameRegistry.register(waffle);
-		GameRegistry.register(poptart);
-		GameRegistry.register(sax);
-		GameRegistry.register(meme_record1);
+		ForgeRegistries.ITEMS.register(meme_in_a_bottle);
+		ForgeRegistries.ITEMS.register(splash_meme_in_a_bottle);
+		ForgeRegistries.ITEMS.register(lingering_meme_in_a_bottle);
+		ForgeRegistries.ITEMS.register(trump_hair);
+		ForgeRegistries.ITEMS.register(mcw_belt);
+		ForgeRegistries.ITEMS.register(leather_belt);
+		ForgeRegistries.ITEMS.register(troll_mask);
+		ForgeRegistries.ITEMS.register(ripoff_hat);
+		ForgeRegistries.ITEMS.register(pineapple);
+		ForgeRegistries.ITEMS.register(apple);
+		ForgeRegistries.ITEMS.register(pen);
+		ForgeRegistries.ITEMS.register(onion);
+		ForgeRegistries.ITEMS.register(burger);
+		ForgeRegistries.ITEMS.register(waffle);
+		ForgeRegistries.ITEMS.register(poptart);
+		ForgeRegistries.ITEMS.register(sax);
+		ForgeRegistries.ITEMS.register(meme_record1);
 		
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(MIABItems.splash_meme_in_a_bottle, new DispenseHandler());
 	}

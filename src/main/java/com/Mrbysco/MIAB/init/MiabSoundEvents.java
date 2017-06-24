@@ -4,7 +4,7 @@ import com.Mrbysco.MIAB.Reference;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class MiabSoundEvents {
 	
@@ -118,8 +118,12 @@ public class MiabSoundEvents {
 		meme_music = registerSound("meme.record1");
 	}
 	
-	private static SoundEvent registerSound(String soundName) {
-		final ResourceLocation soundID = new ResourceLocation(Reference.MOD_ID + ":" + soundName);
-		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
-	}
+	private static SoundEvent registerSound(String soundName)
+    {
+        ResourceLocation location = new ResourceLocation(Reference.MOD_ID, soundName);
+        SoundEvent event = new SoundEvent(location);
+        event.setRegistryName(location);
+        ForgeRegistries.SOUND_EVENTS.register(event);
+        return event;
+    }
 }

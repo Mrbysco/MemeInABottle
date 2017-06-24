@@ -1,14 +1,12 @@
 package com.Mrbysco.MIAB.entity;
 
-import javax.annotation.Nullable;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.Mrbysco.MIAB.init.MIABConfig;
 import com.Mrbysco.MIAB.init.MIABItems;
+import com.Mrbysco.MIAB.init.MIABPotions;
 import com.Mrbysco.MIAB.memes.memes;
-import com.Mrbysco.MIAB.potion.TrollPotion;
 
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +17,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
@@ -37,7 +35,6 @@ public class EntityMeme extends EntityThrowable{
     private static final DataParameter<ItemStack> ITEM = EntityDataManager.<ItemStack>createKey(EntityMeme.class, DataSerializers.ITEM_STACK);
     private static final Logger LOGGER = LogManager.getLogger();
     EntityAreaEffectCloud cloud;
-    public PotionType memed = TrollPotion.type;
 
     public EntityMeme(World worldIn)
     {
@@ -155,9 +152,13 @@ public class EntityMeme extends EntityThrowable{
         entitytrollcloud.setWaitTime(10);
         entitytrollcloud.setRadiusPerTick(-entitytrollcloud.getRadius() / (float)entitytrollcloud.getDuration());
         entitytrollcloud.setColor(13882323);
-        entitytrollcloud.setPotion(memed);
-       // entitytrollcloud.setPotion(MIABPotions.memed);
-
+        entitytrollcloud.setPotion(MIABPotions.memedType);
+        
+        for (PotionEffect potioneffect : PotionUtils.getFullEffectsFromItem(stack))
+        {
+        	entitytrollcloud.addEffect(new PotionEffect(potioneffect));
+        }
+        
         this.world.spawnEntity(entitytrollcloud);
     }
 

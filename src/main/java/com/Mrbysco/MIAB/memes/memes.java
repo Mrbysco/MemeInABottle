@@ -2,6 +2,10 @@ package com.Mrbysco.MIAB.memes;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.MemeText;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
@@ -40,6 +44,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class memes {
+	private static final Logger LOGGER = LogManager.getLogger();
 	
     public static void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
     {	
@@ -358,10 +363,12 @@ public class memes {
 		else if(MIABConfig.MatureSounds)
     	{
 			entity.playSound(MiabSoundEvents.meme_soundMature ,1F,1F);
+			LOGGER.info("Playing a sound Mature"); 
     	}
     	else
     	{
     		entity.playSound(MiabSoundEvents.meme_sound, 1F, 1F);
+    		LOGGER.info("Playing a sound"); 
     	}
     }
 }

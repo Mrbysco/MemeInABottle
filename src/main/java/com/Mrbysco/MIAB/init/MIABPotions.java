@@ -6,17 +6,22 @@ import com.Mrbysco.MIAB.potion.TrollPotion;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-public class MIABPotions {	
-	static void register(Potion instance, PotionType type) {
-		Potion.REGISTRY.register(0, new ResourceLocation(Reference.MOD_ID, instance.getName()), instance);
-	}
+public class MIABPotions {	    
+	
+	public static Potion memed;
+	public static PotionType memedType = TrollPotion.type;
+	
+    public static Potion registerPotion(String name, Potion instance, PotionType type)
+    {
+        ResourceLocation location = new ResourceLocation(Reference.MOD_ID, name);
+        instance.setRegistryName(location);
+        ForgeRegistries.POTIONS.register(instance);
+        return instance;
+    }
 
 	public static void init() {
-		register(TrollPotion.INSTANCE, TrollPotion.type);
-	}
-
-	public static PotionType getVanillaType(String name) {
-		return PotionType.REGISTRY.getObject(new ResourceLocation(name));
+		memed = registerPotion("effect.miab.memed", new TrollPotion(), memedType);
 	}
 }
