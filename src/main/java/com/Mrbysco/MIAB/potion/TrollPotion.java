@@ -62,7 +62,7 @@ public class TrollPotion extends Potion{
 			
 		}
 	 	
-		else if (RandomValue <24) 
+		else if (RandomValue <7) 
 		{
 			if(MIABConfigGen.UseNarator)
 			{
@@ -78,7 +78,7 @@ public class TrollPotion extends Potion{
 	    		player.sendMessage(new TextComponentTranslation("navy.part6"));
 			}
 		}
-		else if (RandomValue <25) 
+		else if (RandomValue <15) 
 		{
 			if(MIABConfigGen.UseNarator)
 			{
