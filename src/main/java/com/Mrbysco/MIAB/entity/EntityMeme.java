@@ -39,11 +39,10 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.datafix.DataFixer;
@@ -83,6 +82,7 @@ public class EntityMeme extends EntityThrowable
         }
     }
     
+    @Override
     protected void entityInit()
     {
         this.getDataManager().register(ITEM, ItemStack.EMPTY);
@@ -119,7 +119,8 @@ public class EntityMeme extends EntityThrowable
         this.getDataManager().set(ITEM, stack);
         this.getDataManager().setDirty(ITEM);
     }
-
+    
+    @Override
     @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id)
     {
@@ -132,6 +133,7 @@ public class EntityMeme extends EntityThrowable
         }
     }
     
+    @Override
     protected float getGravityVelocity()
     {
         return 0.05F;
@@ -140,6 +142,7 @@ public class EntityMeme extends EntityThrowable
     /**
      * Called when this EntityThrowable hits a block or entity.
      */
+    @Override
     protected void onImpact(RayTraceResult result)
     {
         if (!this.world.isRemote)
@@ -492,9 +495,32 @@ public class EntityMeme extends EntityThrowable
         entityareaeffectcloud.setWaitTime(10);
         entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float)entityareaeffectcloud.getDuration());
         entityareaeffectcloud.setColor(13882323);
-        entityareaeffectcloud.setPotion(new PotionType(new PotionEffect(TrollPotion.INSTANCE, 60 * 20)));
+        entityareaeffectcloud.setPotion(TrollPotion.type);
         
         this.world.spawnEntity(entityareaeffectcloud);
+    }
+    
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        ItemStack itemstack = new ItemStack(compound);
+
+        if (itemstack.isEmpty())
+        {
+            this.setDead();
+        }
+        else
+        {
+            this.setItem(itemstack);
+        }
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+        super.writeEntityToNBT(compound);
+        ItemStack itemstack = this.getItemName();
     }
 
     private boolean isLingering()
