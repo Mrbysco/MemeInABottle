@@ -47,9 +47,9 @@ public class TrollPotion extends Potion{
             this.doMemeStuff(posX, posY, posZ, entityLiving.world, player, player, rand.nextInt(MIABConfigGen.MemeRandomness), false);
         }
 	}
-	public static void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
+	public void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
     {	
-		if (RandomValue <23) 
+		if (RandomValue <4) 
 		{
 			if(MIABConfigGen.UseNarator)
 			{
@@ -67,7 +67,7 @@ public class TrollPotion extends Potion{
 			
 		}
 	 	
-		else if (RandomValue <7) 
+		else if (RandomValue <8) 
 		{
 			if(MIABConfigGen.UseNarator)
 			{
@@ -83,7 +83,7 @@ public class TrollPotion extends Potion{
 	    		player.sendMessage(new TextComponentTranslation("navy.part6"));
 			}
 		}
-		else if (RandomValue <15) 
+		else if (RandomValue <12) 
 		{
 			if(MIABConfigGen.UseNarator)
 			{

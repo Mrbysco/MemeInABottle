@@ -149,12 +149,11 @@ public class EntityMeme extends EntityThrowable
         {	
         	int random = rand.nextInt(MIABConfigGen.MemeRandomness);
             ItemStack itemstack = this.getItemName();
-            int color = 13882323;
 
                 if (this.isLingering())
                 {
                     this.makeAreaOfEffectCloud(itemstack);
-                	this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random, true);
+                	//this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random, true);
                 }
                 else
                 {
@@ -165,7 +164,7 @@ public class EntityMeme extends EntityThrowable
         this.setDead();
     }
 
-    public static void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
+    public void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
     {	
 	    	if (RandomValue <1 ) 
 	    	{ 
@@ -272,8 +271,6 @@ public class EntityMeme extends EntityThrowable
 				}
 			}
 	    	
-	 		
-	 		//Disabled till I figure out how to summon a modded villager
 	    	else if (RandomValue <9) 
 	    	{ 
 	    		entity.playSound(MiabSoundEvents.keyboard_mechanical, 1F, 1F);
@@ -428,7 +425,7 @@ public class EntityMeme extends EntityThrowable
 	    	
 	    	else if (RandomValue <23) 
 	    	{
-	    		if(MIABConfigGen.UseNarator)
+	    		if(MIABConfigGen.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.memebee_part);
 	    		}
@@ -446,7 +443,7 @@ public class EntityMeme extends EntityThrowable
 		 	
 	    	else if (RandomValue <24) 
 	    	{
-	    		if(MIABConfigGen.UseNarator)
+	    		if(MIABConfigGen.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.navy_part);
 	    		}
@@ -462,7 +459,7 @@ public class EntityMeme extends EntityThrowable
 	    	}
 			else if (RandomValue <25) 
 			{
-				if(MIABConfigGen.UseNarator)
+				if(MIABConfigGen.UseNarator == true)
 				{
 					Narrator.getNarrator().say(MemeText.lm_part);
 				}
@@ -476,7 +473,8 @@ public class EntityMeme extends EntityThrowable
 				}
 				
 			}
-			else if(MIABConfigGen.MatureSounds)
+	    	
+			else if(MIABConfigGen.MatureSounds == true)
 	    	{
 				entity.playSound(MiabSoundEvents.meme_soundMature, 1F, 1F);
 	    	}
@@ -488,7 +486,7 @@ public class EntityMeme extends EntityThrowable
     
     private void makeAreaOfEffectCloud(ItemStack stack)
     {
-    	EntityPlayer playerIn = this.world.getClosestPlayerToEntity(this, 20.0);
+    	int random1 = rand.nextInt(MIABConfigGen.MemeRandomness);
     	
         EntityAreaEffectCloud entityareaeffectcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
         entityareaeffectcloud.setOwner(this.getThrower());
@@ -497,6 +495,7 @@ public class EntityMeme extends EntityThrowable
         entityareaeffectcloud.setWaitTime(10);
         entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float)entityareaeffectcloud.getDuration());
         entityareaeffectcloud.setColor(13882323);
+        this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random1, true);
         
         //This should work D:
         entityareaeffectcloud.addEffect(TrollPotion.effect);
