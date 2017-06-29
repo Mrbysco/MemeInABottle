@@ -1,3 +1,4 @@
+#item names
 item.memeinabottle.name=Meme In A Bottle
 item.splashmemeinabottle.name=Splash Meme In A Bottle
 item.lingeringmemeinabottle.name=Lingering Meme In A Bottle
@@ -16,15 +17,20 @@ item.waffle.name=Waffle
 item.poptart.name=Poptart
 item.memerecord1.name=Music Disc
 
+#Record names
 item.record.memesong1.desc=We Are Inverted
 
+#Block names
 tile.bottleblock.name=Bottle Block (WIP)
 tile.keyboardmechanical.name=Keyboard Mechanical
 
+#Effect name
 effect.miab.memed=Memed
 
+#Creative tab name
 itemGroup.tabMIAB=Meme In A Bottle
 
+#Entity names
 entity.miab:EntityMeme.name=Splash Meme In A Bottle
 entity.miab:JohnCena.name=John Cena
 entity.miab:BillCipher.name=Bill Cipher
@@ -46,6 +52,7 @@ entity.miab:NyanCat.name=Nyan Cat
 entity.miab:TacNyan.name=Tac Nyan
 entity.Villager:keyboardreviewer=Keyboard Reviewer
 
+#Stat info
 stats.belt.addInfo=4+ Strength
 stats.belt.addInfo1=4+ Stamina
 stats.belt.addInfo2=
@@ -73,3 +80,6 @@ lm.part4=This game could not possibly be anymore me.
 lm.part5=It’s me, and nobody can convince me otherwise. 
 
 cena.itscena=And his name is! JOHN CENA
+
+#Config name
+miab.config.title=Meme In A Bottle Config
