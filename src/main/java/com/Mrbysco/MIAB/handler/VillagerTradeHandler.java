@@ -5,10 +5,11 @@ import java.util.Random;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityVillager.ITradeList;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
-import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 
 public class VillagerTradeHandler {
 	 public static class ItemstackForEmerald  implements ITradeList
@@ -28,19 +29,17 @@ public class VillagerTradeHandler {
  			this.priceInfo = priceIn;
  		}
 
-        /*
         public static ItemStack copyStackWithAmount(ItemStack stack, int amount)
         {    	
-            if(stack==null)
-                return null;
-            ItemStack Stack2 = stack.copy();
-            Stack2.stackSize=amount;
-            return Stack2;
+    		if(stack.isEmpty())
+    			return ItemStack.EMPTY;
+    		ItemStack Stack2 = stack.copy();
+    		Stack2.setCount(amount);
+    		return Stack2;
         }
-        */
+
 		@Override
 		public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random) {
-			/*
             int i = 1;
             if (this.priceInfo != null)
                 i = this.priceInfo.getPrice(random);
@@ -54,7 +53,6 @@ public class VillagerTradeHandler {
                 itemStack2 = copyStackWithAmount(sellingItem, i);
             }
             recipeList.add(new MerchantRecipe(itemStack1, itemStack2));
-            */
         	}
 
 		}

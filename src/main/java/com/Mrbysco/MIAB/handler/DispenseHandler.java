@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 
 public class DispenseHandler extends BehaviorProjectileDispense {
 	
-	
 	public ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
         World world = source.getWorld();
         IPosition iposition = BlockDispenser.getDispensePosition(source);
@@ -25,7 +24,7 @@ public class DispenseHandler extends BehaviorProjectileDispense {
         stack.shrink(1);
         return stack;
 	}
-
+    
 	@Override
 	protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 			EntityMeme meme = new EntityMeme(worldIn, position.getX(), position.getY(), position.getZ(), stackIn);
