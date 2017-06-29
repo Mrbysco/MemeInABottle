@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemleatherbelt"
+        },
+        "title": {
+            "translate": "Leather Belt"
+        },
+        "description": {
+            "translate": "Strength 4, Stam 4 leather belt, level 18"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/splash",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemleatherbelt"
+                    }
+                ]
+            }
+        }
+    }
+}

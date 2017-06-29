@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemlingeringmemeinabottle"
+        },
+        "title": {
+            "translate": "Memer Fever"
+        },
+        "description": {
+            "translate": "Not sure if trolling, or just stupid"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/splash",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemlingeringmemeinabottle"
+                    }
+                ]
+            }
+        }
+    }
+}

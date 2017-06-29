@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itempineapple"
+        },
+        "title": {
+            "translate": "Pineapple"
+        },
+        "description": {
+            "translate": "I belong on pizza"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/hat",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itempineapple"
+                    }
+                ]
+            }
+        }
+    }
+}

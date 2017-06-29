@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemapple"
+        },
+        "title": {
+            "translate": "MineCo Computers"
+        },
+        "description": {
+            "translate": "Best in Minecraftia"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/pineapple",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemapple"
+                    }
+                ]
+            }
+        }
+    }
+}

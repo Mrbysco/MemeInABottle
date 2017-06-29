@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemtrumphair"
+        },
+        "title": {
+            "translate": "It's a Wig"
+        },
+        "description": {
+            "translate": "Grows in Bushes"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/belt",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemtrumphair"
+                    }
+                ]
+            }
+        }
+    }
+}
