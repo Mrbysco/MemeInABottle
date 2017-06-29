@@ -488,6 +488,8 @@ public class EntityMeme extends EntityThrowable
     
     private void makeAreaOfEffectCloud(ItemStack stack)
     {
+    	EntityPlayer playerIn = this.world.getClosestPlayerToEntity(this, 20.0);
+    	
         EntityAreaEffectCloud entityareaeffectcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
         entityareaeffectcloud.setOwner(this.getThrower());
         entityareaeffectcloud.setRadius(3.0F);
@@ -495,7 +497,9 @@ public class EntityMeme extends EntityThrowable
         entityareaeffectcloud.setWaitTime(10);
         entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float)entityareaeffectcloud.getDuration());
         entityareaeffectcloud.setColor(13882323);
-        entityareaeffectcloud.setPotion(TrollPotion.type);
+        
+        //This should work D:
+        entityareaeffectcloud.addEffect(TrollPotion.effect);
         
         this.world.spawnEntity(entityareaeffectcloud);
     }

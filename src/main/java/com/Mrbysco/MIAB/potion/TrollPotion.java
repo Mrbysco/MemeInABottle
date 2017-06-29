@@ -25,7 +25,9 @@ public class TrollPotion extends Potion{
 	private Random rand = new Random();
 	public static final ResourceLocation POTION_ICON = new ResourceLocation("miab:textures/potion/memedfx.png");
 	public static final TrollPotion INSTANCE = new TrollPotion();
-	public static PotionType type = new PotionType(new PotionEffect(INSTANCE, 60 * 20));
+	
+	public static PotionEffect effect = new PotionEffect(TrollPotion.INSTANCE, 60 * 20);
+	public static PotionType type = new PotionType(effect);
 	
 	public TrollPotion() {
 		super(true, 13882323);
