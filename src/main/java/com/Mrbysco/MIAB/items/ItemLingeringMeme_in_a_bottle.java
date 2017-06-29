@@ -16,10 +16,10 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class ItemLingeringMeme_in_a_bottle extends Item{
-	public ItemLingeringMeme_in_a_bottle() {
+	public ItemLingeringMeme_in_a_bottle(String UnlocalisedName, String RegistryName) {
 		this.maxStackSize = 8;
-        setUnlocalizedName(Reference.MIABItems.LINGERINGMEMEINABOTTLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.LINGERINGMEMEINABOTTLE.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 	

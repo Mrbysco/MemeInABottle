@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 
 public class ItemPineapple extends ItemFood{
 
-	public ItemPineapple(int amount, float saturation, boolean isWolfFood) {
+	public ItemPineapple(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setUnlocalizedName(Reference.MIABItems.PINEAPPLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.PINEAPPLE.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 

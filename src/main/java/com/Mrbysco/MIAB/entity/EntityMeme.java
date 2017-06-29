@@ -424,6 +424,31 @@ public class EntityMeme extends EntityThrowable
 	    	}
 	    	
 	    	else if (RandomValue <23) 
+	    	{ 
+	    		if(MIABConfigGen.UseNarator == true)
+	    		{
+	    			Narrator.getNarrator().say(MemeText.ykwtd);
+	    		}
+	    		else
+	    		{
+	    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
+	    		}
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.fidget)));
+	    	}
+	    	
+	    	else if (RandomValue <24) 
+	    	{ 
+	    		if(MIABConfigGen.UseNarator == true)
+	    		{
+	    			Narrator.getNarrator().say(MemeText.ykwtd);
+	    		}
+	    		else
+	    		{
+	    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
+	    		}
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.knife)));
+	    	}
+	    	else if (RandomValue <25) 
 	    	{
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -441,7 +466,7 @@ public class EntityMeme extends EntityThrowable
 	    		
 	    	}
 		 	
-	    	else if (RandomValue <24) 
+	    	else if (RandomValue <26) 
 	    	{
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -457,7 +482,7 @@ public class EntityMeme extends EntityThrowable
 	        		player.sendMessage(new TextComponentTranslation("navy.part6"));
 	    		}
 	    	}
-			else if (RandomValue <25) 
+			else if (RandomValue <27) 
 			{
 				if(MIABConfigGen.UseNarator == true)
 				{

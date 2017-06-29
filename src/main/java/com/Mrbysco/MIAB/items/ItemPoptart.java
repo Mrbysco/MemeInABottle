@@ -7,10 +7,10 @@ import net.minecraft.item.ItemFood;
 
 public class ItemPoptart extends ItemFood{
 
-	public ItemPoptart(int amount, float saturation, boolean isWolfFood) {
+	public ItemPoptart(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setUnlocalizedName(Reference.MIABItems.POPTART.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.POPTART.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 }

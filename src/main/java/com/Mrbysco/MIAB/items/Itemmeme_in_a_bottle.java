@@ -7,11 +7,11 @@ import net.minecraft.item.Item;
 
 public class Itemmeme_in_a_bottle extends Item{
 	
-	public Itemmeme_in_a_bottle()
+	public Itemmeme_in_a_bottle(String UnlocalisedName, String RegistryName)
     {
         this.maxStackSize = 16;
-        setUnlocalizedName(Reference.MIABItems.MEMEINABOTTLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.MEMEINABOTTLE.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
     }
 

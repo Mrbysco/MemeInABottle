@@ -12,10 +12,10 @@ import net.minecraft.world.World;
 
 public class ItemOnion extends ItemFood{
 
-	public ItemOnion(int amount, float saturation, boolean isWolfFood) {
+	public ItemOnion(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setUnlocalizedName(Reference.MIABItems.ONION.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.ONION.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 

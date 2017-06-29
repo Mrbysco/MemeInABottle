@@ -1,0 +1,14 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "miab:items/fidget"
+    },
+	"overrides": [
+        {
+            "predicate": {
+                "spinning": 1
+            },
+            "model": "miab:item/itemfidgetspinner"
+        }
+    ]
+}

@@ -15,6 +15,9 @@ item.sax.name=Saxophone
 item.rippoffhat.name=Grand Hat
 item.waffle.name=Waffle
 item.poptart.name=Poptart
+item.fidget.name=Fidget Spinner
+item.knife.name=Knife
+item.hotknife.name=1000 Degree Knife
 item.memerecord1.name=Music Disc
 
 #Record names
@@ -80,6 +83,8 @@ lm.part4=This game could not possibly be anymore me.
 lm.part5=It’s me, and nobody can convince me otherwise. 
 
 cena.itscena=And his name is! JOHN CENA
+
+message.ykwtd=You know what to do!
 
 #Config name
 miab.config.title=Meme In A Bottle Config

@@ -12,9 +12,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemPen extends Item{
-	public ItemPen() {
-		setUnlocalizedName(Reference.MIABItems.PEN.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.PEN.getRegistryName());
+	public ItemPen(String UnlocalisedName, String RegistryName) {
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 

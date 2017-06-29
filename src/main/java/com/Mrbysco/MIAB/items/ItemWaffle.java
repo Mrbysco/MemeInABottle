@@ -12,10 +12,10 @@ import net.minecraft.world.World;
 
 public class ItemWaffle extends ItemFood{
 
-	public ItemWaffle(int amount, float saturation, boolean isWolfFood) {
+	public ItemWaffle(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setUnlocalizedName(Reference.MIABItems.WAFFLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.WAFFLE.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 }

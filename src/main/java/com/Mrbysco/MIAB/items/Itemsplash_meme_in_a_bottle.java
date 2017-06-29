@@ -17,11 +17,11 @@ import net.minecraft.world.World;
 
 public class Itemsplash_meme_in_a_bottle extends Item {
 
-	public Itemsplash_meme_in_a_bottle()
+	public Itemsplash_meme_in_a_bottle(String UnlocalisedName, String RegistryName)
     {
         this.maxStackSize = 8;
-        setUnlocalizedName(Reference.MIABItems.SPLASHMEMEINABOTTLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.SPLASHMEMEINABOTTLE.getRegistryName());
+        setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
     }
 

@@ -14,9 +14,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemLeather_belt extends Itemcustom_armor{
 
-	public ItemLeather_belt(String unlocalizedName, ArmorMaterial material, int renderIndex,
-			EntityEquipmentSlot armorType) {
-		super(unlocalizedName, material, renderIndex, armorType);
+	public ItemLeather_belt(String name, ArmorMaterial material, int renderIndex, EntityEquipmentSlot armorType, String UnlocalisedName, String RegistryName) {
+		super(name, material, renderIndex, armorType, RegistryName, RegistryName);
 	}
 	
 	@Override

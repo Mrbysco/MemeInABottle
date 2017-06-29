@@ -20,4 +20,6 @@ public class MemeText {
 										+ "There is no way you can convince me this is not me,"
 										+ "This game could not possibly be anymore me,"
 										+ "It’s me, and nobody can convince me otherwise";
+	
+	public static final String ykwtd = "You know what to do";
 	}

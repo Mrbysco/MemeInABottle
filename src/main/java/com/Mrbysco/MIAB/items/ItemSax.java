@@ -12,9 +12,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemSax extends Item{
-	public ItemSax() {
-		setUnlocalizedName(Reference.MIABItems.SAX.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.SAX.getRegistryName());
+	public ItemSax(String UnlocalisedName, String RegistryName) {
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 	

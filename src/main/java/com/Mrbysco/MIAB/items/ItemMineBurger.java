@@ -7,10 +7,10 @@ import net.minecraft.item.ItemFood;
 
 public class ItemMineBurger extends ItemFood{
 
-	public ItemMineBurger(int amount, float saturation, boolean isWolfFood) {
+	public ItemMineBurger(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setUnlocalizedName(Reference.MIABItems.MINEBURGER.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.MINEBURGER.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 }

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemfidget"
+        },
+        "title": {
+            "translate": "Fidgetty spinnerino"
+        },
+        "description": {
+            "translate": "Spin the night away"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/sax",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemfidget"
+                    }
+                ]
+            }
+        }
+    }
+}

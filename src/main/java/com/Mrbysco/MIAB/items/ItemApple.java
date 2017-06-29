@@ -12,10 +12,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemApple extends ItemFood {
-	public ItemApple(int amount, float saturation, boolean isWolfFood) {
+	public ItemApple(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setUnlocalizedName(Reference.MIABItems.APPLE.getUnlocalisedName());
-		setRegistryName(Reference.MIABItems.APPLE.getRegistryName());
+		setUnlocalizedName(UnlocalisedName);
+		setRegistryName(RegistryName);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 

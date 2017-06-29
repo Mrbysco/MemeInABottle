@@ -1,9 +1,11 @@
 package com.Mrbysco.MIAB.init;
 
-import com.Mrbysco.MIAB.Reference;
 import com.Mrbysco.MIAB.handler.DispenseHandler;
 import com.Mrbysco.MIAB.items.ItemApple;
 import com.Mrbysco.MIAB.items.ItemCustomRecord;
+import com.Mrbysco.MIAB.items.ItemFidget;
+import com.Mrbysco.MIAB.items.ItemHot_Knife;
+import com.Mrbysco.MIAB.items.ItemKnife;
 import com.Mrbysco.MIAB.items.ItemLeather_belt;
 import com.Mrbysco.MIAB.items.ItemLingeringMeme_in_a_bottle;
 import com.Mrbysco.MIAB.items.ItemMineBurger;
@@ -25,6 +27,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemRecord;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -48,6 +51,9 @@ public class MIABItems {
 	public static Item waffle;
 	public static Item poptart;
 	public static ItemRecord meme_record1;
+	public static ItemSword knife;
+	public static ItemSword hot_knife;
+	public static Item fidget;
 	
 	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
@@ -56,23 +62,26 @@ public class MIABItems {
 	public static final ArmorMaterial ripoffhat = EnumHelper.addArmorMaterial("rippoffhat", "miab:rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	
 	public static void init(){
-		meme_in_a_bottle = new Itemmeme_in_a_bottle();
-		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle();
-		lingering_meme_in_a_bottle = new ItemLingeringMeme_in_a_bottle();
-		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 1, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TRUMPHAIR.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TRUMPHAIR.getUnlocalisedName());
-		mcw_belt = new Itemcustom_armor("mcw_belt", belt, 2, EntityEquipmentSlot.LEGS).setRegistryName(Reference.MIABItems.MCWBELT.getRegistryName()).setUnlocalizedName(Reference.MIABItems.MCWBELT.getUnlocalisedName());
-		leather_belt = new ItemLeather_belt("leather_belt", leatherbelt, 1, EntityEquipmentSlot.CHEST).setRegistryName(Reference.MIABItems.LEATHERBELT.getRegistryName()).setUnlocalizedName(Reference.MIABItems.LEATHERBELT.getUnlocalisedName());
-		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 1, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.TROLLMASK.getRegistryName()).setUnlocalizedName(Reference.MIABItems.TROLLMASK.getUnlocalisedName());
-		ripoff_hat = new Itemcustom_armor("ripoff_hat", ripoffhat, 1, EntityEquipmentSlot.HEAD).setRegistryName(Reference.MIABItems.RIPOFFHAT.getRegistryName()).setUnlocalizedName(Reference.MIABItems.RIPOFFHAT.getUnlocalisedName());
-		pineapple = new ItemPineapple(3, 4, false);
-		apple = new ItemApple(2, 4, false);
-		onion = new ItemOnion(2, 4, false);
-		burger = new ItemMineBurger(4, 4, false);
-		waffle = new ItemWaffle(3, 3, false);
-		poptart = new ItemPoptart(3, 3, false);
-		pen = new ItemPen();
-		sax = new ItemSax();
+		meme_in_a_bottle = new Itemmeme_in_a_bottle("memeinabottle", "itemmemeinabottle");
+		splash_meme_in_a_bottle = new Itemsplash_meme_in_a_bottle("splashmemeinabottle", "itemsplashmemeinabottle");
+		lingering_meme_in_a_bottle = new ItemLingeringMeme_in_a_bottle("lingeringmemeinabottle", "itemlingeringmemeinabottle");
+		trump_hair = new Itemcustom_armor("trump_hair", trumphair, 1, EntityEquipmentSlot.HEAD, "trumphair", "itemtrumphair");
+		mcw_belt = new Itemcustom_armor("mcw_belt", belt, 2, EntityEquipmentSlot.LEGS,"mcwbelt", "itemmcwbelt");
+		leather_belt = new ItemLeather_belt("leather_belt", leatherbelt, 1, EntityEquipmentSlot.CHEST, "leatherbelt", "itemleatherbelt");
+		troll_mask = new Itemcustom_armor("troll_mask", trollmask, 1, EntityEquipmentSlot.HEAD, "trollmask", "itemtrollmask");
+		ripoff_hat = new Itemcustom_armor("ripoff_hat", ripoffhat, 1, EntityEquipmentSlot.HEAD, "rippoffhat", "itemripoffhat");
+		pineapple = new ItemPineapple(3, 4, false, "pineapple", "itempineapple");
+		apple = new ItemApple(2, 4, false, "apple", "itemapple");
+		onion = new ItemOnion(2, 4, false, "onion", "itemonion");
+		burger = new ItemMineBurger(4, 4, false, "mineburger", "itemmineburger");
+		waffle = new ItemWaffle(3, 3, false, "waffle", "itemwaffle");
+		poptart = new ItemPoptart(3, 3, false, "poptart", "itempoptart");
+		pen = new ItemPen("pen", "itempen");
+		sax = new ItemSax("sax", "itemsax");
 		meme_record1 = new ItemCustomRecord("memesong1", MiabSoundEvents.meme_music, "itemmemerecord1", "memerecord1");
+		knife = new ItemKnife(Item.ToolMaterial.IRON, "knife", "itemknife");
+		hot_knife = new ItemHot_Knife(Item.ToolMaterial.IRON, "hotknife", "itemhotknife");
+		fidget = new ItemFidget("fidget", "itemfidget");
 		}
 	
 	public static void register()
@@ -94,6 +103,9 @@ public class MIABItems {
 		ForgeRegistries.ITEMS.register(poptart);
 		ForgeRegistries.ITEMS.register(sax);
 		ForgeRegistries.ITEMS.register(meme_record1);
+		ForgeRegistries.ITEMS.register(knife);
+		ForgeRegistries.ITEMS.register(hot_knife);
+		ForgeRegistries.ITEMS.register(fidget);
 		
     	BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(MIABItems.splash_meme_in_a_bottle, new DispenseHandler());
 	}
@@ -117,6 +129,9 @@ public class MIABItems {
 		registerRender(poptart);
 		registerRender(sax);
 		registerRender(meme_record1);
+		registerRender(knife);
+		registerRender(hot_knife);
+		registerRender(fidget);
 	}
 	
 	public static void registerRender(Item item)
