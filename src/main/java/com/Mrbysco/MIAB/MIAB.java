@@ -1,7 +1,7 @@
 package com.Mrbysco.MIAB;
 
+import com.Mrbysco.MIAB.config.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABBlocks;
-import com.Mrbysco.MIAB.init.MIABConfigGen;
 import com.Mrbysco.MIAB.init.MIABEntities;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.init.MIABPotions;
@@ -12,7 +12,6 @@ import com.Mrbysco.MIAB.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -25,7 +24,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 	name = Reference.MOD_NAME, 
 	version = Reference.VERSION, 
 	acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS, 
-	dependencies = "required-after:forge@[14.21.0.2348,)")
+	dependencies = "required-after:forge@[14.21.1.2387,)")
 public class MIAB {
 	
 	@Instance(Reference.MOD_ID)
@@ -44,8 +43,7 @@ public class MIAB {
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event)
     {
-    	Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
-    	MIABConfigGen.configOptions(cfg);
+    	MinecraftForge.EVENT_BUS.register(new MIABConfigGen());
     	
     	MiabSoundEvents.registerSounds();
     	

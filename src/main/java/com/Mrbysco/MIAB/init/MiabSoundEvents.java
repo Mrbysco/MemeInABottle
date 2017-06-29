@@ -62,7 +62,8 @@ public class MiabSoundEvents {
 	public static SoundEvent nigel_blagh;
 	public static SoundEvent meme_music;
 	
-	public static void registerSounds() {
+	public static void registerSounds() 
+	{
 		meme_soundMature = registerSound("meme.soundmature");
 		meme_sound = registerSound("meme.sound");
 		cena_spawn = registerSound("cena.spawn");
@@ -119,11 +120,11 @@ public class MiabSoundEvents {
 	}
 	
 	private static SoundEvent registerSound(String soundName)
-    {
+	{
 		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, soundName);
 		SoundEvent event = new SoundEvent(location);
-        event.setRegistryName(location);
-        ForgeRegistries.SOUND_EVENTS.register(event);
-        return event;
-    }
+		event.setRegistryName(location);
+		ForgeRegistries.SOUND_EVENTS.register(event);
+		return event;
+	}
 }
