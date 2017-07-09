@@ -1,6 +1,7 @@
 package com.Mrbysco.MIAB.proxy;
 
 import com.Mrbysco.MIAB.entity.EntityMeme;
+import com.Mrbysco.MIAB.entity.monsters.EntityAttachedGirlfriend;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
@@ -23,6 +24,7 @@ import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 import com.Mrbysco.MIAB.init.MIABBlocks;
 import com.Mrbysco.MIAB.init.MIABItems;
 import com.Mrbysco.MIAB.renderer.EntityRenderingFactory;
+import com.Mrbysco.MIAB.renderer.monsters.RenderAttachedGirlfriend;
 import com.Mrbysco.MIAB.renderer.monsters.RenderBill;
 import com.Mrbysco.MIAB.renderer.monsters.RenderCena;
 import com.Mrbysco.MIAB.renderer.monsters.RenderDankey;
@@ -55,24 +57,25 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderingFactories(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityMeme.class, new EntityRenderingFactory());
-		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, RenderCena.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityAttachedGirlfriend.class, RenderAttachedGirlfriend.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBill.class, RenderBill.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDoge.class, RenderDoge.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrumpy.class, RenderGrumpy.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityTrump.class, RenderTrump.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityKhil.class, RenderKhil.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityPpap.class, RenderPpap.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityShrek.class, RenderShrek.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDatBoi.class, RenderDatBoi.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMoonman.class, RenderMoonman.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityRobbie.class, RenderRobbie.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMario7.class, RenderMario7.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySanic.class, RenderSanic.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityPepe.class, RenderPepe.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityFA.class, RenderFA.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityNyanCat.class, RenderNyanCat.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityTacNyan.class, RenderTacNyan.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, RenderCena.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityDankey.class, RenderDankey.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDatBoi.class, RenderDatBoi.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDoge.class, RenderDoge.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFA.class, RenderFA.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrumpy.class, RenderGrumpy.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityKhil.class, RenderKhil.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMario7.class, RenderMario7.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMoonman.class, RenderMoonman.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityNigel.class, RenderNigel.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityNyanCat.class, RenderNyanCat.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPepe.class, RenderPepe.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPpap.class, RenderPpap.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRobbie.class, RenderRobbie.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySanic.class, RenderSanic.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityShrek.class, RenderShrek.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTacNyan.class, RenderTacNyan.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTrump.class, RenderTrump.FACTORY);
 	}
 }

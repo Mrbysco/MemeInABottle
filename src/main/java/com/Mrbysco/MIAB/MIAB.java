@@ -9,6 +9,7 @@ import com.Mrbysco.MIAB.init.MIABRecipes;
 import com.Mrbysco.MIAB.init.MIABVillagers;
 import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import com.Mrbysco.MIAB.proxy.CommonProxy;
+import com.Mrbysco.MIAB.worldgen.MIABWorldgen;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -47,6 +48,8 @@ public class MIAB {
     	MinecraftForge.EVENT_BUS.register(new MIABConfigGen());
     	
     	MiabSoundEvents.registerSounds();
+    	
+    	MIABWorldgen.init();
     	
     	MIABBlocks.init();
     	MIABBlocks.register();

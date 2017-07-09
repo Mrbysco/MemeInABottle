@@ -2,6 +2,7 @@ package com.Mrbysco.MIAB.init;
 
 import com.Mrbysco.MIAB.MIAB;
 import com.Mrbysco.MIAB.entity.EntityMeme;
+import com.Mrbysco.MIAB.entity.monsters.EntityAttachedGirlfriend;
 import com.Mrbysco.MIAB.entity.monsters.EntityBill;
 import com.Mrbysco.MIAB.entity.monsters.EntityCena;
 import com.Mrbysco.MIAB.entity.monsters.EntityDankey;
@@ -47,6 +48,7 @@ public class MIABEntities {
 		EntityRegistry.registerModEntity(MIABEntityNames.TAC_NYAN_REGISTRY, EntityTacNyan.class, MIABEntityNames.TAC_NYAN, 17, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.DANKEY_KANG_REGISTRY, EntityDankey.class, MIABEntityNames.DANKEY_KANG, 18, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.NIGEL_THORNBERRY_REGISTRY, EntityNigel.class, MIABEntityNames.NIGEL_THORNBERRY, 19, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(MIABEntityNames.ATTACHED_GIRLFRIEND_REGISTRY, EntityAttachedGirlfriend.class, MIABEntityNames.ATTACHED_GIRLFRIEND, 20, MIAB.instance, 80, 3, true);
 	}
 
 }

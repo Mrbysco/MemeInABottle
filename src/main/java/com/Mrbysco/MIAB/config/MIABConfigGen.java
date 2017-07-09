@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = Reference.MOD_ID)
 @Config.LangKey("miab.config.title")
 public class MIABConfigGen {
+	@Config.Comment("Generation of bottles on sand near water (default: true)")
+	public static boolean GenerateBottles = true;
 	
 	@Config.Comment("Censors out some of the questionable memes (default: false)")
 	public static boolean MatureSounds = false;
