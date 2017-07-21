@@ -22,4 +22,6 @@ public class MemeText {
 										+ "It’s me, and nobody can convince me otherwise";
 	
 	public static final String ykwtd = "You know what to do";
+
+	public static final String dangerous = "It's dangerous to go alone, take this";
 	}

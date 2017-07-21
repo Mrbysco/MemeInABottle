@@ -8,7 +8,11 @@ item.trumphair.name=Trumps Hair
 item.trollmask.name=Trollface mask
 item.pineapple.name=Pineapple
 item.apple.name=Apple
+item.applepen.name=Apple Pen
+item.pineapplepen.name=Pineapple Pen
+item.ppap.name=Pen Pineapple Apple Pen
 item.pen.name=Pen
+item.pills.name=Pills
 item.onion.name=Onion
 item.mineburger.name=MineBurger
 item.sax.name=Saxophone
@@ -68,6 +72,8 @@ stats.belt.addInfo2=
 stats.belt.addInfo3=Required level 18
 
 #Chat messages
+dangerous=It's dangerous to go alone, take this
+
 memebee.part1=According to all known laws of gravitation,
 memebee.part2=there is no way a dirt block should be able to float.
 memebee.part3=There is no logic behind it holding it up in the air.

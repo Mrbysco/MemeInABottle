@@ -38,6 +38,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -438,21 +439,22 @@ public class EntityMeme extends EntityThrowable
 	    	
 	    	else if (RandomValue <24) 
 	    	{ 	
-	    		entity.playSound(MiabSoundEvents.pills, 1F, 1F);
-	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.pills)));
-	    	}
-	    	
-	    	else if (RandomValue <25) 
-	    	{ 
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
-	    			Narrator.getNarrator().say(MemeText.ykwtd);
+	    			Narrator.getNarrator().say(MemeText.dangerous);
 	    		}
 	    		else
 	    		{
-	    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
+	    			player.sendMessage(new TextComponentTranslation("dangerous"));	
 	    		}
-	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.fidget)));
+	    		
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(Items.IRON_SWORD)));
+	    	}
+	    	
+	    	else if (RandomValue <25) 
+	    	{ 	
+	    		entity.playSound(MiabSoundEvents.pills, 1F, 1F);
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.pills)));
 	    	}
 	    	
 	    	else if (RandomValue <26) 
@@ -465,9 +467,22 @@ public class EntityMeme extends EntityThrowable
 	    		{
 	    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
 	    		}
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.fidget)));
+	    	}
+	    	
+	    	else if (RandomValue <27) 
+	    	{ 
+	    		if(MIABConfigGen.UseNarator == true)
+	    		{
+	    			Narrator.getNarrator().say(MemeText.ykwtd);
+	    		}
+	    		else
+	    		{
+	    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
+	    		}
 	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.knife)));
 	    	}
-	    	else if (RandomValue <27) 
+	    	else if (RandomValue <28) 
 	    	{
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -485,7 +500,7 @@ public class EntityMeme extends EntityThrowable
 	    		
 	    	}
 		 	
-	    	else if (RandomValue <28) 
+	    	else if (RandomValue <29) 
 	    	{
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -501,7 +516,7 @@ public class EntityMeme extends EntityThrowable
 	        		player.sendMessage(new TextComponentTranslation("navy.part6"));
 	    		}
 	    	}
-			else if (RandomValue <29) 
+			else if (RandomValue <30) 
 			{
 				if(MIABConfigGen.UseNarator == true)
 				{
