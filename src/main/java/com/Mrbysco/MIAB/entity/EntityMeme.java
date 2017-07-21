@@ -439,7 +439,7 @@ public class EntityMeme extends EntityThrowable
 	    	else if (RandomValue <24) 
 	    	{ 	
 	    		entity.playSound(MiabSoundEvents.pills, 1F, 1F);
-	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.fidget)));
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.pills)));
 	    	}
 	    	
 	    	else if (RandomValue <25) 

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itempills"
+        },
+        "title": {
+            "translate": "Pills Here!"
+        },
+        "description": {
+            "translate": "Grabbin Pills!"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/keyboard",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itempills"
+                    }
+                ]
+            }
+        }
+    }
+}
