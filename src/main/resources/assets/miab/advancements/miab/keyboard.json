@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:blockkeyboardmechanical"
+        },
+        "title": {
+            "translate": "Keyboard Mechanical"
+        },
+        "description": {
+            "translate": "This is my review of the Logicraft G920"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/fidget",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:blockkeyboardmechanical"
+                    }
+                ]
+            }
+        }
+    }
+}

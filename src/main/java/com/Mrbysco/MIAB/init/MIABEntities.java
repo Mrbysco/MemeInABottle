@@ -17,12 +17,14 @@ import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntitySkywalker;
 import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
 import com.Mrbysco.MIAB.entity.passive.EntityGrumpy;
 import com.Mrbysco.MIAB.entity.passive.EntityNyanCat;
 
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class MIABEntities {
@@ -49,6 +51,7 @@ public class MIABEntities {
 		EntityRegistry.registerModEntity(MIABEntityNames.DANKEY_KANG_REGISTRY, EntityDankey.class, MIABEntityNames.DANKEY_KANG, 18, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.NIGEL_THORNBERRY_REGISTRY, EntityNigel.class, MIABEntityNames.NIGEL_THORNBERRY, 19, MIAB.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(MIABEntityNames.ATTACHED_GIRLFRIEND_REGISTRY, EntityAttachedGirlfriend.class, MIABEntityNames.ATTACHED_GIRLFRIEND, 20, MIAB.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(MIABEntityNames.ANAKIN_SKYWALKER_REGISTRY, EntitySkywalker.class, MIABEntityNames.ANAKIN_SKYWALKER, 21, MIAB.instance, 80, 3, true);
 	}
 
 }

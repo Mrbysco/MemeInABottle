@@ -19,16 +19,18 @@ item.fidget.name=Fidget Spinner
 item.knife.name=Knife
 item.hotknife.name=1000 Degree Knife
 item.memerecord1.name=Music Disc
+item.memerecord2.name=Music Disc
 
 #Record names
 item.record.memesong1.desc=We Are Inverted
+item.record.memesong2.desc=What Song Is This?
 
 #Block names
 tile.bottleblock.name=Bottle Block (WIP)
 tile.keyboardmechanical.name=Keyboard Mechanical
 
 #Effect name
-effect.miab.memed=Memed
+effect.miab.memed=Dank
 
 #Creative tab name
 itemGroup.tabMIAB=Meme In A Bottle
@@ -53,6 +55,10 @@ entity.miab:Pepe.name=Pepe
 entity.miab:ForeverAlone.name=Pepe
 entity.miab:NyanCat.name=Nyan Cat
 entity.miab:TacNyan.name=Tac Nyan
+entity.miab:DankeyKang.name=Dankey Kang
+entity.miab:NigelThornberry.name=Nigel Thornberry
+entity.miab:AttachedGirlfriend.name=Overly Attached Girlfriend
+entity.miab:AnakinSkywalker.name=Anakin Skywalker
 entity.Villager:keyboardreviewer=Keyboard Reviewer
 
 #Stat info

@@ -4,6 +4,7 @@ import com.Mrbysco.MIAB.MIAB;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -29,6 +30,7 @@ public class ItemHot_Knife extends ItemSword{
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		target.setFire(3);
+		attacker.playSound(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1F, 1F);
 		return true;
 	}
 	

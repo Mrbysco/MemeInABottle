@@ -70,7 +70,7 @@ public class MIAB {
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	MinecraftForge.EVENT_BUS.register(new com.Mrbysco.MIAB.handler.EventHandler());
+    	
     }
     
     @EventHandler

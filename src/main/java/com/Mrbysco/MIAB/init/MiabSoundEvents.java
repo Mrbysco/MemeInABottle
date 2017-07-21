@@ -30,6 +30,9 @@ public class MiabSoundEvents {
 	public static SoundEvent ppap_havepen;
 	public static SoundEvent ppap_havepineapple;
 	public static SoundEvent ppap_haveapple;
+	public static SoundEvent ppap_applepen;
+	public static SoundEvent ppap_pineapplepen;
+	public static SoundEvent ppap_ppap;
 	public static SoundEvent keyboard_mechanical;
 	public static SoundEvent moonman_summon;
 	public static SoundEvent moonman_hit;
@@ -61,6 +64,10 @@ public class MiabSoundEvents {
 	public static SoundEvent sanic_slow;
 	public static SoundEvent nigel_blagh;
 	public static SoundEvent meme_music;
+	public static SoundEvent meme_music2;
+	public static SoundEvent meme_music3;
+	public static SoundEvent skywalker_sand;
+	public static SoundEvent pills;
 	
 	public static void registerSounds() 
 	{
@@ -86,6 +93,9 @@ public class MiabSoundEvents {
 		ppap_havepen = registerSound("ppap.havepen");
 		ppap_havepineapple = registerSound("ppap.havepineapple");
 		ppap_haveapple = registerSound("ppap.haveapple");
+		ppap_applepen = registerSound("ppap.applepen");
+		ppap_pineapplepen = registerSound("ppap.pineapplepen");
+		ppap_ppap = registerSound("ppap.ppap");
 		keyboard_mechanical = registerSound("keyboardmechanical");
 		moonman_summon = registerSound("moonman.spawn");
 		moonman_hit = registerSound("moonman.hit");
@@ -117,6 +127,10 @@ public class MiabSoundEvents {
 		sanic_slow = registerSound("sanic.slow");
 		nigel_blagh = registerSound("nigel.blagh");
 		meme_music = registerSound("meme.record1");
+		meme_music2 = registerSound("meme.record2");
+		meme_music3 = registerSound("meme.record3");
+		skywalker_sand = registerSound("skywalker.sand");
+		pills = registerSound("pills.here");
 	}
 	
 	private static SoundEvent registerSound(String soundName)

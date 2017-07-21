@@ -1,0 +1,122 @@
+{
+    "pools": [
+        {
+            "name": "ppap",
+            "conditions": [],
+            "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "minecraft:rotten_flesh",
+                    "functions": [
+                        {
+                            "conditions": [],
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "conditions": [],
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        },
+        {
+            "conditions": [
+                {
+                    "condition": "random_chance_with_looting",
+                    "chance": 0.01,
+                    "looting_multiplier": 0.01
+                }
+            ],
+            "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "miab:itemmemeinabottle",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                },
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "miab:itemsplashmemeinabottle",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                },
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "miab:itemlingeringmemeinabottle",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        },
+        {
+                "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "miab:itempen",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                },
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "miab:itemapple",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                },
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "miab:itempineapple",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        }
+    ]
+}

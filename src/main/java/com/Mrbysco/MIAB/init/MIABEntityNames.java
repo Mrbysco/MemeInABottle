@@ -6,6 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 public final class MIABEntityNames {
 	
+	public static final String ANAKIN_SKYWALKER = Reference.MOD_PREFIX + "AnakinSkywalker";
 	public static final String ATTACHED_GIRLFRIEND = Reference.MOD_PREFIX + "AttachedGirlfriend";
 	public static final String BILL_CIPHER = Reference.MOD_PREFIX + "BillCipher";
 	public static final String DANKEY_KANG = Reference.MOD_PREFIX + "DankeyKang";
@@ -18,7 +19,7 @@ public final class MIABEntityNames {
 	public static final String GRUMPY_CAT = Reference.MOD_PREFIX + "GrumpyCat";
 	public static final String JOHN_CENA = Reference.MOD_PREFIX + "JohnCena";
 	public static final String MOON_MAN = Reference.MOD_PREFIX + "MoonMan";
-	public static final String NIGEL_THORNBERRY = Reference.MOD_PREFIX + "Nigelthornberry";
+	public static final String NIGEL_THORNBERRY = Reference.MOD_PREFIX + "NigelThornberry";
 	public static final String NYAN_CAT = Reference.MOD_PREFIX + "NyanCat";
 	public static final String PEPE = Reference.MOD_PREFIX + "Pepe";
 	public static final String PPAP_GUY = Reference.MOD_PREFIX + "PPAPGuy";
@@ -28,6 +29,7 @@ public final class MIABEntityNames {
 	public static final String SPLASH_MEME = Reference.MOD_PREFIX + "memeSplash";
 	public static final String TAC_NYAN = Reference.MOD_PREFIX + "TacNyan";
 	
+	public static final ResourceLocation ANAKIN_SKYWALKER_REGISTRY = Name("anakin_skywalker");
 	public static final ResourceLocation ATTACHED_GIRLFRIEND_REGISTRY = Name("attached_girlfriend");
 	public static final ResourceLocation BILL_CIPHER_REGISTRY = Name("bill_cipher");
 	public static final ResourceLocation DANKEY_KANG_REGISTRY = Name("dankey_kang");

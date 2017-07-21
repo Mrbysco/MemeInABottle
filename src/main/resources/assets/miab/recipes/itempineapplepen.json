@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "miab:itempineapple"
+		},
+		{
+			"item": "miab:itempen"
+		}
+	],
+	"result": {
+		"item": "miab:itempineapplepen"
+	}
+}

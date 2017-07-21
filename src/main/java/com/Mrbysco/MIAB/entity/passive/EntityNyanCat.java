@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -66,4 +67,10 @@ public class EntityNyanCat extends EntityCatBase
     {
 		return SoundEvents.ENTITY_CAT_DEATH;
     }
+	
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return new ResourceLocation("miab:entity/nyancat");
+	}
 }

@@ -18,6 +18,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntitySkywalker;
 import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
@@ -424,6 +425,24 @@ public class EntityMeme extends EntityThrowable
 	    	}
 	    	
 	    	else if (RandomValue <23) 
+	    	{ 	
+	    		entity.playSound(MiabSoundEvents.skywalker_sand, 1F, 1F);
+	    		EntitySkywalker skywalker = new EntitySkywalker(world); 
+	    		skywalker.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0); 
+	    		world.spawnEntity(skywalker);
+	    		if (RandomValue <50) 
+	    		{
+	    			skywalker.setCustomNameTag("Anakin Skywalker");
+	    		}
+	    	}
+	    	
+	    	else if (RandomValue <24) 
+	    	{ 	
+	    		entity.playSound(MiabSoundEvents.pills, 1F, 1F);
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.fidget)));
+	    	}
+	    	
+	    	else if (RandomValue <25) 
 	    	{ 
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -436,7 +455,7 @@ public class EntityMeme extends EntityThrowable
 	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.fidget)));
 	    	}
 	    	
-	    	else if (RandomValue <24) 
+	    	else if (RandomValue <26) 
 	    	{ 
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -448,7 +467,7 @@ public class EntityMeme extends EntityThrowable
 	    		}
 	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.knife)));
 	    	}
-	    	else if (RandomValue <25) 
+	    	else if (RandomValue <27) 
 	    	{
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -466,7 +485,7 @@ public class EntityMeme extends EntityThrowable
 	    		
 	    	}
 		 	
-	    	else if (RandomValue <26) 
+	    	else if (RandomValue <28) 
 	    	{
 	    		if(MIABConfigGen.UseNarator == true)
 	    		{
@@ -482,7 +501,7 @@ public class EntityMeme extends EntityThrowable
 	        		player.sendMessage(new TextComponentTranslation("navy.part6"));
 	    		}
 	    	}
-			else if (RandomValue <27) 
+			else if (RandomValue <29) 
 			{
 				if(MIABConfigGen.UseNarator == true)
 				{

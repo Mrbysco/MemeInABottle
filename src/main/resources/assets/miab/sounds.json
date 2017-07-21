@@ -238,6 +238,24 @@
             "miab:ppap/sound2"
         ]
     },
+	"ppap.applepen" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:ppap/sound3"
+        ]
+    },
+	"ppap.pineapplepen" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:ppap/sound5"
+        ]
+    },
+	"ppap.ppap" : {
+        "category" : "neutral",
+        "sounds": [
+            "miab:ppap/sound7"
+        ]
+    },
     "moonman.spawn" : {
         "category" : "hostile",
         "sounds": [
@@ -293,7 +311,7 @@
     "shrek.hit" : {
         "category" : "hostile",
         "sounds": [
-            "miab:shrek/shrek_donkey"
+            "miab:shrek/shrek_hit"
         ]
     },
     "shrek.passive" : {
@@ -387,10 +405,10 @@
         ]
     },
    "leather.belt" : {
-        "category" : "hostile",
-        "sounds": [
-            "miab:memes/leatherbelt"
-        ]
+    "category" : "hostile",
+    "sounds": [
+        "miab:memes/leatherbelt"
+    ]
     },
    "fa.cry" : {
         "category" : "hostile",
@@ -457,6 +475,39 @@
             "name": "miab:record/invertednumberone",
             "stream": true
             }
+        ]
+   },
+   "meme.record2" : {
+   "category" : "record",
+        "sounds": [
+            {
+            "name": "miab:record/minestorm",
+            "stream": true
+            }
+        ]
+   },
+   "meme.record3" : {
+   "category" : "record",
+        "sounds": [
+            {
+            "name": "miab:record/neverhurtingyou",
+            "stream": true
+            }
+        ]
+   },
+   "skywalker.sand" : {
+    "category" : "hostile",
+        "sounds": [
+            "miab:skywalker/sand1",
+            "miab:skywalker/sand2",
+            "miab:skywalker/sand3",
+            "miab:skywalker/sand4"
+        ]
+   },
+   "pills.here" : {
+    "category" : "neutral",
+        "sounds": [
+            "miab:memes/pills"
         ]
    }
 }

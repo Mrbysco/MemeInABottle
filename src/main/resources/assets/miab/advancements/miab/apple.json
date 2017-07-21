@@ -14,7 +14,7 @@
 		"show_toast": true,
         "announce_to_chat": false
 		},
-    "parent": "miab:miab/pineapple",
+    "parent": "miab:miab/pen",
     "criteria": {
         "meme": {
             "trigger": "minecraft:inventory_changed",

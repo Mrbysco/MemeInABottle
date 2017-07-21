@@ -16,6 +16,7 @@ import com.Mrbysco.MIAB.entity.monsters.EntityPpap;
 import com.Mrbysco.MIAB.entity.monsters.EntityRobbie;
 import com.Mrbysco.MIAB.entity.monsters.EntitySanic;
 import com.Mrbysco.MIAB.entity.monsters.EntityShrek;
+import com.Mrbysco.MIAB.entity.monsters.EntitySkywalker;
 import com.Mrbysco.MIAB.entity.monsters.EntityTacNyan;
 import com.Mrbysco.MIAB.entity.monsters.EntityTrump;
 import com.Mrbysco.MIAB.entity.passive.EntityDoge;
@@ -39,6 +40,7 @@ import com.Mrbysco.MIAB.renderer.monsters.RenderPpap;
 import com.Mrbysco.MIAB.renderer.monsters.RenderRobbie;
 import com.Mrbysco.MIAB.renderer.monsters.RenderSanic;
 import com.Mrbysco.MIAB.renderer.monsters.RenderShrek;
+import com.Mrbysco.MIAB.renderer.monsters.RenderSkywalker;
 import com.Mrbysco.MIAB.renderer.monsters.RenderTacNyan;
 import com.Mrbysco.MIAB.renderer.monsters.RenderTrump;
 import com.Mrbysco.MIAB.renderer.passive.RenderDoge;
@@ -57,6 +59,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderingFactories(){
 		RenderingRegistry.registerEntityRenderingHandler(EntityMeme.class, new EntityRenderingFactory());
+		RenderingRegistry.registerEntityRenderingHandler(EntitySkywalker.class, RenderSkywalker.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAttachedGirlfriend.class, RenderAttachedGirlfriend.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBill.class, RenderBill.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, RenderCena.FACTORY);

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemapplepen"
+        },
+        "title": {
+            "translate": "Apple Pen"
+        },
+        "description": {
+            "translate": "Ruining a perfectly good Apple..."
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/apple",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemapplepen"
+                    }
+                ]
+            }
+        }
+    }
+}

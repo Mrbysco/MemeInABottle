@@ -30,26 +30,5 @@ public class EntityAttachedGirlfriend extends EntityMemeBase{
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
-	};
-	
-	/*
-	@Override
-    protected SoundEvent getAmbientSound()
-    {
-        return MiabSoundEvents.cena_sound;
-    }
-	
-	@Override
-    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
-    {
-        return MiabSoundEvents.cena_sound;
-    }
-	
-	@Override
-    protected SoundEvent getDeathSound()
-    {
-        return MiabSoundEvents.cena_sound;
-    }
-    */
-
+	}
 }

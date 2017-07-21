@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemppap"
+        },
+        "title": {
+            "translate": "Pen Pineapple Apple Pen"
+        },
+        "description": {
+            "translate": "Because you are not gonna eat fruit doesn't mean you need to ruin the fruit"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/pen",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemppap"
+                    }
+                ]
+            }
+        }
+    }
+}

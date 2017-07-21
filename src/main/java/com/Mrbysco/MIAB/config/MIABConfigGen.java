@@ -17,9 +17,6 @@ public class MIABConfigGen {
 	@Config.Comment("Censors out some of the questionable memes (default: false)")
 	public static boolean MatureSounds = false;
 	
-	@Config.Comment("The special drop chance (default: 0.08)")
-	public static double DropChance = 0.08;
-	
 	@Config.Comment("Use Minecrafts narrator to speak out some copypasta memes (default: false)")
 	public static boolean UseNarator = false;
 	

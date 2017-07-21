@@ -14,6 +14,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -75,4 +76,10 @@ public class EntityTacNyan extends EntityCatBase
     {
 		return SoundEvents.ENTITY_CAT_DEATH;
     }
+	
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return new ResourceLocation("miab:entity/tacnyan");
+	}
 }

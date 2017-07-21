@@ -6,6 +6,7 @@ import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -52,4 +53,9 @@ public class EntityCena extends EntityMemeBase
         return MiabSoundEvents.cena_sound;
     }
 
+	@Override
+    protected ResourceLocation getLootTable()
+    {
+    	return new ResourceLocation("miab:entity/cena");
+    }
 }

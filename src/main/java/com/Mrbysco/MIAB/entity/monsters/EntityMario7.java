@@ -6,6 +6,7 @@ import com.Mrbysco.MIAB.init.MiabSoundEvents;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -52,4 +53,9 @@ public class EntityMario7 extends EntityMemeBase
 	        return MiabSoundEvents.dad_death;
 	    }
 
+		@Override
+		protected ResourceLocation getLootTable()
+		{
+			return new ResourceLocation("miab:entity/mario");
+		}
 }

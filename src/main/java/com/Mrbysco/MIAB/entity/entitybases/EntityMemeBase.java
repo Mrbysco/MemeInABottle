@@ -212,7 +212,7 @@ public class EntityMemeBase extends EntityMob
     @Nullable
     protected ResourceLocation getLootTable()
     {
-        return LootTableList.ENTITIES_ZOMBIE;
+    	return new ResourceLocation("miab:entity/memebase");
     }
     
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
