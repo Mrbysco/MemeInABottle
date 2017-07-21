@@ -448,7 +448,7 @@ public class EntityMeme extends EntityThrowable
 	    			player.sendMessage(new TextComponentTranslation("dangerous"));	
 	    		}
 	    		
-	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(Items.IRON_SWORD)));
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(Items.WOODEN_SWORD).setStackDisplayName("Zelda Sword")));
 	    	}
 	    	
 	    	else if (RandomValue <25) 
