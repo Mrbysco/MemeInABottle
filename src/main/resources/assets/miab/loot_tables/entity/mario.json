@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name": "mario",
+            "name": "default",
             "conditions": [],
             "entries": [
                 {
@@ -40,6 +40,7 @@
             }
         },
         {
+            "name": "memebottles",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",
@@ -83,6 +84,7 @@
             }
         },
         {
+            "name": "marioloot",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "miab:itemmemerecord3"
+        },
+        "title": {
+            "translate": "Never Gonna Hurt You"
+        },
+        "description": {
+            "translate": "OU"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "miab:miab/record2",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "miab:itemmemerecord3"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name": "moonman",
+            "name": "defaultloot",
             "conditions": [],
             "entries": [
                 {
@@ -40,6 +40,7 @@
             }
         },
         {
+            "name": "memebottles",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",
@@ -83,6 +84,7 @@
             }
         },
         {
+            "name": "moonmanloot",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",
@@ -94,7 +96,7 @@
                 {
                     "conditions": [],
                     "type": "item",
-                    "name": "miab:itemmcwbelt",
+                    "name": "miab:itemmineburger",
                     "functions": [],
                     "weight": 1,
                     "quality": 0

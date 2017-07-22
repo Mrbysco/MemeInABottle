@@ -40,6 +40,7 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -448,13 +449,16 @@ public class EntityMeme extends EntityThrowable
 	    			player.sendMessage(new TextComponentTranslation("dangerous"));	
 	    		}
 	    		
-	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(Items.WOODEN_SWORD).setStackDisplayName("Zelda Sword")));
+	    		ItemStack sword = new ItemStack(Items.WOODEN_SWORD);
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, sword));
+	    		sword.setStackDisplayName("Zelda Sword");
+	    		
 	    	}
 	    	
 	    	else if (RandomValue <25) 
 	    	{ 	
 	    		entity.playSound(MiabSoundEvents.pills, 1F, 1F);
-	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.pills)));
+	    		world.spawnEntity(new EntityItem(world, posX + 0.5, posY, posZ, new ItemStack(MIABItems.pills_here)));
 	    	}
 	    	
 	    	else if (RandomValue <26) 

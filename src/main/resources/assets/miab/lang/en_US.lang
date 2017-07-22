@@ -24,10 +24,12 @@ item.knife.name=Knife
 item.hotknife.name=1000 Degree Knife
 item.memerecord1.name=Music Disc
 item.memerecord2.name=Music Disc
+item.memerecord3.name=Music Disc
 
 #Record names
 item.record.memesong1.desc=We Are Inverted
 item.record.memesong2.desc=What Song Is This?
+item.record.memesong3.desc=Never Gonna Hurt You
 
 #Block names
 tile.bottleblock.name=Bottle Block (WIP)

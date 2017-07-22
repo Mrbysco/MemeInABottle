@@ -14,8 +14,9 @@ import net.minecraft.world.World;
 public class ItemPills extends ItemFood{
 	public ItemPills(int amount, float saturation, boolean isWolfFood, String UnlocalisedName, String RegistryName) {
 		super(amount, saturation, isWolfFood);
-		setMaxStackSize(8);
+		setUnlocalizedName(UnlocalisedName);
 		setRegistryName(RegistryName);
+		setMaxStackSize(8);
 		setCreativeTab(MIAB.tabMIAB);
 	}
 

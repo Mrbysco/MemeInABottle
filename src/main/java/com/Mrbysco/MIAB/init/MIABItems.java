@@ -63,7 +63,7 @@ public class MIABItems {
 	public static ItemSword knife;
 	public static ItemSword hot_knife;
 	public static Item fidget;
-	public static ItemFood pills;
+	public static ItemFood pills_here;
 	
 	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "miab:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
 	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "miab:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
@@ -87,7 +87,7 @@ public class MIABItems {
 		waffle = new ItemWaffle(3, 3, false, "waffle", "itemwaffle");
 		poptart = new ItemPoptart(3, 3, false, "poptart", "itempoptart");
 		pen = new ItemPen("pen", "itempen");
-		pills = new ItemPills(0, 0, false, "pills", "itempills");
+		pills_here = new ItemPills(0, 0, false, "pills", "itempills");
 		penpineapple = new ItemPineapplePen("pineapplepen", "itempineapplepen");
 		applepen = new ItemApplePen("applepen", "itemapplepen");
 		ppap = new ItemPPAP("ppap", "itemppap");
@@ -115,6 +115,7 @@ public class MIABItems {
 		ForgeRegistries.ITEMS.register(penpineapple);
 		ForgeRegistries.ITEMS.register(applepen);
 		ForgeRegistries.ITEMS.register(pen);
+		ForgeRegistries.ITEMS.register(pills_here);
 		ForgeRegistries.ITEMS.register(ppap);
 		ForgeRegistries.ITEMS.register(onion);
 		ForgeRegistries.ITEMS.register(burger);
@@ -146,6 +147,7 @@ public class MIABItems {
 		registerRender(penpineapple);
 		registerRender(applepen);
 		registerRender(pen);
+		registerRender(pills_here);
 		registerRender(ppap);
 		registerRender(onion);
 		registerRender(burger);

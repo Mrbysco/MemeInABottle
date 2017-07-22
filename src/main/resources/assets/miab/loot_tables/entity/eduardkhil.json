@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name": "eduardkhil",
+            "name": "defaultloot",
             "conditions": [],
             "entries": [
                 {
@@ -40,10 +40,15 @@
             }
         },
         {
+            "name": "defaultloot",
             "conditions": [
                 {
+                    "condition": "killed_by_player",
+                    "inverse": false
+                },
+                {
                     "condition": "random_chance_with_looting",
-                    "chance": 0.01,
+                    "chance": 0.001,
                     "looting_multiplier": 0.01
                 }
             ],
@@ -51,7 +56,7 @@
                 {
                     "conditions": [],
                     "type": "item",
-                    "name": "miab:itemmemeinabottle",
+                    "name": "miab:itemrecord1",
                     "functions": [],
                     "weight": 1,
                     "quality": 0
@@ -59,7 +64,7 @@
                 {
                     "conditions": [],
                     "type": "item",
-                    "name": "miab:itemsplashmemeinabottle",
+                    "name": "miab:itemrecord2",
                     "functions": [],
                     "weight": 1,
                     "quality": 0
@@ -67,7 +72,7 @@
                 {
                     "conditions": [],
                     "type": "item",
-                    "name": "miab:itemlingeringmemeinabottle",
+                    "name": "miab:itemrecord3",
                     "functions": [],
                     "weight": 1,
                     "quality": 0
@@ -83,6 +88,7 @@
             }
         },
         {
+            "name": "trollloot",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",

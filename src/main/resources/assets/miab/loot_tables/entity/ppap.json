@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name": "ppap",
+            "name": "defaultloot",
             "conditions": [],
             "entries": [
                 {
@@ -40,6 +40,7 @@
             }
         },
         {
+            "name": "memebottles",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",
@@ -82,7 +83,8 @@
                 "max": 0
             }
         },
-        {
+        {       
+                "name": "ppaploot",
                 "entries": [
                 {
                     "conditions": [],

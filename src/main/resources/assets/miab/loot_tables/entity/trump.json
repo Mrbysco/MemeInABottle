@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name": "trump",
+            "name": "defaultloot",
             "conditions": [],
             "entries": [
                 {
@@ -40,6 +40,7 @@
             }
         },
         {
+            "name": "memebottles",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",
@@ -83,7 +84,8 @@
             }
         },
         {
-            "conditions": [
+              "name": "trumploot",
+              "conditions": [
                 {
                     "condition": "random_chance_with_looting",
                     "chance": 0.1,

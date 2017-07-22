@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-            "name": "tacnyan",
+            "name": "tacloot",
             "conditions": [],
             "entries": [
                 {
@@ -40,6 +40,7 @@
             }
         },
         {
+            "name": "memebottles",
             "conditions": [
                 {
                     "condition": "random_chance_with_looting",
