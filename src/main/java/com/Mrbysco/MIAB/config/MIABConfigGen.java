@@ -11,17 +11,24 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = Reference.MOD_ID)
 @Config.LangKey("miab.config.title")
 public class MIABConfigGen {
-	@Config.Comment("Generation of bottles on sand near water (default: true)")
-	public static boolean GenerateBottles = true;
 	
-	@Config.Comment("Censors out some of the questionable memes (default: false)")
-	public static boolean MatureSounds = false;
+	@Config.Comment({"General settings"})
+	public static General general = new General();
 	
-	@Config.Comment("Use Minecrafts narrator to speak out some copypasta memes (default: false)")
-	public static boolean UseNarator = false;
-	
-	@Config.Comment("Meme Random Value, the less the value the more chance of meme summons. (default: 100)")
-	public static int MemeRandomness = 100;
+	public static class General{
+		
+		@Config.Comment("Generation of bottles on sand near water (default: true)")
+		public static boolean GenerateBottles = true;
+		
+		@Config.Comment("Censors out some of the questionable memes (default: false)")
+		public static boolean MatureSounds = false;
+		
+		@Config.Comment("Use Minecrafts narrator to speak out some copypasta memes (default: false)")
+		public static boolean UseNarator = false;
+		
+		@Config.Comment("Meme Random Value, the less the value the more chance of meme summons. (default: 100)")
+		public static int MemeRandomness = 100;
+	}
 
 	@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 	private static class EventHandler {

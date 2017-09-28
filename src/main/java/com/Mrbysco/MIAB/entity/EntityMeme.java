@@ -1,5 +1,10 @@
 package com.Mrbysco.MIAB.entity;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,7 +45,6 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -150,7 +154,7 @@ public class EntityMeme extends EntityThrowable
     {
         if (!this.world.isRemote)
         {	
-        	int random = rand.nextInt(MIABConfigGen.MemeRandomness);
+        	int random = rand.nextInt(MIABConfigGen.general.MemeRandomness);
             ItemStack itemstack = this.getItemName();
 
                 if (this.isLingering())
@@ -160,14 +164,14 @@ public class EntityMeme extends EntityThrowable
                 }
                 else
                 {
-                	this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random, true);
+                	this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random);
                 }
                 
         }  
         this.setDead();
     }
 
-    public void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
+    public void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue)
     {	
 	    	if (RandomValue <1 ) 
 	    	{ 
@@ -179,7 +183,7 @@ public class EntityMeme extends EntityThrowable
 	    		{
 	    			cena.setCustomNameTag("John Cena");
 	    		}
-	    		if(MIABConfigGen.UseNarator)
+	    		if(MIABConfigGen.general.UseNarator)
 	    		{
 	    		Narrator.getNarrator().say("And his name is! JOHN CENA");
 	    		}
@@ -440,7 +444,7 @@ public class EntityMeme extends EntityThrowable
 	    	
 	    	else if (RandomValue <24) 
 	    	{ 	
-	    		if(MIABConfigGen.UseNarator == true)
+	    		if(MIABConfigGen.general.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.dangerous);
 	    		}
@@ -463,7 +467,7 @@ public class EntityMeme extends EntityThrowable
 	    	
 	    	else if (RandomValue <26) 
 	    	{ 
-	    		if(MIABConfigGen.UseNarator == true)
+	    		if(MIABConfigGen.general.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.ykwtd);
 	    		}
@@ -476,7 +480,7 @@ public class EntityMeme extends EntityThrowable
 	    	
 	    	else if (RandomValue <27) 
 	    	{ 
-	    		if(MIABConfigGen.UseNarator == true)
+	    		if(MIABConfigGen.general.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.ykwtd);
 	    		}
@@ -488,7 +492,7 @@ public class EntityMeme extends EntityThrowable
 	    	}
 	    	else if (RandomValue <28) 
 	    	{
-	    		if(MIABConfigGen.UseNarator == true)
+	    		if(MIABConfigGen.general.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.memebee_part);
 	    		}
@@ -506,7 +510,7 @@ public class EntityMeme extends EntityThrowable
 		 	
 	    	else if (RandomValue <29) 
 	    	{
-	    		if(MIABConfigGen.UseNarator == true)
+	    		if(MIABConfigGen.general.UseNarator == true)
 	    		{
 	    			Narrator.getNarrator().say(MemeText.navy_part);
 	    		}
@@ -522,7 +526,7 @@ public class EntityMeme extends EntityThrowable
 	    	}
 			else if (RandomValue <30) 
 			{
-				if(MIABConfigGen.UseNarator == true)
+				if(MIABConfigGen.general.UseNarator == true)
 				{
 					Narrator.getNarrator().say(MemeText.lm_part);
 				}
@@ -537,7 +541,7 @@ public class EntityMeme extends EntityThrowable
 				
 			}
 	    	
-			else if(MIABConfigGen.MatureSounds == true)
+			else if(MIABConfigGen.general.MatureSounds == true)
 	    	{
 				entity.playSound(MiabSoundEvents.meme_soundMature, 1F, 1F);
 	    	}
@@ -549,7 +553,7 @@ public class EntityMeme extends EntityThrowable
     
     private void makeAreaOfEffectCloud(ItemStack stack)
     {
-    	int random1 = rand.nextInt(MIABConfigGen.MemeRandomness);
+    	int random1 = rand.nextInt(MIABConfigGen.general.MemeRandomness);
     	
         EntityAreaEffectCloud entityareaeffectcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
         entityareaeffectcloud.setOwner(this.getThrower());
@@ -558,7 +562,7 @@ public class EntityMeme extends EntityThrowable
         entityareaeffectcloud.setWaitTime(10);
         entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float)entityareaeffectcloud.getDuration());
         entityareaeffectcloud.setColor(13882323);
-        this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random1, true);
+        this.doMemeStuff(this.posX, this.posY, this.posZ, world, player, this, random1);
         
         //This should work D:
         entityareaeffectcloud.addEffect(TrollPotion.effect);

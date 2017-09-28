@@ -44,14 +44,14 @@ public class TrollPotion extends Potion{
 			int posY = (int)(entityLiving.posY+0.5);
 			int posZ = (int)(entityLiving.posZ+0.5);
 			EntityPlayer player = (EntityPlayer)entityLiving;
-            this.doMemeStuff(posX, posY, posZ, entityLiving.world, player, player, rand.nextInt(MIABConfigGen.MemeRandomness), false);
+            this.doMemeStuff(posX, posY, posZ, entityLiving.world, player, player, rand.nextInt(MIABConfigGen.general.MemeRandomness), false);
         }
 	}
 	public void doMemeStuff(double posX, double posY, double posZ, World world, EntityPlayer player, Entity entity, int RandomValue, boolean canSummon)
     {	
 		if (RandomValue <4) 
 		{
-			if(MIABConfigGen.UseNarator)
+			if(MIABConfigGen.general.UseNarator)
 			{
 				Narrator.getNarrator().say(MemeText.memebee_part);
 			}
@@ -69,7 +69,7 @@ public class TrollPotion extends Potion{
 	 	
 		else if (RandomValue <8) 
 		{
-			if(MIABConfigGen.UseNarator)
+			if(MIABConfigGen.general.UseNarator)
 			{
 				Narrator.getNarrator().say(MemeText.navy_part);
 			}
@@ -85,7 +85,7 @@ public class TrollPotion extends Potion{
 		}
 		else if (RandomValue <12) 
 		{
-			if(MIABConfigGen.UseNarator)
+			if(MIABConfigGen.general.UseNarator)
 			{
 				Narrator.getNarrator().say(MemeText.lm_part);
 			}
@@ -99,7 +99,7 @@ public class TrollPotion extends Potion{
 			}
 			
 		}
-		else if(MIABConfigGen.MatureSounds)
+		else if(MIABConfigGen.general.MatureSounds)
 		{
 			entity.playSound(MiabSoundEvents.meme_soundMature, 1F, 1F);
 		}

@@ -33,7 +33,7 @@ public class BottleGen implements IWorldGenerator{
 		
 		
 		if (world.provider.getDimension() == DimensionType.OVERWORLD.getId()) {
-			if (MIABConfigGen.GenerateBottles) {
+			if (MIABConfigGen.general.GenerateBottles) {
 				//TODO
 			}
 		}

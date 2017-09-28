@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "1.5.1"
 group= "com.miab.miab" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "MemeInABottle"
+archivesBaseName = "MemeInABottle-1.12.X"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -21,7 +21,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12-14.21.1.2387"
+    version = "1.12.1-14.22.1.2478"
     runDir = "run"
     mappings = "snapshot_20170624"
 }
