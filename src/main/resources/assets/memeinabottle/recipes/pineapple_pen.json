@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "memeinabottle:pineapple"
+		},
+		{
+			"item": "memeinabottle:pen"
+		}
+	],
+	"result": {
+		"item": "memeinabottle:pineapple_pen"
+	}
+}

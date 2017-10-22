@@ -1,0 +1,115 @@
+{
+    "pools": [
+        {
+            "name": "defaultloot",
+            "conditions": [],
+            "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "minecraft:rotten_flesh",
+                    "functions": [
+                        {
+                            "conditions": [],
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "conditions": [],
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        },
+        {
+            "name": "memebottles",
+            "conditions": [
+                {
+                    "condition": "random_chance_with_looting",
+                    "chance": 0.01,
+                    "looting_multiplier": 0.01
+                }
+            ],
+            "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "memeinabottle:meme_in_a_bottle",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                },
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "memeinabottle:splash_meme_in_a_bottle",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                },
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "memeinabottle:lingering_meme_in_a_bottle",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        },
+        {
+            "name": "datboiloot",
+            "conditions": [
+                {
+                    "condition": "random_chance_with_looting",
+                    "chance": 0.1,
+                    "looting_multiplier": 1
+                }
+            ],
+            "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "minecraft:slime_ball",
+                    "functions": [],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "memeinabottle:knife"
+        },
+        "title": {
+            "translate": "Knife to know you"
+        },
+        "description": {
+            "translate": "You know what to do!"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/hat",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "memeinabottle:knife"
+                    }
+                ]
+            }
+        }
+    }
+}
