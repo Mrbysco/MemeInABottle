@@ -28,8 +28,6 @@ import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.entities.passive.EntityDoge;
 import com.Mrbysco.miab.entities.passive.EntityGrumpy;
 import com.Mrbysco.miab.entities.passive.EntityNyanCat;
-import com.Mrbysco.miab.gui.GuiFakeOver;
-import com.Mrbysco.miab.gui.MemeGui;
 import com.Mrbysco.miab.init.MemeItems;
 import com.Mrbysco.miab.init.MemeSounds;
 import com.Mrbysco.miab.init.MemeVillagers;
@@ -276,51 +274,51 @@ public class MemeHelper {
 	        switch(randomValue)
 	        {
 	        case 32:
-	        	MemeInABottle.proxy.displayClientGui(new GuiFakeOver(new TextComponentTranslation("death.attack.generic", new Object[] {"You"})));
+	        	MemeInABottle.proxy.displayFakeGameOver(new TextComponentTranslation("death.attack.generic", new Object[] {"You"}));
 	        	break;
 	        case 34:
 				meme = new ResourceLocation("memeinabottle:textures/meme/allthethings.png");
-				MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+				MemeInABottle.proxy.displayMemeGui(meme);
 				break;
 		    case 35:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/gentleman.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 36:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/kidmeme.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 37:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/lelenny.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 38:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/megusta.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 39:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/bp.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 40:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/skeleton.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 41:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/sponge.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 42:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/trollface.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 43:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/needram.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    case 44:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/dawge.png");
-		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
+		    	MemeInABottle.proxy.displayMemeGui(meme);
 		    	break;
 		    	
 	            default:
@@ -380,6 +378,8 @@ public class MemeHelper {
 		    case 10:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/dawge.png");
 		    	break;
+		    default:
+                break;
 		}
 		return meme;
 	}

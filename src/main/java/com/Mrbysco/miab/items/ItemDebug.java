@@ -62,7 +62,7 @@ public class ItemDebug extends Item{
 	@SideOnly(Side.CLIENT)
 	public static void doTheClientThing(World worldIn)
 	{
-		MemeInABottle.proxy.displayClientGui(new MemeGui(MemeHelper.RandomMemeLocation()));
+		MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
 	}
 	
 	@SideOnly(Side.CLIENT)

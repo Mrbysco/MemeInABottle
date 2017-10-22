@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
 import com.Mrbysco.miab.config.MemeConfigGen;
-import com.Mrbysco.miab.gui.MemeGui;
 import com.Mrbysco.miab.items.base.ItemCustomItem;
 import com.Mrbysco.miab.memes.MemeHelper;
 import com.Mrbysco.miab.memes.MemeLists;
@@ -127,6 +126,6 @@ public class ItemMemeBottle extends ItemCustomItem{
 	@SideOnly(Side.CLIENT)
 	public static void doTheClientThing(World worldIn)
 	{
-		MemeInABottle.proxy.displayClientGui(new MemeGui(MemeHelper.RandomMemeLocation()));
+		MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
 	}
 }
