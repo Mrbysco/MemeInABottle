@@ -35,7 +35,6 @@ import com.Mrbysco.miab.init.MemeSounds;
 import com.Mrbysco.miab.init.MemeVillagers;
 import com.mojang.text2speech.Narrator;
 
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityVillager;
@@ -56,8 +55,6 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MemeHelper {
 	
@@ -279,67 +276,57 @@ public class MemeHelper {
 	        switch(randomValue)
 	        {
 	        case 32:
-	        	displayGui(new GuiFakeOver(new TextComponentTranslation("death.attack.generic", new Object[] {"You"})));
+	        	MemeInABottle.proxy.displayClientGui(new GuiFakeOver(new TextComponentTranslation("death.attack.generic", new Object[] {"You"})));
 	        	break;
 	        case 34:
 				meme = new ResourceLocation("memeinabottle:textures/meme/allthethings.png");
-				displayMemeGui(meme);
+				MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 				break;
 		    case 35:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/gentleman.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 36:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/kidmeme.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 37:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/lelenny.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 38:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/megusta.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 39:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/bp.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 40:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/skeleton.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 41:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/sponge.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 42:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/trollface.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 43:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/needram.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    case 44:
 		    	meme = new ResourceLocation("memeinabottle:textures/meme/dawge.png");
-		    	displayMemeGui(meme);
+		    	MemeInABottle.proxy.displayClientGui(new MemeGui(meme));
 		    	break;
 		    	
 	            default:
 	                break;
 	        }
 	    }
-	}
-	
-	@SideOnly(Side.CLIENT)
-	private static void displayMemeGui(ResourceLocation location) {
-    	MemeInABottle.proxy.displayClientGui(new MemeGui(location));
-	}
-	
-	@SideOnly(Side.CLIENT)
-	private static void displayGui(GuiScreen gui){
-    	MemeInABottle.proxy.displayClientGui(gui);
 	}
 	
 	private static void spawnEntity(World world, Entity entity, BlockPos pos, SoundEvent sound) {
