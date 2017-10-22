@@ -1,19 +1,22 @@
-package com.Mrbysco.MIAB.blocks;
+package com.Mrbysco.miab.blocks;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.Mrbysco.MIAB.MIAB;
-import com.Mrbysco.MIAB.Reference;
-import com.Mrbysco.MIAB.init.MIABItems;
+import javax.annotation.Nullable;
+
+import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.init.MemeItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -25,12 +28,12 @@ public class BottleBlock extends Block{
 	
     protected static final AxisAlignedBB BOTTLE_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
     
-	public BottleBlock(Material materialIn) 
+	public BottleBlock(String unlocalised, String registry)
 	{
 		super(Material.GLASS);
-		setUnlocalizedName(Reference.MIABBlocks.BOTTLEBLOCK.getUnlocalisedName());
-		setRegistryName(Reference.MIABBlocks.BOTTLEBLOCK.getRegistryName());
-		setCreativeTab(MIAB.tabMIAB);
+		setUnlocalizedName(unlocalised);
+		setRegistryName(registry);
+		setCreativeTab(MemeInABottle.memetab);
 		this.setSoundType(SoundType.GLASS);
 		this.setTickRandomly(true);
 		this.setHardness(0.2F);
@@ -73,14 +76,34 @@ public class BottleBlock extends Block{
     }
 		
 	@Override
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
-			List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185477_7_) {
-		// TODO Auto-generated method stub
-		super.addCollisionBoxToList(state, worldIn, pos, entityBox, collidingBoxes, entityIn, p_185477_7_);
-	}
+    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean p_185477_7_)
+    {
+    	addCollisionBoxToList(pos, entityBox, collidingBoxes, BOTTLE_AABB);
+    }
 	
 	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		ArrayList returnedStacks = new ArrayList(); returnedStacks.add(new ItemStack(MIABItems.meme_in_a_bottle)); return returnedStacks;
-	}
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) 
+    {
+		return worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos, EnumFacing.DOWN);
+    }
+	
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        this.checkAndDropBlock(worldIn, pos, state);
+    }
+
+    private boolean checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (!this.canPlaceBlockAt(worldIn, pos))
+        {
+            worldIn.setBlockToAir(pos);
+            worldIn.spawnEntity(new EntityItem(worldIn, pos.getX() + 0.5, pos.getY(), pos.getZ(), new ItemStack(MemeItems.meme_in_a_bottle)));
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }

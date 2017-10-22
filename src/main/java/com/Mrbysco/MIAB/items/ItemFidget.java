@@ -1,33 +1,26 @@
-package com.Mrbysco.MIAB.items;
+package com.Mrbysco.miab.items;
 
 import javax.annotation.Nullable;
 
-import com.Mrbysco.MIAB.MIAB;
-import com.mojang.realmsclient.dto.PlayerInfo;
+import com.Mrbysco.miab.items.base.ItemCustomItem;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemElytra;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemFidget extends Item{
-	public ItemFidget(String UnlocalisedName, String RegistryName) {
+public class ItemFidget extends ItemCustomItem{
+	
+	public ItemFidget(String unlocalized, String registry) {
+		super(unlocalized, registry);
 		setMaxStackSize(1);
-		setUnlocalizedName(UnlocalisedName);
-		setRegistryName(RegistryName);
-		setCreativeTab(MIAB.tabMIAB);
 		addPropertyOverride(new ResourceLocation("spinning"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
@@ -37,7 +30,7 @@ public class ItemFidget extends Item{
             }
         });
 	}
-	
+
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
 		return 1200;

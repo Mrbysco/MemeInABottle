@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "memeinabottle:bottle_block" },
+            { "model": "memeinabottle:bottle_block", "y": 90 },
+            { "model": "memeinabottle:bottle_block", "y": 180 },
+            { "model": "memeinabottle:bottle_block", "y": 270 }
+        ]
+    }
+}

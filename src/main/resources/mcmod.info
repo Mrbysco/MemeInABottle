@@ -1,14 +1,14 @@
 [
 {
-  "modid": "miab",
+  "modid": "memeinabottle",
   "name": "Meme in a bottle",
-  "description": "Memes that you can throw.",
+  "description": "Adding Memes to Minecraft since 2016",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Mrbysco"],
-  "credits": "Credits go to Glassmaker, Garophel and MeadowCottage for spotting derps and helping",
+  "credits": "Credits to Glassmaker, Garophel and MeadowCottage for spotting derps and helping",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

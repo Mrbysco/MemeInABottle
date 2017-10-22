@@ -1,8 +1,0 @@
-{
-    "variants": {
-		"facing=north": { "model": "miab:blockkeyboardmechanical", "y": 180},
-		"facing=south": { "model": "miab:blockkeyboardmechanical"},
-		"facing=east":  { "model": "miab:blockkeyboardmechanical", "y": 270},
-		"facing=west":  { "model": "miab:blockkeyboardmechanical", "y": 90}
-    }
-}
