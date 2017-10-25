@@ -60,7 +60,7 @@ public class MemeInABottle
     	logger.debug("Registering items");
     	MemeItems.register();
     	
-    	//MemePotions.init(); TODO: See if this is still needed
+    	//TODO: See if should bring back the potion.
     	
     	logger.debug("Initialising recipes");
     	MemeRecipes.init();

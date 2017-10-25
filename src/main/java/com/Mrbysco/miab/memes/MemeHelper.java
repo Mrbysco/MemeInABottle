@@ -2,6 +2,8 @@ package com.Mrbysco.miab.memes;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.Mrbysco.miab.MemeInABottle;
 import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.entities.boss.EntityMemeBigBoss;
@@ -28,11 +30,13 @@ import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.entities.passive.EntityDoge;
 import com.Mrbysco.miab.entities.passive.EntityGrumpy;
 import com.Mrbysco.miab.entities.passive.EntityNyanCat;
+import com.Mrbysco.miab.init.MemeBlocks;
 import com.Mrbysco.miab.init.MemeItems;
 import com.Mrbysco.miab.init.MemeSounds;
 import com.Mrbysco.miab.init.MemeVillagers;
 import com.mojang.text2speech.Narrator;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityVillager;
@@ -41,6 +45,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.tileentity.TileEntityChest;
@@ -57,7 +62,7 @@ import net.minecraft.world.World;
 public class MemeHelper {
 	
 	public static void SpawnRandomMeme(World world, BlockPos pos, EntityPlayer player, Entity entity) {
-		int randomValue = new Random().nextInt(47);
+		int randomValue = new Random().nextInt(49);
 		if (!world.isRemote)
 	    {
 			switch(randomValue)
@@ -134,11 +139,11 @@ public class MemeHelper {
 			    	break;
 			    case 18:
 			    	entity.playSound(MemeSounds.leather_belt, 1F, 1F);
-		    		world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MemeItems.leather_belt)));
+			    	spawnEntityItem(world, null, MemeItems.leather_belt, pos);
 			    	break;
 			    case 19:
 			    	entity.playSound(MemeSounds.ception_spawn, 1F, 1F);
-		    		world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MemeItems.splash_meme_in_a_bottle)));
+			    	spawnEntityItem(world, null, MemeItems.splash_meme_in_a_bottle, pos);
 			    	break;
 			    case 20:
 			    	spawnEntity(world, new EntityDankey(world), pos, MemeSounds.dankey_summon);
@@ -175,7 +180,7 @@ public class MemeHelper {
 		    		{
 		    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
 		    		}
-			    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MemeItems.fidget)));
+			    	spawnEntityItem(world, null, MemeItems.fidget, pos);
 			    	break;
 			    case 26:
 			    	if(MemeConfigGen.general.UseNarator == true)
@@ -186,7 +191,7 @@ public class MemeHelper {
 		    		{
 		    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
 		    		}
-			    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MemeItems.knife)));
+			    	spawnEntityItem(world, null, MemeItems.knife, pos);
 			    	break;
 			    case 27:
 			    	if(MemeConfigGen.general.UseNarator == true)
@@ -248,7 +253,7 @@ public class MemeHelper {
 			    	break;
 			    case 33:
 			    	world.playSound(null, pos, MemeSounds.doot, SoundCategory.NEUTRAL, 1f, 1f);
-			    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(MemeItems.trumpet)));
+			    	spawnEntityItem(world, null, MemeItems.trumpet, pos);
 			    	break;
 			    case 45:
 			    	spawnEntity(world, new EntityMemeBigBoss(world), pos, MemeSounds.big_boi);
@@ -261,6 +266,17 @@ public class MemeHelper {
 			    	break;
 			    case 48:
 			    	spawnEntity(world, new EntityClippy(world), pos);
+			    	break;
+			    case 49:
+			    	if(MemeConfigGen.general.UseNarator == true)
+					{
+						Narrator.getNarrator().say(MemeNarratorTexts.oscar);
+					}
+					else
+					{
+						player.sendMessage(new TextComponentTranslation("oscar.text"));
+					}
+			    	spawnEntityItem(world, MemeBlocks.oscar, null, pos);
 			    	break;
 			    	
 			    default:
@@ -338,6 +354,17 @@ public class MemeHelper {
 	private static void spawnEntity(World world, Entity entity, BlockPos pos) {
 		entity.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
 		world.spawnEntity(entity);
+	}
+	
+	private static void spawnEntityItem(World world, @Nullable Block block, @Nullable Item item, BlockPos pos){
+		if(block != null)
+		{
+	    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 0.5, pos.getZ(), new ItemStack(block)));
+		}
+		if(item != null)
+		{
+	    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 0.5, pos.getZ(), new ItemStack(item)));
+		}
 	}
 	
 	public static ResourceLocation RandomMemeLocation() {

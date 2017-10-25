@@ -21,6 +21,8 @@ public class MemeNarratorTexts {
 			+ "This game could not possibly be anymore me,"
 			+ "It’s me, and nobody can convince me otherwise";
 	
+	public static final String oscar = "And the oscar goes to...";
+	
 	public static final String ykwtd = "You know what to do";
 	
 	public static final String dangerous = "It's dangerous to go alone, take this";
