@@ -18,6 +18,7 @@ import com.Mrbysco.miab.entities.hostile.EntityKhil;
 import com.Mrbysco.miab.entities.hostile.EntityMario7;
 import com.Mrbysco.miab.entities.hostile.EntityMoonman;
 import com.Mrbysco.miab.entities.hostile.EntityNigel;
+import com.Mrbysco.miab.entities.hostile.EntityPepe;
 import com.Mrbysco.miab.entities.hostile.EntityPpap;
 import com.Mrbysco.miab.entities.hostile.EntityRoadmanShaq;
 import com.Mrbysco.miab.entities.hostile.EntityRobbie;
@@ -62,7 +63,7 @@ import net.minecraft.world.World;
 public class MemeHelper {
 	
 	public static void SpawnRandomMeme(World world, BlockPos pos, EntityPlayer player, Entity entity) {
-		int randomValue = new Random().nextInt(49);
+		int randomValue = new Random().nextInt(50);
 		if (!world.isRemote)
 	    {
 			switch(randomValue)
@@ -278,6 +279,9 @@ public class MemeHelper {
 					}
 			    	spawnEntityItem(world, MemeBlocks.oscar, null, pos);
 			    	break;
+			    case 50:
+			    	spawnEntity(world, new EntityPepe(world), pos);
+			        break;
 			    	
 			    default:
 	                break;

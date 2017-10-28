@@ -5,7 +5,6 @@ import java.util.Random;
 import org.apache.logging.log4j.Logger;
 
 import com.Mrbysco.miab.MemeInABottle;
-import com.Mrbysco.miab.entities.hostile.EntityShrek;
 import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.init.MemeItems;
 import com.Mrbysco.miab.init.MemeSounds;
@@ -17,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.entity.passive.EntityDonkey;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
@@ -36,7 +34,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
@@ -179,22 +176,6 @@ public class MemeEventHandlers {
 					}
 				}
 			}
-		}
-	}
-	
-	@SubscribeEvent
-	public void onDeath(LivingDeathEvent event)
-	{
-		Entity entity = event.getEntity();
-		World world = entity.getEntityWorld();
-		BlockPos pos = entity.getPosition();
-		
-		if(entity instanceof EntityShrek)
-		{
-			EntityDonkey donkey = new EntityDonkey(world);
-			
-			donkey.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
-			world.spawnEntity(donkey);
 		}
 	}
 }

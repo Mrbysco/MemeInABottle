@@ -3,12 +3,11 @@ package com.Mrbysco.miab.entities.hostile;
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
 import com.Mrbysco.miab.init.MemeSounds;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.passive.EntityDonkey;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -62,9 +61,8 @@ public class EntityShrek extends EntityMemeBase
 	@Override
 	public void onDeath(DamageSource cause) {
 		super.onDeath(cause);
-		if(!this.world.isRemote)
+		if(!world.isRemote)
 		{
-			Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_DONKEY_AMBIENT, 1F, 1F);
 			EntityDonkey donkey = new EntityDonkey(world);
 			donkey.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0);
 			world.spawnEntity(donkey);
