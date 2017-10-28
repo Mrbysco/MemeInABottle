@@ -80,6 +80,8 @@ public class MemeInABottle
 		logger.debug("Registering the bottle handler");
 		MinecraftForge.EVENT_BUS.register(new MemeEventHandlers());
 		
+		MemeEntities.registerSpawn();
+		
 		proxy.Init();
     }
 	

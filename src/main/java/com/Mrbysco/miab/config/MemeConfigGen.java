@@ -29,6 +29,9 @@ public class MemeConfigGen {
 		@Config.Comment("The higher this number is the bigger the chance of a special meme summon, the number being X out of 100,"+ 
 		"100 = 100% chance of special meme summons (Default: 40)")
 		public int SpecialMemeChance = 40;
+		
+		@Config.Comment("Setting this to true allows a small amount of the meme creatures to spawn naturally where they fit (Default: false)")
+		public boolean NaturalSpawning = false;
 	}
 
 	@Mod.EventBusSubscriber(modid = Reference.MOD_ID)

@@ -21,12 +21,12 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
-public class EntityTacNyan extends EntityCatBase
+public class EntityTacNayn extends EntityCatBase
 {
-	public static String NAME = "Tac Nyan";
+	public static String NAME = "Tac Nayn";
 	private boolean isMounted = false;
 	
-	public EntityTacNyan(World worldIn) {
+	public EntityTacNayn(World worldIn) {
 	    super(worldIn);
 	}
 	

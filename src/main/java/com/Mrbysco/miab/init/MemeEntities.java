@@ -2,6 +2,7 @@ package com.Mrbysco.miab.init;
 
 import com.Mrbysco.miab.MemeInABottle;
 import com.Mrbysco.miab.Reference;
+import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.entities.boss.EntityMemeBigBoss;
 import com.Mrbysco.miab.entities.hostile.EntityAttachedGirlfriend;
 import com.Mrbysco.miab.entities.hostile.EntityBill;
@@ -22,7 +23,7 @@ import com.Mrbysco.miab.entities.hostile.EntityRobbie;
 import com.Mrbysco.miab.entities.hostile.EntitySanic;
 import com.Mrbysco.miab.entities.hostile.EntityShrek;
 import com.Mrbysco.miab.entities.hostile.EntitySkywalker;
-import com.Mrbysco.miab.entities.hostile.EntityTacNyan;
+import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
 import com.Mrbysco.miab.entities.hostile.EntityTrump;
 import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.entities.passive.EntityDoge;
@@ -51,7 +52,7 @@ import com.Mrbysco.miab.rendering.monsters.RenderRobbie;
 import com.Mrbysco.miab.rendering.monsters.RenderSanic;
 import com.Mrbysco.miab.rendering.monsters.RenderShrek;
 import com.Mrbysco.miab.rendering.monsters.RenderSkywalker;
-import com.Mrbysco.miab.rendering.monsters.RenderTacNyan;
+import com.Mrbysco.miab.rendering.monsters.RenderTacNayn;
 import com.Mrbysco.miab.rendering.monsters.RenderTrump;
 import com.Mrbysco.miab.rendering.passive.RenderClippy;
 import com.Mrbysco.miab.rendering.passive.RenderDoge;
@@ -60,6 +61,8 @@ import com.Mrbysco.miab.rendering.passive.RenderNyanCat;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -88,7 +91,7 @@ public class MemeEntities {
 		registerEntity("pepe", EntityPepe.class, "Pepe", 80, 3, true, 5934398, 2642377);
 		registerEntity("forever_alone", EntityFA.class, "ForeverAlone", 80, 3, true, 14869218, 4031140);
 		registerEntity("nyan_cat", EntityNyanCat.class, "NyanCat", 80, 3, true, 15118949, 15684762);
-		registerEntity("tac_nyan", EntityTacNyan.class, "TacNyan", 80, 3, true, 2829099, 11688484);
+		registerEntity("tac_nayn", EntityTacNayn.class, "taCnayN", 80, 3, true, 2829099, 11688484);
 		registerEntity("dankey_kang", EntityDankey.class, "DankeyKang", 80, 3, true, 1917560, 14668958);
 		registerEntity("nigel_thornberry", EntityNigel.class, "NigelThornberry", 80, 3, true, 15044481, 11155745);
 		registerEntity("attached_girlfriend", EntityAttachedGirlfriend.class, "AttachedGirlfriend", 80, 3, true, 16240814, 5187607);
@@ -98,6 +101,17 @@ public class MemeEntities {
 		registerEntity("dancing_hotdog", EntityHotDog.class, "DancingHotdog", 80, 3, true, 11887182, 14456412);
 		registerEntity("he_man", EntityHeMan.class, "HeMan", 80, 3, true, 13408394, 14595118);
 		registerEntity("clippy", EntityClippy.class, "Clippy", 80, 3, true);
+	}
+	
+	public static void registerSpawn() {
+		if(MemeConfigGen.general.NaturalSpawning == true)
+		{
+	        EntityRegistry.addSpawn(EntityShrek.class, 6, 1, 2, EnumCreatureType.MONSTER, Biomes.SWAMPLAND,
+	        		Biomes.MUTATED_SWAMPLAND);
+			EntityRegistry.addSpawn(EntityNigel.class, 9, 1, 2, EnumCreatureType.MONSTER, Biomes.JUNGLE, 
+					Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
+			EntityRegistry.addSpawn(EntityClippy.class, 6, 4, 4, EnumCreatureType.MONSTER, Biomes.DEFAULT);
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -123,7 +137,7 @@ public class MemeEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobbie.class, RenderRobbie.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySanic.class, RenderSanic.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityShrek.class, RenderShrek.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityTacNyan.class, RenderTacNyan.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTacNayn.class, RenderTacNayn.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTrump.class, RenderTrump.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityRoadmanShaq.class, RenderRoadmanShaq.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMemeBigBoss.class, RenderBigBoi.FACTORY);

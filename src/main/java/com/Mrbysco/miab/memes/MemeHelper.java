@@ -24,7 +24,7 @@ import com.Mrbysco.miab.entities.hostile.EntityRobbie;
 import com.Mrbysco.miab.entities.hostile.EntitySanic;
 import com.Mrbysco.miab.entities.hostile.EntityShrek;
 import com.Mrbysco.miab.entities.hostile.EntitySkywalker;
-import com.Mrbysco.miab.entities.hostile.EntityTacNyan;
+import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
 import com.Mrbysco.miab.entities.hostile.EntityTrump;
 import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.entities.passive.EntityDoge;
@@ -129,7 +129,7 @@ public class MemeHelper {
 			    	break;
 			    case 15:
 			    	spawnEntity(world, new EntityNyanCat(world), pos, SoundEvents.ENTITY_CAT_AMBIENT);
-			    	spawnEntity(world, new EntityTacNyan(world), pos, SoundEvents.ENTITY_CAT_HISS);
+			    	spawnEntity(world, new EntityTacNayn(world), pos, SoundEvents.ENTITY_CAT_HISS);
 			    	break;
 			    case 16:
 			    	spawnEntity(world, new EntityFA(world), pos);

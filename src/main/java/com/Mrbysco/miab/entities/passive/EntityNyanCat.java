@@ -1,7 +1,7 @@
 package com.Mrbysco.miab.entities.passive;
 
 import com.Mrbysco.miab.entities.base.EntityCatBase;
-import com.Mrbysco.miab.entities.hostile.EntityTacNyan;
+import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
 
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,7 +22,7 @@ public class EntityNyanCat extends EntityCatBase
 	public static String NAME = "Nyan Cat";
 	private boolean isMounted = false;
 	
-    private EntityAIAvoidEntity<EntityTacNyan> avoidEntity;
+    private EntityAIAvoidEntity<EntityTacNayn> avoidEntity;
 
 	
 	public EntityNyanCat(World worldIn) {
@@ -33,7 +33,7 @@ public class EntityNyanCat extends EntityCatBase
 	protected void initEntityAI()
     {
     this.tasks.addTask(1, new EntityAISwimming(this));
-    this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityTacNyan.class, 6.0F, 1.0D, 1.2D));
+    this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityTacNayn.class, 6.0F, 1.0D, 1.2D));
     this.tasks.addTask(5, new EntityAIWander(this, 0.8D));
     this.tasks.addTask(7, new EntityAILeapAtTarget(this, 0.3F));
     this.tasks.addTask(8, new EntityAIOcelotAttack(this));
