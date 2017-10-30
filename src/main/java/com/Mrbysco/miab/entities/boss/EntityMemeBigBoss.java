@@ -74,6 +74,12 @@ public class EntityMemeBigBoss extends EntityMemeBase
 	}
 	
 	@Override
+	public void onUpdate() {
+		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+		super.onUpdate();
+	}
+	
+	@Override
 	public void writeEntityToNBT(NBTTagCompound compound)
 	{
 		super.writeEntityToNBT(compound);

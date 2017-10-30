@@ -66,11 +66,11 @@ public class MemeItems {
 	public static Item clippy;
 	public static Item debug;
 	
-	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "memeinabottle:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
-	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "memeinabottle:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
-	public static final ArmorMaterial leatherbelt = EnumHelper.addArmorMaterial("leatherbelt", "memeinabottle:leatherbelt", 7, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
-	public static final ArmorMaterial trollmask = EnumHelper.addArmorMaterial("trollmask", "memeinabottle:trollmask", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
-	public static final ArmorMaterial ripoffhat = EnumHelper.addArmorMaterial("rippoffhat", "memeinabottle:rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
+	public static final ArmorMaterial trumphair = EnumHelper.addArmorMaterial("trumphair", "memeinabottle:trumphair", 5 , new int[]{1, 3, 2, 1}, 15, MemeSounds.trump_sound, 0F);
+	public static final ArmorMaterial belt = EnumHelper.addArmorMaterial("belt", "memeinabottle:belt", 7, new int[]{2, 5, 3, 1}, 25, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);
+	public static final ArmorMaterial leatherbelt = EnumHelper.addArmorMaterial("leatherbelt", "memeinabottle:leatherbelt", 7, new int[]{1, 3, 2, 1}, 15, MemeSounds.leather_belt, 0F);
+	public static final ArmorMaterial trollmask = EnumHelper.addArmorMaterial("trollmask", "memeinabottle:trollmask", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trololo, 0F);
+	public static final ArmorMaterial ripoffhat = EnumHelper.addArmorMaterial("rippoffhat", "memeinabottle:rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.dad_summon, 0F);
 	public static final ArmorMaterial glasses = EnumHelper.addArmorMaterial("sunglasses", "memeinabottle:sunglasses", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.thuglife, 0F);
 	
 	public static void init(){
