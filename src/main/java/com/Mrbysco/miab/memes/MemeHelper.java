@@ -60,9 +60,10 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class MemeHelper {
-	
-	public static void SpawnRandomMeme(World world, BlockPos pos, EntityPlayer player, Entity entity) {
+public class MemeHelper 
+{
+	public static void SpawnRandomMeme(World world, BlockPos pos, EntityPlayer player, Entity entity) 
+	{
 		int randomValue = new Random().nextInt(50);
 		if (!world.isRemote)
 	    {
@@ -347,7 +348,8 @@ public class MemeHelper {
 	    }
 	}
 	
-	private static void spawnEntity(World world, Entity entity, BlockPos pos, SoundEvent sound) {
+	private static void spawnEntity(World world, Entity entity, BlockPos pos, SoundEvent sound) 
+	{
 		
 		world.playSound(null, pos, sound, SoundCategory.NEUTRAL, 1f, 1f);
 		
@@ -355,12 +357,14 @@ public class MemeHelper {
 		world.spawnEntity(entity);
 	}
 	
-	private static void spawnEntity(World world, Entity entity, BlockPos pos) {
+	private static void spawnEntity(World world, Entity entity, BlockPos pos) 
+	{
 		entity.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
 		world.spawnEntity(entity);
 	}
 	
-	private static void spawnEntityItem(World world, @Nullable Block block, @Nullable Item item, BlockPos pos){
+	private static void spawnEntityItem(World world, @Nullable Block block, @Nullable Item item, BlockPos pos)
+	{
 		if(block != null)
 		{
 	    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 0.5, pos.getZ(), new ItemStack(block)));
@@ -371,7 +375,8 @@ public class MemeHelper {
 		}
 	}
 	
-	public static ResourceLocation RandomMemeLocation() {
+	public static ResourceLocation RandomMemeLocation() 
+	{
 		ResourceLocation meme = new ResourceLocation("memeinabottle:textures/items/splash_meme_in_a_bottle.png");
 		int randomValue = new Random().nextInt(10);
 		switch(randomValue)

@@ -16,13 +16,15 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ItemMusical extends Item{
+public class ItemMusical extends Item
+{
 	private SoundEvent sound;
 	private SoundEvent sound2;
 	private int cooldown;
 	private String info;
 	
-	public ItemMusical(String unlocalized, String registry, SoundEvent soundIn, SoundEvent soundin2, int cooldownNumber, String textLocal) {
+	public ItemMusical(String unlocalized, String registry, SoundEvent soundIn, SoundEvent soundin2, int cooldownNumber, String textLocal) 
+	{
 		setUnlocalizedName(unlocalized);
 		setRegistryName(registry);
 		setCreativeTab(MemeInABottle.memetab);
@@ -33,7 +35,8 @@ public class ItemMusical extends Item{
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) 
+	{
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 		
 		if(playerIn.isSneaking() && this.sound2 != null)
@@ -59,7 +62,8 @@ public class ItemMusical extends Item{
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
 		if (this.info != null)
 		{
 			tooltip.add(TextFormatting.YELLOW + I18n.translateToLocal(this.info));

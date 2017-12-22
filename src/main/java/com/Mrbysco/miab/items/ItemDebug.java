@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
 import com.Mrbysco.miab.config.MemeConfigGen;
-import com.Mrbysco.miab.gui.MemeGui;
 import com.Mrbysco.miab.memes.MemeHelper;
 import com.Mrbysco.miab.memes.MemeLists;
 
@@ -26,7 +25,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemDebug extends Item{
+public class ItemDebug extends Item
+{
 	public ItemDebug(String unlocalized, String registry)
 	{
 		setUnlocalizedName(unlocalized);
@@ -35,7 +35,8 @@ public class ItemDebug extends Item{
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) 
+	{
 		if (playerIn.isSneaking())
 		{
 			if(!worldIn.isRemote)
@@ -54,15 +55,9 @@ public class ItemDebug extends Item{
 		else
 		if (worldIn.isRemote)
 		{
-			doTheClientThing(worldIn);;
+			MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void doTheClientThing(World worldIn)
-	{
-		MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
 	}
 	
 	@SideOnly(Side.CLIENT)

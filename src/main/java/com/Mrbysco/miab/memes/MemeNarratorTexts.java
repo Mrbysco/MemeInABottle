@@ -1,6 +1,7 @@
 package com.Mrbysco.miab.memes;
 
-public class MemeNarratorTexts {
+public class MemeNarratorTexts 
+{
 	public static final String memebee_part = "According to all known laws of gravitation, "
 				+ "there is no way a dirt block should be able to float,"
 				+ "There is no logic behind it holding it up in the air,"

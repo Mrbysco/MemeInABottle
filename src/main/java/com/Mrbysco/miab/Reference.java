@@ -1,6 +1,7 @@
 package com.Mrbysco.miab;
 
-public class Reference {
+public class Reference 
+{
 	public static final String MOD_ID = "memeinabottle";
 	public static final String MOD_PREFIX = "memeinabottle:";
 	public static final String MOD_NAME = "Meme In A Bottle";

@@ -6,17 +6,20 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 
-public class ItemKnife extends ItemCustomWeapon{
+public class ItemKnife extends ItemCustomWeapon
+{
 
 	private boolean HotKnife;
 	
-	public ItemKnife(ToolMaterial material, String unlocalized, String registry, boolean isHotKnife) {
+	public ItemKnife(ToolMaterial material, String unlocalized, String registry, boolean isHotKnife) 
+	{
 		super(material, unlocalized, registry);
 		this.HotKnife = isHotKnife;
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) 
+	{
 		if(this.HotKnife == true)
 		{
 			target.setFire(3);

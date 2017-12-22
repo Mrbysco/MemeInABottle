@@ -11,7 +11,8 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ItemCustomItemInfo extends Item{
+public class ItemCustomItemInfo extends Item
+{
 	private String info;
 
 	public ItemCustomItemInfo(String unlocalized, String registry, String infoText)
@@ -23,7 +24,8 @@ public class ItemCustomItemInfo extends Item{
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) 
+	{
 		if (this.info != null)
 		{
 			tooltip.add(TextFormatting.YELLOW + I18n.translateToLocal(this.info));

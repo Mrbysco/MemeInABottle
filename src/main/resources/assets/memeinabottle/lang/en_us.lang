@@ -94,6 +94,11 @@ sunglasses.info=DEAL WITH IT!
 bottle.text1=You can consume the meme,
 bottle.text2=You might wanna find a way to throw it.
 
+splashbottle.text1=Memes will rise from where this bottle lands.
+splashbottle.text2=You might wanna find out how to make more effective.
+
+lingeringbottle.text1=Wherever it lands it will summon multiple memes.
+
 debug.text1=This item is for anyone doing a spotlight,
 debug.text2=When right clicked normally it opens a visual meme.
 debug.text3=When shift right clicked it plays a random meme sound.

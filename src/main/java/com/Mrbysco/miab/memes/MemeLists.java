@@ -13,7 +13,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 
-public class MemeLists {
+public class MemeLists 
+{
 	public static final Random rand = new Random();
 	
 	public static  List<SoundEvent> matureSounds = ImmutableList.of(
@@ -91,11 +92,13 @@ public class MemeLists {
 		return stack;
 	}
 	
-	public static <T> T getRandomFromList(List<T> list) {
+	public static <T> T getRandomFromList(List<T> list) 
+	{
         return getRandomFromList(list, rand);
     }
 
-    public static <T> T getRandomFromList(List<T> list, Random rand) {
+    public static <T> T getRandomFromList(List<T> list, Random rand) 
+    {
         final int size = list.size();
         Preconditions.checkArgument(size > 0, "Can't select from empty list");
         if (size == 0) return null;

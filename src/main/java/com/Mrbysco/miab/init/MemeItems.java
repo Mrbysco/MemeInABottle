@@ -8,6 +8,7 @@ import com.Mrbysco.miab.items.ItemKnife;
 import com.Mrbysco.miab.items.ItemLeatherBelt;
 import com.Mrbysco.miab.items.ItemLingeringMemeBottle;
 import com.Mrbysco.miab.items.ItemMemeBottle;
+import com.Mrbysco.miab.items.ItemPills;
 import com.Mrbysco.miab.items.ItemSplashMemeBottle;
 import com.Mrbysco.miab.items.ItemSunglasses;
 import com.Mrbysco.miab.items.base.ItemCustomArmor;
@@ -16,7 +17,6 @@ import com.Mrbysco.miab.items.base.ItemCustomItemInfo;
 import com.Mrbysco.miab.items.base.ItemCustomRecord;
 import com.Mrbysco.miab.items.base.ItemMusical;
 import com.Mrbysco.miab.items.food.ItemFoodWithSound;
-import com.Mrbysco.miab.items.food.ItemPills;
 
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -73,7 +73,8 @@ public class MemeItems {
 	public static final ArmorMaterial ripoffhat = EnumHelper.addArmorMaterial("rippoffhat", "memeinabottle:rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.dad_summon, 0F);
 	public static final ArmorMaterial glasses = EnumHelper.addArmorMaterial("sunglasses", "memeinabottle:sunglasses", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.thuglife, 0F);
 	
-	public static void init(){
+	public static void init()
+	{
 		meme_in_a_bottle = new ItemMemeBottle("memeinabottle", "meme_in_a_bottle");
 		splash_meme_in_a_bottle = new ItemSplashMemeBottle("splashmemeinabottle", "splash_meme_in_a_bottle");
 		lingering_meme_in_a_bottle = new ItemLingeringMemeBottle("lingeringmemeinabottle", "lingering_meme_in_a_bottle");
@@ -105,7 +106,7 @@ public class MemeItems {
 		sunglasses = new ItemSunglasses(glasses, 1, EntityEquipmentSlot.HEAD, "sunglasses", "sunglasses");
 		clippy = new ItemCustomItemInfo("clippy", "clippy", "clippy.info");
 		debug = new ItemDebug("debugitem", "debug_item");
-		}
+	}
 	
 	public static void register()
 	{

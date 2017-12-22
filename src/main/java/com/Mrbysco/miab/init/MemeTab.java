@@ -8,12 +8,14 @@ import net.minecraft.item.ItemStack;
 public class MemeTab extends CreativeTabs{
 
 	
-	public MemeTab() {
+	public MemeTab() 
+	{
 		super(Reference.MOD_ID);
 	}
 
 	@Override
-	public ItemStack getTabIconItem() {
+	public ItemStack getTabIconItem() 
+	{
 		return new ItemStack(MemeItems.splash_meme_in_a_bottle);
 	}
 

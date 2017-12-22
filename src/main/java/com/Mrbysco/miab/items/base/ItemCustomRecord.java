@@ -28,8 +28,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCustomRecord extends ItemRecord{
-
+public class ItemCustomRecord extends ItemRecord
+{
     private static final Map<SoundEvent, ItemCustomRecord> RECORDS = Maps.<SoundEvent, ItemCustomRecord>newHashMap();
     private final String displayName;
     private final SoundEvent sound;

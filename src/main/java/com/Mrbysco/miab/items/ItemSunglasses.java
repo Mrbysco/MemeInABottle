@@ -11,10 +11,11 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
-public class ItemSunglasses extends ItemCustomArmor{
+public class ItemSunglasses extends ItemCustomArmor
+{
 
-	public ItemSunglasses(ArmorMaterial material, int renderIndex, EntityEquipmentSlot armorType,
-			String unlocalized, String registry) {
+	public ItemSunglasses(ArmorMaterial material, int renderIndex, EntityEquipmentSlot armorType, String unlocalized, String registry) 
+	{
 		super(material, renderIndex, armorType, unlocalized, registry);
 	}
 

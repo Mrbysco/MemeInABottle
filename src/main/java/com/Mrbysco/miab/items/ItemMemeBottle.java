@@ -30,15 +30,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMemeBottle extends ItemCustomItem{
+public class ItemMemeBottle extends ItemCustomItem
+{
 
-	public ItemMemeBottle(String unlocalized, String registry) {
+	public ItemMemeBottle(String unlocalized, String registry) 
+	{
 		super(unlocalized, registry);
 		setMaxStackSize(16);
 	}
 	
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) 
+	{
 		EntityPlayer entityplayer = entityLiving instanceof EntityPlayer ? (EntityPlayer)entityLiving : null;
 
         if (entityplayer instanceof EntityPlayerMP)
@@ -76,12 +79,14 @@ public class ItemMemeBottle extends ItemCustomItem{
     }
 	
 	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
+	public EnumAction getItemUseAction(ItemStack stack) 
+	{
         return EnumAction.DRINK;
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) 
+	{
         playerIn.setActiveHand(handIn);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
@@ -97,13 +102,14 @@ public class ItemMemeBottle extends ItemCustomItem{
 		tooltip.add(TextFormatting.UNDERLINE + "Press Shift For More Info");
     }
 	
-	public static void doTheThing(World worldIn, EntityPlayer entityplayer) {
+	public static void doTheThing(World worldIn, EntityPlayer entityplayer) 
+	{
 		int random = worldIn.rand.nextInt(100);
         if(random < 30)
     	{
         	if(worldIn.isRemote)
         	{
-        		doTheClientThing(worldIn);
+        		MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
         	}
     	}
         else
@@ -121,11 +127,5 @@ public class ItemMemeBottle extends ItemCustomItem{
         		}
 	        }
         }
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void doTheClientThing(World worldIn)
-	{
-		MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
 	}
 }

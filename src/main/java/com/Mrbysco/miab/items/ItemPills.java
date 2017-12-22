@@ -1,4 +1,4 @@
-package com.Mrbysco.miab.items.food;
+package com.Mrbysco.miab.items;
 
 import com.Mrbysco.miab.items.base.ItemCustomFood;
 
@@ -10,24 +10,27 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class ItemPills extends ItemCustomFood{
-
-private SoundEvent sound;
+public class ItemPills extends ItemCustomFood
+{
+	private SoundEvent sound;
 	
-	public ItemPills(int amount, float saturation, boolean isWolfFood, String unlocalized, String registry, SoundEvent soundIn) {
+	public ItemPills(int amount, float saturation, boolean isWolfFood, String unlocalized, String registry, SoundEvent soundIn) 
+	{
 		super(amount, saturation, isWolfFood, unlocalized, registry);
 		this.sound = soundIn;
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) 
+	{
 		entityLiving.playSound(this.sound, 1F, 1F);
 		entityLiving.heal(4);
 		return super.onItemUseFinish(stack, worldIn, entityLiving);
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) 
+	{
 		playerIn.playSound(this.sound, 1F, 1F);
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 	}

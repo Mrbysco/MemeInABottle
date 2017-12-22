@@ -18,8 +18,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockKeyboardMechanical extends BaseRotatable{
-
+public class BlockKeyboardMechanical extends BaseRotatable
+{
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625 * 3, 0, 0.0625 * 3, 0.0625 * 13, 0.0625 * 2, 0.0625 * 13);
 	
 	public BlockKeyboardMechanical(String unlocalised, String registry) 

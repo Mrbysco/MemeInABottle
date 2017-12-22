@@ -24,8 +24,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BottleBlock extends Block{
-	
+public class BottleBlock extends Block
+{	
     protected static final AxisAlignedBB BOTTLE_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
     
 	public BottleBlock(String unlocalised, String registry)

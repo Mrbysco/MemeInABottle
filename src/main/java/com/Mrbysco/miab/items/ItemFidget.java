@@ -16,9 +16,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemFidget extends ItemCustomItem{
+public class ItemFidget extends ItemCustomItem
+{
 	
-	public ItemFidget(String unlocalized, String registry) {
+	public ItemFidget(String unlocalized, String registry) 
+	{
 		super(unlocalized, registry);
 		setMaxStackSize(1);
 		addPropertyOverride(new ResourceLocation("spinning"), new IItemPropertyGetter()
@@ -32,12 +34,14 @@ public class ItemFidget extends ItemCustomItem{
 	}
 
 	@Override
-	public int getMaxItemUseDuration(ItemStack stack) {
+	public int getMaxItemUseDuration(ItemStack stack) 
+	{
 		return 1200;
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) 
+	{
 		ItemStack heldItem = playerIn.getHeldItem(handIn);
 		
 		playerIn.setActiveHand(handIn);

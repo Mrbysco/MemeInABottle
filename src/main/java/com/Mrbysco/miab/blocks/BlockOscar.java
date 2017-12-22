@@ -16,8 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockOscar extends BaseRotatable{
-
+public class BlockOscar extends BaseRotatable
+{
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625 * 4, 0, 0.0625 * 4, 0.0625 * 12, 0.0625 * 12, 0.0625 * 12);
 	
 	public BlockOscar(String unlocalised, String registry) 

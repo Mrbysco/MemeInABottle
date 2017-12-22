@@ -73,7 +73,8 @@ public class MemeEntities {
 
 	static int ID = 0;
 	
-	public static void register() {
+	public static void register() 
+	{
 		registerEntity("splash_meme", EntitySplashMeme.class, "SplashMeme", 80, 3, true);
 		registerEntity("john_cena", EntityCena.class, "JohnCena", 80, 3, true, 16032864, 9199159);
 		registerEntity("bill_cipher", EntityBill.class, "BillCipher", 80, 3, true, 16707402, 2171169);
@@ -103,7 +104,8 @@ public class MemeEntities {
 		registerEntity("clippy", EntityClippy.class, "Clippy", 80, 3, true);
 	}
 	
-	public static void registerSpawn() {
+	public static void registerSpawn() 
+	{
 		if(MemeConfigGen.general.NaturalSpawning == true)
 		{
 	        EntityRegistry.addSpawn(EntityShrek.class, 6, 1, 2, EnumCreatureType.MONSTER, Biomes.SWAMPLAND,
@@ -115,7 +117,8 @@ public class MemeEntities {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public static void RegisterEntityRender(){
+	public static void RegisterEntityRender()
+	{
 		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, renderManager -> new EntityMemeRenderer(renderManager, Minecraft.getMinecraft().getRenderItem()));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, new EntityRenderingFactory());
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkywalker.class, RenderSkywalker.FACTORY);
@@ -146,12 +149,14 @@ public class MemeEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityClippy.class, RenderClippy.FACTORY);
 	}
 	
-	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggPrimary, int eggSecondary) {
+	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggPrimary, int eggSecondary) 
+	{
 		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, registryName), entityClass, Reference.MOD_PREFIX + entityName, ID, MemeInABottle.instance, trackingRange, updateFrequency, sendsVelocityUpdates, eggPrimary, eggSecondary);
 		ID++;
 	}
 	
-	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
+	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) 
+	{
 		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, registryName), entityClass, Reference.MOD_PREFIX + entityName, ID, MemeInABottle.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
 		ID++;
 	}

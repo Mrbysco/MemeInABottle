@@ -13,14 +13,16 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BaseRotatable extends BlockHorizontal{
-	
-	protected BaseRotatable(Material materialIn) {
+public class BaseRotatable extends BlockHorizontal
+{
+	protected BaseRotatable(Material materialIn) 
+	{
 		super(materialIn);
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state) 
+	{
 		return false;
 	}
 	
@@ -43,8 +45,8 @@ public class BaseRotatable extends BlockHorizontal{
     }
 
 	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack) {
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) 
+	{
 		this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
@@ -73,7 +75,8 @@ public class BaseRotatable extends BlockHorizontal{
     }
     
     @Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) 
+    {
 		super.breakBlock(worldIn, pos, state);
         worldIn.removeTileEntity(pos);
 	}

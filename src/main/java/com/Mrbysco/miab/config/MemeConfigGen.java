@@ -10,13 +10,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = Reference.MOD_ID)
 @Config.LangKey("memeinabottle.config.title")
-public class MemeConfigGen {
+public class MemeConfigGen 
+{
 	
 	@Config.Comment({"General settings"})
 	public static General general = new General();
 	
-	public static class General{
-		
+	public static class General
+	{
 		@Config.Comment("When true meme bottles can be found on beaches. (Default: true)")
 		public boolean MemesOnTheBeach = true;
 		
@@ -35,11 +36,13 @@ public class MemeConfigGen {
 	}
 
 	@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
-	private static class EventHandler {
-
+	private static class EventHandler 
+	{
 		@SubscribeEvent
-		public static void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
-			if (event.getModID().equals(Reference.MOD_ID)) {
+		public static void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) 
+		{
+			if (event.getModID().equals(Reference.MOD_ID)) 
+			{
 				ConfigManager.sync(Reference.MOD_ID, Config.Type.INSTANCE);
 			}
 		}
