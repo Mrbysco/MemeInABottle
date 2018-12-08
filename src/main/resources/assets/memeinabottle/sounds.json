@@ -1017,28 +1017,34 @@
 	"subtitle": "memeinabottle.subtitle.knuckles.summon",
     "category" : "neutral",
         "sounds": [
-            "memeinabottle:knuckles/knuckles_summon"
+            "memeinabottle:knuckles/dawae"
         ]
    },
    "knuckles.passive" : {
 	"subtitle": "memeinabottle.subtitle.knuckles.passive",
     "category" : "neutral",
         "sounds": [
-            "memeinabottle:knuckles/knuckles_ambient"
+            "memeinabottle:knuckles/dawae",
+            "memeinabottle:knuckles/dawae2",
+            "memeinabottle:knuckles/king",
+            "memeinabottle:knuckles/showyoudawae"
         ]
    },
    "knuckles.hurt" : {
 	"subtitle": "memeinabottle.subtitle.knuckles.hurt",
     "category" : "neutral",
         "sounds": [
-            "memeinabottle:knuckles/knuckles_hurt"
+            "memeinabottle:knuckles/dawae",
+            "memeinabottle:knuckles/dawae2"
         ]
    },
    "knuckles.death" : {
 	"subtitle": "memeinabottle.subtitle.knuckles.death",
     "category" : "neutral",
         "sounds": [
-            "memeinabottle:knuckles/knuckles_death"
+            "memeinabottle:knuckles/dawae",
+            "memeinabottle:knuckles/dawae2",
+            "memeinabottle:knuckles/showyoudawae"
         ]
    },
    "rofl.summon" : {

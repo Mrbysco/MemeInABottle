@@ -91,19 +91,19 @@ public class EntityKnuckles extends EntityKnucklesBase
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return null; //MemeSounds.knuckles_passive;
+        return MemeSounds.knuckles_passive;
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource p_184601_1_)
     {
-        return null; //MemeSounds.knuckles_hurt;
+        return MemeSounds.knuckles_hurt;
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return null; //MemeSounds.knuckles_death;
+        return MemeSounds.knuckles_death;
     }
 	
 	@Nullable

@@ -294,9 +294,9 @@ public class MemeSounds {
 		clippy_hurt = registerSound("clippy.hurt");
 		clippy_passive = registerSound("clippy.passive");
 		clippy_forest = registerSound("clippy.forest");
-		//knuckles_passive = registerSound("knuckles.passive");
-		//knuckles_hurt = registerSound("knuckles.hurt");
-		//knuckles_death = registerSound("knuckles.death");
+		knuckles_passive = registerSound("knuckles.passive");
+		knuckles_hurt = registerSound("knuckles.hurt");
+		knuckles_death = registerSound("knuckles.death");
 		rofl_spawn = registerSound("rofl.summon");
 		rofl_passive = registerSound("rofl.passive");
 		rofl_hurt = registerSound("rofl.hurt");
