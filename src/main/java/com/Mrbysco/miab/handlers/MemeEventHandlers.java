@@ -13,13 +13,12 @@ import com.Mrbysco.miab.memes.MemeHelper;
 import com.Mrbysco.miab.memes.MemeLists;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSand;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Biomes;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
@@ -41,6 +40,7 @@ import net.minecraft.world.storage.loot.LootPool;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
@@ -67,11 +67,11 @@ public class MemeEventHandlers {
 		
 		if(!world.isRemote)
 		{
-			if (world.getBiome(pos) == Biomes.BEACH)
+			if(BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.BEACH))
 			{
-				if(block == Blocks.SAND)
+				if(block instanceof BlockSand)
 				{
-					if(itemStack == ItemStack.EMPTY)
+					if(itemStack.isEmpty())
 					{
 						int random = world.rand.nextInt(1000);
 	
@@ -80,7 +80,7 @@ public class MemeEventHandlers {
 							world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), MemeLists.getRandomMemeBottle()));
 						}
 					}
-					if(itemStack.getItem() instanceof ItemSpade)
+					else if(itemStack.getItem() instanceof ItemSpade)
 					{
 						ItemTool item = (ItemTool)itemStack.getItem();
 						int itemDamage = itemStack.getItemDamage();
