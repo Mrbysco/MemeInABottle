@@ -9,9 +9,9 @@ import net.minecraft.util.SoundEvent;
 public class ItemInstrument extends ItemMusical
 {
 	
-	public ItemInstrument(String unlocalized, String registry, SoundEvent soundIn, SoundEvent soundIn2, int cooldown, String infoText) 
+	public ItemInstrument(String registry, SoundEvent soundIn, SoundEvent soundIn2, int cooldown, String infoText) 
 	{
-		super(unlocalized, registry, soundIn, soundIn2, cooldown, infoText);
+		super(registry, soundIn, soundIn2, cooldown, infoText);
 		maxStackSize = 1;
 	}
 	

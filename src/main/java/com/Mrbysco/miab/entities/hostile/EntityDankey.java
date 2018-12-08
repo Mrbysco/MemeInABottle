@@ -18,7 +18,7 @@ public class EntityDankey extends EntityMemeBase
 	
 	public EntityDankey(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 

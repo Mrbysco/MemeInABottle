@@ -1,17 +1,21 @@
 package com.Mrbysco.miab.entities.hostile;
 
-import com.Mrbysco.miab.config.MemeConfigGen;
+import java.util.List;
+
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
-import com.mojang.text2speech.Narrator;
 
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
@@ -26,7 +30,7 @@ public class EntityCena extends EntityMemeBase
 	
 	public EntityCena(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 
@@ -61,8 +65,35 @@ public class EntityCena extends EntityMemeBase
 	@Override
     protected ResourceLocation getLootTable()
     {
-    	return new ResourceLocation("memeinabottle:entity/cena");
+    	return MemeLoot.CENA_LOOT;
     }
+	
+	@Override
+	public void onLivingUpdate() {
+		if (playerDetection(10)) 
+		{
+			if (isPotionActive(MobEffects.INVISIBILITY)) {
+				removePotionEffect(MobEffects.INVISIBILITY);
+			}
+		} 
+		else 
+		{
+			if (!isPotionActive(MobEffects.INVISIBILITY)) {
+				addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 480 * 20, 0));
+			}
+		}
+		super.onLivingUpdate();
+	}
+	
+	/**
+	 * Detects if there are any EntityPlayer nearby
+	 */
+	private boolean playerDetection(int range) {
+		AxisAlignedBB axisalignedbb = (new AxisAlignedBB(posX, posY, posZ, posX + 1, posY + 1, posZ + 1)).grow(range);
+		List<EntityPlayer> list = world.getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb);
+
+		return !list.isEmpty();
+	}
 	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {		

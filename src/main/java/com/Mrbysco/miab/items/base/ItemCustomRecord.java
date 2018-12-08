@@ -6,12 +6,13 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 import com.google.common.collect.Maps;
 
 import net.minecraft.block.BlockJukebox;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -23,7 +24,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -34,13 +34,13 @@ public class ItemCustomRecord extends ItemRecord
     private final String displayName;
     private final SoundEvent sound;
     
-	public ItemCustomRecord(String name, SoundEvent soundIn, String unlocalized, String registry)
+	public ItemCustomRecord(String name, SoundEvent soundIn, String registry)
 	{
 		super(name, soundIn);
 		setCreativeTab(MemeInABottle.memetab);
-        setUnlocalizedName(unlocalized);
-		setRegistryName(registry);
-		this.displayName = "item.record." + name + ".desc";
+		this.setUnlocalizedName(Reference.MOD_PREFIX + registry.replaceAll("_", ""));
+		this.setRegistryName(registry);
+		this.displayName = "item." + Reference.MOD_PREFIX + "record." + name + ".desc";
 		this.sound = soundIn;
         this.maxStackSize = 1;
 		RECORDS.put(this.sound, this);
@@ -84,7 +84,7 @@ public class ItemCustomRecord extends ItemRecord
     @Override
     public String getRecordNameLocal()
     {
-        return I18n.translateToLocal(this.displayName);
+        return I18n.format(this.displayName);
     }
 
     @Nullable

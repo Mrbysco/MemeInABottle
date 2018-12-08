@@ -22,7 +22,7 @@ public class EntityHotDog extends EntityMemeBase
 	
 	public EntityHotDog(World world) {
 	    super(world);
-		}
+	}
 
 	@Override
 	protected void applyEntityAttributes() 

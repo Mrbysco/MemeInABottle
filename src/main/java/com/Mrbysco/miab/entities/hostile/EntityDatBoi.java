@@ -1,6 +1,7 @@
 package com.Mrbysco.miab.entities.hostile;
 
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.entity.IEntityLivingData;
@@ -24,7 +25,7 @@ public class EntityDatBoi extends EntityMemeBase
 	public EntityDatBoi(World world) {
 	    super(world);
 	    super.setSize(0.6F, 2.7F);
-		}
+	}
 
 	@Override
 	protected void applyEntityAttributes() 
@@ -59,7 +60,7 @@ public class EntityDatBoi extends EntityMemeBase
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return new ResourceLocation("memeinabottle:entity/datboi");
+		return MemeLoot.DAT_BOI_LOOT;
 	}
 	
 	@Override

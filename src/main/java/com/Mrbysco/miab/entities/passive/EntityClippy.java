@@ -2,6 +2,7 @@ package com.Mrbysco.miab.entities.passive;
 
 import javax.annotation.Nullable;
 
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.entity.EntityCreature;
@@ -148,7 +149,7 @@ public class EntityClippy extends EntityCreature implements IMob
     @Nullable
     protected ResourceLocation getLootTable()
     {
- 	   return new ResourceLocation("memeinabottle:entity/clippy");
+ 	   return MemeLoot.CLIPPY_LOOT;
     }
     
     @Override
@@ -168,7 +169,7 @@ public class EntityClippy extends EntityCreature implements IMob
     {
         int i = 2;
 
-        if (this.canEntityBeSeen(entityIn) && this.getDistanceSqToEntity(entityIn) < 0.6D * (double)i * 0.6D * (double)i && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)2))
+        if (this.canEntityBeSeen(entityIn) && this.getDistanceSq(entityIn) < 0.6D * (double)i * 0.6D * (double)i && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)2))
         {
             this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             this.applyEnchantments(this, entityIn);

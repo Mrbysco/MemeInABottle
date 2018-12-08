@@ -23,7 +23,7 @@ public class EntitySanic extends EntityMemeBase
 	public EntitySanic(World world) {
 	    super(world);
 	    super.setSize(1.0F, 1.0F);
-		}
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 

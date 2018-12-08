@@ -1,4 +1,4 @@
-package com.Mrbysco.miab.entities.throwable;
+package com.Mrbysco.miab.entities.projectiles;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,12 +1,11 @@
 package com.Mrbysco.miab.rendering;
 
-import com.Mrbysco.miab.entities.throwable.EntitySplashMeme;
+import com.Mrbysco.miab.entities.projectiles.EntitySplashMeme;
 import com.Mrbysco.miab.init.MemeItems;
 
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.item.ItemStack;
 
 public class EntityMemeRenderer extends RenderSnowball<EntitySplashMeme>

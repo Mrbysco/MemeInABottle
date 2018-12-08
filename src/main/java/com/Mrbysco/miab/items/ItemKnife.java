@@ -8,12 +8,11 @@ import net.minecraft.item.ItemStack;
 
 public class ItemKnife extends ItemCustomWeapon
 {
-
 	private boolean HotKnife;
 	
-	public ItemKnife(ToolMaterial material, String unlocalized, String registry, boolean isHotKnife) 
+	public ItemKnife(ToolMaterial material, String registry, boolean isHotKnife) 
 	{
-		super(material, unlocalized, registry);
+		super(material, registry);
 		this.HotKnife = isHotKnife;
 	}
 

@@ -2,17 +2,21 @@ package com.Mrbysco.miab.entities.hostile;
 
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
 import com.Mrbysco.miab.init.MemeItems;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.FakePlayer;
 
 public class EntityRobbie extends EntityMemeBase 
 {
@@ -26,7 +30,7 @@ public class EntityRobbie extends EntityMemeBase
 	
 	public EntityRobbie(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 
@@ -68,7 +72,18 @@ public class EntityRobbie extends EntityMemeBase
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return new ResourceLocation("memeinabottle:entity/robbierotten");
+		return MemeLoot.ROBBIE_LOOT;
+	}
+	
+	@Override
+	public void onDeath(DamageSource cause) {
+		if(cause.getTrueSource() instanceof EntityPlayer && !(cause.getTrueSource() instanceof FakePlayer))
+		{
+			EntityPlayer player = (EntityPlayer)cause.getTrueSource();
+			if(world.rand.nextInt(20) < 5)
+				player.sendMessage(new TextComponentString("He will forever be number one."));
+		}
+		super.onDeath(cause);
 	}
 	
 	@Override

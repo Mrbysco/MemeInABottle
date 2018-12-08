@@ -3,7 +3,9 @@ package com.Mrbysco.miab.items.base;
 import java.util.List;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -13,7 +15,6 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
 public class ItemMusical extends Item
@@ -23,10 +24,10 @@ public class ItemMusical extends Item
 	private int cooldown;
 	private String info;
 	
-	public ItemMusical(String unlocalized, String registry, SoundEvent soundIn, SoundEvent soundin2, int cooldownNumber, String textLocal) 
+	public ItemMusical(String registry, SoundEvent soundIn, SoundEvent soundin2, int cooldownNumber, String textLocal) 
 	{
-		setUnlocalizedName(unlocalized);
-		setRegistryName(registry);
+		this.setUnlocalizedName(Reference.MOD_PREFIX + registry.replaceAll("_", ""));
+		this.setRegistryName(registry);
 		setCreativeTab(MemeInABottle.memetab);
 		this.sound = soundIn;
 		this.sound2 = soundin2;
@@ -66,7 +67,7 @@ public class ItemMusical extends Item
 	{
 		if (this.info != null)
 		{
-			tooltip.add(TextFormatting.YELLOW + I18n.translateToLocal(this.info));
+			tooltip.add(TextFormatting.YELLOW + I18n.format(this.info));
 		}
 	}
 }

@@ -23,7 +23,7 @@ public class EntityFA extends EntityMemeBase
 	public EntityFA(World world) {
 	    super(world);
 	    super.setSize(0.6F, 2.1F);
-		}
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 

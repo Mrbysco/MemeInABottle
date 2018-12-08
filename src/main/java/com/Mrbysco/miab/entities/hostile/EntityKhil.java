@@ -1,6 +1,7 @@
 package com.Mrbysco.miab.entities.hostile;
 
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.entity.IEntityLivingData;
@@ -23,7 +24,7 @@ public class EntityKhil extends EntityMemeBase
 	
 	public EntityKhil(World world) {
 	    super(world);
-		}
+	}
 
 	@Override
 	protected void applyEntityAttributes() 
@@ -58,7 +59,7 @@ public class EntityKhil extends EntityMemeBase
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return new ResourceLocation("memeinabottle:entity/eduardkhil");
+		return MemeLoot.TROLO_LOOT;
 	}
 		
 	@Override

@@ -5,13 +5,14 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.items.base.ItemCustomItem;
-import com.Mrbysco.miab.memes.MemeHelper;
 import com.Mrbysco.miab.memes.MemeLists;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +26,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,9 +33,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemMemeBottle extends ItemCustomItem
 {
 
-	public ItemMemeBottle(String unlocalized, String registry) 
+	public ItemMemeBottle(String registry) 
 	{
-		super(unlocalized, registry);
+		super(registry);
 		setMaxStackSize(16);
 	}
 	
@@ -95,11 +95,11 @@ public class ItemMemeBottle extends ItemCustomItem
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
 		if(GuiScreen.isShiftKeyDown()){
-		tooltip.add(TextFormatting.YELLOW + I18n.translateToLocal("bottle.text1"));
-		tooltip.add(TextFormatting.YELLOW + I18n.translateToLocal("bottle.text2"));
+		tooltip.add(TextFormatting.YELLOW + I18n.format(Reference.MOD_PREFIX + "bottle.text1"));
+		tooltip.add(TextFormatting.YELLOW + I18n.format(Reference.MOD_PREFIX + "bottle.text2"));
 		}
 		else 
-		tooltip.add(TextFormatting.UNDERLINE + "Press Shift For More Info");
+		tooltip.add(TextFormatting.UNDERLINE + I18n.format(Reference.MOD_PREFIX + "shift.info"));
     }
 	
 	public static void doTheThing(World worldIn, EntityPlayer entityplayer) 
@@ -109,7 +109,7 @@ public class ItemMemeBottle extends ItemCustomItem
     	{
         	if(worldIn.isRemote)
         	{
-        		MemeInABottle.proxy.displayMemeGui(MemeHelper.RandomMemeLocation());
+        		entityplayer.openGui(MemeInABottle.instance, 0, worldIn, (int)entityplayer.posX, (int)entityplayer.posY, (int)entityplayer.posZ);
         	}
     	}
         else

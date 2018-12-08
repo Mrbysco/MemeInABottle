@@ -1,0 +1,156 @@
+package com.Mrbysco.miab.models;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+
+public class ModelKnucklesTank extends ModelBase {
+	public ModelRenderer tank;
+    public ModelRenderer tank_2;
+    public ModelRenderer cannon;
+    public ModelRenderer tank_side;
+    public ModelRenderer tank_side_2;
+    public ModelRenderer wheels_1;
+    public ModelRenderer wheels_2;
+    public ModelRenderer head;
+    public ModelRenderer right_arm;
+    public ModelRenderer left_arm;
+    public ModelRenderer chest;
+    public ModelRenderer head_top;
+    public ModelRenderer mouth;
+    public ModelRenderer mouth_top;
+    public ModelRenderer nose;
+    public ModelRenderer right_arm_2;
+    public ModelRenderer right_hand;
+    public ModelRenderer left_arm_2;
+    public ModelRenderer left_hand;
+    public ModelRenderer chest_front;
+    public ModelRenderer chest_back;
+    public ModelRenderer chest_right;
+    public ModelRenderer chest_left;
+    public ModelRenderer chest_part;
+    public ModelRenderer chest_part3;
+    public ModelRenderer chest_part4;
+
+    public ModelKnucklesTank() {
+        this.textureWidth = 128;
+        this.textureHeight = 128;
+        this.tank_2 = new ModelRenderer(this, 0, 99);
+        this.tank_2.setRotationPoint(0.0F, 4.0F, 0.0F);
+        this.tank_2.addBox(-8.0F, -2.5F, -12.0F, 16, 5, 24, 0.0F);
+        this.tank_side = new ModelRenderer(this, 0, 118);
+        this.tank_side.setRotationPoint(0.0F, 0.0F, -7.0F);
+        this.tank_side.addBox(-5.0F, -1.5F, -1.0F, 10, 3, 2, 0.0F);
+        this.chest_part = new ModelRenderer(this, 46, 19);
+        this.chest_part.setRotationPoint(0.0F, -3.5F, -0.5F);
+        this.chest_part.addBox(-4.0F, -0.5F, -0.5F, 8, 1, 1, 0.0F);
+        this.right_arm_2 = new ModelRenderer(this, 38, 60);
+        this.right_arm_2.setRotationPoint(-5.4F, -0.2F, 0.0F);
+        this.right_arm_2.addBox(-4.0F, -1.0F, 0.0F, 4, 2, 2, 0.0F);
+        this.setRotateAngle(right_arm_2, 0.0F, 0.0F, -0.6108652381980153F);
+        this.chest_part4 = new ModelRenderer(this, 40, 16);
+        this.chest_part4.setRotationPoint(-4.5F, 0.0F, -0.5F);
+        this.chest_part4.addBox(8.5F, -3.0F, -0.5F, 1, 3, 1, 0.0F);
+        this.left_hand = new ModelRenderer(this, 14, 54);
+        this.left_hand.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.left_hand.addBox(6.5F, 1.2F, -0.5F, 3, 3, 3, 0.0F);
+        this.chest_front = new ModelRenderer(this, 44, 9);
+        this.chest_front.setRotationPoint(-4.0F, -3.0F, -2.0F);
+        this.chest_front.addBox(0.0F, 0.0F, 0.0F, 8, 3, 2, 0.0F);
+        this.right_arm = new ModelRenderer(this, 50, 60);
+        this.right_arm.setRotationPoint(-3.0F, -4.5F, -1.0F);
+        this.right_arm.addBox(-6.0F, -1.0F, 0.0F, 3, 2, 2, 0.0F);
+        this.mouth = new ModelRenderer(this, 22, 2);
+        this.mouth.setRotationPoint(-0.5F, -0.5F, -2.5F);
+        this.mouth.addBox(-3.0F, 0.0F, -0.5F, 6, 2, 1, 0.0F);
+        this.head = new ModelRenderer(this, 0, 5);
+        this.head.setRotationPoint(0.5F, -8.0F, 0.0F);
+        this.head.addBox(-4.0F, -2.0F, -2.0F, 7, 4, 4, 0.0F);
+        this.chest_part3 = new ModelRenderer(this, 40, 16);
+        this.chest_part3.setRotationPoint(-4.5F, 0.0F, -0.5F);
+        this.chest_part3.addBox(-0.5F, -3.0F, -0.5F, 1, 3, 1, 0.0F);
+        this.chest = new ModelRenderer(this, 36, 0);
+        this.chest.setRotationPoint(0.0F, -1.0F, -2.0F);
+        this.chest.addBox(-5.0F, -5.0F, 0.0F, 10, 5, 4, 0.0F);
+        this.right_hand = new ModelRenderer(this, 39, 54);
+        this.right_hand.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.right_hand.addBox(-10.0F, 1.2F, -0.5F, 3, 3, 3, 0.0F);
+        this.chest_right = new ModelRenderer(this, 36, 9);
+        this.chest_right.setRotationPoint(-6.0F, -4.5F, 2.0F);
+        this.chest_right.addBox(0.0F, 0.0F, -1.5F, 1, 4, 3, 0.0F);
+        this.mouth_top = new ModelRenderer(this, 22, 0);
+        this.mouth_top.setRotationPoint(-0.5F, -1.0F, -2.5F);
+        this.mouth_top.addBox(-2.0F, 0.0F, -0.4F, 4, 1, 1, 0.0F);
+        this.left_arm_2 = new ModelRenderer(this, 14, 60);
+        this.left_arm_2.setRotationPoint(5.3F, -0.2F, 0.0F);
+        this.left_arm_2.addBox(0.0F, -1.0F, 0.0F, 4, 2, 2, 0.0F);
+        this.setRotateAngle(left_arm_2, 0.0F, 0.0F, 0.6108652381980153F);
+        this.tank_side_2 = new ModelRenderer(this, 0, 112);
+        this.tank_side_2.setRotationPoint(0.0F, 0.0F, 7.0F);
+        this.tank_side_2.addBox(-5.0F, -1.5F, -1.0F, 10, 3, 2, 0.0F);
+        this.wheels_2 = new ModelRenderer(this, 0, 73);
+        this.wheels_2.setRotationPoint(6.5F, 7.0F, 0.0F);
+        this.wheels_2.addBox(-1.2F, -0.5F, -12.0F, 2, 1, 24, 0.0F);
+        this.nose = new ModelRenderer(this, 17, 0);
+        this.nose.setRotationPoint(-0.5F, -0.2F, -3.0F);
+        this.nose.addBox(-0.5F, -0.6F, -0.5F, 1, 1, 1, 0.0F);
+        this.cannon = new ModelRenderer(this, 56, 107);
+        this.cannon.setRotationPoint(0.0F, -0.2F, -10.0F);
+        this.cannon.addBox(-1.0F, -1.0F, -12.0F, 2, 2, 14, 0.0F);
+        this.setRotateAngle(cannon, -0.12217304763960307F, 0.0F, 0.0F);
+        this.wheels_1 = new ModelRenderer(this, 0, 73);
+        this.wheels_1.setRotationPoint(-6.2F, 7.0F, 0.0F);
+        this.wheels_1.addBox(-1.0F, -0.5F, -12.0F, 2, 1, 24, 0.0F);
+        this.left_arm = new ModelRenderer(this, 0, 60);
+        this.left_arm.setRotationPoint(3.0F, -4.5F, -1.0F);
+        this.left_arm.addBox(3.0F, -1.0F, 0.0F, 3, 2, 2, 0.0F);
+        this.head_top = new ModelRenderer(this, 0, 0);
+        this.head_top.setRotationPoint(0.0F, -2.0F, 0.0F);
+        this.head_top.addBox(-3.0F, -1.0F, -2.0F, 5, 1, 3, 0.0F);
+        this.tank = new ModelRenderer(this, 80, 113);
+        this.tank.setRotationPoint(0.0F, 16.5F, 0.0F);
+        this.tank.addBox(-6.0F, -1.5F, -6.0F, 12, 3, 12, 0.0F);
+        this.chest_left = new ModelRenderer(this, 36, 9);
+        this.chest_left.setRotationPoint(5.0F, -4.5F, 2.0F);
+        this.chest_left.addBox(0.0F, 0.0F, -1.5F, 1, 4, 3, 0.0F);
+        this.chest_back = new ModelRenderer(this, 44, 14);
+        this.chest_back.setRotationPoint(-4.0F, -3.0F, 3.2F);
+        this.chest_back.addBox(0.0F, 0.0F, 0.0F, 8, 3, 2, 0.0F);
+        this.tank.addChild(this.tank_2);
+        this.tank.addChild(this.tank_side);
+        this.chest.addChild(this.chest_part);
+        this.right_arm.addChild(this.right_arm_2);
+        this.chest.addChild(this.chest_part4);
+        this.left_arm.addChild(this.left_hand);
+        this.chest.addChild(this.chest_front);
+        this.tank.addChild(this.right_arm);
+        this.head.addChild(this.mouth);
+        this.tank.addChild(this.head);
+        this.chest.addChild(this.chest_part3);
+        this.tank.addChild(this.chest);
+        this.right_arm.addChild(this.right_hand);
+        this.chest.addChild(this.chest_right);
+        this.head.addChild(this.mouth_top);
+        this.left_arm.addChild(this.left_arm_2);
+        this.tank.addChild(this.tank_side_2);
+        this.tank.addChild(this.wheels_2);
+        this.head.addChild(this.nose);
+        this.tank.addChild(this.cannon);
+        this.tank.addChild(this.wheels_1);
+        this.tank.addChild(this.left_arm);
+        this.head.addChild(this.head_top);
+        this.chest.addChild(this.chest_left);
+        this.chest.addChild(this.chest_back);
+    }
+
+    @Override
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+        this.tank.render(f5);
+    }
+
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.rotateAngleX = x;
+        modelRenderer.rotateAngleY = y;
+        modelRenderer.rotateAngleZ = z;
+    }
+}

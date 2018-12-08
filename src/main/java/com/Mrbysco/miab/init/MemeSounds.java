@@ -80,6 +80,21 @@ public class MemeSounds {
 	public static SoundEvent heman_hit;
 	public static SoundEvent heman_passive;
 	public static SoundEvent heman_death;
+	public static SoundEvent knuckles_passive;
+	public static SoundEvent knuckles_hurt;
+	public static SoundEvent knuckles_death;
+	public static SoundEvent rofl_spawn;
+	public static SoundEvent rofl_passive;
+	public static SoundEvent rofl_hurt;
+	public static SoundEvent rofl_death;
+	public static SoundEvent gnome_spawn;
+	public static SoundEvent gnome_passive;
+	public static SoundEvent gnome_hurt;
+	public static SoundEvent gnome_death;
+	public static SoundEvent phil_lottadamage;
+	public static SoundEvent phil_passive;
+	public static SoundEvent phil_hurt;
+	public static SoundEvent phil_death;
 	
 	//start of main MEME sounds
 	public static SoundEvent ninethousand;
@@ -279,6 +294,21 @@ public class MemeSounds {
 		clippy_hurt = registerSound("clippy.hurt");
 		clippy_passive = registerSound("clippy.passive");
 		clippy_forest = registerSound("clippy.forest");
+		//knuckles_passive = registerSound("knuckles.passive");
+		//knuckles_hurt = registerSound("knuckles.hurt");
+		//knuckles_death = registerSound("knuckles.death");
+		rofl_spawn = registerSound("rofl.summon");
+		rofl_passive = registerSound("rofl.passive");
+		rofl_hurt = registerSound("rofl.hurt");
+		rofl_death = registerSound("rofl.death");
+		gnome_spawn = registerSound("gnome.summon");
+		gnome_passive = registerSound("gnome.passive");
+		gnome_hurt = registerSound("gnome.hurt");
+		gnome_death = registerSound("gnome.death");
+		phil_lottadamage = registerSound("phil.lottadamage");
+		phil_passive = registerSound("phil.passive");
+		phil_hurt = registerSound("phil.hurt");
+		phil_death = registerSound("phil.death");
 	}
 	
 	private static SoundEvent registerSound(String soundName)

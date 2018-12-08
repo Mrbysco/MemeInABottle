@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.Mrbysco.miab.MemeInABottle;
 import com.Mrbysco.miab.entities.passive.EntityClippy;
+import com.Mrbysco.miab.entities.passive.EntityRoflCopter;
 import com.Mrbysco.miab.init.MemeItems;
 import com.Mrbysco.miab.init.MemeSounds;
 import com.Mrbysco.miab.memes.MemeHelper;
@@ -21,8 +22,15 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemElytra;
+import net.minecraft.item.ItemFishingRod;
+import net.minecraft.item.ItemShears;
+import net.minecraft.item.ItemShield;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumHand;
@@ -33,10 +41,13 @@ import net.minecraft.world.storage.loot.LootPool;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.Optional.Method;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
@@ -94,6 +105,18 @@ public class MemeEventHandlers {
 				{
 					itemStack.shrink(1);
 				}
+			}
+		}
+		
+		if(itemStack.getItem() == MemeItems.roflcopter)
+		{
+			EntityRoflCopter rofl = new EntityRoflCopter(world);
+			rofl.setPositionAndUpdate(pos.getX(), pos.getY() + 1, pos.getZ());
+			world.spawnEntity(rofl);
+			
+			if (!player.isCreative())
+			{
+				itemStack.shrink(1);
 			}
 		}
 	}
@@ -161,21 +184,68 @@ public class MemeEventHandlers {
 				if(entity instanceof EntityAreaEffectCloud && entity.getCustomNameTag() == "dankcloud") {
 					World world = event.world;
 					EntityPlayer player = world.getClosestPlayerToEntity(entity, 20);
-
-					int random = world.rand.nextInt(1000);
-
-					if(random < 8) 
+					if(player != null)
 					{
-						EntityAreaEffectCloud cloud = (EntityAreaEffectCloud)entity;
-						BlockPos pos = entity.getPosition();
-						Random rand = new Random();
-						int radius = (int) cloud.getRadius();
-						
-						pos.add(-radius + rand.nextInt((radius * 2) + 1), 0, -radius + rand.nextInt((radius * 2) + 1));
-						MemeHelper.SpawnRandomMeme(world, pos, player, entity);
+						int random = world.rand.nextInt(1000);
+
+						if(random < 8) 
+						{
+							EntityAreaEffectCloud cloud = (EntityAreaEffectCloud)entity;
+							BlockPos pos = entity.getPosition();
+							Random rand = new Random();
+							int radius = (int) cloud.getRadius();
+							
+							pos.add(-radius + rand.nextInt((radius * 2) + 1), 0, -radius + rand.nextInt((radius * 2) + 1));
+							MemeHelper.SpawnRandomMeme(world, pos, player, entity);
+						}
 					}
 				}
 			}
 		}
 	}
+	
+	@SubscribeEvent
+	public void FlexAnvilUpdate(AnvilUpdateEvent event)
+	{
+		ItemStack leftStack = event.getLeft();
+		ItemStack rightStack = event.getRight();
+		if(leftStack.isItemDamaged())
+		{
+			if(flextapable(leftStack))
+			{
+				if(leftStack.getItem() == MemeItems.flextape)
+				{
+					ItemStack output = leftStack.copy();
+					output.setItemDamage(leftStack.getItemDamage() - (leftStack.getMaxDamage() / 3));
+		            event.setOutput(output);
+		            event.setCost(1);
+				}
+			}
+			else
+			{
+				if(Loader.isModLoaded("tconstruct"))
+				{
+					if(flextapableTcon(leftStack))
+					{
+						if(leftStack.getItem() == MemeItems.flextape)
+						{
+							ItemStack output = leftStack.copy();
+							output.setItemDamage(leftStack.getItemDamage() - (leftStack.getMaxDamage() / 3));
+				            event.setOutput(output);
+				            event.setCost(1);
+						}
+					}
+				}
+			}
+		}
+	}
+    
+    private boolean flextapable(ItemStack stack) {
+        return stack.getItem() instanceof ItemTool || stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemShield || stack.getItem() instanceof ItemShears || stack.getItem() instanceof ItemFishingRod || stack.getItem() instanceof ItemElytra;
+    }
+    
+    @Method(modid = "tconstruct")
+    private boolean flextapableTcon(ItemStack stack) {
+    	return stack.getItem() instanceof slimeknights.tconstruct.library.tools.ToolCore;
+    }
 }

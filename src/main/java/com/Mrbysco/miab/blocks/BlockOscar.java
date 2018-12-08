@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 import com.Mrbysco.miab.blocks.base.BaseRotatable;
 
 import net.minecraft.block.SoundType;
@@ -20,11 +21,11 @@ public class BlockOscar extends BaseRotatable
 {
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625 * 4, 0, 0.0625 * 4, 0.0625 * 12, 0.0625 * 12, 0.0625 * 12);
 	
-	public BlockOscar(String unlocalised, String registry) 
+	public BlockOscar(String registry) 
 	{
 		super(Material.IRON);
-		setUnlocalizedName(unlocalised);
-		setRegistryName(registry);
+		this.setUnlocalizedName(Reference.MOD_PREFIX + registry.replaceAll("_", ""));
+		this.setRegistryName(registry);
 		this.setCreativeTab(MemeInABottle.memetab);
 		this.setLightOpacity(0);
 		this.setHardness(0.6F);

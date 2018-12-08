@@ -1,6 +1,6 @@
 package com.Mrbysco.miab.handlers;
 
-import com.Mrbysco.miab.entities.throwable.EntitySplashMeme;
+import com.Mrbysco.miab.entities.projectiles.EntitySplashMeme;
 
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
@@ -19,7 +19,7 @@ public class DispenseHandler extends BehaviorProjectileDispense {
         IPosition iposition = BlockDispenser.getDispensePosition(source);
         EnumFacing enumfacing = (EnumFacing)source.getBlockState().getValue(BlockDispenser.FACING);
         IProjectile iprojectile = this.getProjectileEntity(world, iposition, stack);
-        iprojectile.setThrowableHeading((double)enumfacing.getFrontOffsetX(), (double)((float)enumfacing.getFrontOffsetY() + 0.1F), (double)enumfacing.getFrontOffsetZ(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
+        iprojectile.shoot((double)enumfacing.getFrontOffsetX(), (double)((float)enumfacing.getFrontOffsetY() + 0.1F), (double)enumfacing.getFrontOffsetZ(), this.getProjectileVelocity(), this.getProjectileInaccuracy());
         world.spawnEntity((Entity)iprojectile);
         stack.shrink(1);
         return stack;
@@ -27,7 +27,7 @@ public class DispenseHandler extends BehaviorProjectileDispense {
     
 	@Override
 	protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-			EntitySplashMeme meme = new EntitySplashMeme(worldIn, position.getX(), position.getY(), position.getZ(), stackIn.copy());
-			return meme;
+		EntitySplashMeme meme = new EntitySplashMeme(worldIn, position.getX(), position.getY(), position.getZ(), stackIn.copy());
+		return meme;
 	}
 }

@@ -19,7 +19,7 @@ public class EntityTrump extends EntityMemeBase
 	
 	public EntityTrump(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 
@@ -33,37 +33,37 @@ public class EntityTrump extends EntityMemeBase
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	};
 	
-		@Override
-	    protected SoundEvent getAmbientSound()
-	    {
-	        return MemeSounds.trump_sound;
-	    }
-		
-		@Override
-	    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
-	    {
-	        return MemeSounds.trump_hit;
-	    }
-		
-		@Override
-	    protected SoundEvent getDeathSound()
-	    {
-	        return MemeSounds.trump_death;
-	    }
+	@Override
+    protected SoundEvent getAmbientSound()
+    {
+        return MemeSounds.trump_sound;
+    }
+	
+	@Override
+    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
+    {
+        return MemeSounds.trump_hit;
+    }
+	
+	@Override
+    protected SoundEvent getDeathSound()
+    {
+        return MemeSounds.trump_death;
+    }
 
-		@Override
-		protected ResourceLocation getLootTable()
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return new ResourceLocation("memeinabottle:entity/trump");
+	}
+
+	@Override
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
+		this.playSound(MemeSounds.trump_spawn, 1F, 1F);
+		if (rand.nextInt(2) < 1) 
 		{
-			return new ResourceLocation("memeinabottle:entity/trump");
+			setCustomNameTag(NAME);
 		}
-
-		@Override
-		public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
-			this.playSound(MemeSounds.trump_spawn, 1F, 1F);
-			if (rand.nextInt(2) < 1) 
-			{
-				setCustomNameTag(NAME);
-			}
-			return super.onInitialSpawn(difficulty, livingdata);
-		}
+		return super.onInitialSpawn(difficulty, livingdata);
+	}
 }

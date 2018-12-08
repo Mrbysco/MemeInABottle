@@ -2,7 +2,6 @@ package com.Mrbysco.miab.init;
 
 import com.Mrbysco.miab.MemeInABottle;
 import com.Mrbysco.miab.Reference;
-import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.entities.boss.EntityMemeBigBoss;
 import com.Mrbysco.miab.entities.hostile.EntityAttachedGirlfriend;
 import com.Mrbysco.miab.entities.hostile.EntityBill;
@@ -17,6 +16,7 @@ import com.Mrbysco.miab.entities.hostile.EntityMario7;
 import com.Mrbysco.miab.entities.hostile.EntityMoonman;
 import com.Mrbysco.miab.entities.hostile.EntityNigel;
 import com.Mrbysco.miab.entities.hostile.EntityPepe;
+import com.Mrbysco.miab.entities.hostile.EntityPhilSwift;
 import com.Mrbysco.miab.entities.hostile.EntityPpap;
 import com.Mrbysco.miab.entities.hostile.EntityRoadmanShaq;
 import com.Mrbysco.miab.entities.hostile.EntityRobbie;
@@ -25,13 +25,21 @@ import com.Mrbysco.miab.entities.hostile.EntityShrek;
 import com.Mrbysco.miab.entities.hostile.EntitySkywalker;
 import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
 import com.Mrbysco.miab.entities.hostile.EntityTrump;
+import com.Mrbysco.miab.entities.passive.EntityBongoCat;
 import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.entities.passive.EntityDoge;
+import com.Mrbysco.miab.entities.passive.EntityGnome;
 import com.Mrbysco.miab.entities.passive.EntityGrumpy;
+import com.Mrbysco.miab.entities.passive.EntityKnuckles;
+import com.Mrbysco.miab.entities.passive.EntityKnucklesQueen;
 import com.Mrbysco.miab.entities.passive.EntityNyanCat;
-import com.Mrbysco.miab.entities.throwable.EntitySplashMeme;
+import com.Mrbysco.miab.entities.passive.EntityRoflCopter;
+import com.Mrbysco.miab.entities.projectiles.EntityKnucklesSpit;
+import com.Mrbysco.miab.entities.projectiles.EntitySplashMeme;
 import com.Mrbysco.miab.rendering.EntityMemeRenderer;
-import com.Mrbysco.miab.rendering.EntityRenderingFactory;
+import com.Mrbysco.miab.rendering.KnucklesSpitRender;
+import com.Mrbysco.miab.rendering.knuckles.RenderKnuckles;
+import com.Mrbysco.miab.rendering.knuckles.RenderQueenKnuckles;
 import com.Mrbysco.miab.rendering.monsters.RenderAttachedGirlfriend;
 import com.Mrbysco.miab.rendering.monsters.RenderBigBoi;
 import com.Mrbysco.miab.rendering.monsters.RenderBill;
@@ -46,6 +54,7 @@ import com.Mrbysco.miab.rendering.monsters.RenderMario7;
 import com.Mrbysco.miab.rendering.monsters.RenderMoonman;
 import com.Mrbysco.miab.rendering.monsters.RenderNigel;
 import com.Mrbysco.miab.rendering.monsters.RenderPepe;
+import com.Mrbysco.miab.rendering.monsters.RenderPhilSwift;
 import com.Mrbysco.miab.rendering.monsters.RenderPpap;
 import com.Mrbysco.miab.rendering.monsters.RenderRoadmanShaq;
 import com.Mrbysco.miab.rendering.monsters.RenderRobbie;
@@ -54,16 +63,20 @@ import com.Mrbysco.miab.rendering.monsters.RenderShrek;
 import com.Mrbysco.miab.rendering.monsters.RenderSkywalker;
 import com.Mrbysco.miab.rendering.monsters.RenderTacNayn;
 import com.Mrbysco.miab.rendering.monsters.RenderTrump;
+import com.Mrbysco.miab.rendering.passive.RenderBongoCat;
 import com.Mrbysco.miab.rendering.passive.RenderClippy;
 import com.Mrbysco.miab.rendering.passive.RenderDoge;
+import com.Mrbysco.miab.rendering.passive.RenderGnome;
 import com.Mrbysco.miab.rendering.passive.RenderGrumpy;
 import com.Mrbysco.miab.rendering.passive.RenderNyanCat;
+import com.Mrbysco.miab.rendering.passive.RenderRoflCopter;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -102,25 +115,24 @@ public class MemeEntities {
 		registerEntity("dancing_hotdog", EntityHotDog.class, "DancingHotdog", 80, 3, true, 11887182, 14456412);
 		registerEntity("he_man", EntityHeMan.class, "HeMan", 80, 3, true, 13408394, 14595118);
 		registerEntity("clippy", EntityClippy.class, "Clippy", 80, 3, true);
+		registerEntity("knuckles", EntityKnuckles.class, "Knuckles", 80, 3, true, 16729165, 16777215);
+		registerEntity("knuckles_queen", EntityKnucklesQueen.class, "KnucklesQueen", 80, 3, true, 16729165, 16777215);
+		registerEntity("knuckles_spit", EntityKnucklesSpit.class, "KnucklesSpit", 80, 3, true);
+		registerEntity("bongo_cat", EntityBongoCat.class, "BongoCat", 80, 3, true, 16777215, 1644825);
+		registerEntity("rofl_copter", EntityRoflCopter.class, "RoflCopter", 80, 3, true, 16777215, 1644825);
+		registerEntity("gnome", EntityGnome.class, "Gnome", 80, 3, true, 1189750, 13442571);
+		registerEntity("phil_swift", EntityPhilSwift.class, "PhilSwift", 80, 3, true, 16768437, 4013373);
 	}
 	
-	public static void registerSpawn() 
+	public static void registerSpawn(Class <? extends EntityLiving > entityClass, int weigth, int minGroup, int maxGroup, Biome... biomes)
 	{
-		if(MemeConfigGen.general.NaturalSpawning == true)
-		{
-	        EntityRegistry.addSpawn(EntityShrek.class, 6, 1, 2, EnumCreatureType.MONSTER, Biomes.SWAMPLAND,
-	        		Biomes.MUTATED_SWAMPLAND);
-			EntityRegistry.addSpawn(EntityNigel.class, 9, 1, 2, EnumCreatureType.MONSTER, Biomes.JUNGLE, 
-					Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
-			EntityRegistry.addSpawn(EntityClippy.class, 6, 4, 4, EnumCreatureType.MONSTER, Biomes.DEFAULT);
-		}
+		EntityRegistry.addSpawn(entityClass, weigth, minGroup, maxGroup, EnumCreatureType.MONSTER, biomes);
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public static void RegisterEntityRender()
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, renderManager -> new EntityMemeRenderer(renderManager, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, new EntityRenderingFactory());
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkywalker.class, RenderSkywalker.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAttachedGirlfriend.class, RenderAttachedGirlfriend.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBill.class, RenderBill.FACTORY);
@@ -147,6 +159,13 @@ public class MemeEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityHotDog.class, RenderHotDog.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityHeMan.class, RenderHeMan.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityClippy.class, RenderClippy.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityKnuckles.class, RenderKnuckles.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesQueen.class, RenderQueenKnuckles.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesSpit.class, renderManager -> new KnucklesSpitRender(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBongoCat.class, RenderBongoCat.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityRoflCopter.class, RenderRoflCopter.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGnome.class, RenderGnome.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPhilSwift.class, RenderPhilSwift.FACTORY);
 	}
 	
 	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggPrimary, int eggSecondary) 

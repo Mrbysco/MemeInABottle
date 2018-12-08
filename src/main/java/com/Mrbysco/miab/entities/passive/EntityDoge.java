@@ -1,7 +1,5 @@
 package com.Mrbysco.miab.entities.passive;
 
-import com.Mrbysco.miab.init.MemeSounds;
-
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityWolf;

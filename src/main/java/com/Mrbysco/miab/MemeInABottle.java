@@ -5,11 +5,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.handlers.MemeEventHandlers;
-import com.Mrbysco.miab.init.MemeBlocks;
 import com.Mrbysco.miab.init.MemeEntities;
-import com.Mrbysco.miab.init.MemeItems;
 import com.Mrbysco.miab.init.MemeRecipes;
 import com.Mrbysco.miab.init.MemeSounds;
+import com.Mrbysco.miab.init.MemeSpawning;
 import com.Mrbysco.miab.init.MemeTab;
 import com.Mrbysco.miab.init.MemeVillagers;
 import com.Mrbysco.miab.proxy.CommonProxy;
@@ -49,22 +48,6 @@ public class MemeInABottle
 		logger.debug("Registering sounds");
     	MemeSounds.registerSounds();
     	
-    	logger.debug("Initialising blocks");
-    	MemeBlocks.init();
-    	logger.debug("Registering blocks");
-    	MemeBlocks.register();
-    	
-    	logger.debug("Initialising items");
-    	MemeItems.init();
-    	
-    	logger.debug("Registering items");
-    	MemeItems.register();
-    	
-    	//TODO: See if should bring back the potion.
-    	
-    	logger.debug("Initialising recipes");
-    	MemeRecipes.init();
-    	
     	logger.debug("Registering entities");
     	MemeEntities.register();
     	
@@ -80,8 +63,12 @@ public class MemeInABottle
 		logger.debug("Registering the bottle handler");
 		MinecraftForge.EVENT_BUS.register(new MemeEventHandlers());
 		
-		MemeEntities.registerSpawn();
+		MemeInABottle.logger.debug("Registered mob spawning");
+		MemeSpawning.registerSpawning();
 		
+		logger.debug("Initialising recipes");
+    	MemeRecipes.init();
+    	
 		proxy.Init();
     }
 	

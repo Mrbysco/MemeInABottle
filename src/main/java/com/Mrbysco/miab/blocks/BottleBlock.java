@@ -1,11 +1,11 @@
 package com.Mrbysco.miab.blocks;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 import com.Mrbysco.miab.init.MemeItems;
 
 import net.minecraft.block.Block;
@@ -28,11 +28,11 @@ public class BottleBlock extends Block
 {	
     protected static final AxisAlignedBB BOTTLE_AABB = new AxisAlignedBB(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
     
-	public BottleBlock(String unlocalised, String registry)
+	public BottleBlock(String registry)
 	{
 		super(Material.GLASS);
-		setUnlocalizedName(unlocalised);
-		setRegistryName(registry);
+		this.setUnlocalizedName(Reference.MOD_PREFIX + registry.replaceAll("_", ""));
+		this.setRegistryName(registry);
 		setCreativeTab(MemeInABottle.memetab);
 		this.setSoundType(SoundType.GLASS);
 		this.setTickRandomly(true);

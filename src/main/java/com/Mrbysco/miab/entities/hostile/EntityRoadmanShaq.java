@@ -18,7 +18,7 @@ public class EntityRoadmanShaq extends EntityMemeBase
 	
 	public EntityRoadmanShaq(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 
@@ -32,31 +32,31 @@ public class EntityRoadmanShaq extends EntityMemeBase
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	};
 	
-		@Override
-	    protected SoundEvent getAmbientSound()
-	    {
-	        return MemeSounds.shaq_passive;
-	    }
-		
-		@Override
-	    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
-	    {
-	        return MemeSounds.shaq_hit;
-	    }
-		
-		@Override
-	    protected SoundEvent getDeathSound()
-	    {
-	        return MemeSounds.shaq_death;
-	    }
+	@Override
+    protected SoundEvent getAmbientSound()
+    {
+        return MemeSounds.shaq_passive;
+    }
+	
+	@Override
+    protected SoundEvent getHurtSound(DamageSource p_184601_1_)
+    {
+        return MemeSounds.shaq_hit;
+    }
+	
+	@Override
+    protected SoundEvent getDeathSound()
+    {
+        return MemeSounds.shaq_death;
+    }
 
-		@Override
-		public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
-			this.playSound(MemeSounds.shaq_summon, 1F, 1F);
-			if (rand.nextInt(2) < 1) 
-			{
-				setCustomNameTag(NAME);
-			}
-			return super.onInitialSpawn(difficulty, livingdata);
+	@Override
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
+		this.playSound(MemeSounds.shaq_summon, 1F, 1F);
+		if (rand.nextInt(2) < 1) 
+		{
+			setCustomNameTag(NAME);
 		}
+		return super.onInitialSpawn(difficulty, livingdata);
+	}
 }

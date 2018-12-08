@@ -2,6 +2,8 @@ package com.Mrbysco.miab.entities.base;
 
 import javax.annotation.Nullable;
 
+import com.Mrbysco.miab.init.MemeLoot;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -27,7 +29,6 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 
 public class EntityCatBase extends EntityMob
 {
@@ -156,7 +157,7 @@ public class EntityCatBase extends EntityMob
     @Nullable
     protected ResourceLocation getLootTable()
     {
-        return LootTableList.ENTITIES_OCELOT;
+        return MemeLoot.MEME_BASE_LOOT;
     }
 
     /**

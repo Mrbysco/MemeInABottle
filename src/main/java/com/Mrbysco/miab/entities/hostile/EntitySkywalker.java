@@ -1,6 +1,7 @@
 package com.Mrbysco.miab.entities.hostile;
 
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.client.Minecraft;
@@ -24,7 +25,7 @@ public class EntitySkywalker extends EntityMemeBase
 	
 	public EntitySkywalker(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 
@@ -91,7 +92,7 @@ public class EntitySkywalker extends EntityMemeBase
     @Override
     protected ResourceLocation getLootTable()
     {
-    	return new ResourceLocation("memeinabottle:entity/skywalker");
+    	return MemeLoot.SKYWALKER_LOOT;
     }
     
     @Override

@@ -1,6 +1,7 @@
 package com.Mrbysco.miab.entities.hostile;
 
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.entity.IEntityLivingData;
@@ -10,7 +11,6 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
@@ -27,7 +27,7 @@ public class EntityBill extends EntityMemeBase
 	public EntityBill(World world) {
 	    super(world);
 	    targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
-		}
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 
@@ -61,7 +61,7 @@ public class EntityBill extends EntityMemeBase
 	@Override
     protected ResourceLocation getLootTable()
     {
-    	return new ResourceLocation("memeinabottle:entity/bill");
+    	return MemeLoot.BILL_LOOT;
     }
 	
 	@Override

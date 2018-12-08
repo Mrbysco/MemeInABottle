@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 import com.Mrbysco.miab.blocks.base.BaseRotatable;
 import com.Mrbysco.miab.init.MemeSounds;
 
@@ -22,11 +23,11 @@ public class BlockKeyboardMechanical extends BaseRotatable
 {
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0625 * 3, 0, 0.0625 * 3, 0.0625 * 13, 0.0625 * 2, 0.0625 * 13);
 	
-	public BlockKeyboardMechanical(String unlocalised, String registry) 
+	public BlockKeyboardMechanical(String registry) 
 	{
 		super(Material.CLAY);
-		setUnlocalizedName(unlocalised);
-		setRegistryName(registry);
+		this.setUnlocalizedName(Reference.MOD_PREFIX + registry.replaceAll("_", ""));
+		this.setRegistryName(registry);
 		this.setCreativeTab(MemeInABottle.memetab);
 		this.setLightOpacity(0);
 		this.setHardness(0.7F);

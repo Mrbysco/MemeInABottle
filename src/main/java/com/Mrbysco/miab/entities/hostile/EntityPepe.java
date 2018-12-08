@@ -15,7 +15,7 @@ public class EntityPepe extends EntityMemeBase
 	
 	public EntityPepe(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 

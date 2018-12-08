@@ -1,299 +1,349 @@
 {
-    	"9000" : {
+    "9000" : {
+		"subtitle": "memeinabottle.subtitle.ninethousand",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/9000"
 		]
 	},
 	"barrelroll" : {
+		"subtitle": "memeinabottle.subtitle.barrelroll",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/barrelroll"
 		]
 	},
 	"bi.winning" : {
+		"subtitle": "memeinabottle.subtitle.biwinning",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/bi-winning"
 		]
 	},
 	"boomheadshot" : {
+		"subtitle": "memeinabottle.subtitle.boomheadshot",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/boomheadshot"
 		]
 	},
 	"callinthenext" : {
+		"subtitle": "memeinabottle.subtitle.callinthenext",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/callinthenext"
 		]
 	},
 	"cantbelieve" : {
+		"subtitle": "memeinabottle.subtitle.cantbelieve",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/cantbelieve"
 		]
 	},
 	"charliebitme" : {
+		"subtitle": "memeinabottle.subtitle.charliebitme",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/charliebitme"
 		]
 	},
 	"chocolate" : {
+		"subtitle": "memeinabottle.subtitle.chocolate",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/chocolate"
 		]
 	},
 	"congratz" : {
+		"subtitle": "memeinabottle.subtitle.congratz",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/congratz"
 		]
 	},
 	"dedidadedwam" : {
+		"subtitle": "memeinabottle.subtitle.dedidadedwam",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/deditatedwam"
 		]
 	},
 	"deeznuts" : {
+		"subtitle": "memeinabottle.subtitle.deeznuts",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/deeznuts"
 		]
 	},
 	"doit" : {
+		"subtitle": "memeinabottle.subtitle.doit",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/doit"
 		]
 	},
 	"dontletyourdreamsbedreams" : {
+		"subtitle": "memeinabottle.subtitle.dontletyourdreamsbedreams",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/dontletyourdreamsbedreams"
 		]
 	},
 	"dootdoot" : {
+		"subtitle": "memeinabottle.subtitle.dootdoot",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/doot"
 		]
 	},
 	"gaben" : {
+		"subtitle": "memeinabottle.subtitle.gaben",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/gaben"
 		]
 	},
 	"getitoxyclean" : {
+		"subtitle": "memeinabottle.subtitle.getitoxyclean",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/getitoxyclean"
 		]
 	},
 	"getnoscoped" : {
+		"subtitle": "memeinabottle.subtitle.getnoscoped",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/getnoscoped"
 		]
 	},
 	"gotchab" : {
+		"subtitle": "memeinabottle.subtitle.gotchab",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/gotchab"
 		]
 	},
 	"hahappy" : {
+		"subtitle": "memeinabottle.subtitle.hahappy",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/hagay"
 		]
 	},
 	"k" : {
+		"subtitle": "memeinabottle.subtitle.k",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/k"
 		]
 	},
 	"leroyjenkins" : {
+		"subtitle": "memeinabottle.subtitle.leroyjenkins",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/leroyjenkins"
 		]
 	},
 	"momscar" : {
+		"subtitle": "memeinabottle.subtitle.momscar",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/momscar"
 		]
 	},
 	"morningscrub" : {
+		"subtitle": "memeinabottle.subtitle.morningscrub",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/morningscrub"
 		]
 	},
 	"nice" : {
+		"subtitle": "memeinabottle.subtitle.nice",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/nice"
 		]
 	},
 	"nicememe" : {
+		"subtitle": "memeinabottle.subtitle.nicememe",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/nicememe"
 		]
 	},
 	"noot" : {
+		"subtitle": "memeinabottle.subtitle.noot",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/noot"
 		]
 	},
 	"nothisispatrick" : {
+		"subtitle": "memeinabottle.subtitle.nothisispatrick",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/nothisispatrick"
 		]
 	},
 	"nothisispatrick2" : {
+		"subtitle": "memeinabottle.subtitle.nothisispatrick2",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/nothisispatrick2"
 		]
 	},
 	"noticeme" : {
+		"subtitle": "memeinabottle.subtitle.noticeme",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/noticeme"
 		]
 	},
 	"ohlongjohnson" : {
+		"subtitle": "memeinabottle.subtitle.ohlongjohnson",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/ohlongjohnson"
 		]
 	},
 	"oldspicepower" : {
+		"subtitle": "memeinabottle.subtitle.oldspicepower",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/oldspicepower"
 		]
 	},
 	"oxyclean" : {
+		"subtitle": "memeinabottle.subtitle.oxyclean",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/oxyclean"
 		]
 	},
 	"rightinthe" : {
+		"subtitle": "memeinabottle.subtitle.rightinthe",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/rightinthe"
 		]
 	},
 	"sandwich" : {
+		"subtitle": "memeinabottle.subtitle.sandwich",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/sandwich"
 		]
 	},
 	"smokew" : {
+		"subtitle": "memeinabottle.subtitle.smokew",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/smokeweed"
 		]
 	},
 	"snooppen" : {
+		"subtitle": "memeinabottle.subtitle.snooppen",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/snooppengas"
 		]
 	},
 	"somebodystopme" : {
+		"subtitle": "memeinabottle.subtitle.somebodystopme",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/somebodystopme"
 		]
 	},
 	"sparta" : {
+		"subtitle": "memeinabottle.subtitle.sparta",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/sparta"
 		]
 	},
 	"spongebobsound" : {
+		"subtitle": "memeinabottle.subtitle.spongebobsound",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/spongebobsound"
 		]
 	},
 	"triple" : {
+		"subtitle": "memeinabottle.subtitle.triple",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/triple"
 		]
 	},
 	"trololo" : {
+		"subtitle": "memeinabottle.subtitle.trololo",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/trololo"
 		]
 	},
 	"victoryscreech" : {
+		"subtitle": "memeinabottle.subtitle.victoryscreech",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/victoryscreech"
 		]
 	},
 	"wasted" : {
+		"subtitle": "memeinabottle.subtitle.wasted",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/wasted"
 		]
 	},
 	"whiten" : {
+		"subtitle": "memeinabottle.subtitle.whiten",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/whiten"
 		]
 	},
 	"wololo" : {
+		"subtitle": "memeinabottle.subtitle.wololo",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/wololo"
 		]
 	},
 	"wombocombo" : {
+		"subtitle": "memeinabottle.subtitle.wombocombo",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/wombocombo"
 		]
 	},
 	"wow" : {
+		"subtitle": "memeinabottle.subtitle.wow",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/wow"
 		]
 	},
 	"wrong" : {
+		"subtitle": "memeinabottle.subtitle.wrong",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/wrong"
 		]
 	},
 	"wrongnumber" : {
+		"subtitle": "memeinabottle.subtitle.wrongnumber",
 		"category" : "neutral",
 		"sounds": [
 			"memeinabottle:memes/wrongnumber"
 		]
 	},
     "cena.spawn" : {
+		"subtitle": "memeinabottle.subtitle.cena.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:cena/cenaspawn1",
@@ -302,6 +352,7 @@
         ]
     },
 	"cena.sound" : {
+		"subtitle": "memeinabottle.subtitle.cena.sound",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:cena/cena1",
@@ -309,12 +360,14 @@
         ]
 	},
     "bill.spawn" : {
+		"subtitle": "memeinabottle.subtitle.bill.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:bill/billspawn"
         ]
     },
 	"bill.sound" : {
+		"subtitle": "memeinabottle.subtitle.bill.sound",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:bill/sound",
@@ -322,24 +375,28 @@
         ]
     },
 	"bill.hit" : {
+		"subtitle": "memeinabottle.subtitle.bill.hit",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:bill/hit"
         ]
     },
 	"bill.death" : {
+		"subtitle": "memeinabottle.subtitle.bill.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:bill/death"
         ]
 	},
     "trump.spawn" : {
+		"subtitle": "memeinabottle.subtitle.bill.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:trump/trumpspawn"
         ]
     },
 	"trump.sound" : {
+		"subtitle": "memeinabottle.subtitle.bill.sound",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:trump/sound",
@@ -348,6 +405,7 @@
         ]
     },
 	"trump.hit" : {
+		"subtitle": "memeinabottle.subtitle.bill.hit",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:trump/hit",
@@ -356,24 +414,28 @@
         ]
     },
 	"trump.death" : {
+		"subtitle": "memeinabottle.subtitle.bill.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:trump/death"
         ]
 	},
 	"ception.spawn" : {
+		"subtitle": "memeinabottle.subtitle.ception.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:inception/inception"
         ]
     },
     "khil.spawn" : {
+		"subtitle": "memeinabottle.subtitle.khil.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:khil/spawn"
         ]
     },
     "khil.sound" : {
+		"subtitle": "memeinabottle.subtitle.khil.sound",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:khil/sound",
@@ -385,18 +447,21 @@
         ]
     },
     "khil.death" : {
+		"subtitle": "memeinabottle.subtitle.khil.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:khil/death"
         ]
     },
 	"ppap.spawn" : {
+		"subtitle": "memeinabottle.subtitle.ppap.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/ppapspawn"
         ]
     },
     "ppap.sound" : {
+		"subtitle": "memeinabottle.subtitle.ppap.sound",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:ppap/ihavepen",
@@ -411,72 +476,84 @@
         ]
     },
     "ppap.death" : {
+		"subtitle": "memeinabottle.subtitle.ppap.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:ppap/ppapdeath"
         ]
     },
 	"ppap.havepen" : {
+		"subtitle": "memeinabottle.subtitle.ppap.havepen",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/ihavepen"
         ]
     },
 	"ppap.havepineapple" : {
+		"subtitle": "memeinabottle.subtitle.ppap.havepineapple",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/ihavepineapple"
         ]
     },
 	"ppap.haveapple" : {
+		"subtitle": "memeinabottle.subtitle.ppap.haveapple",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/ihaveapple"
         ]
     },
 	"ppap.applepen" : {
+		"subtitle": "memeinabottle.subtitle.ppap.applepen",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/applepen"
         ]
     },
 	"ppap.pineapplepen" : {
+		"subtitle": "memeinabottle.subtitle.ppap.pineapplepen",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/pineapplepen"
         ]
     },
 	"ppap.ahapplepen" : {
+		"subtitle": "memeinabottle.subtitle.ppap.ahapplepen",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/ahapplepen"
         ]
     },
 	"ppap.ahpineapplepen" : {
+		"subtitle": "memeinabottle.subtitle.ppap.ahpineapplepen",
         "category" : "record",
         "sounds": [
             "memeinabottle:ppap/ahpineapplepen"
         ]
     },
 	"ppap.ppap" : {
+		"subtitle": "memeinabottle.subtitle.ppap.ppap",
         "category" : "neutral",
         "sounds": [
             "memeinabottle:ppap/penpineappleapplepen"
         ]
     },
     "moonman.spawn" : {
+		"subtitle": "memeinabottle.subtitle.moonman.spawn",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:moonman/moonman_spawn"
         ]
     },
     "moonman.hit" : {
+		"subtitle": "memeinabottle.subtitle.moonman.hit",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:moonman/moonman_attacked"
         ]
     },
     "moonman.passive" : {
+		"subtitle": "memeinabottle.subtitle.moonman.passive",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:moonman/moonman_passive",
@@ -484,18 +561,21 @@
         ]
     },
     "moonman.death" : {
+		"subtitle": "memeinabottle.subtitle.moonman.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:moonman/moonman_death"
         ]
     },
     "boi.spawn" : {
+		"subtitle": "memeinabottle.subtitle.boi.spawn",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:boi/dat_main"
         ]
     },
     "boi.passive" : {
+		"subtitle": "memeinabottle.subtitle.boi.passive",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:boi/dat_main",
@@ -505,24 +585,28 @@
         ]
     },
     "boi.death" : {
+		"subtitle": "memeinabottle.subtitle.boi.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:boi/dat_ohwaddup"
         ]
     },
     "shrek.spawn" : {
+		"subtitle": "memeinabottle.subtitle.shrek.spawn",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:memes/shrekislove"
         ]
     },
     "shrek.hit" : {
+		"subtitle": "memeinabottle.subtitle.shrek.hit",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:shrek/shrek_hit"
         ]
     },
     "shrek.passive" : {
+		"subtitle": "memeinabottle.subtitle.shrek.passive",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:shrek/shrek_swamp",
@@ -532,25 +616,29 @@
         ]
     },
     "shrek.death" : {
+		"subtitle": "memeinabottle.subtitle.shrek.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:shrek/shrek_donkey"
         ]
     },
     "shrek.onion" : {
+		"subtitle": "memeinabottle.subtitle.shrek.onion",
         "category" : "neutral",
         "sounds": [
             "memeinabottle:shrek/shrek_onions"
         ]
     },
     "robbie.summon" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.robbie.summon",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:robbie/robbie_number"
         ]
     },
     "robbie.passive" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.robbie.passive",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:robbie/robbie_banana",
             "memeinabottle:robbie/robbie_history",
@@ -563,7 +651,8 @@
         ]
     },
     "robbie.sax" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.robbie.sax",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:robbie/sax_full",
             "memeinabottle:robbie/sax_first",
@@ -571,31 +660,36 @@
         ]
     },
     "robbie.sax2" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.robbie.sax2",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:robbie/sax_epic",
             "memeinabottle:robbie/sax_careless"
         ]
     },
     "robbie.hit" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.robbie.hit",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:robbie/robbie_hit"
         ]
     },
     "robbie.death" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.robbie.death",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:robbie/robbie_death"
         ]
     },
     "dad.summon" : {
-    "category" : "hostile",
+		"subtitle": "memeinabottle.subtitle.dad.summon",
+		"category" : "hostile",
         "sounds": [
             "memeinabottle:dad/dad_summon"
         ]
     },
     "dad.passive" : {
+	"subtitle": "memeinabottle.subtitle.dad.passive",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dad/dad_passive1",
@@ -606,24 +700,28 @@
         ]
         },
     "dad.hit" : {
+	"subtitle": "memeinabottle.subtitle.dad.hit",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dad/dad_hit"
         ]
     },
     "dad.death" : {
+	"subtitle": "memeinabottle.subtitle.dad.death",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dad/dad_death"
         ]
     },
    "leather.belt" : {
+	"subtitle": "memeinabottle.subtitle.leather.belt",
     "category" : "hostile",
     "sounds": [
         "memeinabottle:memes/leatherbelt"
     ]
     },
    "fa.cry" : {
+		"subtitle": "memeinabottle.subtitle.fa.cry",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:foreveralone/cry1",
@@ -634,12 +732,14 @@
         ]
     },
     "dankey.summon" : {
+	"subtitle": "memeinabottle.subtitle.dankey.summon",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dankey/dankey_passive3"
         ]
     },
     "dankey.passive" : {
+	"subtitle": "memeinabottle.subtitle.dankey.passive",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dankey/dankey_passive",
@@ -650,6 +750,7 @@
         ]
     },
     "dankey.hit" : {
+	"subtitle": "memeinabottle.subtitle.dankey.hit",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dankey/dankey_hit",
@@ -657,18 +758,21 @@
         ]
     },
     "dankey.death" : {
+	"subtitle": "memeinabottle.subtitle.dankey.death",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:dankey/dankey_death"
         ]
     },    
 	"shaq.summon" : {
+	"subtitle": "memeinabottle.subtitle.shaq.summon",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:shaq/theting"
         ]
     },    
 	"shaq.passive" : {
+	"subtitle": "memeinabottle.subtitle.shaq.passive",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:shaq/2plus2",
@@ -687,6 +791,7 @@
         ]
     },
     "shaq.hit" : {
+	"subtitle": "memeinabottle.subtitle.shaq.hit",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:shaq/theting",
@@ -694,12 +799,14 @@
         ]
     },
     "shaq.death" : {
+	"subtitle": "memeinabottle.subtitle.shaq.death",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:shaq/boom"
         ]
     },
     "sanic.slow" : {
+	"subtitle": "memeinabottle.subtitle.sanic.slow",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:sanic/yts",
@@ -707,27 +814,31 @@
         ]
     },
     "keyboardmechanical" : {
+	"subtitle": "memeinabottle.subtitle.keyboardmechanical",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:memes/keybmech"
         ]
     },
-   "nigel.blagh" : {
-   "category" : "hostile",
+	"nigel.blagh" : {
+	"subtitle": "memeinabottle.subtitle.nigel.blagh",
+	"category" : "hostile",
         "sounds": [
             "memeinabottle:memes/blagh"
         ]
-   },
-   "meme.record1" : {
-   "category" : "record",
+	},
+	"meme.record1" : {
+	"subtitle": "memeinabottle.subtitle.meme.record1",
+	"category" : "record",
         "sounds": [
             {
             "name": "memeinabottle:record/invertednumberone",
             "stream": true
             }
         ]
-   },
+	},
    "meme.record2" : {
+	"subtitle": "memeinabottle.subtitle.meme.record2",
    "category" : "record",
         "sounds": [
             {
@@ -737,6 +848,7 @@
         ]
    },
    "meme.record3" : {
+	"subtitle": "memeinabottle.subtitle.meme.record3",
    "category" : "record",
         "sounds": [
             {
@@ -746,6 +858,7 @@
         ]
    },
    "meme.record4" : {
+	"subtitle": "memeinabottle.subtitle.meme.record4",
    "category" : "record",
         "sounds": [
             {
@@ -755,6 +868,7 @@
         ]
    },
    "skywalker.sand" : {
+	"subtitle": "memeinabottle.subtitle.skywalker.sand",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:skywalker/sand1",
@@ -764,6 +878,7 @@
         ]
    },
    "meme.bigboi" : {
+	"subtitle": "memeinabottle.subtitle.meme.bigboi",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:bigboi/mbb",
@@ -774,12 +889,14 @@
         ]
    },
    "pills.here" : {
+	"subtitle": "memeinabottle.subtitle.pills.here",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:memes/pills"
         ]
    },
    "hotdog.tune" : {
+	"subtitle": "memeinabottle.subtitle.hotdog.tune",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:hotdog/tune1",
@@ -788,24 +905,28 @@
         ]
    },
    "hotdog.full" : {
+	"subtitle": "memeinabottle.subtitle.hotdog.tune",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:hotdog/fulltune"
         ]
    },
    "thug.life" : {
+	"subtitle": "memeinabottle.subtitle.thug.life",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:memes/thuglife"
         ]
    },
    "heman.summon" : {
+	"subtitle": "memeinabottle.subtitle.heman.summon",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:heman/summon"
         ]
    },
    "heman.passive" : {
+	"subtitle": "memeinabottle.subtitle.heman.passive",
     "category" : "hostile",
         "sounds": [
             "memeinabottle:heman/sound1",
@@ -813,60 +934,70 @@
         ]
    },
    "heman.hit" : {
+	"subtitle": "memeinabottle.subtitle.heman.hit",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:heman/hit"
         ]
    },
    "heman.death" : {
+	"subtitle": "memeinabottle.subtitle.heman.death",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:heman/death"
         ]
    },
    "clippy.jump" : {
+	"subtitle": "memeinabottle.subtitle.clippy.jump",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/boing"
         ]
    },
    "clippy.mineshaft" : {
+	"subtitle": "memeinabottle.subtitle.clippy.mineshaft",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/mineshaft"
         ]
    },
    "clippy.cave" : {
+	"subtitle": "memeinabottle.subtitle.clippy.cave",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/cave"
         ]
    },
    "clippy.night" : {
+	"subtitle": "memeinabottle.subtitle.clippy.night",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/nighttime"
         ]
    },
    "clippy.health" : {
+	"subtitle": "memeinabottle.subtitle.clippy.health",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/health"
         ]
    },
    "clippy.death" : {
+	"subtitle": "memeinabottle.subtitle.clippy.death",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/death"
         ]
    },
    "clippy.hurt" : {
+	"subtitle": "memeinabottle.subtitle.clippy.hurt",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/hurt"
         ]
    },
    "clippy.forest" : {
+	"subtitle": "memeinabottle.subtitle.clippy.forest",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/forest",
@@ -875,10 +1006,133 @@
         ]
    },
    "clippy.passive" : {
+	"subtitle": "memeinabottle.subtitle.clippy.passive",
     "category" : "neutral",
         "sounds": [
             "memeinabottle:clippy/roaming",
             "memeinabottle:clippy/modded"
+        ]
+   },
+   "knuckles.summon" : {
+	"subtitle": "memeinabottle.subtitle.knuckles.summon",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:knuckles/knuckles_summon"
+        ]
+   },
+   "knuckles.passive" : {
+	"subtitle": "memeinabottle.subtitle.knuckles.passive",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:knuckles/knuckles_ambient"
+        ]
+   },
+   "knuckles.hurt" : {
+	"subtitle": "memeinabottle.subtitle.knuckles.hurt",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:knuckles/knuckles_hurt"
+        ]
+   },
+   "knuckles.death" : {
+	"subtitle": "memeinabottle.subtitle.knuckles.death",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:knuckles/knuckles_death"
+        ]
+   },
+   "rofl.summon" : {
+	"subtitle": "memeinabottle.subtitle.rofl.summon",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:rofl/rofl_spawn"
+        ]
+   },
+   "rofl.passive" : {
+	"subtitle": "memeinabottle.subtitle.rofl.passive",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:rofl/rofl_ambient1",
+            "memeinabottle:rofl/rofl_ambient2",
+            "memeinabottle:rofl/rofl_ambient3"
+        ]
+   },
+   "rofl.hurt" : {
+	"subtitle": "memeinabottle.subtitle.rofl.hurt",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:rofl/rofl_hurt"
+        ]
+   },
+   "rofl.death" : {
+	"subtitle": "memeinabottle.subtitle.rofl.death",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:rofl/rofl_death"
+        ]
+   },
+   "gnome.summon" : {
+	"subtitle": "memeinabottle.subtitle.gnome.summon",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:gnome/gnome_spawn"
+        ]
+   },
+   "gnome.passive" : {
+	"subtitle": "memeinabottle.subtitle.gnome.passive",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:gnome/gnome_ambient",
+            "memeinabottle:gnome/gnome_ambient1",
+            "memeinabottle:gnome/gnome_ambient2",
+            "memeinabottle:gnome/gnome_ambient3",
+            "memeinabottle:gnome/gnome_ambient4",
+            "memeinabottle:gnome/gnome_ambient5"
+        ]
+   },
+   "gnome.hurt" : {
+	"subtitle": "memeinabottle.subtitle.gnome.hurt",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:gnome/gnome_ambient",
+            "memeinabottle:gnome/gnome_ambient1"
+        ]
+   },
+   "gnome.death" : {
+	"subtitle": "memeinabottle.subtitle.gnome.death",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:gnome/gnome_death"
+        ]
+   },
+   "phil.lottadamage" : {
+	"subtitle": "memeinabottle.subtitle.phil.lottadamage",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:flex/lottadamage"
+        ]
+   },
+   "phil.passive" : {
+	"subtitle": "memeinabottle.subtitle.phil.passive",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:flex/ambient1",
+            "memeinabottle:flex/ambient2",
+            "memeinabottle:flex/ambient3"
+        ]
+   },
+   "phil.hurt" : {
+	"subtitle": "memeinabottle.subtitle.phil.hurt",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:flex/hurt"
+        ]
+   },
+   "phil.death" : {
+	"subtitle": "memeinabottle.subtitle.phil.death",
+    "category" : "neutral",
+        "sounds": [
+            "memeinabottle:flex/death"
         ]
    }
 }

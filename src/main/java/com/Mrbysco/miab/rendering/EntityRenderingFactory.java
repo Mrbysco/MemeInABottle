@@ -1,6 +1,6 @@
 package com.Mrbysco.miab.rendering;
 
-import com.Mrbysco.miab.entities.throwable.EntitySplashMeme;
+import com.Mrbysco.miab.entities.projectiles.EntitySplashMeme;
 
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.entity.Render;

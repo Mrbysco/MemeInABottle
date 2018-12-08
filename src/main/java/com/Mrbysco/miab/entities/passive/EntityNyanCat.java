@@ -2,6 +2,7 @@ package com.Mrbysco.miab.entities.passive;
 
 import com.Mrbysco.miab.entities.base.EntityCatBase;
 import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
+import com.Mrbysco.miab.init.MemeLoot;
 
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -73,7 +74,7 @@ public class EntityNyanCat extends EntityCatBase
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return new ResourceLocation("memeinabottle:entity/nyancat");
+		return MemeLoot.NYAN_LOOT;
 	}
 	
 	@Override

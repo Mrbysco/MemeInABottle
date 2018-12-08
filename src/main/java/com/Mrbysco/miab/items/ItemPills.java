@@ -14,9 +14,9 @@ public class ItemPills extends ItemCustomFood
 {
 	private SoundEvent sound;
 	
-	public ItemPills(int amount, float saturation, boolean isWolfFood, String unlocalized, String registry, SoundEvent soundIn) 
+	public ItemPills(int amount, float saturation, boolean isWolfFood, String registry, SoundEvent soundIn) 
 	{
-		super(amount, saturation, isWolfFood, unlocalized, registry);
+		super(amount, saturation, isWolfFood, registry);
 		this.sound = soundIn;
 	}
 

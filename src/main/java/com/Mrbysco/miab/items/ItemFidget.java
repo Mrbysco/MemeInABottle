@@ -19,9 +19,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemFidget extends ItemCustomItem
 {
 	
-	public ItemFidget(String unlocalized, String registry) 
+	public ItemFidget(String registry) 
 	{
-		super(unlocalized, registry);
+		super(registry);
 		setMaxStackSize(1);
 		addPropertyOverride(new ResourceLocation("spinning"), new IItemPropertyGetter()
         {

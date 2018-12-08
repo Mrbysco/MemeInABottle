@@ -18,7 +18,7 @@ public class EntityNigel extends EntityMemeBase
 	
 	public EntityNigel(World world) {
 	    super(world);
-	    }
+	}
 	
 	@Override
 	protected void applyEntityAttributes() 

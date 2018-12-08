@@ -14,9 +14,9 @@ public class ItemFoodWithSound extends ItemCustomFood
 	private SoundEvent sound;
 	private int cooldown;
 	
-	public ItemFoodWithSound(int amount, float saturation, boolean isWolfFood, String unlocalized, String registry, SoundEvent soundIn, int cooldownNumber) 
+	public ItemFoodWithSound(int amount, float saturation, boolean isWolfFood, String registry, SoundEvent soundIn, int cooldownNumber) 
 	{
-		super(amount, saturation, isWolfFood, unlocalized, registry);
+		super(amount, saturation, isWolfFood, registry);
 		this.sound = soundIn;
 		this.cooldown = cooldownNumber;
 	}

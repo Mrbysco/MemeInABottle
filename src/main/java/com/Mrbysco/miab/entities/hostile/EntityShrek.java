@@ -1,13 +1,13 @@
 package com.Mrbysco.miab.entities.hostile;
 
 import com.Mrbysco.miab.entities.base.EntityMemeBase;
+import com.Mrbysco.miab.init.MemeLoot;
 import com.Mrbysco.miab.init.MemeSounds;
 
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBreakDoor;
 import net.minecraft.entity.passive.EntityDonkey;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -26,7 +26,7 @@ public class EntityShrek extends EntityMemeBase
 	public EntityShrek(World world) {
 	    super(world);
 	    super.setSize(0.6F, 2.2F);
-		}
+	}
 
 	@Override
 	protected void applyEntityAttributes() 
@@ -73,7 +73,7 @@ public class EntityShrek extends EntityMemeBase
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return new ResourceLocation("memeinabottle:entity/shrek");
+		return MemeLoot.SHREK_LOOT;
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import com.Mrbysco.miab.MemeInABottle;
+import com.Mrbysco.miab.Reference;
 import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.entities.boss.EntityMemeBigBoss;
 import com.Mrbysco.miab.entities.hostile.EntityBill;
@@ -19,6 +20,7 @@ import com.Mrbysco.miab.entities.hostile.EntityMario7;
 import com.Mrbysco.miab.entities.hostile.EntityMoonman;
 import com.Mrbysco.miab.entities.hostile.EntityNigel;
 import com.Mrbysco.miab.entities.hostile.EntityPepe;
+import com.Mrbysco.miab.entities.hostile.EntityPhilSwift;
 import com.Mrbysco.miab.entities.hostile.EntityPpap;
 import com.Mrbysco.miab.entities.hostile.EntityRoadmanShaq;
 import com.Mrbysco.miab.entities.hostile.EntityRobbie;
@@ -27,9 +29,11 @@ import com.Mrbysco.miab.entities.hostile.EntityShrek;
 import com.Mrbysco.miab.entities.hostile.EntitySkywalker;
 import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
 import com.Mrbysco.miab.entities.hostile.EntityTrump;
+import com.Mrbysco.miab.entities.passive.EntityBongoCat;
 import com.Mrbysco.miab.entities.passive.EntityClippy;
 import com.Mrbysco.miab.entities.passive.EntityDoge;
 import com.Mrbysco.miab.entities.passive.EntityGrumpy;
+import com.Mrbysco.miab.entities.passive.EntityKnucklesQueen;
 import com.Mrbysco.miab.entities.passive.EntityNyanCat;
 import com.Mrbysco.miab.init.MemeBlocks;
 import com.Mrbysco.miab.init.MemeItems;
@@ -64,7 +68,7 @@ public class MemeHelper
 {
 	public static void SpawnRandomMeme(World world, BlockPos pos, EntityPlayer player, Entity entity) 
 	{
-		int randomValue = new Random().nextInt(50);
+		int randomValue = new Random().nextInt(53);
 		if (!world.isRemote)
 	    {
 			switch(randomValue)
@@ -77,7 +81,7 @@ public class MemeHelper
 			    		}
 			    		else
 			    		{
-			        		player.sendMessage(new TextComponentTranslation("cena.itscena"));	
+			        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "cena.itscena"));	
 			    		}
 			        break;
 			    case 1:
@@ -163,7 +167,7 @@ public class MemeHelper
 		    		}
 		    		else
 		    		{
-		    			player.sendMessage(new TextComponentTranslation("dangerous"));	
+		    			player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "dangerous"));	
 		    		}
 			    	ItemStack sword = new ItemStack(Items.WOODEN_SWORD);
 			    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), sword));
@@ -180,7 +184,7 @@ public class MemeHelper
 		    		}
 		    		else
 		    		{
-		    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
+		    			player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "message.ykwtd"));	
 		    		}
 			    	spawnEntityItem(world, null, MemeItems.fidget, pos);
 			    	break;
@@ -191,7 +195,7 @@ public class MemeHelper
 		    		}
 		    		else
 		    		{
-		    			player.sendMessage(new TextComponentTranslation("message.ykwtd"));	
+		    			player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "message.ykwtd"));	
 		    		}
 			    	spawnEntityItem(world, null, MemeItems.knife, pos);
 			    	break;
@@ -202,12 +206,12 @@ public class MemeHelper
 		    		}
 		    		else
 		    		{
-		    			player.sendMessage(new TextComponentTranslation("memebee.part1"));	
-		    	 		player.sendMessage(new TextComponentTranslation("memebee.part2"));	
-		    	 		player.sendMessage(new TextComponentTranslation("memebee.part3"));	
-		    	 		player.sendMessage(new TextComponentTranslation("memebee.part4"));	
-		    	 		player.sendMessage(new TextComponentTranslation("memebee.part5"));	
-		    	 		player.sendMessage(new TextComponentTranslation("memebee.part6"));
+		    			player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "memebee.part1"));	
+		    	 		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "memebee.part2"));	
+		    	 		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "memebee.part3"));	
+		    	 		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "memebee.part4"));	
+		    	 		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "memebee.part5"));	
+		    	 		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "memebee.part6"));
 		    		}
 			    	break;
 			    case 28:
@@ -217,12 +221,12 @@ public class MemeHelper
 		    		}
 		    		else
 		    		{
-		    			player.sendMessage(new TextComponentTranslation("navy.part1"));	
-		        		player.sendMessage(new TextComponentTranslation("navy.part2"));	
-		        		player.sendMessage(new TextComponentTranslation("navy.part3"));	
-		        		player.sendMessage(new TextComponentTranslation("navy.part4"));	
-		        		player.sendMessage(new TextComponentTranslation("navy.part5"));	
-		        		player.sendMessage(new TextComponentTranslation("navy.part6"));
+		    			player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "navy.part1"));	
+		        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "navy.part2"));	
+		        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "navy.part3"));	
+		        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "navy.part4"));	
+		        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "navy.part5"));	
+		        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "navy.part6"));
 		    		}
 			    	break;
 			    case 29:
@@ -251,11 +255,45 @@ public class MemeHelper
 	    	        }
 			    	break;
 			    case 32:
+		        	player.openGui(MemeInABottle.instance, 1, world, pos.getX(), pos.getY(), pos.getZ());
 			    	world.playSound(null, pos, MemeSounds.wasted, SoundCategory.NEUTRAL, 1f, 1f);
 			    	break;
 			    case 33:
 			    	world.playSound(null, pos, MemeSounds.doot, SoundCategory.NEUTRAL, 1f, 1f);
 			    	spawnEntityItem(world, null, MemeItems.trumpet, pos);
+			    	break;
+			    case 34:
+					player.openGui(MemeInABottle.instance, 2, world, 0, -1, -1);
+					break;
+			    case 35:
+					player.openGui(MemeInABottle.instance, 2, world, 1, -1, -1);
+			    	break;
+			    case 36:
+					player.openGui(MemeInABottle.instance, 2, world, 2, -1, -1);
+			    	break;
+			    case 37:
+					player.openGui(MemeInABottle.instance, 2, world, 3, -1, -1);
+			    	break;
+			    case 38:
+					player.openGui(MemeInABottle.instance, 2, world, 4, -1, -1);
+			    	break;
+			    case 39:
+					player.openGui(MemeInABottle.instance, 2, world, 5, -1, -1);
+			    	break;
+			    case 40:
+					player.openGui(MemeInABottle.instance, 2, world, 6, -1, -1);
+			    	break;
+			    case 41:
+					player.openGui(MemeInABottle.instance, 2, world, 7, -1, -1);
+			    	break;
+			    case 42:
+					player.openGui(MemeInABottle.instance, 2, world, 8, -1, -1);
+			    	break;
+			    case 43:
+					player.openGui(MemeInABottle.instance, 2, world, 9, -1, -1);
+			    	break;
+			    case 44:
+					player.openGui(MemeInABottle.instance, 2, world, 10, -1, -1);
 			    	break;
 			    case 45:
 			    	spawnEntity(world, new EntityMemeBigBoss(world), pos, MemeSounds.big_boi);
@@ -276,13 +314,22 @@ public class MemeHelper
 					}
 					else
 					{
-						player.sendMessage(new TextComponentTranslation("oscar.text"));
+						player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "oscar.text"));
 					}
 			    	spawnEntityItem(world, MemeBlocks.oscar, null, pos);
 			    	break;
 			    case 50:
 			    	spawnEntity(world, new EntityPepe(world), pos);
 			        break;
+			    case 51:
+			    	spawnEntity(world, new EntityKnucklesQueen(world), pos);
+			    	break;
+			    case 52:
+			    	spawnEntity(world, new EntityBongoCat(world), pos);
+			    	break;
+			    case 53:
+			    	spawnEntity(world, new EntityPhilSwift(world), pos);
+			    	break;
 			    	
 			    default:
 	                break;
@@ -295,55 +342,44 @@ public class MemeHelper
 	        switch(randomValue)
 	        {
 	        case 32:
-	        	MemeInABottle.proxy.displayFakeGameOver(new TextComponentTranslation("death.attack.generic", new Object[] {"You"}));
+	        	player.openGui(MemeInABottle.instance, 1, world, pos.getX(), pos.getY(), pos.getZ());
 	        	break;
 	        case 34:
-				meme = new ResourceLocation("memeinabottle:textures/meme/allthethings.png");
-				MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 0, -1, -1);
 				break;
 		    case 35:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/gentleman.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 1, -1, -1);
 		    	break;
 		    case 36:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/kidmeme.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 2, -1, -1);
 		    	break;
 		    case 37:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/lelenny.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 3, -1, -1);
 		    	break;
 		    case 38:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/megusta.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 4, -1, -1);
 		    	break;
 		    case 39:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/bp.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 5, -1, -1);
 		    	break;
 		    case 40:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/skeleton.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 6, -1, -1);
 		    	break;
 		    case 41:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/sponge.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 7, -1, -1);
 		    	break;
 		    case 42:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/trollface.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 8, -1, -1);
 		    	break;
 		    case 43:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/needram.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 9, -1, -1);
 		    	break;
 		    case 44:
-		    	meme = new ResourceLocation("memeinabottle:textures/meme/dawge.png");
-		    	MemeInABottle.proxy.displayMemeGui(meme);
+				player.openGui(MemeInABottle.instance, 2, world, 10, -1, -1);
 		    	break;
 		    	
-	            default:
-	                break;
+		    default:
+	            break;
 	        }
 	    }
 	}
@@ -380,6 +416,50 @@ public class MemeHelper
 		ResourceLocation meme = new ResourceLocation("memeinabottle:textures/items/splash_meme_in_a_bottle.png");
 		int randomValue = new Random().nextInt(10);
 		switch(randomValue)
+		{
+			case 0:
+				meme = new ResourceLocation("memeinabottle:textures/meme/allthethings.png");
+				break;
+		    case 1:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/gentleman.png");
+		    	break;
+		    case 2:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/kidmeme.png");
+		    	break;
+		    case 3:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/lelenny.png");
+		    	break;
+		    case 4:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/megusta.png");
+		    	break;
+		    case 5:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/bp.png");
+		    	break;
+		    case 6:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/skeleton.png");
+		    	break;
+		    case 7:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/sponge.png");
+		    	break;
+		    case 8:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/trollface.png");
+		    	break;
+		    case 9:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/needram.png");
+		    	break;
+		    case 10:
+		    	meme = new ResourceLocation("memeinabottle:textures/meme/dawge.png");
+		    	break;
+		    default:
+                break;
+		}
+		return meme;
+	}
+	
+	public static ResourceLocation getMemeFromID(int id)
+	{
+		ResourceLocation meme = new ResourceLocation("memeinabottle:textures/items/splash_meme_in_a_bottle.png");
+		switch(id)
 		{
 			case 0:
 				meme = new ResourceLocation("memeinabottle:textures/meme/allthethings.png");
