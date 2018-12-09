@@ -168,7 +168,7 @@ public class RenderKnuckles extends RenderLiving<EntityKnuckles> {
 	
 	@Override
 	public ModelBase getMainModel() {
-		return (ModelKnuckles)super.getMainModel();
+		return (ModelBase)super.getMainModel();
 	}
 
 	public static class Factory implements IRenderFactory<EntityKnuckles> {

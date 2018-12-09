@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "2.1.0.1"
+version = "2.1.0.3"
 group= "com.Mrbysco.memeinabottle" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "MemeInABottle-1.12.X"
 
@@ -37,12 +37,17 @@ repositories {
     name = "ModMaven"
     url = "modmaven.k-4u.nl"
   }
+  maven {
+        name = "CurseForge"
+        url = "https://minecraft.curseforge.com/api/maven/"
+  }
 }
 
 dependencies {
 	deobfCompile "mezz.jei:jei_1.12.2:4.13.+"
     deobfCompile "slimeknights.mantle:Mantle:1.12-1.3.2.+"
 	deobfCompile "slimeknights:TConstruct:1.12.2-2.10.1.87"
+	deobfCompile "metamorph:metamorph:1.1.6:1.12.2"
 }
 
 processResources {

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.Mrbysco.miab.config.MemeConfigGen;
 import com.Mrbysco.miab.handlers.MemeEventHandlers;
 import com.Mrbysco.miab.init.MemeEntities;
+import com.Mrbysco.miab.init.MemeGuiHandler;
 import com.Mrbysco.miab.init.MemeRecipes;
 import com.Mrbysco.miab.init.MemeSounds;
 import com.Mrbysco.miab.init.MemeSpawning;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Reference.MOD_ID, 
 	name = Reference.MOD_NAME, 
@@ -62,7 +64,9 @@ public class MemeInABottle
     {
 		logger.debug("Registering the bottle handler");
 		MinecraftForge.EVENT_BUS.register(new MemeEventHandlers());
-		
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new MemeGuiHandler());
+
 		MemeInABottle.logger.debug("Registered mob spawning");
 		MemeSpawning.registerSpawning();
 		
