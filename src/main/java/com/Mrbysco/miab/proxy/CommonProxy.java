@@ -1,11 +1,16 @@
-package com.Mrbysco.miab.proxy;
+package com.mrbysco.miab.proxy;
 
 public class CommonProxy {
-	public void Preinit() {
+	
+	public void PreInit() {
 		
 	}
 
 	public void Init() {
+		
+	}
+
+	public void PostInit() {
 		
 	}
 }

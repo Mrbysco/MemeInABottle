@@ -13,6 +13,13 @@
 			"memeinabottle:memes/barrelroll"
 		]
 	},
+	"meme.review" : {
+		"subtitle": "memeinabottle.subtitle.meme.review",
+		"category" : "neutral",
+		"sounds": [
+			"memeinabottle:memes/memereview"
+		]
+	},
 	"bi.winning" : {
 		"subtitle": "memeinabottle.subtitle.biwinning",
 		"category" : "neutral",
@@ -359,44 +366,15 @@
             "memeinabottle:cena/cena2"
         ]
 	},
-    "bill.spawn" : {
-		"subtitle": "memeinabottle.subtitle.bill.spawn",
-        "category" : "record",
-        "sounds": [
-            "memeinabottle:bill/billspawn"
-        ]
-    },
-	"bill.sound" : {
-		"subtitle": "memeinabottle.subtitle.bill.sound",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:bill/sound",
-            "memeinabottle:bill/sound1"
-        ]
-    },
-	"bill.hit" : {
-		"subtitle": "memeinabottle.subtitle.bill.hit",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:bill/hit"
-        ]
-    },
-	"bill.death" : {
-		"subtitle": "memeinabottle.subtitle.bill.death",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:bill/death"
-        ]
-	},
     "trump.spawn" : {
-		"subtitle": "memeinabottle.subtitle.bill.spawn",
+		"subtitle": "memeinabottle.subtitle.trump.spawn",
         "category" : "record",
         "sounds": [
             "memeinabottle:trump/trumpspawn"
         ]
     },
 	"trump.sound" : {
-		"subtitle": "memeinabottle.subtitle.bill.sound",
+		"subtitle": "memeinabottle.subtitle.trump.sound",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:trump/sound",
@@ -405,7 +383,7 @@
         ]
     },
 	"trump.hit" : {
-		"subtitle": "memeinabottle.subtitle.bill.hit",
+		"subtitle": "memeinabottle.subtitle.trump.hit",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:trump/hit",
@@ -414,13 +392,13 @@
         ]
     },
 	"trump.death" : {
-		"subtitle": "memeinabottle.subtitle.bill.death",
+		"subtitle": "memeinabottle.subtitle.trump.death",
         "category" : "hostile",
         "sounds": [
             "memeinabottle:trump/death"
         ]
 	},
-	"ception.spawn" : {
+	"inception" : {
 		"subtitle": "memeinabottle.subtitle.ception.spawn",
         "category" : "record",
         "sounds": [
@@ -538,35 +516,6 @@
             "memeinabottle:ppap/penpineappleapplepen"
         ]
     },
-    "moonman.spawn" : {
-		"subtitle": "memeinabottle.subtitle.moonman.spawn",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:moonman/moonman_spawn"
-        ]
-    },
-    "moonman.hit" : {
-		"subtitle": "memeinabottle.subtitle.moonman.hit",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:moonman/moonman_attacked"
-        ]
-    },
-    "moonman.passive" : {
-		"subtitle": "memeinabottle.subtitle.moonman.passive",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:moonman/moonman_passive",
-            "memeinabottle:moonman/moonman_passive1"
-        ]
-    },
-    "moonman.death" : {
-		"subtitle": "memeinabottle.subtitle.moonman.death",
-        "category" : "hostile",
-        "sounds": [
-            "memeinabottle:moonman/moonman_death"
-        ]
-    },
     "boi.spawn" : {
 		"subtitle": "memeinabottle.subtitle.boi.spawn",
         "category" : "hostile",
@@ -652,7 +601,7 @@
     },
     "robbie.sax" : {
 		"subtitle": "memeinabottle.subtitle.robbie.sax",
-		"category" : "hostile",
+		"category" : "neutral",
         "sounds": [
             "memeinabottle:robbie/sax_full",
             "memeinabottle:robbie/sax_first",
@@ -661,7 +610,7 @@
     },
     "robbie.sax2" : {
 		"subtitle": "memeinabottle.subtitle.robbie.sax2",
-		"category" : "hostile",
+		"category" : "neutral",
         "sounds": [
             "memeinabottle:robbie/sax_epic",
             "memeinabottle:robbie/sax_careless"
@@ -1026,7 +975,6 @@
         "sounds": [
             "memeinabottle:knuckles/dawae",
             "memeinabottle:knuckles/dawae2",
-            "memeinabottle:knuckles/king",
             "memeinabottle:knuckles/showyoudawae"
         ]
    },
@@ -1106,7 +1054,7 @@
    },
    "gnome.death" : {
 	"subtitle": "memeinabottle.subtitle.gnome.death",
-    "category" : "neutral",
+    "category" : "hostile",
         "sounds": [
             "memeinabottle:gnome/gnome_death"
         ]
@@ -1129,16 +1077,25 @@
    },
    "phil.hurt" : {
 	"subtitle": "memeinabottle.subtitle.phil.hurt",
-    "category" : "neutral",
+    "category" : "hostile",
         "sounds": [
             "memeinabottle:flex/hurt"
         ]
    },
    "phil.death" : {
 	"subtitle": "memeinabottle.subtitle.phil.death",
-    "category" : "neutral",
+    "category" : "hostile",
         "sounds": [
             "memeinabottle:flex/death"
+        ]
+   },
+   "sans.sound" : {
+	"subtitle": "memeinabottle.subtitle.sans.sound",
+    "category" : "hostile",
+        "sounds": [
+            "memeinabottle:sans/sound",
+            "memeinabottle:sans/sound1",
+            "memeinabottle:sans/sound2"
         ]
    }
 }

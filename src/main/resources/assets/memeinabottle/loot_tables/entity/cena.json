@@ -1,33 +1,11 @@
 {
     "pools": [
         {
-            "name": "defaultloot",
-            "conditions": [],
+            "name": "memebottles",
             "entries": [
                 {
-                    "conditions": [],
-                    "type": "item",
-                    "name": "minecraft:rotten_flesh",
-                    "functions": [
-                        {
-                            "conditions": [],
-                            "function": "set_count",
-                            "count": {
-                                "min": 0,
-                                "max": 2
-                            }
-                        },
-                        {
-                            "conditions": [],
-                            "function": "looting_enchant",
-                            "count": {
-                                "min": 0,
-                                "max": 1
-                            }
-                        }
-                    ],
-                    "weight": 1,
-                    "quality": 0
+                    "type": "loot_table",
+                    "name": "memeinabottle:entity/memebase"
                 }
             ],
             "rolls": {
@@ -96,7 +74,7 @@
                 {
                     "conditions": [],
                     "type": "item",
-                    "name": "memeinabottle:mcw_belt",
+                    "name": "memeinabottle:wrestling_belt",
                     "functions": [],
                     "weight": 1,
                     "quality": 0

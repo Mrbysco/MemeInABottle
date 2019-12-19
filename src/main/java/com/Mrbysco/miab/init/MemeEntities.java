@@ -1,182 +1,156 @@
-package com.Mrbysco.miab.init;
+package com.mrbysco.miab.init;
 
-import com.Mrbysco.miab.MemeInABottle;
-import com.Mrbysco.miab.Reference;
-import com.Mrbysco.miab.entities.boss.EntityMemeBigBoss;
-import com.Mrbysco.miab.entities.hostile.EntityAttachedGirlfriend;
-import com.Mrbysco.miab.entities.hostile.EntityBill;
-import com.Mrbysco.miab.entities.hostile.EntityCena;
-import com.Mrbysco.miab.entities.hostile.EntityDankey;
-import com.Mrbysco.miab.entities.hostile.EntityDatBoi;
-import com.Mrbysco.miab.entities.hostile.EntityFA;
-import com.Mrbysco.miab.entities.hostile.EntityHeMan;
-import com.Mrbysco.miab.entities.hostile.EntityHotDog;
-import com.Mrbysco.miab.entities.hostile.EntityKhil;
-import com.Mrbysco.miab.entities.hostile.EntityMario7;
-import com.Mrbysco.miab.entities.hostile.EntityMoonman;
-import com.Mrbysco.miab.entities.hostile.EntityNigel;
-import com.Mrbysco.miab.entities.hostile.EntityPepe;
-import com.Mrbysco.miab.entities.hostile.EntityPhilSwift;
-import com.Mrbysco.miab.entities.hostile.EntityPpap;
-import com.Mrbysco.miab.entities.hostile.EntityRoadmanShaq;
-import com.Mrbysco.miab.entities.hostile.EntityRobbie;
-import com.Mrbysco.miab.entities.hostile.EntitySanic;
-import com.Mrbysco.miab.entities.hostile.EntityShrek;
-import com.Mrbysco.miab.entities.hostile.EntitySkywalker;
-import com.Mrbysco.miab.entities.hostile.EntityTacNayn;
-import com.Mrbysco.miab.entities.hostile.EntityTrump;
-import com.Mrbysco.miab.entities.passive.EntityBongoCat;
-import com.Mrbysco.miab.entities.passive.EntityClippy;
-import com.Mrbysco.miab.entities.passive.EntityDoge;
-import com.Mrbysco.miab.entities.passive.EntityGnome;
-import com.Mrbysco.miab.entities.passive.EntityGrumpy;
-import com.Mrbysco.miab.entities.passive.EntityKnuckles;
-import com.Mrbysco.miab.entities.passive.EntityKnucklesQueen;
-import com.Mrbysco.miab.entities.passive.EntityNyanCat;
-import com.Mrbysco.miab.entities.passive.EntityRoflCopter;
-import com.Mrbysco.miab.entities.projectiles.EntityKnucklesSpit;
-import com.Mrbysco.miab.entities.projectiles.EntitySplashMeme;
-import com.Mrbysco.miab.rendering.EntityMemeRenderer;
-import com.Mrbysco.miab.rendering.KnucklesSpitRender;
-import com.Mrbysco.miab.rendering.knuckles.RenderKnuckles;
-import com.Mrbysco.miab.rendering.knuckles.RenderQueenKnuckles;
-import com.Mrbysco.miab.rendering.monsters.RenderAttachedGirlfriend;
-import com.Mrbysco.miab.rendering.monsters.RenderBigBoi;
-import com.Mrbysco.miab.rendering.monsters.RenderBill;
-import com.Mrbysco.miab.rendering.monsters.RenderCena;
-import com.Mrbysco.miab.rendering.monsters.RenderDankey;
-import com.Mrbysco.miab.rendering.monsters.RenderDatBoi;
-import com.Mrbysco.miab.rendering.monsters.RenderFA;
-import com.Mrbysco.miab.rendering.monsters.RenderHeMan;
-import com.Mrbysco.miab.rendering.monsters.RenderHotDog;
-import com.Mrbysco.miab.rendering.monsters.RenderKhil;
-import com.Mrbysco.miab.rendering.monsters.RenderMario7;
-import com.Mrbysco.miab.rendering.monsters.RenderMoonman;
-import com.Mrbysco.miab.rendering.monsters.RenderNigel;
-import com.Mrbysco.miab.rendering.monsters.RenderPepe;
-import com.Mrbysco.miab.rendering.monsters.RenderPhilSwift;
-import com.Mrbysco.miab.rendering.monsters.RenderPpap;
-import com.Mrbysco.miab.rendering.monsters.RenderRoadmanShaq;
-import com.Mrbysco.miab.rendering.monsters.RenderRobbie;
-import com.Mrbysco.miab.rendering.monsters.RenderSanic;
-import com.Mrbysco.miab.rendering.monsters.RenderShrek;
-import com.Mrbysco.miab.rendering.monsters.RenderSkywalker;
-import com.Mrbysco.miab.rendering.monsters.RenderTacNayn;
-import com.Mrbysco.miab.rendering.monsters.RenderTrump;
-import com.Mrbysco.miab.rendering.passive.RenderBongoCat;
-import com.Mrbysco.miab.rendering.passive.RenderClippy;
-import com.Mrbysco.miab.rendering.passive.RenderDoge;
-import com.Mrbysco.miab.rendering.passive.RenderGnome;
-import com.Mrbysco.miab.rendering.passive.RenderGrumpy;
-import com.Mrbysco.miab.rendering.passive.RenderNyanCat;
-import com.Mrbysco.miab.rendering.passive.RenderRoflCopter;
-
-import net.minecraft.client.Minecraft;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
+import com.mrbysco.miab.Reference;
+import com.mrbysco.miab.entity.memes.EntityAttachedGirlfriend;
+import com.mrbysco.miab.entity.memes.EntityBongoCat;
+import com.mrbysco.miab.entity.memes.EntityCena;
+import com.mrbysco.miab.entity.memes.EntityClippy;
+import com.mrbysco.miab.entity.memes.EntityDankey;
+import com.mrbysco.miab.entity.memes.EntityDatBoi;
+import com.mrbysco.miab.entity.memes.EntityDoge;
+import com.mrbysco.miab.entity.memes.EntityFA;
+import com.mrbysco.miab.entity.memes.EntityGnome;
+import com.mrbysco.miab.entity.memes.EntityGrumpy;
+import com.mrbysco.miab.entity.memes.EntityHeMan;
+import com.mrbysco.miab.entity.memes.EntityHotDog;
+import com.mrbysco.miab.entity.memes.EntityKnuckles;
+import com.mrbysco.miab.entity.memes.EntityKnucklesQueen;
+import com.mrbysco.miab.entity.memes.EntityMario7;
+import com.mrbysco.miab.entity.memes.EntityNigel;
+import com.mrbysco.miab.entity.memes.EntityNyanCat;
+import com.mrbysco.miab.entity.memes.EntityPPAP;
+import com.mrbysco.miab.entity.memes.EntityPepe;
+import com.mrbysco.miab.entity.memes.EntityPhilSwift;
+import com.mrbysco.miab.entity.memes.EntityPingu;
+import com.mrbysco.miab.entity.memes.EntityRoadmanShaq;
+import com.mrbysco.miab.entity.memes.EntityRobbie;
+import com.mrbysco.miab.entity.memes.EntityRoflCopter;
+import com.mrbysco.miab.entity.memes.EntitySanic;
+import com.mrbysco.miab.entity.memes.EntitySans;
+import com.mrbysco.miab.entity.memes.EntityShrek;
+import com.mrbysco.miab.entity.memes.EntitySkywalker;
+import com.mrbysco.miab.entity.memes.EntityTacNayn;
+import com.mrbysco.miab.entity.memes.EntityTrololo;
+import com.mrbysco.miab.entity.memes.EntityTrump;
+import com.mrbysco.miab.entity.projectile.EntityKnucklesSpit;
+import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.EntityList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 
+import java.util.List;
+
+@EventBusSubscriber
 public class MemeEntities {
+	private static List<EntityEntry> ENTITIES_WITH_EGG = Lists.newArrayList();
+	private static List<EntityEntry> ENTITIES = Lists.newArrayList();
+
+	public static final EntityEntry SPLASH_MEME = createThrowable("splash_meme", EntitySplashMeme.class);
+	public static final EntityEntry JOHN_CENA = createEntity("john_cena", EntityCena.class, 16032864, 9199159);
+	public static final EntityEntry DONALD_TRUMP = createEntity("donald_trump", EntityTrump.class, 16753920, 16766720);
+	public static final EntityEntry DOGE = createEntity("doge", EntityDoge.class, 14196256, 15719341);
+	public static final EntityEntry GRUMPY_CAT = createEntity("grumpy_cat", EntityGrumpy.class, 14406346, 3354149);
+	public static final EntityEntry ATTACHED_GIRLFRIEND = createEntity("attached_girlfriend", EntityAttachedGirlfriend.class, 16240814, 5187607);
+	public static final EntityEntry EDUARD_KHIL = createEntity("eduard_khil", EntityTrololo.class, 16765091, 4204057);
+	public static final EntityEntry PPAP = createEntity("ppap", EntityPPAP.class, 16768915, 2170639);
+	public static final EntityEntry ROBBIE_ROTTEN = createEntity("robbie_rotten", EntityRobbie.class, 16765357, 2370625);
+	public static final EntityEntry GRAND_DAD = createEntity("grand_dad", EntityMario7.class, 16777215, 1333964);
+	public static final EntityEntry HE_MAN = createEntity("he-man", EntityHeMan.class, 13408394, 14595118);
+	public static final EntityEntry SKYWALKER = createEntity("anakin_skywalker", EntitySkywalker.class, 16631181, 7950634);
+	public static final EntityEntry ROADMAN_SHAQ = createEntity("roadman_shaq", EntityRoadmanShaq.class, 6375218, 1973790);
+	public static final EntityEntry PHIL_SWIFT = createEntity("phil_swift", EntityPhilSwift.class, 16768437, 4013373);
+
+	public static final EntityEntry DANKEY_KANG = createEntity("dankey_kang", EntityDankey.class, 1917560, 14668958);
+	public static final EntityEntry SHREK = createEntity("shrek", EntityShrek.class, 6994007, 1401603);
+	public static final EntityEntry DAT_BOI = createEntity("dat_boi", EntityDatBoi.class, 307716, 4276545);
+	public static final EntityEntry SANIC = createEntity("sanic", EntitySanic.class, 4147404, 2764941);
+	public static final EntityEntry PEPE = createEntity("pepe", EntityPepe.class, 5934398, 2642377);
+	public static final EntityEntry FOREVER_ALONE = createEntity("forever_alone", EntityFA.class, 14869218, 4031140);
+	public static final EntityEntry NYAN_CAT = createEntity("nyan_cat", EntityNyanCat.class, 15118949, 15684762);
+	public static final EntityEntry TAC_NAYN = createEntity("tac_nayn", EntityTacNayn.class, 2829099, 11688484);
+	public static final EntityEntry NIGEL_THORNBERRY = createEntity("nigel_thornberry", EntityNigel.class, 15044481, 11155745);
+	public static final EntityEntry DANCING_HOTDOG = createEntity("dancing_hotdog", EntityHotDog.class, 11887182, 14456412);
+	public static final EntityEntry BONGO_CAT = createEntity("bongo_cat", EntityBongoCat.class, 16777215, 1644825);
+	public static final EntityEntry ROFL_COPTER = createEntity("roflcopter", EntityRoflCopter.class, 16777215, 1644825);
+	public static final EntityEntry GNOME = createEntity("gnome", EntityGnome.class, 1189750, 13442571);
+	public static final EntityEntry CLIPPY = createEntity("clippy", EntityClippy.class);
+	public static final EntityEntry KNUCKLES = createEntity("knuckles", EntityKnuckles.class, 16729165, 16777215);
+	public static final EntityEntry KNUCKLES_QUEEN = createEntity("knuckles_queen", EntityKnucklesQueen.class, 16729165, 16777215);
+	public static final EntityEntry KNUCKLES_SPIT = createEntity("knuckles_spit", EntityKnucklesSpit.class);
+	public static final EntityEntry SANS = createEntity("sans", EntitySans.class, 6579836, 2610142);
+	public static final EntityEntry PINGU = createEntity("pingu", EntityPingu.class, 1975859, 15855854);
 
 	static int ID = 0;
-	
-	public static void register() 
-	{
-		registerEntity("splash_meme", EntitySplashMeme.class, "SplashMeme", 80, 3, true);
-		registerEntity("john_cena", EntityCena.class, "JohnCena", 80, 3, true, 16032864, 9199159);
-		registerEntity("bill_cipher", EntityBill.class, "BillCipher", 80, 3, true, 16707402, 2171169);
-		registerEntity("doge_wolf", EntityDoge.class, "DogeWolf", 80, 3, true, 14196256, 15719341);
-		registerEntity("grumpy_cat", EntityGrumpy.class, "GrumpyCat", 80, 3, true, 14406346, 3354149);
-		registerEntity("donald_trump", EntityTrump.class, "DonaldTrump", 80, 3, true, 16753920, 16766720);
-		registerEntity("eduard_khil", EntityKhil.class, "EduardKhil", 80, 3, true, 16765091, 4204057);
-		registerEntity("ppap_guy", EntityPpap.class, "PPAPGuy", 80, 3, true, 16768915, 2170639);
-		registerEntity("shrek", EntityShrek.class, "Shrek", 80, 3, true, 6994007, 1401603);
-		registerEntity("dat_boi", EntityDatBoi.class, "DatBoi", 80, 3, true, 307716, 4276545);
-		registerEntity("moonman", EntityMoonman.class, "Moonman", 80, 3, true, 12895428, 7237230);
-		registerEntity("rotten_robbie", EntityRobbie.class, "RottenRobbie", 80, 3, true, 16765357, 2370625);
-		registerEntity("grand_dad", EntityMario7.class, "GrandDad", 80, 3, true, 16777215, 1333964);
-		registerEntity("sanic", EntitySanic.class, "Sanic", 80, 3, true, 4147404, 2764941);
-		registerEntity("pepe", EntityPepe.class, "Pepe", 80, 3, true, 5934398, 2642377);
-		registerEntity("forever_alone", EntityFA.class, "ForeverAlone", 80, 3, true, 14869218, 4031140);
-		registerEntity("nyan_cat", EntityNyanCat.class, "NyanCat", 80, 3, true, 15118949, 15684762);
-		registerEntity("tac_nayn", EntityTacNayn.class, "taCnayN", 80, 3, true, 2829099, 11688484);
-		registerEntity("dankey_kang", EntityDankey.class, "DankeyKang", 80, 3, true, 1917560, 14668958);
-		registerEntity("nigel_thornberry", EntityNigel.class, "NigelThornberry", 80, 3, true, 15044481, 11155745);
-		registerEntity("attached_girlfriend", EntityAttachedGirlfriend.class, "AttachedGirlfriend", 80, 3, true, 16240814, 5187607);
-		registerEntity("anakin_skywalker", EntitySkywalker.class, "AnakinSkywalker", 80, 3, true, 16631181, 7950634);
-		registerEntity("roadman_shaq", EntityRoadmanShaq.class, "RoadmanShaq", 80, 3, true, 6375218, 1973790);
-		registerEntity("me_me_big_boi", EntityMemeBigBoss.class, "MemeBigBoi", 80, 3, true);
-		registerEntity("dancing_hotdog", EntityHotDog.class, "DancingHotdog", 80, 3, true, 11887182, 14456412);
-		registerEntity("he_man", EntityHeMan.class, "HeMan", 80, 3, true, 13408394, 14595118);
-		registerEntity("clippy", EntityClippy.class, "Clippy", 80, 3, true);
-		registerEntity("knuckles", EntityKnuckles.class, "Knuckles", 80, 3, true, 16729165, 16777215);
-		registerEntity("knuckles_queen", EntityKnucklesQueen.class, "KnucklesQueen", 80, 3, true, 16729165, 16777215);
-		registerEntity("knuckles_spit", EntityKnucklesSpit.class, "KnucklesSpit", 80, 3, true);
-		registerEntity("bongo_cat", EntityBongoCat.class, "BongoCat", 80, 3, true, 16777215, 1644825);
-		registerEntity("rofl_copter", EntityRoflCopter.class, "RoflCopter", 80, 3, true, 16777215, 1644825);
-		registerEntity("gnome", EntityGnome.class, "Gnome", 80, 3, true, 1189750, 13442571);
-		registerEntity("phil_swift", EntityPhilSwift.class, "PhilSwift", 80, 3, true, 16768437, 4013373);
+
+	private static EntityEntry createThrowable(String registryName, Class<? extends Entity> entityClass) {
+		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, registryName);
+		EntityEntry entry = new EntityEntry(entityClass, Reference.MOD_PREFIX + registryName);
+		entry.setRegistryName(location);
+
+		return entry;
 	}
-	
-	public static void registerSpawn(Class <? extends EntityLiving > entityClass, int weigth, int minGroup, int maxGroup, Biome... biomes)
-	{
-		EntityRegistry.addSpawn(entityClass, weigth, minGroup, maxGroup, EnumCreatureType.MONSTER, biomes);
+
+	private static EntityEntry createEntity(String registryName, Class<? extends Entity> entityClass) {
+		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, registryName);
+		EntityEntry entry = new EntityEntry(entityClass, Reference.MOD_PREFIX + registryName);
+		entry.setRegistryName(location);
+		ENTITIES.add(entry);
+
+		return entry;
 	}
-	
-	@SideOnly(Side.CLIENT)
-	public static void RegisterEntityRender()
-	{
-		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, renderManager -> new EntityMemeRenderer(renderManager, Minecraft.getMinecraft().getRenderItem()));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkywalker.class, RenderSkywalker.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityAttachedGirlfriend.class, RenderAttachedGirlfriend.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityBill.class, RenderBill.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, RenderCena.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDankey.class, RenderDankey.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDatBoi.class, RenderDatBoi.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDoge.class, RenderDoge.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityFA.class, RenderFA.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrumpy.class, RenderGrumpy.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityKhil.class, RenderKhil.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMario7.class, RenderMario7.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMoonman.class, RenderMoonman.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityNigel.class, RenderNigel.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityNyanCat.class, RenderNyanCat.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityPepe.class, RenderPepe.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityPpap.class, RenderPpap.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityRobbie.class, RenderRobbie.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySanic.class, RenderSanic.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityShrek.class, RenderShrek.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityTacNayn.class, RenderTacNayn.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityTrump.class, RenderTrump.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityRoadmanShaq.class, RenderRoadmanShaq.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMemeBigBoss.class, RenderBigBoi.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityHotDog.class, RenderHotDog.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityHeMan.class, RenderHeMan.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityClippy.class, RenderClippy.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityKnuckles.class, RenderKnuckles.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesQueen.class, RenderQueenKnuckles.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesSpit.class, renderManager -> new KnucklesSpitRender(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBongoCat.class, RenderBongoCat.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityRoflCopter.class, RenderRoflCopter.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGnome.class, RenderGnome.FACTORY);
-		RenderingRegistry.registerEntityRenderingHandler(EntityPhilSwift.class, RenderPhilSwift.FACTORY);
+
+	private static EntityEntry createEntity(String registryName, Class<? extends Entity> entityClass, int eggPrimary, int eggSecondary) {
+		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, registryName);
+		EntityEntry entry = new EntityEntry(entityClass, Reference.MOD_PREFIX + registryName);
+		entry.setRegistryName(location);
+		entry.setEgg(new EntityList.EntityEggInfo(location, eggPrimary, eggSecondary));
+		ENTITIES_WITH_EGG.add(entry);
+
+		return entry;
 	}
-	
-	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int eggPrimary, int eggSecondary) 
-	{
-		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, registryName), entityClass, Reference.MOD_PREFIX + entityName, ID, MemeInABottle.instance, trackingRange, updateFrequency, sendsVelocityUpdates, eggPrimary, eggSecondary);
+
+	public static void registerEntity(RegistryEvent.Register<EntityEntry> event, EntityEntry entry, int range, int update, boolean velocityUpdates) {
+		Preconditions.checkNotNull(entry.getRegistryName(), "registryName");
+		event.getRegistry().register(EntityEntryBuilder.create()
+				.entity(entry.getEntityClass())
+				.id(entry.getRegistryName(), ID)
+				.name(entry.getName())
+				.tracker(80, 3, true)
+				.build());
 		ID++;
 	}
-	
-	public static void registerEntity(String registryName, Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) 
-	{
-		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, registryName), entityClass, Reference.MOD_PREFIX + entityName, ID, MemeInABottle.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
+
+	public static void registerEggEntity(RegistryEvent.Register<EntityEntry> event, EntityEntry entry, int range, int update, boolean velocityUpdates) {
+		Preconditions.checkNotNull(entry.getRegistryName(), "registryName");
+		event.getRegistry().register(EntityEntryBuilder.create()
+				.entity(entry.getEntityClass())
+				.id(entry.getRegistryName(), ID)
+				.name(entry.getName())
+				.tracker(80, 3, true)
+				.egg(entry.getEgg().primaryColor, entry.getEgg().secondaryColor)
+				.build());
 		ID++;
+	}
+
+	@SubscribeEvent
+	public static void registerPenguins(RegistryEvent.Register<EntityEntry> event) {
+		registerEntity(event, SPLASH_MEME, 64, 10, true);
+
+		for (EntityEntry entry : ENTITIES) {
+			registerEntity(event, entry, 80, 3, true);
+			ID++;
+		}
+		for (EntityEntry entry : ENTITIES_WITH_EGG) {
+			registerEggEntity(event, entry, 80, 3, true);
+			ID++;
+		}
+
 	}
 }

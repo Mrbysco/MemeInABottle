@@ -1,14 +1,17 @@
 {
     "forge_marker": 1,
+	"defaults": {
+        "model": "memeinabottle:oscar"
+	},
     "variants": {
         "facing": {
-			"east": { "model": "memeinabottle:oscar", "y": 90},
-            "north": { "model": "memeinabottle:oscar"},
-			"west": { "model": "memeinabottle:oscar", "y": 270},
-            "south": { "model": "memeinabottle:oscar", "y": 180}
+			"east": { "y": 90},
+            "north": { },
+			"west": { "y": 270},
+            "south": { "y": 180}
         },
-    "inventory": [{
-        "model": "memeinabottle:oscar"
-    }]
+		"inventory": [{
+			"model": "memeinabottle:oscar"
+		}]
   }
 }

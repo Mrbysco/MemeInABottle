@@ -1,11 +1,18 @@
-package com.Mrbysco.miab.proxy;
+package com.mrbysco.miab.proxy;
 
 public class ServerProxy extends CommonProxy{
-	public void Preinit() {
+	@Override
+	public void PreInit() {
 		
 	}
-	
+
+	@Override
 	public void Init() {
+		
+	}
+
+	@Override
+	public void PostInit() {
 		
 	}
 }

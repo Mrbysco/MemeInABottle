@@ -1,7 +1,6 @@
-package com.Mrbysco.miab.init;
+package com.mrbysco.miab.init;
 
-import com.Mrbysco.miab.Reference;
-
+import com.mrbysco.miab.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -9,15 +8,11 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 public class MemeSounds {
 	public static SoundEvent cena_spawn;
 	public static SoundEvent cena_sound;
-	public static SoundEvent bill_spawn;
-	public static SoundEvent bill_sound;
-	public static SoundEvent bill_hit;
-	public static SoundEvent bill_death;
 	public static SoundEvent trump_spawn;
 	public static SoundEvent trump_sound;
 	public static SoundEvent trump_hit;
 	public static SoundEvent trump_death;
-	public static SoundEvent ception_spawn;
+	public static SoundEvent inception;
 	public static SoundEvent khil_spawn;
 	public static SoundEvent khil_sound;
 	public static SoundEvent khil_death;
@@ -33,10 +28,6 @@ public class MemeSounds {
 	public static SoundEvent ppap_ahpineapplepen;
 	public static SoundEvent ppap_ppap;
 	public static SoundEvent keyboard_mechanical;
-	public static SoundEvent moonman_summon;
-	public static SoundEvent moonman_hit;
-	public static SoundEvent moonman_passive;
-	public static SoundEvent moonman_death;
 	public static SoundEvent boi_summon;
 	public static SoundEvent boi_passive;
 	public static SoundEvent boi_death;
@@ -95,6 +86,15 @@ public class MemeSounds {
 	public static SoundEvent phil_passive;
 	public static SoundEvent phil_hurt;
 	public static SoundEvent phil_death;
+	public static SoundEvent clippy_mineshaft;
+	public static SoundEvent clippy_cave;
+	public static SoundEvent clippy_night;
+	public static SoundEvent clippy_health;
+	public static SoundEvent clippy_death;
+	public static SoundEvent clippy_hurt;
+	public static SoundEvent clippy_passive;
+	public static SoundEvent clippy_forest;
+	public static SoundEvent sans_sound;
 	
 	//start of main MEME sounds
 	public static SoundEvent ninethousand;
@@ -148,30 +148,16 @@ public class MemeSounds {
 	public static SoundEvent wrongnumber;
 	public static SoundEvent thuglife;
 	public static SoundEvent boing;
-	public static SoundEvent clippy_mineshaft;
-	public static SoundEvent clippy_cave;
-	public static SoundEvent clippy_night;
-	public static SoundEvent clippy_health;
-	public static SoundEvent clippy_death;
-	public static SoundEvent clippy_hurt;
-	public static SoundEvent clippy_passive;
-	public static SoundEvent clippy_forest;
-	
-	
 	
 	public static void registerSounds() 
 	{
 		cena_spawn = registerSound("cena.spawn");
 		cena_sound = registerSound("cena.sound");
-		bill_spawn = registerSound("bill.spawn");
-		bill_sound = registerSound("bill.sound");
-		bill_hit = registerSound("bill.hit");
-		bill_death = registerSound("bill.death");
 		trump_spawn = registerSound("trump.spawn");
 		trump_sound = registerSound("trump.sound");
 		trump_hit = registerSound("trump.hit");
 		trump_death = registerSound("trump.death");
-		ception_spawn = registerSound("ception.spawn");
+		inception = registerSound("inception");
 		khil_spawn = registerSound("khil.spawn");
 		khil_sound = registerSound("khil.sound");
 		khil_death = registerSound("khil.death");
@@ -187,10 +173,6 @@ public class MemeSounds {
 		ppap_ahpineapplepen = registerSound("ppap.ahpineapplepen");
 		ppap_ppap = registerSound("ppap.ppap");
 		keyboard_mechanical = registerSound("keyboardmechanical");
-		moonman_summon = registerSound("moonman.spawn");
-		moonman_hit = registerSound("moonman.hit");
-		moonman_passive = registerSound("moonman.passive");
-		moonman_death = registerSound("moonman.death");
 		boi_summon = registerSound("boi.spawn");
 		boi_passive = registerSound("boi.passive");
 		boi_death = registerSound("boi.death");
@@ -309,6 +291,7 @@ public class MemeSounds {
 		phil_passive = registerSound("phil.passive");
 		phil_hurt = registerSound("phil.hurt");
 		phil_death = registerSound("phil.death");
+		sans_sound = registerSound("sans.sound");
 	}
 	
 	private static SoundEvent registerSound(String soundName)

@@ -14,7 +14,7 @@
 		"show_toast": true,
         "announce_to_chat": false
 		},
-    "parent": "memeinabottle:memeinabottle/keyboard",
+    "parent": "memeinabottle:memeinabottle/fidget",
     "criteria": {
         "meme": {
             "trigger": "minecraft:inventory_changed",

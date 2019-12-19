@@ -41,37 +41,10 @@
         },
         {
             "name": "memebottles",
-            "conditions": [
-                {
-                    "condition": "random_chance_with_looting",
-                    "chance": 0.01,
-                    "looting_multiplier": 0.01
-                }
-            ],
             "entries": [
                 {
-                    "conditions": [],
-                    "type": "item",
-                    "name": "memeinabottle:meme_in_a_bottle",
-                    "functions": [],
-                    "weight": 1,
-                    "quality": 0
-                },
-                {
-                    "conditions": [],
-                    "type": "item",
-                    "name": "memeinabottle:splash_meme_in_a_bottle",
-                    "functions": [],
-                    "weight": 1,
-                    "quality": 0
-                },
-                {
-                    "conditions": [],
-                    "type": "item",
-                    "name": "memeinabottle:lingering_meme_in_a_bottle",
-                    "functions": [],
-                    "weight": 1,
-                    "quality": 0
+                    "type": "loot_table",
+                    "name": "memeinabottle:entity/memebase"
                 }
             ],
             "rolls": {
