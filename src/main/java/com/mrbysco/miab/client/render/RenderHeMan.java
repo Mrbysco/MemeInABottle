@@ -3,7 +3,6 @@ package com.mrbysco.miab.client.render;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.entity.memes.EntityHeMan;
-import com.mrbysco.miab.entity.memes.EntityMario7;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;

@@ -1,6 +1,5 @@
 package com.mrbysco.miab.memes.actions.basis.entity;
 
-import com.mrbysco.miab.MemeInABottle;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityTameable;

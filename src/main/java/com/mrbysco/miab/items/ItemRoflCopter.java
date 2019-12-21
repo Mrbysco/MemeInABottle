@@ -1,7 +1,6 @@
 package com.mrbysco.miab.items;
 
 import com.mrbysco.miab.Reference;
-import com.mrbysco.miab.entity.memes.EntityClippy;
 import com.mrbysco.miab.entity.memes.EntityRoflCopter;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;

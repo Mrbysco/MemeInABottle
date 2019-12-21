@@ -4,7 +4,6 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelDankey;
 import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.entity.memes.EntityDankey;
-import com.mrbysco.miab.entity.memes.EntityHeMan;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;

@@ -27,6 +27,9 @@ public class MemeConfig {
 		
 		@Config.Comment("Use Minecraft's narrator to pronounce some copypasta memes (Default: false)")
 		public boolean UseNarator = false;
+
+		@Config.Comment("When enabled will log the memes executed. (Default: false)")
+		public boolean LogTriggers = false;
 	}
 	
 	public static class Memes{

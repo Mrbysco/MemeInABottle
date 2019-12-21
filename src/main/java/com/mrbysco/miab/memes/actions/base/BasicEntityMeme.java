@@ -1,7 +1,6 @@
 package com.mrbysco.miab.memes.actions.base;
 
 import com.mrbysco.miab.MemeInABottle;
-import com.mrbysco.miab.entity.memes.EntityCena;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;

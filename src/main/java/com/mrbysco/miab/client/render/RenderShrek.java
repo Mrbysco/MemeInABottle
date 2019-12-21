@@ -3,7 +3,6 @@ package com.mrbysco.miab.client.render;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.client.models.ModelShrek;
-import com.mrbysco.miab.entity.memes.EntityCena;
 import com.mrbysco.miab.entity.memes.EntityShrek;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;

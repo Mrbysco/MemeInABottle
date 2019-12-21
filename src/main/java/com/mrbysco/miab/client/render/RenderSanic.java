@@ -1,9 +1,7 @@
 package com.mrbysco.miab.client.render;
 
 import com.mrbysco.miab.Reference;
-import com.mrbysco.miab.client.models.ModelDatBoi;
 import com.mrbysco.miab.client.models.ModelSanic;
-import com.mrbysco.miab.entity.memes.EntityDatBoi;
 import com.mrbysco.miab.entity.memes.EntitySanic;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

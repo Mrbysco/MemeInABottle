@@ -3,7 +3,6 @@ package com.mrbysco.miab.client.render;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.client.models.ModelNigel;
-import com.mrbysco.miab.entity.memes.EntityHeMan;
 import com.mrbysco.miab.entity.memes.EntityNigel;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;

@@ -2,13 +2,10 @@ package com.mrbysco.miab.client.render;
 
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelBongoCat;
-import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.client.render.layer.NoteBlockLayer;
 import com.mrbysco.miab.entity.memes.EntityBongoCat;
-import com.mrbysco.miab.entity.memes.EntityCena;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBongoCat extends RenderLiving<EntityBongoCat>

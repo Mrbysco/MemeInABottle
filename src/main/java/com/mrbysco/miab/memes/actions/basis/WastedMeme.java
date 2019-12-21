@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class WastedMeme extends BasicFunny {
 
 	public WastedMeme() {
-		super(Reference.MOD_PREFIX + "tanner", 20);
+		super(Reference.MOD_PREFIX + "wasted", 20);
 	}	
 
 	@Override

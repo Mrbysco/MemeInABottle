@@ -3,11 +3,8 @@ package com.mrbysco.miab.items.armor;
 import com.mrbysco.miab.MemeInABottle;
 import com.mrbysco.miab.Reference;
 import net.minecraft.block.BlockDispenser;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
 
 public class ItemCustomArmor extends ItemArmor {
 

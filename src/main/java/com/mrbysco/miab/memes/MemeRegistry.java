@@ -218,7 +218,9 @@ public class MemeRegistry {
 			    }
 			}
 			iFunny randomMeme = funnyList.get(randomIndex);
-			MemeInABottle.logger.log(Level.INFO, "Triggered the meme with the name: " + randomMeme.getName());
+			if(MemeConfig.general.LogTriggers) {
+				MemeInABottle.logger.log(Level.INFO, "Triggered the meme with the name: " + randomMeme.getName() + " at " + playerIn.getName());
+			}
 			randomMeme.trigger(worldIn, pos, playerIn);
 		}
 	}

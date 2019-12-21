@@ -3,7 +3,6 @@ package com.mrbysco.miab.entity.memes;
 import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.init.MemeLoot;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;

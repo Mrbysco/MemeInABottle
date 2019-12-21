@@ -3,13 +3,8 @@ package com.mrbysco.miab.memes.actions.basis;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.entity.memes.EntityNyanCat;
 import com.mrbysco.miab.entity.memes.EntityTacNayn;
-import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

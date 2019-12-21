@@ -2,7 +2,6 @@ package com.mrbysco.miab.client.render;
 
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelNyan;
-import com.mrbysco.miab.entity.memes.EntityNyanCat;
 import com.mrbysco.miab.entity.memes.EntityTacNayn;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
