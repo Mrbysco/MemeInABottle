@@ -56,7 +56,7 @@ public class MemeInABottle {
 		//Initialize loot
 		logger.info("Initialize Meme Loot");
 		MemeLoot.registerLootTables();
-		
+
 		logger.info("Registering Meme Event Handlers");
 		MinecraftForge.EVENT_BUS.register(new MemeHandler());
 

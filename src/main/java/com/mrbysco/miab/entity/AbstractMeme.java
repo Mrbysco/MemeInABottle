@@ -34,11 +34,11 @@ public abstract class AbstractMeme extends EntityMob {
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
-	
+
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-        this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
+		this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
 	}
 	
 	public void setArmsRaised(boolean armsRaised)

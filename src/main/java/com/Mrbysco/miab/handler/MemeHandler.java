@@ -2,6 +2,7 @@ package com.mrbysco.miab.handler;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.init.MemeItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -31,8 +32,7 @@ public class MemeHandler {
 		BlockPos pos = event.getPos();
 		World world = event.getWorld();
 		Block block = world.getBlockState(pos).getBlock();
-
-		if (!world.isRemote) {
+		if (!world.isRemote && MemeConfig.general.MemesOnBeach) {
 			if (BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.BEACH)) {
 				if (block instanceof BlockSand) {
 					if (itemStack.getItem() instanceof ItemSpade) {

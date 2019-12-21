@@ -87,6 +87,7 @@ entity.memeinabottle:gnome.name=Gnome
 entity.memeinabottle:phil_swift.name=Phil Swift
 entity.memeinabottle:pingu.name=Pingu
 entity.memeinabottle:sans.name=Sans
+entity.memeinabottle:tom.name=Tom
 
 #Stat info
 memeinabottle:stats.belt.addInfo=4+ Strength
@@ -299,4 +300,5 @@ memeinabottle.subtitle.phil.passive=Phil Swift talks
 memeinabottle.subtitle.phil.hurt=Phil Swift hurts
 memeinabottle.subtitle.phil.death=Phil Swift faints
 memeinabottle.subtitle.sans.sound=Uh uh. uhhh uh..
+memeinabottle.subtitle.tom.sound=Tom yelling about chocolate
 memeinabottle.subtitle.meme.review=*Clap* *Clap* Meme Review!

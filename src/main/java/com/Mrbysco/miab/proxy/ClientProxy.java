@@ -3,6 +3,7 @@ package com.mrbysco.miab.proxy;
 import com.mrbysco.miab.client.render.RenderAttachedGirlfriend;
 import com.mrbysco.miab.client.render.RenderBongoCat;
 import com.mrbysco.miab.client.render.RenderCena;
+import com.mrbysco.miab.client.render.RenderChocolateGuy;
 import com.mrbysco.miab.client.render.RenderClippy;
 import com.mrbysco.miab.client.render.RenderDankey;
 import com.mrbysco.miab.client.render.RenderDatBoi;
@@ -36,6 +37,7 @@ import com.mrbysco.miab.client.render.RenderTrump;
 import com.mrbysco.miab.entity.memes.EntityAttachedGirlfriend;
 import com.mrbysco.miab.entity.memes.EntityBongoCat;
 import com.mrbysco.miab.entity.memes.EntityCena;
+import com.mrbysco.miab.entity.memes.EntityChocolateGuy;
 import com.mrbysco.miab.entity.memes.EntityClippy;
 import com.mrbysco.miab.entity.memes.EntityDankey;
 import com.mrbysco.miab.entity.memes.EntityDatBoi;
@@ -141,6 +143,7 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityClippy.class, renderManager -> new RenderClippy(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySans.class, renderManager -> new RenderSans(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPingu.class, renderManager -> new RenderPingu(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(EntityChocolateGuy.class, renderManager -> new RenderChocolateGuy(renderManager));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnuckles.class, renderManager -> new RenderKnuckles(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesSpit.class, renderManager -> new RenderKnucklesSpit(renderManager));

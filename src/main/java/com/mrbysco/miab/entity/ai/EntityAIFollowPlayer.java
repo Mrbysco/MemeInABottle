@@ -15,16 +15,16 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityAIFollowPlayer extends EntityAIBase {
-    private final AbstractMeme meme;
-    private EntityPlayer player;
-    private final World world;
-    private final double followSpeed;
-    private final PathNavigate petPathfinder;
-    private int timeToRecalcPath;
+    public final AbstractMeme meme;
+    public EntityPlayer player;
+    public final World world;
+    public final double followSpeed;
+    public final PathNavigate petPathfinder;
+    public int timeToRecalcPath;
     float maxDist;
     float minDist;
-    private float oldWaterCost;
-    private int range;
+    public float oldWaterCost;
+    public int range;
     
 	public EntityAIFollowPlayer(AbstractMeme memeIn, double followSpeedIn, float minDistIn, float maxDistIn, int findRange) {
         this.meme = memeIn;

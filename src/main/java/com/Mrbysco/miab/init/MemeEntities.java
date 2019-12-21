@@ -6,6 +6,7 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.entity.memes.EntityAttachedGirlfriend;
 import com.mrbysco.miab.entity.memes.EntityBongoCat;
 import com.mrbysco.miab.entity.memes.EntityCena;
+import com.mrbysco.miab.entity.memes.EntityChocolateGuy;
 import com.mrbysco.miab.entity.memes.EntityClippy;
 import com.mrbysco.miab.entity.memes.EntityDankey;
 import com.mrbysco.miab.entity.memes.EntityDatBoi;
@@ -86,6 +87,7 @@ public class MemeEntities {
 	public static final EntityEntry KNUCKLES_SPIT = createEntity("knuckles_spit", EntityKnucklesSpit.class);
 	public static final EntityEntry SANS = createEntity("sans", EntitySans.class, 6579836, 2610142);
 	public static final EntityEntry PINGU = createEntity("pingu", EntityPingu.class, 1975859, 15855854);
+	public static final EntityEntry TOM = createEntity("tom", EntityChocolateGuy.class, 9405003, 8747679);
 
 	static int ID = 0;
 

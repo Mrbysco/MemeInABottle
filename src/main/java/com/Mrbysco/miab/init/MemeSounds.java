@@ -95,7 +95,8 @@ public class MemeSounds {
 	public static SoundEvent clippy_passive;
 	public static SoundEvent clippy_forest;
 	public static SoundEvent sans_sound;
-	
+	public static SoundEvent tom_sound;
+
 	//start of main MEME sounds
 	public static SoundEvent ninethousand;
 	public static SoundEvent barrelroll;
@@ -292,6 +293,7 @@ public class MemeSounds {
 		phil_hurt = registerSound("phil.hurt");
 		phil_death = registerSound("phil.death");
 		sans_sound = registerSound("sans.sound");
+		tom_sound = registerSound("tom.sound");
 	}
 	
 	private static SoundEvent registerSound(String soundName)

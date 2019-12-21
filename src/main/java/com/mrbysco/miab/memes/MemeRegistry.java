@@ -153,6 +153,7 @@ public class MemeRegistry {
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "knuckles", 5, MemeEntities.KNUCKLES, MemeSounds.knuckles_passive));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "pingu", 5, MemeEntities.PINGU, MemeSounds.noot));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "sans", 5, MemeEntities.SANS, MemeSounds.sans_sound));
+		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "chocolate_guy", 5, MemeEntities.TOM, MemeSounds.chocolate));
 
 		//Other memes
 		INSTANCE.registerMeme(new InceptionMeme());

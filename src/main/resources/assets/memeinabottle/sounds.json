@@ -1097,5 +1097,16 @@
             "memeinabottle:sans/sound1",
             "memeinabottle:sans/sound2"
         ]
+   },
+   "tom.sound" : {
+	"subtitle": "memeinabottle.subtitle.tom.sound",
+    "category" : "hostile",
+        "sounds": [
+            "memeinabottle:tom/chocolate",
+            "memeinabottle:tom/chocolate1",
+            "memeinabottle:tom/chocolate2",
+            "memeinabottle:tom/chocolate3",
+            "memeinabottle:tom/chocolate4"
+        ]
    }
 }
