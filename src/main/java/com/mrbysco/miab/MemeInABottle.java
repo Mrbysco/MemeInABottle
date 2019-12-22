@@ -42,6 +42,7 @@ public class MemeInABottle {
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		MemeRegistry.initializeMemes();
+
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event)

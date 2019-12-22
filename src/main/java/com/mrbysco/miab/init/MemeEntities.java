@@ -43,14 +43,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid = Reference.MOD_ID, bus = Bus.MOD)
 public class MemeEntities {
-	public static final EntityType<EntitySplashMeme> SPLASH_MEME = register("splash_meme", EntityType.Builder.<EntitySplashMeme>create(EntitySplashMeme::new, EntityClassification.MISC)
+	public static final EntityType<EntitySplashMeme> SPLASH_MEME = registerProjectile("splash_meme", EntityType.Builder.<EntitySplashMeme>create(EntitySplashMeme::new, EntityClassification.MISC)
 			.size(0.25F, 0.25F)
 			.setCustomClientFactory(EntitySplashMeme::new));
 
-	public static final EntityType<EntityKnucklesSpit> KNUCKLES_SPIT = register("knuckles_spit", EntityType.Builder.<EntityKnucklesSpit>create(EntityKnucklesSpit::new, EntityClassification.MISC)
+	public static final EntityType<EntityKnucklesSpit> KNUCKLES_SPIT = registerProjectile("knuckles_spit", EntityType.Builder.<EntityKnucklesSpit>create(EntityKnucklesSpit::new, EntityClassification.MISC)
 			.size(0.25F, 0.25F)
 			.setCustomClientFactory(EntityKnucklesSpit::new));
 
@@ -89,8 +90,6 @@ public class MemeEntities {
 	public static final EntityType<EntityPingu> PINGU = register("pingu", EntityType.Builder.<EntityPingu>create(EntityPingu::new, EntityClassification.MONSTER));
 	public static final EntityType<EntityChocolateGuy> TOM = register("tom", EntityType.Builder.<EntityChocolateGuy>create(EntityChocolateGuy::new, EntityClassification.MONSTER));
 
-	static int ID = 0;
-
 	public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder, boolean sendVelocityUpdates) {
 		EntityType<T> entityType = builder.setTrackingRange(64).setUpdateInterval(3).setShouldReceiveVelocityUpdates(sendVelocityUpdates).build("");
 		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, id);
@@ -98,6 +97,7 @@ public class MemeEntities {
 
 		return entityType;
 	}
+
 	public static <T extends Entity> EntityType<T> registerProjectile(String id, EntityType.Builder<T> builder) {
 		EntityType<T> entityType = builder.setTrackingRange(4).setUpdateInterval(10).build("");
 		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, id);

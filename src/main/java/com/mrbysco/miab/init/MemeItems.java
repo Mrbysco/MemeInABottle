@@ -133,8 +133,8 @@ public class MemeItems {
 		flex_tape = registerItem(new ItemMemeBase(itemBuilder()), "flex_tape");
 		fidget_spinner = registerItem(new ItemFidget(itemBuilder()), "fidget_spinner");
 
-		clippy = registerItem(new ItemClippy(itemBuilder()),"clippy");
-		roflcopter = registerItem(new ItemRoflCopter(itemBuilder()),"roflcopter");
+		clippy = registerItem(new ItemClippy(itemBuilder()), "clippy");
+		roflcopter = registerItem(new ItemRoflCopter(itemBuilder()), "roflcopter");
 
 		waffle = registerItem(new ItemMemeBase(itemBuilder().food(MemeFoods.WAFFLE)), "waffle");
 		poptart = registerItem(new ItemMemeBase(itemBuilder().food(MemeFoods.POPTART)), "poptart");

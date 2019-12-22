@@ -1,7 +1,7 @@
 package com.mrbysco.miab.handler;
 
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.init.MemeItems;
 import com.mrbysco.miab.memes.MemeRegistry;
@@ -52,13 +52,15 @@ public class MemeHandler {
 		}
 	}
 
-	public static List<Item> memeBottles = ImmutableList.of(
-			MemeItems.meme_in_a_bottle,
-			MemeItems.splash_meme_in_a_bottle,
-			MemeItems.lingering_meme_in_a_bottle);
+	public static List<Item> memeBottles = Lists.newArrayList();
 
 	public static ItemStack getRandomMemeBottle(Random rand)
 	{
+		if(memeBottles.isEmpty()) {
+			memeBottles.add(MemeItems.meme_in_a_bottle);
+			memeBottles.add(MemeItems.splash_meme_in_a_bottle);
+			memeBottles.add(MemeItems.lingering_meme_in_a_bottle);
+		}
 		final int size = memeBottles.size();
 		Preconditions.checkArgument(size > 0, "Can't select from empty list");
 		if (size == 0) return null;

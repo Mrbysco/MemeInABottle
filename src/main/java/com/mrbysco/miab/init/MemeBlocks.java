@@ -10,11 +10,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid = Reference.MOD_ID, bus = Bus.MOD)
 public class MemeBlocks {
 	public static Block oscar;
 
