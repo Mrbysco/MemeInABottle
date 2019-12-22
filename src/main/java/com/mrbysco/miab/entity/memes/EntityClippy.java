@@ -1,78 +1,78 @@
 package com.mrbysco.miab.entity.memes;
 
+import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.init.MemeLoot;
 import com.mrbysco.miab.init.MemeSounds;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.EntityMoveHelper;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.entity.ai.controller.MovementController;
+import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
+import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 
-public class EntityClippy extends EntityMob {
+public class EntityClippy extends AbstractMeme {
 
 	public float jumpAmount;
 	public float jumpFactor;
 	public float prevJumpFactor;
 	private boolean wasOnGround;
-	public EntityClippy(World worldIn) {
-		super(worldIn);
-		this.setSize(0.7F, 1.95F);
-		this.moveHelper = new EntityClippy.ClippyMoverHelper(this);
+	public EntityClippy(EntityType<? extends EntityClippy> entityType, World worldIn) {
+		super(entityType, worldIn);
+		//TODO: this.setSize(0.7F, 1.95F);
+		this.moveController = new EntityClippy.ClippyMoverHelper(this);
 	}
 
-	protected void initEntityAI()
+	protected void registerGoals()
 	{
-		super.initEntityAI();
-		this.tasks.addTask(1, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityClippy.AIHop(this));
-		this.tasks.addTask(2, new EntityClippy.AIClippyAttack(this));
-		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(4, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(6, new EntityAILookIdle(this));
-		this.tasks.addTask(5, new EntityAIWanderAvoidWater(this, 1.0D));
-
-		this.applyEntityAI();
+		this.goalSelector.addGoal(1, new SwimGoal(this));
+		this.goalSelector.addGoal(1, new EntityClippy.AIHop(this));
+		this.goalSelector.addGoal(2, new EntityClippy.AIClippyAttack(this));
+		this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+		this.goalSelector.addGoal(4, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+		this.registerTargetGoals();
 	}
 
-	private void applyEntityAI() {
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+	private void registerTargetGoals() {
+		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(EntityClippy.class));
 	}
 	
 	@Override
-	protected void applyEntityAttributes() 
+	protected void registerAttributes() 
 	{
-		super.applyEntityAttributes();
+		super.registerAttributes();
 
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(16.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
+		this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(16.0D);
+		this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
+		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
 	}
 
 	@Override
 	protected SoundEvent getAmbientSound() {
 		Biome biome = this.world.getBiome(this.getPosition());
 		SoundEvent sound = SoundEvents.ENTITY_SLIME_HURT;
-		if(!this.isDead)
+		if(!this.dead)
 		{
 			if(this.world.isDaytime() == false)
 			{
@@ -98,7 +98,7 @@ public class EntityClippy extends EntityMob {
 			{
 				sound = MemeSounds.clippy_cave;
 			}
-			else if(this.world.findNearestStructure("Mineshaft", this.getPosition(), true) == this.getPosition())
+			else if(this.world.findNearestStructure("Mineshaft", this.getPosition(), 30, true) == this.getPosition())
 			{
 				sound = MemeSounds.clippy_mineshaft;
 			}
@@ -112,14 +112,14 @@ public class EntityClippy extends EntityMob {
 
 	private boolean playerNearby()
 	{
-		EntityPlayer player = this.world.getClosestPlayerToEntity(this, 20);
+		PlayerEntity player = this.world.getClosestPlayer(this, 20);
 
 		return player != null;
 	}
 
 	private float getPlayerHealth()
 	{
-		float health = this.world.getClosestPlayerToEntity(this, 20).getHealth();
+		float health = this.world.getClosestPlayer(this, 20).getHealth();
 
 		return health;
 	}
@@ -143,8 +143,8 @@ public class EntityClippy extends EntityMob {
 	}
 
 	@Override
-	public void onCollideWithPlayer(EntityPlayer entityIn) {
-		if (this.canDamagePlayer() && !this.isDead)
+	public void onCollideWithPlayer(PlayerEntity entityIn) {
+		if (this.canDamagePlayer() && !this.dead)
 		{
 			this.dealDamage(entityIn);
 		}
@@ -152,10 +152,10 @@ public class EntityClippy extends EntityMob {
 
 	protected boolean canDamagePlayer()
 	{
-		return this.getAttackTarget() instanceof EntityPlayer;
+		return this.getAttackTarget() instanceof PlayerEntity;
 	}
 
-	protected void dealDamage(EntityLivingBase entityIn)
+	protected void dealDamage(LivingEntity entityIn)
 	{
 		int i = 2;
 
@@ -166,36 +166,35 @@ public class EntityClippy extends EntityMob {
 		}
 	}
 
-	public void writeEntityToNBT(NBTTagCompound compound) {
-		super.writeEntityToNBT(compound);
-		compound.setBoolean("wasOnGround", this.wasOnGround);
+	public void writeAdditional(CompoundNBT compound) {
+		super.writeAdditional(compound);
+		compound.putBoolean("wasOnGround", this.wasOnGround);
 	}
 
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
+	public void readAdditional(CompoundNBT compound) {
+		super.readAdditional(compound);
 		this.wasOnGround = compound.getBoolean("wasOnGround");
 	}
 
-	public void onUpdate()
+	public void tick()
 	{
 		this.jumpFactor += (this.jumpAmount - this.jumpFactor) * 0.5F;
 		this.prevJumpFactor = this.jumpFactor;
-		super.onUpdate();
+		super.tick();
 
 		if (this.onGround && !this.wasOnGround)
 		{
 			int i = 2;
-			for (int j = 0; j < i * 8; ++j)
-			{
+			for(int j = 0; j < i * 8; ++j) {
 				float f = this.rand.nextFloat() * ((float)Math.PI * 2F);
 				float f1 = this.rand.nextFloat() * 0.5F + 0.5F;
 				float f2 = MathHelper.sin(f) * (float)i * 0.5F * f1;
 				float f3 = MathHelper.cos(f) * (float)i * 0.5F * f1;
 				World world = this.world;
-				EnumParticleTypes enumparticletypes = EnumParticleTypes.FIREWORKS_SPARK;
+				IParticleData iparticledata = ParticleTypes.FIREWORK;
 				double d0 = this.posX + (double)f2;
 				double d1 = this.posZ + (double)f3;
-				world.spawnParticle(enumparticletypes, d0, this.getEntityBoundingBox().minY, d1, 0.0D, 0.0D, 0.0D);
+				world.addParticle(iparticledata, d0, this.getBoundingBox().minY, d1, 0.0D, 0.0D, 0.0D);
 			}
 
 			//this.playSound(this.getJumpSound(), this.getSoundVolume(), ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) / 0.8F);
@@ -217,7 +216,8 @@ public class EntityClippy extends EntityMob {
 
 	protected void jump()
 	{
-		this.motionY = 0.41999998688697815D;
+		Vec3d vec3d = this.getMotion();
+		this.setMotion(vec3d.x, (double)0.42F, vec3d.z);
 		this.isAirBorne = true;
 	}
 
@@ -234,14 +234,14 @@ public class EntityClippy extends EntityMob {
 		return MemeSounds.boing;
 	}
 
-	static class AIHop extends EntityAIBase
+	static class AIHop extends Goal
 	{
 		private final EntityClippy clippy;
 
 		public AIHop(EntityClippy clippyIn)
 		{
 			this.clippy = clippyIn;
-			this.setMutexBits(5);
+			this.setMutexFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
 		}
 
 		/**
@@ -261,7 +261,7 @@ public class EntityClippy extends EntityMob {
 		}
 	}
 
-	static class ClippyMoverHelper extends EntityMoveHelper
+	static class ClippyMoverHelper extends MovementController
 	{
 		private float yRot;
 		private int jumpDelay;
@@ -284,26 +284,26 @@ public class EntityClippy extends EntityMob {
 		public void setSpeed(double speedIn)
 		{
 			this.speed = speedIn;
-			this.action = EntityMoveHelper.Action.MOVE_TO;
+			this.action = MovementController.Action.MOVE_TO;
 		}
 
-		public void onUpdateMoveHelper()
+		public void tick()
 		{
-			this.entity.rotationYaw = this.limitAngle(this.entity.rotationYaw, this.yRot, 90.0F);
-			this.entity.rotationYawHead = this.entity.rotationYaw;
-			this.entity.renderYawOffset = this.entity.rotationYaw;
+			this.mob.rotationYaw = this.limitAngle(this.mob.rotationYaw, this.yRot, 90.0F);
+			this.mob.rotationYawHead = this.mob.rotationYaw;
+			this.mob.renderYawOffset = this.mob.rotationYaw;
 
-			if (this.action != EntityMoveHelper.Action.MOVE_TO)
+			if (this.action != MovementController.Action.MOVE_TO)
 			{
-				this.entity.setMoveForward(0.0F);
+				this.mob.setMoveForward(0.0F);
 			}
 			else
 			{
-				this.action = EntityMoveHelper.Action.WAIT;
+				this.action = MovementController.Action.WAIT;
 
-				if (this.entity.onGround)
+				if (this.mob.onGround)
 				{
-					this.entity.setAIMoveSpeed((float)(this.speed * this.entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue()));
+					this.mob.setAIMoveSpeed((float)(this.speed * this.mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue()));
 
 					if (this.jumpDelay-- <= 0)
 					{
@@ -314,7 +314,7 @@ public class EntityClippy extends EntityMob {
 							this.jumpDelay /= 3;
 						}
 
-						this.clippy.getJumpHelper().setJumping();
+						this.clippy.getJumpController().setJumping();
 
 						this.clippy.playSound(this.clippy.getJumpSound(), this.clippy.getSoundVolume(), ((this.clippy.getRNG().nextFloat() - this.clippy.getRNG().nextFloat()) * 0.2F + 1.0F) * 0.8F);
 					}
@@ -322,18 +322,18 @@ public class EntityClippy extends EntityMob {
 					{
 						this.clippy.moveStrafing = 0.0F;
 						this.clippy.moveForward = 0.0F;
-						this.entity.setAIMoveSpeed(0.0F);
+						this.mob.setAIMoveSpeed(0.0F);
 					}
 				}
 				else
 				{
-					this.entity.setAIMoveSpeed((float)(this.speed * this.entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue()));
+					this.mob.setAIMoveSpeed((float)(this.speed * this.mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue()));
 				}
 			}
 		}
 	}
 
-	static class AIClippyAttack extends EntityAIBase
+	static class AIClippyAttack extends Goal
 	{
 		private final EntityClippy clippy;
 		private int growTieredTimer;
@@ -341,7 +341,7 @@ public class EntityClippy extends EntityMob {
 		public AIClippyAttack(EntityClippy clippyIn)
 		{
 			this.clippy = clippyIn;
-			this.setMutexBits(2);
+			this.setMutexFlags(EnumSet.of(Goal.Flag.LOOK));
 		}
 
 		/**
@@ -349,19 +349,19 @@ public class EntityClippy extends EntityMob {
 		 */
 		public boolean shouldExecute()
 		{
-			EntityLivingBase entitylivingbase = this.clippy.getAttackTarget();
+			LivingEntity LivingEntity = this.clippy.getAttackTarget();
 
-			if (entitylivingbase == null)
+			if (LivingEntity == null)
 			{
 				return false;
 			}
-			else if (!entitylivingbase.isEntityAlive())
+			else if (!LivingEntity.isAlive())
 			{
 				return false;
 			}
 			else
 			{
-				return !(entitylivingbase instanceof EntityPlayer) || !((EntityPlayer)entitylivingbase).capabilities.disableDamage;
+				return !(LivingEntity instanceof PlayerEntity) || !((PlayerEntity)LivingEntity).abilities.disableDamage;
 			}
 		}
 
@@ -379,17 +379,17 @@ public class EntityClippy extends EntityMob {
 		 */
 		public boolean shouldContinueExecuting()
 		{
-			EntityLivingBase entitylivingbase = this.clippy.getAttackTarget();
+			LivingEntity LivingEntity = this.clippy.getAttackTarget();
 
-			if (entitylivingbase == null)
+			if (LivingEntity == null)
 			{
 				return false;
 			}
-			else if (!entitylivingbase.isEntityAlive())
+			else if (!LivingEntity.isAlive())
 			{
 				return false;
 			}
-			else if (entitylivingbase instanceof EntityPlayer && ((EntityPlayer)entitylivingbase).capabilities.disableDamage)
+			else if (LivingEntity instanceof PlayerEntity && ((PlayerEntity)LivingEntity).abilities.disableDamage)
 			{
 				return false;
 			}

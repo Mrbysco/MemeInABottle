@@ -4,27 +4,19 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.client.models.ModelPepe;
 import com.mrbysco.miab.entity.memes.EntityPepe;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;
+import net.minecraft.client.renderer.entity.BipedRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderPepe extends RenderBiped<EntityPepe>
+public class RenderPepe<T extends EntityPepe, M extends ModelPepe<T>> extends BipedRenderer<EntityPepe, ModelPepe<EntityPepe>>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/pepe.png");
 
-    public RenderPepe(RenderManager renderManagerIn)
+    public RenderPepe(EntityRendererManager EntityRendererManagerIn)
     {
-        super(renderManagerIn, new ModelPepe(), 0.5F);
-        LayerBipedArmor layerbipedarmor = new LayerBipedArmor(this)
-        {
-            protected void initArmor()
-            {
-                this.modelLeggings = new ModelHumanBase(0.5F, true);
-                this.modelArmor = new ModelHumanBase(1.0F, true);
-            }
-        };
-        this.addLayer(layerbipedarmor);
+        super(EntityRendererManagerIn, new ModelPepe(), 0.5F);
+        this.addLayer(new BipedArmorLayer<>(this, new ModelHumanBase<>(0.5F, true), new ModelHumanBase<>(1.0F, true)));
     }
 
     protected ResourceLocation getEntityTexture(EntityPepe entity)

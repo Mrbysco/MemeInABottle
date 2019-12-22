@@ -2,12 +2,12 @@ package com.mrbysco.miab.memes.actions.base;
 
 import com.mojang.text2speech.Narrator;
 import com.mrbysco.miab.config.MemeConfig;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -38,23 +38,23 @@ public class BasicItemTextMeme extends BasicFunny {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, EntityPlayer player) {
+	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
 			if(!message.isEmpty()) {
-				if(MemeConfig.general.UseNarator)
+				if(MemeConfig.SERVER.UseNarator.get())
 				{
-					Narrator.getNarrator().say(this.message);
+					Narrator.getNarrator().say(this.message, false);
 				}
 				else
 				{
 					String[] splitMessage = message.split("\n");
 					for(String message : splitMessage) {
-						player.sendMessage(new TextComponentString(TextFormatting.YELLOW + message.trim()));
+						player.sendMessage(new StringTextComponent(TextFormatting.YELLOW + message.trim()));
 					}
 				}
 			}
 			if(this.sound != null) {
-				world.playSound((EntityPlayer)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
+				world.playSound((PlayerEntity)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
 			}
 	    	spawnEntityItem(world, this.stack, pos);
 		}

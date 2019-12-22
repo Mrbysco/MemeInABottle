@@ -3,61 +3,70 @@ package com.mrbysco.miab.entity.memes;
 import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.init.MemeLoot;
 import com.mrbysco.miab.init.MemeSounds;
-import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIBreakDoor;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.passive.EntityDonkey;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.pathfinding.PathNavigateGround;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.goal.BreakDoorGoal;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
+import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.passive.horse.DonkeyEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.function.Predicate;
 
 public class EntityShrek extends AbstractMeme{
 
-	private final EntityAIBreakDoor breakDoorAI = new EntityAIBreakDoor(this);
+	private static final Predicate<Difficulty> HARD_DIFFICULTY_PREDICATE = (p_213697_0_) -> {
+		return p_213697_0_ == Difficulty.HARD;
+	};
+	private final BreakDoorGoal breakDoorAI = new BreakDoorGoal(this, HARD_DIFFICULTY_PREDICATE);
 	private boolean isBreakDoorsTaskSet;
 
-	public EntityShrek(World worldIn) {
-		super(worldIn);
-		super.setSize(0.6F, 2.2F);
+	public EntityShrek(EntityType<? extends EntityShrek> entityType, World worldIn) {
+		super(entityType, worldIn);
+		//TODO: super.setSize(0.6F, 2.2F);
 	}
 
-	protected void initEntityAI()
+	protected void registerGoals()
 	{
-		this.tasks.addTask(1, new EntityAISwimming(this));
-		this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, false));
-		this.tasks.addTask(5, new EntityAIWander(this, 0.8D));
-		this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(6, new EntityAILookIdle(this));
-		this.applyEntityAI();
+		this.goalSelector.addGoal(1, new SwimGoal(this));
+		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, false));
+		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
+		this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+		this.registerGoals();
 	}
 
-	private void applyEntityAI() {
-		this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
+	private void registerTargetGoals() {
+		this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)).setCallsForHelp(EntityShrek.class));
 	}
 	
 	@Override
-	protected void applyEntityAttributes() 
+	protected void registerAttributes() 
 	{
-		super.applyEntityAttributes();
+		super.registerAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.6D);
-		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
-		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+		getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
+		getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+		getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.6D);
+		getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
+		getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
 	}
 	
 	@Override
@@ -94,10 +103,10 @@ public class EntityShrek extends AbstractMeme{
 		super.onDeath(cause);
 		if(!world.isRemote)
 		{
-			EntityDonkey donkey = new EntityDonkey(world);
+			DonkeyEntity donkey = EntityType.DONKEY.create(world);
 			donkey.setLocationAndAngles(posX + 0.5, posY, posZ + 0.5, 0,0);
-			donkey.setCustomNameTag("Donkey");
-			world.spawnEntity(donkey);
+			donkey.setCustomName(new StringTextComponent("Donkey"));
+			world.addEntity(donkey);
 		}
 	}
 
@@ -106,50 +115,53 @@ public class EntityShrek extends AbstractMeme{
 	{
 		return this.isBreakDoorsTaskSet;
 	}
+	protected boolean canBreakDoors() {
+		return true;
+	}
 
 	public void setBreakDoorsAItask(boolean enabled)
 	{
-		if (this.isBreakDoorsTaskSet != enabled)
-		{
-			this.isBreakDoorsTaskSet = enabled;
-			((PathNavigateGround)this.getNavigator()).setBreakDoors(enabled);
-
-			if (enabled)
-			{
-				this.tasks.addTask(1, this.breakDoorAI);
+		if (this.canBreakDoors()) {
+			if (this.isBreakDoorsTaskSet != enabled) {
+				this.isBreakDoorsTaskSet = enabled;
+				((GroundPathNavigator)this.getNavigator()).setBreakDoors(enabled);
+				if (enabled) {
+					this.goalSelector.addGoal(1, this.breakDoorAI);
+				} else {
+					this.goalSelector.removeGoal(this.breakDoorAI);
+				}
 			}
-			else
-			{
-				this.tasks.removeTask(this.breakDoorAI);
-			}
+		} else if (this.isBreakDoorsTaskSet) {
+			this.goalSelector.removeGoal(this.breakDoorAI);
+			this.isBreakDoorsTaskSet = false;
 		}
 	}
 
 	@Override
-	public void writeEntityToNBT(NBTTagCompound compound) {
-		super.writeEntityToNBT(compound);
-		compound.setBoolean("CanBreakDoors", this.isBreakDoorsTaskSet());
+	public void writeAdditional(CompoundNBT compound) {
+		super.writeAdditional(compound);
+		compound.putBoolean("CanBreakDoors", this.isBreakDoorsTaskSet());
 	}
 
 	@Override
-	public void readEntityFromNBT(NBTTagCompound compound) {
-		super.readEntityFromNBT(compound);
+	public void readAdditional(CompoundNBT compound) {
+		super.readAdditional(compound);
 		this.setBreakDoorsAItask(compound.getBoolean("CanBreakDoors"));
 	}
 
 	@Nullable
 	@Override
-	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-		float f = difficulty.getClampedAdditionalDifficulty();
+	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData livingData, @Nullable CompoundNBT tag) {
+		float f = difficultyIn.getClampedAdditionalDifficulty();
 		this.setBreakDoorsAItask(this.rand.nextFloat() < f * 0.1F);
-		this.setEquipmentBasedOnDifficulty(difficulty);
-		this.setEnchantmentBasedOnDifficulty(difficulty);
+		this.setEquipmentBasedOnDifficulty(difficultyIn);
+		this.setEnchantmentBasedOnDifficulty(difficultyIn);
 
 		if (this.rand.nextFloat() < f * 0.05F)
 		{
 			this.setBreakDoorsAItask(true);
 		}
 
-		return super.onInitialSpawn(difficulty, livingdata);
+		return super.onInitialSpawn(worldIn, difficultyIn, reason, livingData, tag);
 	}
 }

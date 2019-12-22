@@ -21,15 +21,14 @@ import com.mrbysco.miab.memes.actions.basis.entity.CenaMeme;
 import com.mrbysco.miab.memes.actions.basis.item.DangerousToGoAloneMeme;
 import com.mrbysco.miab.memes.actions.basis.item.OscarMeme;
 import com.mrbysco.miab.memes.actions.iFunny;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -84,7 +83,7 @@ public class MemeRegistry {
 		INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_wow", 100, MemeSounds.wow));
 		INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_wrong", 100, MemeSounds.wrong));
 		
-		if(MemeConfig.general.MatureSounds) {
+		if(MemeConfig.SERVER.MatureSounds.get()) {
 			INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_cantbelieve", 100, MemeSounds.cantbelieve));
 			INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_morningscrub", 100, MemeSounds.morningscrub));
 			INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_gotcha", 100, MemeSounds.gotchab));
@@ -145,7 +144,7 @@ public class MemeRegistry {
 		INSTANCE.registerMeme(new NyanCatMeme());
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "nigel_thornberry", 5, MemeEntities.NIGEL_THORNBERRY, MemeSounds.nigel_blagh));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "dancing_hotdog", 5, MemeEntities.DANCING_HOTDOG, MemeSounds.hotdog_full));
-		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "bongo_cat", 5, MemeEntities.BONGO_CAT, SoundEvents.BLOCK_NOTE_HAT));
+		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "bongo_cat", 5, MemeEntities.BONGO_CAT, SoundEvents.BLOCK_NOTE_BLOCK_HAT));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "roflcopter", 5, MemeEntities.ROFL_COPTER, MemeSounds.rofl_spawn));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "gnome", 5, MemeEntities.GNOME, MemeSounds.gnome_spawn));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "clippy", 5, MemeEntities.CLIPPY, MemeSounds.clippy_passive));
@@ -161,7 +160,7 @@ public class MemeRegistry {
 	
 	public void registerMeme(iFunny reward)
 	{
-		List<String> disabledMemes = Arrays.asList(MemeConfig.memes.disabled_memes);
+		List<String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
 		if(this.nameList.contains(reward.getName())) {
 			MemeInABottle.logger.error("An attempt was made to register a meme with an ID that already exists. ID: " + reward.getName());
 		} else {
@@ -190,7 +189,7 @@ public class MemeRegistry {
 		funnyList.sort(Comparator.comparingInt(iFunny::getMemeRarity));
 	}
 	
-	public void triggerRandomMeme(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+	public void triggerRandomMeme(World worldIn, BlockPos pos, PlayerEntity playerIn) {
 		if(this.funnyList.isEmpty())
 		{
 			MemeInABottle.logger.log(Level.WARN, "There are no registered memes so no meme has been triggered");
@@ -218,7 +217,7 @@ public class MemeRegistry {
 			    }
 			}
 			iFunny randomMeme = funnyList.get(randomIndex);
-			if(MemeConfig.general.LogTriggers) {
+			if(MemeConfig.SERVER.LogTriggers.get()) {
 				MemeInABottle.logger.log(Level.INFO, "Triggered the meme with the name: " + randomMeme.getName() + " at " + playerIn.getName());
 			}
 			randomMeme.trigger(worldIn, pos, playerIn);
@@ -227,7 +226,7 @@ public class MemeRegistry {
 	
 	//TODO: Check if disabling works live
 	public void checkDisabled() {
-		List<String> disabledMemes = Arrays.asList(MemeConfig.memes.disabled_memes);
+		List<String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
 		for(iFunny meme : funnyList) {
 			String name = meme.getName();
 			if(disabledMemes.contains(name)) {

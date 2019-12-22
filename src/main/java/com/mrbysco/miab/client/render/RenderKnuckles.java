@@ -1,21 +1,19 @@
 package com.mrbysco.miab.client.render;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import com.mrbysco.miab.Reference;
-import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.client.models.knuckles.ModelKnuckles;
 import com.mrbysco.miab.client.models.knuckles.ModelKnucklesAku;
 import com.mrbysco.miab.client.models.knuckles.ModelKnucklesSaiyan;
 import com.mrbysco.miab.client.models.knuckles.ModelKnucklesTank;
 import com.mrbysco.miab.client.models.knuckles.ModelKnucklesYugi;
 import com.mrbysco.miab.entity.memes.EntityKnuckles;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderKnuckles extends RenderLiving<EntityKnuckles>
+public class RenderKnuckles extends MobRenderer<EntityKnuckles, EntityModel<EntityKnuckles>>
 {	private static final ResourceLocation REGULAR = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/knuckles.png");
     private static final ResourceLocation TANK = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/tankknuckles.png");
     private static final ResourceLocation BLUE = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/blueknuckles.png");
@@ -24,30 +22,21 @@ public class RenderKnuckles extends RenderLiving<EntityKnuckles>
     private static final ResourceLocation SAIYAN1 = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/saiyanknuckles.png");
     private static final ResourceLocation SAIYAN2 = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/saiyanknuckles2.png");
 
-    private static final ModelBase knuckles = new ModelKnuckles();
-    private static final ModelBase tankKnuckles = new ModelKnucklesTank();
-    private static final ModelBase akuKnuckles = new ModelKnucklesAku();
-    private static final ModelBase yugiKnuckles = new ModelKnucklesYugi();
-    private static final ModelBase saiyanKnuckles = new ModelKnucklesSaiyan();
+    private static final ModelKnuckles<EntityKnuckles> knuckles = new ModelKnuckles<EntityKnuckles>();
+    private static final ModelKnucklesTank<EntityKnuckles> tankKnuckles = new ModelKnucklesTank<EntityKnuckles>();
+    private static final ModelKnucklesAku<EntityKnuckles> akuKnuckles = new ModelKnucklesAku<EntityKnuckles>();
+    private static final ModelKnucklesYugi<EntityKnuckles> yugiKnuckles = new ModelKnucklesYugi<EntityKnuckles>();
+    private static final ModelKnucklesSaiyan<EntityKnuckles> saiyanKnuckles = new ModelKnucklesSaiyan<EntityKnuckles>();
 
-    public RenderKnuckles(RenderManager renderManagerIn)
+    public RenderKnuckles(EntityRendererManager EntityRendererManagerIn)
     {
-        super(renderManagerIn, new ModelKnuckles(), 0.4F);
-        LayerBipedArmor layerbipedarmor = new LayerBipedArmor(this)
-        {
-            protected void initArmor()
-            {
-                this.modelLeggings = new ModelHumanBase(0.5F, true);
-                this.modelArmor = new ModelHumanBase(1.0F, true);
-            }
-        };
-        this.addLayer(layerbipedarmor);
+        super(EntityRendererManagerIn, new ModelKnuckles(), 0.4F);
     }
 
     protected ResourceLocation getEntityTexture(EntityKnuckles entity) {
-        switch (entity.getType())
+        switch (entity.getKnucklesType())
         {
-            case 0:
+            default:
                 return REGULAR;
             case 1:
                 return TANK;
@@ -61,110 +50,72 @@ public class RenderKnuckles extends RenderLiving<EntityKnuckles>
                 return SAIYAN1;
             case 6:
                 return SAIYAN2;
-            case 7:
-            default:
-                return REGULAR;
         }
     }
 
     @Override
     protected void preRenderCallback(EntityKnuckles entity, float partialTickTime) {
-        switch (entity.getType())
+        switch (entity.getKnucklesType())
         {
-            case 0:
-                if(this.mainModel != this.knuckles)
+            default:
+                if(this.entityModel != this.knuckles)
                 {
-                    this.mainModel = this.knuckles;
+                    this.entityModel = this.knuckles;
                 }
                 if(this.shadowSize != 0.4F)
                 {
                     this.shadowSize = 0.4F;
                 }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
+                GlStateManager.scalef(0.65F, 0.65F, 0.65F);
 
                 break;
             case 1:
-                if(this.mainModel != this.tankKnuckles)
+                if(this.entityModel != this.tankKnuckles)
                 {
-                    this.mainModel = this.tankKnuckles;
+                    this.entityModel = this.tankKnuckles;
                 }
                 if(this.shadowSize != 0.8F)
                 {
                     this.shadowSize = 0.8F;
                 }
-                GlStateManager.scale(0.9F, 0.9F, 0.9F);
-                break;
-            case 2:
-                if(this.mainModel != this.knuckles)
-                {
-                    this.mainModel = this.knuckles;
-                }
-                if(this.shadowSize != 0.4F)
-                {
-                    this.shadowSize = 0.4F;
-                }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
-
+                GlStateManager.scalef(0.9F, 0.9F, 0.9F);
                 break;
             case 3:
-                if(this.mainModel != this.akuKnuckles)
+                if(this.entityModel != this.akuKnuckles)
                 {
-                    this.mainModel = this.akuKnuckles;
+                    this.entityModel = this.akuKnuckles;
                 }
                 if(this.shadowSize != 0.4F)
                 {
                     this.shadowSize = 0.4F;
                 }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
+                GlStateManager.scalef(0.65F, 0.65F, 0.65F);
 
                 break;
             case 4:
-                if(this.mainModel != this.yugiKnuckles)
+                if(this.entityModel != this.yugiKnuckles)
                 {
-                    this.mainModel = this.yugiKnuckles;
+                    this.entityModel = this.yugiKnuckles;
                 }
                 if(this.shadowSize != 0.4F)
                 {
                     this.shadowSize = 0.4F;
                 }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
+                GlStateManager.scalef(0.65F, 0.65F, 0.65F);
 
                 break;
             case 5:
-                if(this.mainModel != this.saiyanKnuckles)
-                {
-                    this.mainModel = this.saiyanKnuckles;
-                }
-                if(this.shadowSize != 0.4F)
-                {
-                    this.shadowSize = 0.4F;
-                }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
-
-                break;
             case 6:
-                if(this.mainModel != this.saiyanKnuckles)
+                if(this.entityModel != this.saiyanKnuckles)
                 {
-                    this.mainModel = this.saiyanKnuckles;
+                    this.entityModel = this.saiyanKnuckles;
                 }
                 if(this.shadowSize != 0.4F)
                 {
                     this.shadowSize = 0.4F;
                 }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
+                GlStateManager.scalef(0.65F, 0.65F, 0.65F);
 
-                break;
-            case 7:
-            default:
-                if(this.mainModel != this.knuckles)
-                {
-                    this.mainModel = this.knuckles;
-                }
-                if(this.shadowSize != 0.4F)
-                {
-                    this.shadowSize = 0.4F;
-                }
-                GlStateManager.scale(0.65F, 0.65F, 0.65F);
                 break;
         }
 

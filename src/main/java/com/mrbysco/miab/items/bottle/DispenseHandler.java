@@ -1,17 +1,17 @@
 package com.mrbysco.miab.items.bottle;
 
 import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
-import net.minecraft.dispenser.BehaviorProjectileDispense;
-import net.minecraft.dispenser.IBehaviorDispenseItem;
 import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.dispenser.IDispenseItemBehavior;
 import net.minecraft.dispenser.IPosition;
+import net.minecraft.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class DispenseHandler implements IBehaviorDispenseItem {
+public class DispenseHandler implements IDispenseItemBehavior {
 	public ItemStack dispense(IBlockSource source, ItemStack stack) {
-		return (new BehaviorProjectileDispense()
+		return (new ProjectileDispenseBehavior()
         {
             /**
              * Return the projectile entity spawned by this dispense behavior.

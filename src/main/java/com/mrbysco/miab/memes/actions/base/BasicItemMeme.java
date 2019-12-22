@@ -1,6 +1,6 @@
 package com.mrbysco.miab.memes.actions.base;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
@@ -26,10 +26,10 @@ public class BasicItemMeme extends BasicFunny {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, EntityPlayer player) {
+	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
 			if(this.sound != null) {
-				world.playSound((EntityPlayer)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
+				world.playSound((PlayerEntity)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
 			}
 	    	spawnEntityItem(world, this.stack, pos);
 		}

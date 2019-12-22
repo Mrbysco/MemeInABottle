@@ -6,9 +6,9 @@ import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.init.MemeEntities;
 import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.actions.base.BasicEntityMeme;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 public class CenaMeme extends BasicEntityMeme {
@@ -18,16 +18,16 @@ public class CenaMeme extends BasicEntityMeme {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, EntityPlayer player) {
+	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		super.trigger(world, pos, player);
 		if(!world.isRemote) {
-	        if(MemeConfig.general.UseNarator)
+			if(MemeConfig.SERVER.UseNarator.get())
     		{
-	        	Narrator.getNarrator().say("And his name is!\n JOHN CENA");
+	        	Narrator.getNarrator().say("And his name is!\n JOHN CENA", false);
     		}
     		else
     		{
-        		player.sendMessage(new TextComponentTranslation(Reference.MOD_PREFIX + "cena.itscena"));
+        		player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "cena.itscena"));
     		}
 		}
 	}

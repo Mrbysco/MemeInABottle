@@ -1,15 +1,17 @@
 package com.mrbysco.miab.items.music;
 
 import com.mrbysco.miab.items.ItemMemeBase;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -21,9 +23,9 @@ public class ItemMusical extends ItemMemeBase {
 	private int cooldown;
 	private String info;
 
-	public ItemMusical(String registry, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, String textLocal)
+	public ItemMusical(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, String textLocal)
 	{
-		super(registry);
+		super(builder);
 		this.sound = soundIn;
 		this.sound2 = soundin2;
 		this.cooldown = cooldownNumber;
@@ -31,7 +33,7 @@ public class ItemMusical extends ItemMemeBase {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
 	{
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 
@@ -54,15 +56,12 @@ public class ItemMusical extends ItemMemeBase {
 			playerIn.getCooldownTracker().setCooldown(this, this.cooldown);
 		}
 
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-	{
-		if (this.info != null)
-		{
-			tooltip.add(TextFormatting.YELLOW + I18n.format(this.info));
-		}
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+		tooltip.add(new TranslationTextComponent(this.info).applyTextStyle(TextFormatting.YELLOW));
 	}
 }

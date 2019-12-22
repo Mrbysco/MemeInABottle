@@ -1,27 +1,18 @@
 package com.mrbysco.miab.entity.memes;
 
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.world.DifficultyInstance;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
+public class EntityGrumpy extends CatEntity {
 
-public class EntityGrumpy extends EntityOcelot {
-
-	public EntityGrumpy(World worldIn) {
-		super(worldIn);
-	}
-
-	@Nullable
-	@Override
-	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-		return super.onInitialSpawn(difficulty, livingdata);
+	public EntityGrumpy(EntityType<? extends EntityGrumpy> entityType, World worldIn) {
+		super(entityType, worldIn);
 	}
 
 	@Override
-	public boolean canMateWith(EntityAnimal otherAnimal)
+	public boolean canMateWith(AnimalEntity otherAnimal)
 	{
 		if (otherAnimal == this)
 		{

@@ -1,17 +1,18 @@
 package com.mrbysco.miab.entity.memes;
 
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.world.World;
 
-public class EntityDoge extends EntityWolf {
+public class EntityDoge extends WolfEntity {
 
-	public EntityDoge(World worldIn) {
-		super(worldIn);
+	public EntityDoge(EntityType<? extends EntityDoge> entityType, World worldIn) {
+		super(entityType, worldIn);
 	}
 
 	@Override
-	public boolean canMateWith(EntityAnimal otherAnimal)
+	public boolean canMateWith(AnimalEntity otherAnimal)
 	{
 		if (otherAnimal == this)
 		{

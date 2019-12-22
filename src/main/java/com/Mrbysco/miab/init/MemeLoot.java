@@ -1,7 +1,7 @@
 package com.mrbysco.miab.init;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraft.world.storage.loot.LootTables;
 
 public class MemeLoot {
 	public static final ResourceLocation MEME_BASE_LOOT = new ResourceLocation("memeinabottle:entity/memebase");
@@ -27,26 +27,26 @@ public class MemeLoot {
 	
 	public static void registerLootTables()
 	{
-		LootTableList.register(MEME_BASE_LOOT);
-		
-		LootTableList.register(CLIPPY_LOOT);
-		LootTableList.register(NYAN_LOOT);
-		LootTableList.register(NAYN_LOOT);
-		LootTableList.register(CENA_LOOT);
-		LootTableList.register(DAT_BOI_LOOT);
-		LootTableList.register(HE_MAN_LOOT);
-		LootTableList.register(TROLO_LOOT);
-		LootTableList.register(GRAND_LOOT);
-		LootTableList.register(MOON_LOOT);
-		LootTableList.register(PPAP_LOOT);
-		LootTableList.register(ROBBIE_LOOT);
-		LootTableList.register(SHREK_LOOT);
-		LootTableList.register(SKYWALKER_LOOT);
-		LootTableList.register(TRUMP_LOOT);
-		LootTableList.register(BONGO_LOOT);
-		LootTableList.register(ROFL_LOOT);
-		LootTableList.register(GNOME_LOOT);
-		LootTableList.register(FLEX_LOOT);
-		LootTableList.register(SANS_LOOT);
+		LootTables.register(MEME_BASE_LOOT);
+
+		LootTables.register(CLIPPY_LOOT);
+		LootTables.register(NYAN_LOOT);
+		LootTables.register(NAYN_LOOT);
+		LootTables.register(CENA_LOOT);
+		LootTables.register(DAT_BOI_LOOT);
+		LootTables.register(HE_MAN_LOOT);
+		LootTables.register(TROLO_LOOT);
+		LootTables.register(GRAND_LOOT);
+		LootTables.register(MOON_LOOT);
+		LootTables.register(PPAP_LOOT);
+		LootTables.register(ROBBIE_LOOT);
+		LootTables.register(SHREK_LOOT);
+		LootTables.register(SKYWALKER_LOOT);
+		LootTables.register(TRUMP_LOOT);
+		LootTables.register(BONGO_LOOT);
+		LootTables.register(ROFL_LOOT);
+		LootTables.register(GNOME_LOOT);
+		LootTables.register(FLEX_LOOT);
+		LootTables.register(SANS_LOOT);
 	}
 }

@@ -2,8 +2,8 @@ package com.mrbysco.miab.memes.actions.base;
 
 import com.mrbysco.miab.memes.actions.iFunny;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -20,7 +20,7 @@ public class BasicFunny implements iFunny {
 	}
 	
 	@Override
-	public void trigger(World world, BlockPos pos, EntityPlayer player) {
+	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		
 	}
 
@@ -42,11 +42,11 @@ public class BasicFunny implements iFunny {
 	public static void spawnEntity(World world, Entity entity, BlockPos pos) 
 	{		
 		entity.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
-		world.spawnEntity(entity);
+		world.addEntity(entity);
 	}
 	
 	public static void spawnEntityItem(World world, ItemStack stack, BlockPos pos)
 	{
-    	world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 0.5, pos.getZ(), stack));
+    	world.addEntity(new ItemEntity(world, pos.getX(), pos.getY() + 0.5, pos.getZ(), stack));
 	}
 }

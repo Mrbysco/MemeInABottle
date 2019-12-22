@@ -2,54 +2,61 @@ package com.mrbysco.miab.items;
 
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.entity.memes.EntityRoflCopter;
-import net.minecraft.client.resources.I18n;
+import com.mrbysco.miab.init.MemeEntities;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.RayTraceContext.FluidMode;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemRoflCopter extends ItemMemeBase{
-	public ItemRoflCopter(String registry )
+	public ItemRoflCopter(Item.Properties builder)
 	{
-		super(registry);
+		super(builder);
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
-		RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, false);
+		RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, FluidMode.NONE);
 		ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerIn, worldIn, itemstack, raytraceresult);
 		if (ret != null) return ret;
 
 		if (raytraceresult == null) {
-			return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
-		} else if (raytraceresult.typeOfHit != RayTraceResult.Type.BLOCK) {
-			return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+			return new ActionResult<ItemStack>(ActionResultType.PASS, itemstack);
+		} else if (raytraceresult.getType() != RayTraceResult.Type.BLOCK) {
+			return new ActionResult<ItemStack>(ActionResultType.PASS, itemstack);
 		} else {
-			BlockPos blockpos = raytraceresult.getBlockPos();
-			EntityRoflCopter roflCopter = new EntityRoflCopter(worldIn);
+			BlockRayTraceResult traceResult = (BlockRayTraceResult)raytraceresult;
+			BlockPos blockpos = traceResult.getPos();
+			EntityRoflCopter roflCopter = MemeEntities.ROFL_COPTER.create(worldIn);
 			roflCopter.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
-			worldIn.spawnEntity(roflCopter);
+			worldIn.addEntity(roflCopter);
 
 			if (!playerIn.isCreative())
 			{
 				itemstack.shrink(1);
 			}
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
 		}
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-	{
-		tooltip.add(TextFormatting.YELLOW + I18n.format(Reference.MOD_PREFIX + "roflcopter.info"));
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+		tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "roflcopter.info").applyTextStyle(TextFormatting.YELLOW));
 	}
 }

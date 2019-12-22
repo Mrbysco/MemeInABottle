@@ -3,53 +3,54 @@ package com.mrbysco.miab.items.bottle;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
 import com.mrbysco.miab.items.ItemMemeBase;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class ItemLingeringMemeBottle extends ItemMemeBase {
 
-	public ItemLingeringMemeBottle(String registry) {
-		super(registry);
-		setMaxStackSize(8);
+	public ItemLingeringMemeBottle(Item.Properties builder) {
+		super(builder.maxStackSize(8));
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
-        ItemStack stack1 = playerIn.capabilities.isCreativeMode ? itemstack.copy() : itemstack.splitStack(1);
-        worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_LINGERINGPOTION_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));        
+        ItemStack stack1 = playerIn.abilities.isCreativeMode ? itemstack.copy() : itemstack.split(1);
+        worldIn.playSound((PlayerEntity) null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_LINGERING_POTION_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
         
         if (!worldIn.isRemote) {
         	EntitySplashMeme entitymeme = new EntitySplashMeme(worldIn, playerIn, stack1);
         	entitymeme.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, -20.0F, 0.5F, 1.0F);
-            worldIn.spawnEntity(entitymeme);
+            worldIn.addEntity(entitymeme);
         }
 
-        playerIn.addStat(StatList.getObjectUseStats(this));
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+        playerIn.addStat(Stats.ITEM_USED.get(this));
+        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
     }
 	
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		if(GuiScreen.isShiftKeyDown()){
-			tooltip.add(TextFormatting.YELLOW + I18n.format(Reference.MOD_PREFIX + "lingeringbottle.text1"));
+		if(Screen.hasShiftDown()){
+			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "lingeringbottle.text1").applyTextStyle(TextFormatting.YELLOW));
 		}
-		else 
-			tooltip.add(TextFormatting.UNDERLINE + I18n.format(Reference.MOD_PREFIX + "shift.info"));
+		else
+			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "shift.info").applyTextStyle(TextFormatting.UNDERLINE));
 	}
 	
 }

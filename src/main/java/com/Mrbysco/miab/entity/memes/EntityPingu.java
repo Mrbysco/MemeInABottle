@@ -2,16 +2,16 @@ package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.init.MemeSounds;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
+import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -20,30 +20,28 @@ import javax.annotation.Nullable;
 
 public class EntityPingu extends AbstractMeme
 {
-	public EntityPingu(World worldIn) {
-		super(worldIn);
-        this.setSize(0.4F, 0.6F);
+	public EntityPingu(EntityType<? extends EntityPingu> entityType, World worldIn) {
+		super(entityType, worldIn);
+        //TODO: this.setSize(0.4F, 0.6F);
 	}
 	
 	@Override
-	protected void initEntityAI() {
-        this.tasks.addTask(1, new EntityAISwimming(this));
-    	this.tasks.addTask(5, new EntityAIWander(this, 1.0));
-    	this.tasks.addTask(6, new EntityAILookIdle(this));
-        this.tasks.addTask(7, new EntityAILeapAtTarget(this, 0.3F));
-        this.tasks.addTask(8, new EntityPingu.AIPinguAttack(this, 1.0F, false));
-
-        this.tasks.addTask(10, new EntityAIWanderAvoidWater(this, 0.8D, 1.0000001E-5F));
-        this.tasks.addTask(11, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+	protected void registerGoals() {
+        this.goalSelector.addGoal(1, new SwimGoal(this));
+    	this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0));
+    	this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(7, new LeapAtTargetGoal(this, 0.3F));
+        this.goalSelector.addGoal(8, new MeleeAttackGoal(this, 1.0F, false));
+        this.goalSelector.addGoal(11, new LookAtGoal(this, PlayerEntity.class, 10.0F));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(EntityPingu.class));
 	}
 	
 	@Override
-	protected void applyEntityAttributes()
+	protected void registerAttributes()
     {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
+        super.registerAttributes();
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
     }
 
 	@Override
@@ -77,50 +75,5 @@ public class EntityPingu extends AbstractMeme
 	@Override
 	public boolean canPickupItems() {
 		return false;
-	}
-
-	class AIPinguAttack extends EntityAIAttackMelee {
-		private final EntityPingu pingu;
-		private int raiseArmTicks;
-
-		public AIPinguAttack(EntityPingu pingu, double speedIn, boolean useLongMemory) {
-			super(pingu, speedIn, useLongMemory);
-			this.pingu = pingu;
-		}
-
-		/**
-		 * Reset the task's internal state. Called when this task is interrupted by another one
-		 */
-		public void resetTask()
-		{
-			super.resetTask();
-			this.pingu.setArmsRaised(false);
-		}
-		/**
-		 * Execute a one shot task or start executing a continuous task
-		 */
-		public void startExecuting()
-		{
-			super.startExecuting();
-			this.raiseArmTicks = 0;
-		}
-
-		/**
-		 * Keep ticking a continuous task that has already been started
-		 */
-		public void updateTask()
-		{
-			super.updateTask();
-			++this.raiseArmTicks;
-
-			if (this.raiseArmTicks >= 5 && this.attackTick < 10)
-			{
-				this.pingu.setArmsRaised(true);
-			}
-			else
-			{
-				this.pingu.setArmsRaised(false);
-			}
-		}
 	}
 }

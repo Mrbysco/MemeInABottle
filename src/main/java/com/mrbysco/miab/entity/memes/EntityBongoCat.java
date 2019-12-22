@@ -2,25 +2,25 @@ package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.init.MemeLoot;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIOcelotAttack;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
+import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.OcelotAttackGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -31,43 +31,42 @@ public class EntityBongoCat extends AbstractMeme{
 	private int TickSinceTap = 0;
 	private int TicksNotTapped = 0;
 
-	public EntityBongoCat(World worldIn) {
-		super(worldIn);
-		this.setSize(0.6F, 1.5F);
+	public EntityBongoCat(EntityType<? extends EntityBongoCat> entityType, World worldIn) {
+		super(entityType, worldIn);
+		//TODO: this.setSize(0.6F, 1.5F);
 	}
 
-	protected void initEntityAI()
+	protected void registerGoals()
 	{
-		this.tasks.addTask(1, new EntityAISwimming(this));
-		this.tasks.addTask(7, new EntityAILeapAtTarget(this, 0.3F));
-		this.tasks.addTask(8, new EntityAIOcelotAttack(this));
-		this.tasks.addTask(5, new EntityAIWander(this, 0.8D));
-		this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(6, new EntityAILookIdle(this));
-		this.tasks.addTask(10, new EntityAIWanderAvoidWater(this, 0.8D, 1.0000001E-5F));
-		this.applyEntityAI();
+		this.goalSelector.addGoal(1, new SwimGoal(this));
+		this.goalSelector.addGoal(7, new LeapAtTargetGoal(this, 0.3F));
+		this.goalSelector.addGoal(8, new OcelotAttackGoal(this));
+		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
+		this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+		this.registerTargetGoals();
 	}
 
-	private void applyEntityAI() {
-		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityChicken.class, false));
-		this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false, new Class[0]));
+	private void registerTargetGoals() {
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, ChickenEntity.class, false));
+		this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)).setCallsForHelp(EntityBongoCat.class));
 	}
 	
 	@Override
-	protected void applyEntityAttributes() 
+	protected void registerAttributes() 
 	{
-		super.applyEntityAttributes();
+		super.registerAttributes();
 		
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
-		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.4D);
-		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
-		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
+		getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
+		getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
+		getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.4D);
+		getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(30.0D);
+		getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 	}
 
 	@Override
-	protected void entityInit() {
-		super.entityInit();
+	protected void registerData() {
+		super.registerData();
 		this.dataManager.register(TAPPING, Boolean.valueOf(false));
 	}
 
@@ -82,14 +81,14 @@ public class EntityBongoCat extends AbstractMeme{
 	}
 
 	@Override
-	public void onLivingUpdate() {
+	public void livingTick() {
 		if(isTapping())
 		{
 			TickSinceTap++;
 
 			if(world.rand.nextInt(50) < 4)
 			{
-				this.playSound(SoundEvents.BLOCK_NOTE_BASEDRUM, getSoundVolume(), getSoundPitch());
+				this.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM, getSoundVolume(), getSoundPitch());
 			}
 
 			if(TickSinceTap > 30)
@@ -109,7 +108,7 @@ public class EntityBongoCat extends AbstractMeme{
 			TicksNotTapped = 0;
 		}
 
-		super.onLivingUpdate();
+		super.livingTick();
 	}
 
 	@Override

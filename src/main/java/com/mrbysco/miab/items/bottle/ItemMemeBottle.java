@@ -4,41 +4,42 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.items.ItemMemeBase;
 import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
-import net.minecraft.item.EnumAction;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class ItemMemeBottle extends ItemMemeBase {
 
-	public ItemMemeBottle(String registry) {
-		super(registry);
-		setMaxStackSize(16);
+	public ItemMemeBottle(Item.Properties builder) {
+		super(builder.maxStackSize(16));
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) 
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving)
 	{
-		EntityPlayer entityplayer = entityLiving instanceof EntityPlayer ? (EntityPlayer)entityLiving : null;
+		PlayerEntity entityplayer = entityLiving instanceof PlayerEntity ? (PlayerEntity)entityLiving : null;
 
-        if (entityplayer instanceof EntityPlayerMP)
+        if (entityplayer instanceof ServerPlayerEntity)
         {
-            CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP)entityplayer, stack);
+            CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayerEntity)entityplayer, stack);
         }
         
-        if (entityplayer == null || !entityplayer.capabilities.isCreativeMode)
+        if (entityplayer == null || !entityplayer.abilities.isCreativeMode)
         {
             stack.shrink(1);
         }
@@ -47,7 +48,7 @@ public class ItemMemeBottle extends ItemMemeBase {
 			MemeRegistry.INSTANCE.triggerRandomMeme(worldIn, entityLiving.getPosition(), entityplayer);
 		}
 
-        if (entityplayer == null || !entityplayer.capabilities.isCreativeMode)
+        if (entityplayer == null || !entityplayer.abilities.isCreativeMode)
         {
             if (stack.isEmpty())
             {
@@ -64,30 +65,30 @@ public class ItemMemeBottle extends ItemMemeBase {
 	}
 	
 	@Override
-	public int getMaxItemUseDuration(ItemStack stack) {
+	public int getUseDuration(ItemStack stack) {
 	    return 32;
 	}
-	
+
 	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.DRINK;
+	public UseAction getUseAction(ItemStack p_77661_1_) {
+		return UseAction.DRINK;
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         playerIn.setActiveHand(handIn);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		if(GuiScreen.isShiftKeyDown()){
-			tooltip.add(TextFormatting.YELLOW + I18n.format(Reference.MOD_PREFIX + "bottle.text1"));
-			tooltip.add(TextFormatting.YELLOW + I18n.format(Reference.MOD_PREFIX + "bottle.text2"));
+		if(Screen.hasShiftDown()){
+			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "bottle.text1").applyTextStyle(TextFormatting.YELLOW));
+			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "bottle.text2").applyTextStyle(TextFormatting.YELLOW));
 		}
-		else 
-			tooltip.add(TextFormatting.UNDERLINE + I18n.format(Reference.MOD_PREFIX + "shift.info"));
+		else
+			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "shift.info").applyTextStyle(TextFormatting.UNDERLINE));
 	}
 	
 }

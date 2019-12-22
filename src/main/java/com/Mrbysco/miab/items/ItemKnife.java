@@ -1,33 +1,22 @@
 package com.mrbysco.miab.items;
 
-import com.mrbysco.miab.MemeInABottle;
-import com.mrbysco.miab.Reference;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
+import com.mrbysco.miab.init.MemeTab;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTier;
+import net.minecraft.item.SwordItem;
+import net.minecraft.util.SoundEvents;
 
-public class ItemKnife extends ItemSword {
-	private final float attackDamage;
-	private final Item.ToolMaterial material;
+public class ItemKnife extends SwordItem {
 	private boolean isHot;
 
-	public ItemKnife(Item.ToolMaterial material, String registry, boolean isHotKnife) {
-		super(material);
-		this.material = material;
-		this.maxStackSize = 1;
-		this.setMaxDamage(material.getMaxUses());
-		this.attackDamage = 3.0F + material.getAttackDamage();
-		this.setTranslationKey(Reference.MOD_PREFIX + registry);
-		this.setRegistryName(registry);
-		this.setCreativeTab(MemeInABottle.memeTab);
-
+	public ItemKnife(Properties properties, boolean isHotKnife) {
+		super(ItemTier.IRON, 1, -2.4F, properties.maxStackSize(1).group(MemeTab.MEME_TAB));
 		this.isHot = isHotKnife;
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
+	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker)
 	{
 		if(this.isHot == true)
 		{

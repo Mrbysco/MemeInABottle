@@ -1,7 +1,6 @@
 package com.mrbysco.miab.init;
 
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.entity.memes.EntityAttachedGirlfriend;
 import com.mrbysco.miab.entity.memes.EntityBongoCat;
@@ -38,121 +37,117 @@ import com.mrbysco.miab.entity.memes.EntityTrump;
 import com.mrbysco.miab.entity.projectile.EntityKnucklesSpit;
 import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityEntry;
-import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-
-import java.util.List;
 
 @EventBusSubscriber
 public class MemeEntities {
-	private static List<EntityEntry> ENTITIES_WITH_EGG = Lists.newArrayList();
-	private static List<EntityEntry> ENTITIES = Lists.newArrayList();
+	public static final EntityType<EntitySplashMeme> SPLASH_MEME = register("splash_meme", EntityType.Builder.<EntitySplashMeme>create(EntitySplashMeme::new, EntityClassification.MISC)
+			.size(0.25F, 0.25F)
+			.setCustomClientFactory(EntitySplashMeme::new));
 
-	public static final EntityEntry SPLASH_MEME = createThrowable("splash_meme", EntitySplashMeme.class);
-	public static final EntityEntry JOHN_CENA = createEntity("john_cena", EntityCena.class, 16032864, 9199159);
-	public static final EntityEntry DONALD_TRUMP = createEntity("donald_trump", EntityTrump.class, 16753920, 16766720);
-	public static final EntityEntry DOGE = createEntity("doge", EntityDoge.class, 14196256, 15719341);
-	public static final EntityEntry GRUMPY_CAT = createEntity("grumpy_cat", EntityGrumpy.class, 14406346, 3354149);
-	public static final EntityEntry ATTACHED_GIRLFRIEND = createEntity("attached_girlfriend", EntityAttachedGirlfriend.class, 16240814, 5187607);
-	public static final EntityEntry EDUARD_KHIL = createEntity("eduard_khil", EntityTrololo.class, 16765091, 4204057);
-	public static final EntityEntry PPAP = createEntity("ppap", EntityPPAP.class, 16768915, 2170639);
-	public static final EntityEntry ROBBIE_ROTTEN = createEntity("robbie_rotten", EntityRobbie.class, 16765357, 2370625);
-	public static final EntityEntry GRAND_DAD = createEntity("grand_dad", EntityMario7.class, 16777215, 1333964);
-	public static final EntityEntry HE_MAN = createEntity("he-man", EntityHeMan.class, 13408394, 14595118);
-	public static final EntityEntry SKYWALKER = createEntity("anakin_skywalker", EntitySkywalker.class, 16631181, 7950634);
-	public static final EntityEntry ROADMAN_SHAQ = createEntity("roadman_shaq", EntityRoadmanShaq.class, 6375218, 1973790);
-	public static final EntityEntry PHIL_SWIFT = createEntity("phil_swift", EntityPhilSwift.class, 16768437, 4013373);
+	public static final EntityType<EntityKnucklesSpit> KNUCKLES_SPIT = register("knuckles_spit", EntityType.Builder.<EntityKnucklesSpit>create(EntityKnucklesSpit::new, EntityClassification.MISC)
+			.size(0.25F, 0.25F)
+			.setCustomClientFactory(EntityKnucklesSpit::new));
 
-	public static final EntityEntry DANKEY_KANG = createEntity("dankey_kang", EntityDankey.class, 1917560, 14668958);
-	public static final EntityEntry SHREK = createEntity("shrek", EntityShrek.class, 6994007, 1401603);
-	public static final EntityEntry DAT_BOI = createEntity("dat_boi", EntityDatBoi.class, 307716, 4276545);
-	public static final EntityEntry SANIC = createEntity("sanic", EntitySanic.class, 4147404, 2764941);
-	public static final EntityEntry PEPE = createEntity("pepe", EntityPepe.class, 5934398, 2642377);
-	public static final EntityEntry FOREVER_ALONE = createEntity("forever_alone", EntityFA.class, 14869218, 4031140);
-	public static final EntityEntry NYAN_CAT = createEntity("nyan_cat", EntityNyanCat.class, 15118949, 15684762);
-	public static final EntityEntry TAC_NAYN = createEntity("tac_nayn", EntityTacNayn.class, 2829099, 11688484);
-	public static final EntityEntry NIGEL_THORNBERRY = createEntity("nigel_thornberry", EntityNigel.class, 15044481, 11155745);
-	public static final EntityEntry DANCING_HOTDOG = createEntity("dancing_hotdog", EntityHotDog.class, 11887182, 14456412);
-	public static final EntityEntry BONGO_CAT = createEntity("bongo_cat", EntityBongoCat.class, 16777215, 1644825);
-	public static final EntityEntry ROFL_COPTER = createEntity("roflcopter", EntityRoflCopter.class, 16777215, 1644825);
-	public static final EntityEntry GNOME = createEntity("gnome", EntityGnome.class, 1189750, 13442571);
-	public static final EntityEntry CLIPPY = createEntity("clippy", EntityClippy.class);
-	public static final EntityEntry KNUCKLES = createEntity("knuckles", EntityKnuckles.class, 16729165, 16777215);
-	public static final EntityEntry KNUCKLES_QUEEN = createEntity("knuckles_queen", EntityKnucklesQueen.class, 16729165, 16777215);
-	public static final EntityEntry KNUCKLES_SPIT = createEntity("knuckles_spit", EntityKnucklesSpit.class);
-	public static final EntityEntry SANS = createEntity("sans", EntitySans.class, 6579836, 2610142);
-	public static final EntityEntry PINGU = createEntity("pingu", EntityPingu.class, 1975859, 15855854);
-	public static final EntityEntry TOM = createEntity("tom", EntityChocolateGuy.class, 9405003, 8747679);
+	public static final EntityType<EntityCena> JOHN_CENA = register("john_cena", EntityType.Builder.<EntityCena>create(EntityCena::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityTrump> DONALD_TRUMP = register("donald_trump", EntityType.Builder.<EntityTrump>create(EntityTrump::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityDoge> DOGE = register("doge", EntityType.Builder.<EntityDoge>create(EntityDoge::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityGrumpy> GRUMPY_CAT = register("grumpy_cat", EntityType.Builder.<EntityGrumpy>create(EntityGrumpy::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityAttachedGirlfriend> ATTACHED_GIRLFRIEND = register("attached_girlfriend", EntityType.Builder.<EntityAttachedGirlfriend>create(EntityAttachedGirlfriend::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityTrololo> EDUARD_KHIL = register("eduard_khil", EntityType.Builder.<EntityTrololo>create(EntityTrololo::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityPPAP> PPAP = register("ppap", EntityType.Builder.<EntityPPAP>create(EntityPPAP::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityRobbie> ROBBIE_ROTTEN = register("robbie_rotten", EntityType.Builder.<EntityRobbie>create(EntityRobbie::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityMario7> GRAND_DAD = register("grand_dad", EntityType.Builder.<EntityMario7>create(EntityMario7::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityHeMan> HE_MAN = register("he-man", EntityType.Builder.<EntityHeMan>create(EntityHeMan::new, EntityClassification.MONSTER));
+	public static final EntityType<EntitySkywalker> SKYWALKER = register("anakin_skywalker", EntityType.Builder.<EntitySkywalker>create(EntitySkywalker::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityRoadmanShaq> ROADMAN_SHAQ = register("roadman_shaq", EntityType.Builder.<EntityRoadmanShaq>create(EntityRoadmanShaq::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityPhilSwift> PHIL_SWIFT = register("phil_swift", EntityType.Builder.<EntityPhilSwift>create(EntityPhilSwift::new, EntityClassification.MONSTER));
+
+	public static final EntityType<EntityDankey> DANKEY_KANG = register("dankey_kang", EntityType.Builder.<EntityDankey>create(EntityDankey::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityShrek> SHREK = register("shrek", EntityType.Builder.<EntityShrek>create(EntityShrek::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityDatBoi> DAT_BOI = register("dat_boi", EntityType.Builder.<EntityDatBoi>create(EntityDatBoi::new, EntityClassification.MONSTER));
+	public static final EntityType<EntitySanic> SANIC = register("sanic", EntityType.Builder.<EntitySanic>create(EntitySanic::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityPepe> PEPE = register("pepe", EntityType.Builder.<EntityPepe>create(EntityPepe::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityFA> FOREVER_ALONE = register("forever_alone", EntityType.Builder.<EntityFA>create(EntityFA::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityNyanCat> NYAN_CAT = register("nyan_cat", EntityType.Builder.<EntityNyanCat>create(EntityNyanCat::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityTacNayn> TAC_NAYN = register("tac_nayn", EntityType.Builder.<EntityTacNayn>create(EntityTacNayn::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityNigel> NIGEL_THORNBERRY = register("nigel_thornberry", EntityType.Builder.<EntityNigel>create(EntityNigel::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityHotDog> DANCING_HOTDOG = register("dancing_hotdog", EntityType.Builder.<EntityHotDog>create(EntityHotDog::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityBongoCat> BONGO_CAT = register("bongo_cat", EntityType.Builder.<EntityBongoCat>create(EntityBongoCat::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityRoflCopter> ROFL_COPTER = register("roflcopter", EntityType.Builder.<EntityRoflCopter>create(EntityRoflCopter::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityGnome> GNOME = register("gnome", EntityType.Builder.<EntityGnome>create(EntityGnome::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityClippy> CLIPPY = register("clippy", EntityType.Builder.<EntityClippy>create(EntityClippy::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityKnuckles> KNUCKLES = register("knuckles", EntityType.Builder.<EntityKnuckles>create(EntityKnuckles::new, EntityClassification.MONSTER)
+			.size(0.9F, 0.9F));
+	public static final EntityType<EntityKnucklesQueen> KNUCKLES_QUEEN = register("knuckles_queen", EntityType.Builder.<EntityKnucklesQueen>create(EntityKnucklesQueen::new, EntityClassification.MONSTER));
+	public static final EntityType<EntitySans> SANS = register("sans", EntityType.Builder.<EntitySans>create(EntitySans::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityPingu> PINGU = register("pingu", EntityType.Builder.<EntityPingu>create(EntityPingu::new, EntityClassification.MONSTER));
+	public static final EntityType<EntityChocolateGuy> TOM = register("tom", EntityType.Builder.<EntityChocolateGuy>create(EntityChocolateGuy::new, EntityClassification.MONSTER));
 
 	static int ID = 0;
 
-	private static EntityEntry createThrowable(String registryName, Class<? extends Entity> entityClass) {
-		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, registryName);
-		EntityEntry entry = new EntityEntry(entityClass, Reference.MOD_PREFIX + registryName);
-		entry.setRegistryName(location);
+	public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder, boolean sendVelocityUpdates) {
+		EntityType<T> entityType = builder.setTrackingRange(64).setUpdateInterval(3).setShouldReceiveVelocityUpdates(sendVelocityUpdates).build("");
+		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, id);
+		entityType.setRegistryName(name);
 
-		return entry;
+		return entityType;
+	}
+	public static <T extends Entity> EntityType<T> registerProjectile(String id, EntityType.Builder<T> builder) {
+		EntityType<T> entityType = builder.setTrackingRange(4).setUpdateInterval(10).build("");
+		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, id);
+		entityType.setRegistryName(name);
+
+		return entityType;
 	}
 
-	private static EntityEntry createEntity(String registryName, Class<? extends Entity> entityClass) {
-		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, registryName);
-		EntityEntry entry = new EntityEntry(entityClass, Reference.MOD_PREFIX + registryName);
-		entry.setRegistryName(location);
-		ENTITIES.add(entry);
-
-		return entry;
+	public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder) {
+		return register(id, builder, true);
 	}
 
-	private static EntityEntry createEntity(String registryName, Class<? extends Entity> entityClass, int eggPrimary, int eggSecondary) {
-		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, registryName);
-		EntityEntry entry = new EntityEntry(entityClass, Reference.MOD_PREFIX + registryName);
-		entry.setRegistryName(location);
-		entry.setEgg(new EntityList.EntityEggInfo(location, eggPrimary, eggSecondary));
-		ENTITIES_WITH_EGG.add(entry);
-
-		return entry;
-	}
-
-	public static void registerEntity(RegistryEvent.Register<EntityEntry> event, EntityEntry entry, int range, int update, boolean velocityUpdates) {
-		Preconditions.checkNotNull(entry.getRegistryName(), "registryName");
-		event.getRegistry().register(EntityEntryBuilder.create()
-				.entity(entry.getEntityClass())
-				.id(entry.getRegistryName(), ID)
-				.name(entry.getName())
-				.tracker(80, 3, true)
-				.build());
-		ID++;
-	}
-
-	public static void registerEggEntity(RegistryEvent.Register<EntityEntry> event, EntityEntry entry, int range, int update, boolean velocityUpdates) {
-		Preconditions.checkNotNull(entry.getRegistryName(), "registryName");
-		event.getRegistry().register(EntityEntryBuilder.create()
-				.entity(entry.getEntityClass())
-				.id(entry.getRegistryName(), ID)
-				.name(entry.getName())
-				.tracker(80, 3, true)
-				.egg(entry.getEgg().primaryColor, entry.getEgg().secondaryColor)
-				.build());
-		ID++;
+	public static void register(EntityType<?> entityType, RegistryEvent.Register<EntityType<?>> event) {
+		Preconditions.checkNotNull(entityType, "registryName");
+		event.getRegistry().register(entityType);
 	}
 
 	@SubscribeEvent
-	public static void registerPenguins(RegistryEvent.Register<EntityEntry> event) {
-		registerEntity(event, SPLASH_MEME, 64, 10, true);
-
-		for (EntityEntry entry : ENTITIES) {
-			registerEntity(event, entry, 80, 3, true);
-			ID++;
-		}
-		for (EntityEntry entry : ENTITIES_WITH_EGG) {
-			registerEggEntity(event, entry, 80, 3, true);
-			ID++;
-		}
-
+	public static void registerPenguins(RegistryEvent.Register<EntityType<?>> event) {
+		register(JOHN_CENA, event);
+		register(DONALD_TRUMP, event);
+		register(DOGE, event);
+		register(GRUMPY_CAT, event);
+		register(ATTACHED_GIRLFRIEND, event);
+		register(EDUARD_KHIL, event);
+		register(PPAP, event);
+		register(ROBBIE_ROTTEN, event);
+		register(GRAND_DAD, event);
+		register(HE_MAN, event);
+		register(SKYWALKER, event);
+		register(ROADMAN_SHAQ, event);
+		register(PHIL_SWIFT, event);
+		register(DANKEY_KANG, event);
+		register(SHREK, event);
+		register(DAT_BOI, event);
+		register(SANIC, event);
+		register(PEPE, event);
+		register(FOREVER_ALONE, event);
+		register(NYAN_CAT, event);
+		register(TAC_NAYN, event);
+		register(NIGEL_THORNBERRY, event);
+		register(DANCING_HOTDOG, event);
+		register(BONGO_CAT, event);
+		register(ROFL_COPTER, event);
+		register(GNOME, event);
+		register(CLIPPY, event);
+		register(KNUCKLES, event);
+		register(KNUCKLES_QUEEN, event);
+		register(SANS, event);
+		register(PINGU, event);
+		register(TOM, event);
 	}
 }

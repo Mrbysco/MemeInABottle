@@ -4,26 +4,29 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.init.MemeItems;
+import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
-import net.minecraft.entity.EntityAreaEffectCloud;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.block.SandBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EntitySelectors;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.TickEvent.Phase;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
-import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class MemeHandler {
 	@SubscribeEvent
@@ -32,16 +35,16 @@ public class MemeHandler {
 		BlockPos pos = event.getPos();
 		World world = event.getWorld();
 		Block block = world.getBlockState(pos).getBlock();
-		if (!world.isRemote && MemeConfig.general.MemesOnBeach) {
+		if (!world.isRemote && MemeConfig.SERVER.MemesOnBeach.get()) {
 			if (BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.BEACH)) {
-				if (block instanceof BlockSand) {
-					if (itemStack.getItem() instanceof ItemSpade) {
-						int itemDamage = itemStack.getItemDamage();
+				if (block instanceof SandBlock) {
+					if (itemStack.getItem() instanceof ShovelItem) {
+						int itemDamage = itemStack.getDamage();
 
 						int random = world.rand.nextInt(1000);
 						if (random < 30) {
-							world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), getRandomMemeBottle(world.rand)));
-							itemStack.setItemDamage(itemDamage + 1);
+							world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), getRandomMemeBottle(world.rand)));
+							itemStack.setDamage(itemDamage + 1);
 						}
 					}
 				}
@@ -64,22 +67,26 @@ public class MemeHandler {
 		return new ItemStack(memeBottles.get(randomIndex));
 	}
 
+	private static final Predicate<Entity> ALIVE_PREDICATE = (entity) -> {
+		return entity.isAlive();
+	};
+
 	@SubscribeEvent
 	public void onTick(TickEvent.WorldTickEvent event)
 	{
-		if(event.phase == Phase.END && event.side == Side.SERVER) {
-			World world = event.world;
-			if (world.getWorldTime() % 40 == 0) {
-				for(EntityAreaEffectCloud entity : world.getEntities(EntityAreaEffectCloud.class, EntitySelectors.IS_ALIVE)) {
-					if(entity.getCustomNameTag() == "dankcloud") {
-						EntityPlayer player = world.getClosestPlayerToEntity(entity, 20);
+		if(event.phase == Phase.END && event.side == LogicalSide.SERVER) {
+			ServerWorld world = (ServerWorld)event.world;
+			if (world.getGameTime() % 40 == 0) {
+				for(Entity entity : world.getEntities(EntityType.AREA_EFFECT_CLOUD, ALIVE_PREDICATE)) {
+					if(entity.getCustomName().getFormattedText() == "dankcloud") {
+						PlayerEntity player = world.getClosestPlayer(entity, 20);
 						if(player != null)
 						{
 							int random = world.rand.nextInt(10);
 
 							if(random < 4)
 							{
-
+								MemeRegistry.INSTANCE.triggerRandomMeme(world, entity.getPosition(), player);
 							}
 						}
 					}

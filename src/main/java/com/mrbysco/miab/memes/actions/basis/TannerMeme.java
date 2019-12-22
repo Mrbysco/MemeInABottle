@@ -4,9 +4,9 @@ import com.mojang.text2speech.Narrator;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 public class TannerMeme extends BasicFunny {
@@ -16,7 +16,7 @@ public class TannerMeme extends BasicFunny {
 	}	
 
 	@Override
-	public void trigger(World world, BlockPos pos, EntityPlayer player) {
+	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
 			String tannerMessage = "So you're going by \"" + player.getName() + "\" now nerd? \n "
 					+ "Haha whats up douche bag, it's Tanner from Highschool.\n "
@@ -27,15 +27,15 @@ public class TannerMeme extends BasicFunny {
 					+ "I make over 200k a year and drive a mustang GT.\n "
 					+ "I guess some things never change huh loser? Nice catching up lol.\n"
 					+ " Pathetic..";
-			if(MemeConfig.general.UseNarator)
+			if(MemeConfig.SERVER.UseNarator.get())
     		{
-    			Narrator.getNarrator().say(tannerMessage);
+    			Narrator.getNarrator().say(tannerMessage, false);
     		}
     		else
     		{
     		    String[] splitMessage = tannerMessage.split("\n");
     			for(String message : splitMessage) {
-    				player.sendMessage(new TextComponentString(message.trim()));
+    				player.sendMessage(new StringTextComponent(message.trim()));
     			}
     		}
 		}

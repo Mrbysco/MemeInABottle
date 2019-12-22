@@ -1,20 +1,16 @@
 package com.mrbysco.miab.items.armor;
 
-import com.mrbysco.miab.MemeInABottle;
-import com.mrbysco.miab.Reference;
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemArmor;
+import com.mrbysco.miab.init.MemeTab;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.Item;
 
-public class ItemCustomArmor extends ItemArmor {
+public class ItemCustomArmor extends ArmorItem {
 
-	public ItemCustomArmor(ArmorMaterial material, int renderIndex, EntityEquipmentSlot armorType, String registry) {
-		super(material, renderIndex, armorType);
-		setTranslationKey(Reference.MOD_PREFIX + registry);
-		setRegistryName(registry);
-		setCreativeTab(MemeInABottle.memeTab);
-
-
-		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, ItemArmor.DISPENSER_BEHAVIOR);
+	public ItemCustomArmor(IArmorMaterial material, EquipmentSlotType armorType, Item.Properties builder) {
+		super(material, armorType, builder.group(MemeTab.MEME_TAB));
+		DispenserBlock.registerDispenseBehavior(this, DISPENSER_BEHAVIOR);
 	}
 }

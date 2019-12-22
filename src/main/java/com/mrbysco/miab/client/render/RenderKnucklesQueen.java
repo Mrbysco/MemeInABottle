@@ -4,27 +4,19 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelHumanBase;
 import com.mrbysco.miab.client.models.knuckles.ModelKnucklesQueen;
 import com.mrbysco.miab.entity.memes.EntityKnucklesQueen;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;
+import net.minecraft.client.renderer.entity.BipedRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderKnucklesQueen extends RenderBiped<EntityKnucklesQueen>
+public class RenderKnucklesQueen<T extends EntityKnucklesQueen, M extends ModelKnucklesQueen<T>> extends BipedRenderer<EntityKnucklesQueen, ModelKnucklesQueen<EntityKnucklesQueen>>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/da_queen.png");
 
-    public RenderKnucklesQueen(RenderManager renderManagerIn)
+    public RenderKnucklesQueen(EntityRendererManager EntityRendererManagerIn)
     {
-        super(renderManagerIn, new ModelKnucklesQueen(), 0.5F);
-        LayerBipedArmor layerbipedarmor = new LayerBipedArmor(this)
-        {
-            protected void initArmor()
-            {
-                this.modelLeggings = new ModelHumanBase(0.5F, true);
-                this.modelArmor = new ModelHumanBase(1.0F, true);
-            }
-        };
-        this.addLayer(layerbipedarmor);
+        super(EntityRendererManagerIn, new ModelKnucklesQueen(), 0.5F);
+        this.addLayer(new BipedArmorLayer<>(this, new ModelHumanBase<>(0.5F, true), new ModelHumanBase<>(1.0F, true)));
     }
 
     protected ResourceLocation getEntityTexture(EntityKnucklesQueen entity)

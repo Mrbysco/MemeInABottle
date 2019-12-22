@@ -1,4 +1,4 @@
-package com.mrbysco.miab.proxy;
+package com.mrbysco.miab.client;
 
 import com.mrbysco.miab.client.render.RenderAttachedGirlfriend;
 import com.mrbysco.miab.client.render.RenderBongoCat;
@@ -30,7 +30,6 @@ import com.mrbysco.miab.client.render.RenderSanic;
 import com.mrbysco.miab.client.render.RenderSans;
 import com.mrbysco.miab.client.render.RenderShrek;
 import com.mrbysco.miab.client.render.RenderSkywalker;
-import com.mrbysco.miab.client.render.RenderSplashMeme;
 import com.mrbysco.miab.client.render.RenderTacNayn;
 import com.mrbysco.miab.client.render.RenderTrololo;
 import com.mrbysco.miab.client.render.RenderTrump;
@@ -68,50 +67,17 @@ import com.mrbysco.miab.entity.memes.EntityTrololo;
 import com.mrbysco.miab.entity.memes.EntityTrump;
 import com.mrbysco.miab.entity.projectile.EntityKnucklesSpit;
 import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
-import com.mrbysco.miab.init.MemeBlocks;
-import com.mrbysco.miab.init.MemeItems;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
-@EventBusSubscriber(value = Side.CLIENT)
-public class ClientProxy extends CommonProxy{
-	@Override
-	public void PreInit() {
-		RegisterEntityRender();
-	}
+public class ClientHandler {
 
-	@Override
-	public void Init() {
-		
-	}
-
-	@Override
-	public void PostInit() {
-		
-	}
-	
 	@SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
-        for(Item item : MemeItems.ITEMS) {
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        }
-        
-        for(Block block : MemeBlocks.BLOCKS)
-        {
-    		Item item = Item.getItemFromBlock(block);
-        	ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        }
-    }
-	
-	public static void RegisterEntityRender() {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, renderManager -> new RenderSplashMeme(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, renderManager -> new RenderCena(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTrump.class, renderManager -> new RenderTrump(renderManager));
@@ -148,5 +114,5 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnuckles.class, renderManager -> new RenderKnuckles(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesSpit.class, renderManager -> new RenderKnucklesSpit(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesQueen.class, renderManager -> new RenderKnucklesQueen(renderManager));
-	}
+    }
 }

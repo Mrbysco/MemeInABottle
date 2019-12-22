@@ -1,12 +1,11 @@
 package com.mrbysco.miab.client.models;
 
+import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.init.MemeItems;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelRobbie extends ModelHumanBase {
+public class ModelRobbie<T extends AbstractMeme> extends ModelHumanBase<T> {
 
 	public ModelRobbie() { }
 
@@ -14,11 +13,11 @@ public class ModelRobbie extends ModelHumanBase {
     {
         super(modelSize, p_i46303_2_);
     }
-	
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
     {
-        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        ItemStack itemstack = ((EntityLivingBase)entityIn).getHeldItemMainhand();
+        super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+        ItemStack itemstack = entityIn.getHeldItemMainhand();
 
         if (!(itemstack.getItem() == MemeItems.sax))
         {

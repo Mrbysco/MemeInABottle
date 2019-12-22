@@ -3,17 +3,17 @@ package com.mrbysco.miab.client.render;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.client.models.ModelRoflCopter;
 import com.mrbysco.miab.entity.memes.EntityRoflCopter;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderRoflCopter extends RenderLiving<EntityRoflCopter>
+public class RenderRoflCopter extends MobRenderer<EntityRoflCopter, ModelRoflCopter<EntityRoflCopter>>
 {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/roflcopter.png");
 
-    public RenderRoflCopter(RenderManager renderManagerIn)
+    public RenderRoflCopter(EntityRendererManager EntityRendererManagerIn)
     {
-        super(renderManagerIn, new ModelRoflCopter(), 1.0F);
+        super(EntityRendererManagerIn, new ModelRoflCopter(), 1.0F);
     }
 
     protected ResourceLocation getEntityTexture(EntityRoflCopter entity)

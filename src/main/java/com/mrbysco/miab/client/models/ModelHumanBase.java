@@ -1,16 +1,14 @@
 package com.mrbysco.miab.client.models;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.entity.model.BipedModel;
+import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.Hand;
+import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelHumanBase extends ModelBiped {
+public class ModelHumanBase<T extends AbstractMeme> extends BipedModel<T> {
 	
 	public ModelHumanBase() {
         this(0.0F, false);
@@ -21,35 +19,34 @@ public class ModelHumanBase extends ModelBiped {
         super(modelSize, 0.0F, 64, 64);
     }
 	
-	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
+	public void setLivingAnimations(T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime)
     {
-        this.rightArmPose = ModelBiped.ArmPose.EMPTY;
-        this.leftArmPose = ModelBiped.ArmPose.EMPTY;
-        ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);
+        this.rightArmPose = BipedModel.ArmPose.EMPTY;
+        this.leftArmPose = BipedModel.ArmPose.EMPTY;
+        ItemStack itemstack = entitylivingbaseIn.getHeldItem(Hand.MAIN_HAND);
 
-        if (itemstack.getItem() instanceof net.minecraft.item.ItemBow && ((AbstractMeme)entitylivingbaseIn).isArmsRaised())
+        if (itemstack.getItem() instanceof net.minecraft.item.BowItem && entitylivingbaseIn.isAggressive())
         {
-            if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT)
+            if (entitylivingbaseIn.getPrimaryHand() == HandSide.RIGHT)
             {
-                this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                this.rightArmPose = BipedModel.ArmPose.BOW_AND_ARROW;
             }
             else
             {
-                this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                this.leftArmPose = BipedModel.ArmPose.BOW_AND_ARROW;
             }
         }
 
         super.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTickTime);
     }
-	
-	
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
     {
-        super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        ItemStack itemstack = ((EntityLivingBase)entityIn).getHeldItemMainhand();
+        super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+        ItemStack itemstack = ((AbstractMeme)entityIn).getHeldItemMainhand();
         AbstractMeme abstractmeme = (AbstractMeme)entityIn;
 
-        if (abstractmeme.isArmsRaised() && (itemstack.isEmpty() || !(itemstack.getItem() instanceof net.minecraft.item.ItemBow)))
+        if (abstractmeme.isAggressive() && (itemstack.isEmpty() || !(itemstack.getItem() instanceof net.minecraft.item.BowItem)))
         {
             float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
             float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
@@ -68,9 +65,9 @@ public class ModelHumanBase extends ModelBiped {
         }
     }
 
-    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
+    public void setRotationAngle(RendererModel RendererModel, float x, float y, float z) {
+        RendererModel.rotateAngleX = x;
+        RendererModel.rotateAngleY = y;
+        RendererModel.rotateAngleZ = z;
     }
 }

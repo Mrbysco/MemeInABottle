@@ -1,6 +1,6 @@
 package com.mrbysco.miab.memes.actions;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -11,7 +11,7 @@ public interface iFunny {
 	 * 
 	 * @param player The player who triggered the meme
 	 */
-	void trigger(World worldIn, BlockPos pos, EntityPlayer playerIn);
+	void trigger(World worldIn, BlockPos pos, PlayerEntity playerIn);
 	
 	/*
 	 * @return Get's you the rarity of the meme
