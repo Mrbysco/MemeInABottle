@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "memeinabottle:leather_belt"
+        },
+        "title": {
+            "translate": "Leather Belt"
+        },
+        "description": {
+            "translate": "Strength 4, Stam 4 leather belt, level 18"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/splash",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "memeinabottle:leather_belt"
+                    }
+                ]
+            }
+        }
+    }
+}

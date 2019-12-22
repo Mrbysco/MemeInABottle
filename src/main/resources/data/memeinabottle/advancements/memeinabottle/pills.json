@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "memeinabottle:pills"
+        },
+        "title": {
+            "translate": "Pills Here!"
+        },
+        "description": {
+            "translate": "Grabbin Pills!"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/fidget",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "memeinabottle:pills"
+                    }
+                ]
+            }
+        }
+    }
+}

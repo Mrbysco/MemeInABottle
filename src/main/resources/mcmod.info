@@ -1,0 +1,16 @@
+[
+	{
+		"modid": "memeinabottle",
+		"name": "Meme in a bottle",
+		"description": "Adding Memes to Minecraft since 2016",
+		"version": "${version}",
+		"mcversion": "${mcversion}",
+		"url": "",
+		"updateUrl": "",
+		"authorList": ["Mrbysco"],
+		"credits": "Credits to Glassmaker, Garophel, RicardoTheCoder and MeadowCottage for spotting derps and helping",
+		"logoFile": "",
+		"screenshots": [],
+		"dependencies": []
+	}
+]

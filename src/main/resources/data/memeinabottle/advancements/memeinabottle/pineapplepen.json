@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "memeinabottle:pineapple_pen"
+        },
+        "title": {
+            "translate": "Pineapple Pen"
+        },
+        "description": {
+            "translate": "Ruining Pineapples now.... are yea..."
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/pineapple",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "memeinabottle:pineapple_pen"
+                    }
+                ]
+            }
+        }
+    }
+}

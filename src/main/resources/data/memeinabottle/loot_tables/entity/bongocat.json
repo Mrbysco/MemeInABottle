@@ -1,0 +1,60 @@
+{
+    "pools": [
+        {
+            "name": "bongoblocks",
+            "conditions": [],
+            "entries": [
+                {
+                    "conditions": [],
+                    "type": "item",
+                    "name": "minecraft:noteblock",
+                    "functions": [
+                        {
+                            "conditions": [],
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "conditions": [],
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ],
+                    "weight": 1,
+                    "quality": 0
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        },
+        {
+            "name": "memebottles",
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "memeinabottle:entity/memebase"
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "bonus_rolls": {
+                "min": 0,
+                "max": 0
+            }
+        }
+    ]
+}

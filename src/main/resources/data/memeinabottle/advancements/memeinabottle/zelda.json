@@ -1,0 +1,31 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:wooden_sword"
+        },
+        "title": {
+            "translate": "It's dangerous to go alone"
+        },
+        "description": {
+            "translate": "Take this wooden sword"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/trumpet",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:wooden_sword",
+                        "nbt": "{display:{Name:\"Zelda Sword\"}}"
+                    }
+                ]
+            }
+        }
+    }
+}

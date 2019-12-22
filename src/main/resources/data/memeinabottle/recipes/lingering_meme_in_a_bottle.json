@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "memeinabottle:splash_meme_in_a_bottle"
+		},
+		{
+			"item": "minecraft:dragon_breath"
+		}
+	],
+	"result": {
+		"item": "memeinabottle:lingering_meme_in_a_bottle"
+	}
+}

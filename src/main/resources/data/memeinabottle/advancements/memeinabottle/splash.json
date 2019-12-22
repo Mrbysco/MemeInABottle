@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "memeinabottle:splash_meme_in_a_bottle"
+        },
+        "title": {
+            "translate": "Throwable Memes?!?"
+        },
+        "description": {
+            "translate": "You get a meme, you get a meme, everyone gets a meme!"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/root",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "memeinabottle:splash_meme_in_a_bottle"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "memeinabottle:sax"
+  },
+  "pattern": [
+    "  G",
+    "G G",
+    " GG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "memeinabottle:trumpet"
+        },
+        "title": {
+            "translate": "DOOT DOOT!"
+        },
+        "description": {
+            "translate": "Doot doot?"
+        },
+		"frame": "task",
+		"hidden": false,
+		"show_toast": true,
+        "announce_to_chat": false
+		},
+    "parent": "memeinabottle:memeinabottle/burger",
+    "criteria": {
+        "meme": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "memeinabottle:trumpet"
+                    }
+                ]
+            }
+        }
+    }
+}
