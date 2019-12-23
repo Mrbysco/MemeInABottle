@@ -82,7 +82,8 @@ public class MemeRegistry {
 		INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_wombocombo", 100, MemeSounds.wombocombo.get()));
 		INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_wow", 100, MemeSounds.wow.get()));
 		INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_wrong", 100, MemeSounds.wrong.get()));
-		
+		INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_wrongnumber", 100, MemeSounds.wrongnumber.get()));
+
 		if(MemeConfig.SERVER.MatureSounds.get()) {
 			INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_cantbelieve", 100, MemeSounds.cantbelieve.get()));
 			INSTANCE.registerMeme(new BasicSoundMeme(Reference.MOD_PREFIX + "sound_morningscrub", 100, MemeSounds.morningscrub.get()));
