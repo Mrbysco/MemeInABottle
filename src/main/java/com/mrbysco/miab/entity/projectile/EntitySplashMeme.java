@@ -1,7 +1,7 @@
 package com.mrbysco.miab.entity.projectile;
 
 import com.mrbysco.miab.init.MemeEntities;
-import com.mrbysco.miab.init.MemeItems;
+import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.EntityType;
@@ -36,17 +36,17 @@ public class EntitySplashMeme extends ThrowableEntity implements IRendersAsItem 
 
     public EntitySplashMeme(World worldIn, LivingEntity throwerIn, ItemStack item)
     {
-        super(MemeEntities.SPLASH_MEME, throwerIn, worldIn);
+        super(MemeEntities.SPLASH_MEME.get(), throwerIn, worldIn);
         this.setItem(item);
     }
     
     public EntitySplashMeme(World worldIn, double x, double y, double z)
     {
-        super(MemeEntities.SPLASH_MEME, x, y, z, worldIn);
+        super(MemeEntities.SPLASH_MEME.get(), x, y, z, worldIn);
     }
 
     public EntitySplashMeme(FMLPlayMessages.SpawnEntity spawnEntity, World worldIn) {
-        this(MemeEntities.SPLASH_MEME, worldIn);
+        this(MemeEntities.SPLASH_MEME.get(), worldIn);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class EntitySplashMeme extends ThrowableEntity implements IRendersAsItem 
                 LOGGER.error("Thrown Meme entity {} has no item?!", this.getEntityId());
             }
 
-            return new ItemStack(MemeItems.splash_meme_in_a_bottle);
+            return new ItemStack(MemeRegister.splash_meme_in_a_bottle.get());
         } else {
             return stack;
         }
@@ -140,6 +140,6 @@ public class EntitySplashMeme extends ThrowableEntity implements IRendersAsItem 
 
     private boolean isLingering()
     {
-    	return this.getItem().getItem() == MemeItems.lingering_meme_in_a_bottle;
+    	return this.getItem().getItem() == MemeRegister.lingering_meme_in_a_bottle.get();
     }
 }

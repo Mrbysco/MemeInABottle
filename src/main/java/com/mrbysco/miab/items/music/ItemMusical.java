@@ -23,7 +23,7 @@ public class ItemMusical extends ItemMemeBase {
 	private int cooldown;
 	private String info;
 
-	public ItemMusical(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, String textLocal)
+	public ItemMusical(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, @Nullable String textLocal)
 	{
 		super(builder);
 		this.sound = soundIn;

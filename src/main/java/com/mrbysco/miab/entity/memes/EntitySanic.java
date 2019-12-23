@@ -51,19 +51,19 @@ public class EntitySanic extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.sanic_slow;
+        return MemeSounds.sanic_slow.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.sanic_slow;
+        return MemeSounds.sanic_slow.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.sanic_slow;
+        return MemeSounds.sanic_slow.get();
     }
 	
 	@Override

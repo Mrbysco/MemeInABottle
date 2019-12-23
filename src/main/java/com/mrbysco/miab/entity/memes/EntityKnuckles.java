@@ -120,19 +120,19 @@ public class EntityKnuckles extends AbstractMeme implements IRangedAttackMob{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.knuckles_passive;
+        return MemeSounds.knuckles_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.knuckles_hurt;
+        return MemeSounds.knuckles_hurt.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.knuckles_death;
+        return MemeSounds.knuckles_death.get();
     }
 	
 	@Override

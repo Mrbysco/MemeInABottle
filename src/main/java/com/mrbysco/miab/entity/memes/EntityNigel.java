@@ -50,19 +50,19 @@ public class EntityNigel extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.nigel_blagh;
+        return MemeSounds.nigel_blagh.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.nigel_blagh;
+        return MemeSounds.nigel_blagh.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.nigel_blagh;
+        return MemeSounds.nigel_blagh.get();
     }
 	
 	@Override

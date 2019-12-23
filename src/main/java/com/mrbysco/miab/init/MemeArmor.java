@@ -12,12 +12,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum MemeArmor implements IArmorMaterial {
-    TRUMPHAIR("trumphair", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trump_sound, 0.0F, () -> null),
+    TRUMPHAIR("trumphair", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trump_sound.get(), 0.0F, () -> null),
     BELT("belt", 7, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, () -> null),
-    LEATHERBELT("leatherbelt", 7, new int[]{1, 3, 2, 1}, 15, MemeSounds.leather_belt, 0.0F, () -> null),
-    TROLLMASK("trollmask", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trololo, 0.0F, () -> null),
-    RIPOFFHAT("rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.dad_summon, 2.0F, () -> null),
-    GLASSES("sunglasses", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.thuglife, 0.0F, () -> null);
+    LEATHERBELT("leatherbelt", 7, new int[]{1, 3, 2, 1}, 15, MemeSounds.leather_belt.get(), 0.0F, () -> null),
+    TROLLMASK("trollmask", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trololo.get(), 0.0F, () -> null),
+    RIPOFFHAT("rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.dad_summon.get(), 2.0F, () -> null),
+    GLASSES("sunglasses", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.thuglife.get(), 0.0F, () -> null);
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;

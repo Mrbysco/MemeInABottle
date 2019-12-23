@@ -1,8 +1,8 @@
 package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeItems;
 import com.mrbysco.miab.init.MemeLoot;
+import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.init.MemeSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -57,19 +57,19 @@ public class EntityTrololo extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.khil_sound;
+        return MemeSounds.khil_sound.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.khil_sound;
+        return MemeSounds.khil_sound.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.khil_death;
+        return MemeSounds.khil_death.get();
     }
 	
 	@Override
@@ -87,7 +87,7 @@ public class EntityTrololo extends AbstractMeme{
     {
         ItemStack itemstack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
 
-        if (itemstack.getItem() != MemeItems.troll_mask)
+        if (itemstack.getItem() != MemeRegister.troll_mask.get())
             return true;
         else
         	return false;

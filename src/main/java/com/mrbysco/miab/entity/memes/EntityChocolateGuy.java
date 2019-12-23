@@ -63,19 +63,19 @@ public class EntityChocolateGuy extends AbstractMeme{
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
-		return this.isFollowingPlayer() ? MemeSounds.tom_sound : super.getAmbientSound();
+		return this.isFollowingPlayer() ? MemeSounds.tom_sound.get() : super.getAmbientSound();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source)
 	{
-		return MemeSounds.tom_sound;
+		return MemeSounds.tom_sound.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return MemeSounds.tom_sound;
+		return MemeSounds.tom_sound.get();
 	}
 
 	public void setFollowingPlayer(boolean armsRaised)

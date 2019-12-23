@@ -54,19 +54,19 @@ public class EntityGnome extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.gnome_passive;
+        return MemeSounds.gnome_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.gnome_hurt;
+        return MemeSounds.gnome_hurt.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.gnome_death;
+        return MemeSounds.gnome_death.get();
     }
 	
 	@Override

@@ -50,19 +50,19 @@ public class EntityDankey extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.dankey_passive;
+        return MemeSounds.dankey_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.dankey_hit;
+        return MemeSounds.dankey_hit.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.dankey_death;
+        return MemeSounds.dankey_death.get();
     }
 	
 	@Override

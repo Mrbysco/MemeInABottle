@@ -62,19 +62,19 @@ public class EntityHeMan extends AbstractMeme{
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
-		return MemeSounds.heman_passive;
+		return MemeSounds.heman_passive.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_)
 	{
-		return MemeSounds.heman_hit;
+		return MemeSounds.heman_hit.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return MemeSounds.heman_death;
+		return MemeSounds.heman_death.get();
 	}
 
 	@Nullable

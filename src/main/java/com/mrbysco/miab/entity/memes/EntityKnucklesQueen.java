@@ -67,19 +67,19 @@ public class EntityKnucklesQueen extends AbstractMeme implements IRangedAttackMo
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.knuckles_passive;
+        return MemeSounds.knuckles_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.knuckles_hurt;
+        return MemeSounds.knuckles_hurt.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.knuckles_passive;
+        return MemeSounds.knuckles_passive.get();
     }
 	
 	@Override
@@ -94,7 +94,7 @@ public class EntityKnucklesQueen extends AbstractMeme implements IRangedAttackMo
 			int knucklesAmount = rand.nextInt(9);
 			for(int i = 0; i < knucklesAmount; i++)
 			{
-				EntityKnuckles knuckles = MemeEntities.KNUCKLES.create(world);
+				EntityKnuckles knuckles = MemeEntities.KNUCKLES.get().create(world);
 				knuckles.setKnucklesType(rand.nextInt(7));
 				knuckles.setPositionAndUpdate(posX, posY, posZ);
 

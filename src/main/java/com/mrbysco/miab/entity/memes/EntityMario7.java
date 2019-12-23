@@ -52,19 +52,19 @@ public class EntityMario7 extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.dad_passive;
+        return MemeSounds.dad_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.dad_hit;
+        return MemeSounds.dad_hit.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.dad_death;
+        return MemeSounds.dad_death.get();
     }
 	
 	@Override

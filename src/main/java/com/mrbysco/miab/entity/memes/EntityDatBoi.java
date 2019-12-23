@@ -53,19 +53,19 @@ public class EntityDatBoi extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.boi_passive;
+        return MemeSounds.boi_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.boi_passive;
+        return MemeSounds.boi_passive.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.boi_death;
+        return MemeSounds.boi_death.get();
     }
 	
 	@Override

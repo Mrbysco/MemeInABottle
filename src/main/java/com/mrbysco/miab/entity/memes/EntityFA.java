@@ -50,19 +50,19 @@ public class EntityFA extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.cry;
+        return MemeSounds.cry.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.cry;
+        return MemeSounds.cry.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.cry;
+        return MemeSounds.cry.get();
     }
 	
 	@Override

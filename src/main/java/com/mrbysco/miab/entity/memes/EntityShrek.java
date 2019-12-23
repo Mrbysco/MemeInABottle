@@ -72,19 +72,19 @@ public class EntityShrek extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.shrek_passive;
+        return MemeSounds.shrek_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.shrek_hit;
+        return MemeSounds.shrek_hit.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.shrek_death;
+        return MemeSounds.shrek_death.get();
     }
 	
 	@Override

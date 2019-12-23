@@ -87,19 +87,19 @@ public class EntityRoflCopter extends CreatureEntity {
 	@Override
 	public SoundEvent getAmbientSound()
 	{
-		return getIsCopterLanded() ? null : MemeSounds.rofl_passive;
+		return getIsCopterLanded() ? null : MemeSounds.rofl_passive.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn)
 	{
-		return MemeSounds.rofl_hurt;
+		return MemeSounds.rofl_hurt.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return MemeSounds.rofl_death;
+		return MemeSounds.rofl_death.get();
 	}
 
 	/**

@@ -9,17 +9,3 @@ displayName="Meme in a bottle"
 displayURL="https://minecraft.curseforge.com/projects/meme-in-a-bottle"
 authors="Mrbysco"
 description='''Adding Memes to Minecraft since 2016'''
-
-[[dependencies.memeinabottle]]
-modId="forge"
-mandatory=true
-versionRange="[28,)"
-ordering="NONE"
-side="BOTH"
-
-[[dependencies.memeinabottle]]
-modId="minecraft"
-mandatory=true
-versionRange="[1.14.4]"
-ordering="NONE"
-side="BOTH"

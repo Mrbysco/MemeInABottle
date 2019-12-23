@@ -60,19 +60,19 @@ public class EntityTrump extends AbstractMeme{
 	@Override
 	protected SoundEvent getAmbientSound()
 	{
-		return MemeSounds.trump_sound;
+		return MemeSounds.trump_sound.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source)
 	{
-		return MemeSounds.trump_hit;
+		return MemeSounds.trump_hit.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound()
 	{
-		return MemeSounds.trump_death;
+		return MemeSounds.trump_death.get();
 	}
 
 	@Override

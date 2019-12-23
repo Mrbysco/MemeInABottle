@@ -22,7 +22,7 @@ public class WastedMeme extends BasicFunny {
 	@Override
 	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
-			world.playSound((PlayerEntity)null, pos, MemeSounds.wasted, SoundCategory.NEUTRAL, 1f, 1f);
+			world.playSound((PlayerEntity)null, pos, MemeSounds.wasted.get(), SoundCategory.NEUTRAL, 1f, 1f);
 			if ((player instanceof ServerPlayerEntity))
 			{
 				STitlePacket packet = new STitlePacket(STitlePacket.Type.TITLE, new StringTextComponent("WASTED").setStyle(new Style().setColor(TextFormatting.RED).setBold(true)), 5, 60, 20);

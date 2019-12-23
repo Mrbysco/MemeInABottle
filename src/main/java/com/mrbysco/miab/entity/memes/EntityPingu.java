@@ -48,19 +48,19 @@ public class EntityPingu extends AbstractMeme
 	@Nullable
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.noot;
+        return MemeSounds.noot.get();
     }
 
 	@Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return MemeSounds.noot;
+        return MemeSounds.noot.get();
     }
 
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.noot;
+        return MemeSounds.noot.get();
     }
 	
 	/**

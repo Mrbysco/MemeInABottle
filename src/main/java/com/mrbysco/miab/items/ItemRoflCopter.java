@@ -42,7 +42,7 @@ public class ItemRoflCopter extends ItemMemeBase{
 		} else {
 			BlockRayTraceResult traceResult = (BlockRayTraceResult)raytraceresult;
 			BlockPos blockpos = traceResult.getPos();
-			EntityRoflCopter roflCopter = MemeEntities.ROFL_COPTER.create(worldIn);
+			EntityRoflCopter roflCopter = MemeEntities.ROFL_COPTER.get().create(worldIn);
 			roflCopter.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
 			worldIn.addEntity(roflCopter);
 

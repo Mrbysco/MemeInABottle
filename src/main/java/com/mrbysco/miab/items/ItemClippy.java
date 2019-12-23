@@ -42,7 +42,7 @@ public class ItemClippy extends ItemMemeBase{
 		} else {
 			BlockRayTraceResult traceResult = (BlockRayTraceResult)raytraceresult;
 			BlockPos blockpos = traceResult.getPos();
-			EntityClippy clippy = MemeEntities.CLIPPY.create(worldIn);
+			EntityClippy clippy = MemeEntities.CLIPPY.get().create(worldIn);
 			clippy.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
 			worldIn.addEntity(clippy);
 

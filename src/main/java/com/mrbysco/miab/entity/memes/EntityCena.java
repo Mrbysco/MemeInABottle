@@ -1,7 +1,7 @@
 package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeItems;
+import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.init.MemeSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -60,19 +60,19 @@ public class EntityCena extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.cena_sound;
+        return MemeSounds.cena_sound.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.cena_sound;
+        return MemeSounds.cena_sound.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.cena_sound;
+        return MemeSounds.cena_sound.get();
     }
 	
 	@Override
@@ -111,7 +111,7 @@ public class EntityCena extends AbstractMeme{
     {
         ItemStack itemstack = player.getItemStackFromSlot(EquipmentSlotType.LEGS);
 
-        if (itemstack.getItem() != MemeItems.wrestling_belt)
+        if (itemstack.getItem() != MemeRegister.wrestling_belt.get())
             return true;
         else
         	return false;

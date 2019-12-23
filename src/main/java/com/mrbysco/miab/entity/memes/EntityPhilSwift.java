@@ -1,8 +1,8 @@
 package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeItems;
 import com.mrbysco.miab.init.MemeLoot;
+import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.init.MemeSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
@@ -62,19 +62,19 @@ public class EntityPhilSwift extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.phil_passive;
+        return MemeSounds.phil_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.phil_hurt;
+        return MemeSounds.phil_hurt.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.phil_death;
+        return MemeSounds.phil_death.get();
     }
 
 	@Override
@@ -88,7 +88,7 @@ public class EntityPhilSwift extends AbstractMeme{
 	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData livingData, @Nullable CompoundNBT tag) {
 		if (rand.nextInt(10) < 3)
 		{
-			this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(MemeItems.flex_tape));
+			this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(MemeRegister.flex_tape.get()));
 		}
 		return super.onInitialSpawn(worldIn, difficultyIn, reason, livingData, tag);
 	}

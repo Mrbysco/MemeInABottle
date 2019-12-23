@@ -1,7 +1,7 @@
 package com.mrbysco.miab.client.models;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeItems;
+import com.mrbysco.miab.init.MemeRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 
@@ -19,7 +19,7 @@ public class ModelRobbie<T extends AbstractMeme> extends ModelHumanBase<T> {
         super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
         ItemStack itemstack = entityIn.getHeldItemMainhand();
 
-        if (!(itemstack.getItem() == MemeItems.sax))
+        if (!(itemstack.getItem() == MemeRegister.sax.get()))
         {
             float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
             float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);

@@ -1,8 +1,8 @@
 package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeItems;
 import com.mrbysco.miab.init.MemeLoot;
+import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.init.MemeSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
@@ -64,24 +64,24 @@ public class EntityRobbie extends AbstractMeme{
     {
 		if (!isHoldingSax())
 		{
-			return MemeSounds.robbie_passive;
+			return MemeSounds.robbie_passive.get();
 		}
 		else
 		{
-			return MemeSounds.robbie_sax;
+			return MemeSounds.robbie_sax.get();
 		}
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.robbie_hit;
+        return MemeSounds.robbie_hit.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.robbie_death;
+        return MemeSounds.robbie_death.get();
     }
 
 	@Nullable
@@ -89,13 +89,13 @@ public class EntityRobbie extends AbstractMeme{
 	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData livingData, @Nullable CompoundNBT tag) {
 		if (rand.nextInt(10) < 3)
 		{
-			this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(MemeItems.sax));
+			this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(MemeRegister.sax.get()));
 		}
 		return super.onInitialSpawn(worldIn, difficultyIn, reason, livingData, tag);
 	}
 
 	public boolean isHoldingSax() {
-		return this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).getItem() == MemeItems.sax;
+		return this.getItemStackFromSlot(EquipmentSlotType.MAINHAND).getItem() == MemeRegister.sax.get();
 	}
 
 	@Override

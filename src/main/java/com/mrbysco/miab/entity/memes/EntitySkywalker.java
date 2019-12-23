@@ -65,7 +65,7 @@ public class EntitySkywalker extends AbstractMeme {
 
 				if (random < 1)
 				{
-					world.playSound((PlayerEntity)null, this.getPosition(), MemeSounds.meme_music2, SoundCategory.RECORDS, 0.75F, 1.0F);
+					world.playSound((PlayerEntity)null, this.getPosition(), MemeSounds.meme_music2.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
 				}
 			}
 		}
@@ -81,19 +81,19 @@ public class EntitySkywalker extends AbstractMeme {
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.skywalker_sand;
+        return MemeSounds.skywalker_sand.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.skywalker_sand;
+        return MemeSounds.skywalker_sand.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.skywalker_sand;
+        return MemeSounds.skywalker_sand.get();
     }
 	
 	@Override

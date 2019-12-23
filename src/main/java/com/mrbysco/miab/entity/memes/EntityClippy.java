@@ -76,35 +76,35 @@ public class EntityClippy extends AbstractMeme {
 		{
 			if(this.world.isDaytime() == false)
 			{
-				sound = MemeSounds.clippy_night;
+				sound = MemeSounds.clippy_night.get();
 			}
 			if(BiomeDictionary.hasType(biome, Type.FOREST))
 			{
 				if(playerNearby() && getPlayerHealth() < 6)
 				{
-					sound = MemeSounds.clippy_health;
+					sound = MemeSounds.clippy_health.get();
 				}
-				if(this.posY < 60)
+				else if(this.posY < 60)
 				{
-					sound = MemeSounds.clippy_cave;
-				}
-				sound = MemeSounds.clippy_forest;
+					sound = MemeSounds.clippy_cave.get();
+				} else
+				sound = MemeSounds.clippy_forest.get();
 			}
 			else if(playerNearby() && getPlayerHealth() < 6)
 			{
-				sound = MemeSounds.clippy_health;
+				sound = MemeSounds.clippy_health.get();
 			}
 			else if(this.posY < 60)
 			{
-				sound = MemeSounds.clippy_cave;
+				sound = MemeSounds.clippy_cave.get();
 			}
 			else if(this.world.findNearestStructure("Mineshaft", this.getPosition(), 30, true) == this.getPosition())
 			{
-				sound = MemeSounds.clippy_mineshaft;
+				sound = MemeSounds.clippy_mineshaft.get();
 			}
 			else
 			{
-				sound = MemeSounds.clippy_passive;
+				sound = MemeSounds.clippy_passive.get();
 			}
 		}
 		return sound;
@@ -127,13 +127,13 @@ public class EntityClippy extends AbstractMeme {
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.clippy_hurt;
+        return MemeSounds.clippy_hurt.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.clippy_death;
+        return MemeSounds.clippy_death.get();
     }
 
 	@Nullable
@@ -231,7 +231,7 @@ public class EntityClippy extends AbstractMeme {
 
 	protected SoundEvent getJumpSound()
 	{
-		return MemeSounds.boing;
+		return MemeSounds.boing.get();
 	}
 
 	static class AIHop extends Goal

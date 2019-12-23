@@ -35,14 +35,14 @@ public class EntityKnucklesSpit extends Entity implements IProjectile {
 
 	public EntityKnucklesSpit(World worldIn, AbstractMeme entity)
 	{
-		super(MemeEntities.KNUCKLES_SPIT, worldIn);
+		super(MemeEntities.KNUCKLES_SPIT.get(), worldIn);
 		this.owner = entity;
 		this.setPosition(entity.posX - (double)(entity.getWidth() + 1.0F) * 0.5D * (double)MathHelper.sin(entity.renderYawOffset * ((float)Math.PI / 180F)), entity.posY + (double)entity.getEyeHeight() - (double)0.1F, entity.posZ + (double)(entity.getWidth() + 1.0F) * 0.5D * (double)MathHelper.cos(entity.renderYawOffset * ((float)Math.PI / 180F)));
 	}
 
 	public EntityKnucklesSpit(World worldIn, double x, double y, double z, double p_i47274_8_, double p_i47274_10_, double p_i47274_12_)
 	{
-		super(MemeEntities.KNUCKLES_SPIT, worldIn);
+		super(MemeEntities.KNUCKLES_SPIT.get(), worldIn);
 		this.setPosition(x, y, z);
 
 		for (int i = 0; i < 7; ++i)
@@ -55,7 +55,7 @@ public class EntityKnucklesSpit extends Entity implements IProjectile {
 	}
 
 	public EntityKnucklesSpit(FMLPlayMessages.SpawnEntity spawnEntity, World worldIn) {
-		this(MemeEntities.KNUCKLES_SPIT, worldIn);
+		this(MemeEntities.KNUCKLES_SPIT.get(), worldIn);
 	}
 
 	@Override

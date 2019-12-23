@@ -50,19 +50,19 @@ public class EntityRoadmanShaq extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.shaq_passive;
+        return MemeSounds.shaq_passive.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.shaq_hit;
+        return MemeSounds.shaq_hit.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.shaq_death;
+        return MemeSounds.shaq_death.get();
     }
 	
 	@Override

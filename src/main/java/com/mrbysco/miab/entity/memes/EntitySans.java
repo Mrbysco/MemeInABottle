@@ -52,19 +52,19 @@ public class EntitySans extends AbstractMeme
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.sans_sound;
+        return MemeSounds.sans_sound.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource p_184601_1_)
     {
-        return MemeSounds.sans_sound;
+        return MemeSounds.sans_sound.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.sans_sound;
+        return MemeSounds.sans_sound.get();
     }
 
 	@Override

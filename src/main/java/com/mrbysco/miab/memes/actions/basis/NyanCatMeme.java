@@ -18,11 +18,11 @@ public class NyanCatMeme extends BasicFunny {
 	@Override
 	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
-			EntityNyanCat cat = MemeEntities.NYAN_CAT.create(world);
+			EntityNyanCat cat = MemeEntities.NYAN_CAT.get().create(world);
 			cat.setTamedBy(player);
 			spawnEntity(world, cat, pos);
 			if(world.rand.nextBoolean()) {
-				EntityTacNayn tac = MemeEntities.TAC_NAYN.create(world);
+				EntityTacNayn tac = MemeEntities.TAC_NAYN.get().create(world);
 				cat.setTamedBy(player);
 				spawnEntity(world, tac, pos);
 			}

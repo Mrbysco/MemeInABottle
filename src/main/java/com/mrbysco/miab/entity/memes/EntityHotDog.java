@@ -50,19 +50,19 @@ public class EntityHotDog extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.hotdog_tune;
+        return MemeSounds.hotdog_tune.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.hotdog_tune;
+        return MemeSounds.hotdog_tune.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.hotdog_tune;
+        return MemeSounds.hotdog_tune.get();
     }
 
 	@Override

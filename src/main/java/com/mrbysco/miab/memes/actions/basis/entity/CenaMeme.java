@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class CenaMeme extends BasicEntityMeme {
 
 	public CenaMeme() {
-		super(Reference.MOD_PREFIX + "cena", 5, MemeEntities.JOHN_CENA, MemeSounds.cena_spawn);
+		super(Reference.MOD_PREFIX + "cena", 5, MemeEntities.JOHN_CENA.get(), MemeSounds.cena_spawn.get());
 	}
 
 	@Override

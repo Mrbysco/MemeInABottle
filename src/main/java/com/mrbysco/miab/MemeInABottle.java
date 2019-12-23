@@ -3,8 +3,10 @@ package com.mrbysco.miab;
 import com.mrbysco.miab.client.ClientHandler;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.handler.MemeHandler;
+import com.mrbysco.miab.init.MemeEntities;
+import com.mrbysco.miab.init.MemeRegister;
+import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.init.MemeTab;
-import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
@@ -28,6 +30,11 @@ public class MemeInABottle {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, MemeConfig.serverSpec);
 		FMLJavaModLoadingContext.get().getModEventBus().register(MemeConfig.class);
 
+		MemeRegister.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		MemeRegister.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		MemeEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+		MemeSounds.SOUND_EVENTS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
@@ -41,7 +48,7 @@ public class MemeInABottle {
 
 	private void setup(final FMLCommonSetupEvent event)
 	{
-		MemeRegistry.initializeMemes();
+		//MemeRegistry.initializeMemes();
 
 	}
 

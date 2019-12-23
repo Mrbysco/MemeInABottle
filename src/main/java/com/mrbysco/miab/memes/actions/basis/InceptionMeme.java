@@ -21,7 +21,7 @@ public class InceptionMeme extends BasicFunny {
 	@Override
 	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
-			world.playSound((PlayerEntity)null, pos, MemeSounds.inception, SoundCategory.RECORDS, 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+			world.playSound((PlayerEntity)null, pos, MemeSounds.inception.get(), SoundCategory.RECORDS, 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 			world.setBlockState(pos, Blocks.CHEST.getDefaultState());
 			ChestTileEntity chest = (ChestTileEntity) world.getTileEntity(pos);
 			chest.setInventorySlotContents(0, new ItemStack(Blocks.CHEST));

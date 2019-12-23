@@ -9,7 +9,7 @@ public class MemeTab {
 	public static final ItemGroup MEME_TAB = new ItemGroup(Reference.MOD_ID + ".tab") {
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(MemeItems.splash_meme_in_a_bottle);
+			return new ItemStack(MemeRegister.splash_meme_in_a_bottle.get());
 		}
 	};
 }

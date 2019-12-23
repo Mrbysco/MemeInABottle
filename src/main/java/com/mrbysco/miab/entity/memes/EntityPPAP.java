@@ -52,19 +52,19 @@ public class EntityPPAP extends AbstractMeme{
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return MemeSounds.ppap_sound;
+        return MemeSounds.ppap_sound.get();
     }
 	
 	@Override
     protected SoundEvent getHurtSound(DamageSource source)
     {
-        return MemeSounds.ppap_sound;
+        return MemeSounds.ppap_sound.get();
     }
 	
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return MemeSounds.ppap_death;
+        return MemeSounds.ppap_death.get();
     }
 	
 	@Override
