@@ -1,9 +1,9 @@
 {
 	"__comment": "Designed by Mrbysco",
 	"textures": {
-		"particle": "memeinabottle:blocks/oscar_body",
-		"texture": "memeinabottle:blocks/oscar_body",
-		"base": "memeinabottle:blocks/oscar_base"
+		"particle": "memeinabottle:block/oscar_body",
+		"texture": "memeinabottle:block/oscar_body",
+		"base": "memeinabottle:block/oscar_base"
 	},
 	"elements": [ 	 
 		{

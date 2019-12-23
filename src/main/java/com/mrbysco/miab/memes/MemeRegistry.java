@@ -98,7 +98,7 @@ public class MemeRegistry {
 		INSTANCE.registerMeme(new BasicItemMeme(Reference.MOD_PREFIX + "leather_belt", 10, MemeSounds.leather_belt.get(), new ItemStack(MemeRegister.leather_belt.get())));
 		INSTANCE.registerMeme(new BasicItemMeme(Reference.MOD_PREFIX + "trumpet", 10, MemeSounds.doot.get(), new ItemStack(MemeRegister.trumpet.get())));
 		INSTANCE.registerMeme(new BasicItemMeme(Reference.MOD_PREFIX + "splash_meme", 10, MemeSounds.inception.get(), new ItemStack(MemeRegister.splash_meme_in_a_bottle.get())));
-		INSTANCE.registerMeme(new BasicItemMeme(Reference.MOD_PREFIX + "pills_here", 10, MemeSounds.pills.get(), new ItemStack(MemeRegister.pills_here.get())));
+		INSTANCE.registerMeme(new BasicItemMeme(Reference.MOD_PREFIX + "pills_here", 10, MemeSounds.pills.get(), new ItemStack(MemeRegister.pills.get())));
 		INSTANCE.registerMeme(new DangerousToGoAloneMeme());
 		INSTANCE.registerMeme(new OscarMeme());
 

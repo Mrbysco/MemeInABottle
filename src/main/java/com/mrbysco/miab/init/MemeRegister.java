@@ -48,9 +48,9 @@ public class MemeRegister {
 	public static final RegistryObject<SwordItem> hot_knife = ITEMS.register("hot_knife", () -> new ItemKnife(itemBuilder(), true));
 
 	public static final RegistryObject<Item> pen = ITEMS.register("pen", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_havepen.get(), null, 5, null));
-	public static final RegistryObject<Item> penpineapple = ITEMS.register("penpineapple", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_ahpineapplepen.get(), MemeSounds.ppap_pineapplepen.get(), 5, Reference.MOD_PREFIX + "instrument.info"));
-	public static final RegistryObject<Item> applepen = ITEMS.register("applepen", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_ahapplepen.get(), MemeSounds.ppap_applepen.get(), 5, Reference.MOD_PREFIX + "instrument.info"));
-	public static final RegistryObject<Item> ppap = ITEMS.register("ppap", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_ppap.get(), null, 5, null));
+	public static final RegistryObject<Item> penpineapple = ITEMS.register("pineapple_pen", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_ahpineapplepen.get(), MemeSounds.ppap_pineapplepen.get(), 5, Reference.MOD_PREFIX + "instrument.info"));
+	public static final RegistryObject<Item> applepen = ITEMS.register("apple_pen", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_ahapplepen.get(), MemeSounds.ppap_applepen.get(), 5, Reference.MOD_PREFIX + "instrument.info"));
+	public static final RegistryObject<Item> ppap = ITEMS.register("pen_pineapple_apple_pen", () -> new ItemMusical(itemBuilder(), MemeSounds.ppap_ppap.get(), null, 5, null));
 
 	public static final RegistryObject<Item> sax = ITEMS.register("sax", () -> new ItemInstrument(itemBuilder(), MemeSounds.robbie_sax.get(), MemeSounds.robbie_sax2.get(), 20, Reference.MOD_PREFIX + "instrument.info"));
 	public static final RegistryObject<Item> trumpet = ITEMS.register("trumpet", () -> new ItemInstrument(itemBuilder(), MemeSounds.doot.get(), null, 5, Reference.MOD_PREFIX + "trumpet.info"));
@@ -65,8 +65,8 @@ public class MemeRegister {
 	public static final RegistryObject<Item> pineapple = ITEMS.register("pineapple", () -> new ItemFoodWithSound(itemBuilder().food(MemeFoods.PINEAPPLE), MemeSounds.ppap_havepineapple.get(), 5));
 	public static final RegistryObject<Item> apple = ITEMS.register("apple", () -> new ItemFoodWithSound(itemBuilder().food(MemeFoods.APPLE), MemeSounds.ppap_haveapple.get(), 5));
 	public static final RegistryObject<Item> onion = ITEMS.register("onion", () -> new ItemFoodWithSound(itemBuilder().food(MemeFoods.ONION), MemeSounds.shrek_onion.get(), 5));
-	public static final RegistryObject<Item> burger = ITEMS.register("burger", () -> new ItemMemeBase(itemBuilder().food(MemeFoods.BURGER)));
-	public static final RegistryObject<Item> pills_here = ITEMS.register("pills_here", () -> new ItemPills(itemBuilder().food(MemeFoods.PILLS), MemeSounds.pills.get()));
+	public static final RegistryObject<Item> burger = ITEMS.register("mineburger", () -> new ItemMemeBase(itemBuilder().food(MemeFoods.BURGER)));
+	public static final RegistryObject<Item> pills = ITEMS.register("pills", () -> new ItemPills(itemBuilder().food(MemeFoods.PILLS), MemeSounds.pills.get()));
 	public static final RegistryObject<Item> pod = ITEMS.register("pod", () -> new ItemMemeBase(itemBuilder().food(MemeFoods.POD)));
 
 	public static final RegistryObject<Item> gnome_hat = ITEMS.register("gnome_hat", () -> new ItemGnomeHat(itemBuilder()));
@@ -77,10 +77,10 @@ public class MemeRegister {
 	public static final RegistryObject<ArmorItem> ripoff_hat = ITEMS.register("ripoff_hat", () -> new ItemCustomArmor(MemeArmor.RIPOFFHAT, EquipmentSlotType.HEAD, itemBuilder()));
 	public static final RegistryObject<ArmorItem> sunglasses = ITEMS.register("sunglasses", () -> new ItemSunglasses(MemeArmor.GLASSES, EquipmentSlotType.HEAD, itemBuilder()));
 
-	public static final RegistryObject<MusicDiscItem> meme_record1 = ITEMS.register("meme_record1" , () -> new ItemMemeRecord(0, MemeSounds.meme_music.get(), itemBuilder()));
-	public static final RegistryObject<MusicDiscItem> meme_record2 = ITEMS.register("meme_record2" , () -> new ItemMemeRecord(0, MemeSounds.meme_music2.get(), itemBuilder()));
-	public static final RegistryObject<MusicDiscItem> meme_record3 = ITEMS.register("meme_record3" , () -> new ItemMemeRecord(0, MemeSounds.meme_music3.get(), itemBuilder()));
-	public static final RegistryObject<MusicDiscItem> meme_record4 = ITEMS.register("meme_record4" , () -> new ItemMemeRecord(0, MemeSounds.meme_music4.get(), itemBuilder()));
+	public static final RegistryObject<MusicDiscItem> meme_record1 = ITEMS.register("meme_record_1" , () -> new ItemMemeRecord(0, MemeSounds.meme_music.get(), itemBuilder()));
+	public static final RegistryObject<MusicDiscItem> meme_record2 = ITEMS.register("meme_record_2" , () -> new ItemMemeRecord(0, MemeSounds.meme_music2.get(), itemBuilder()));
+	public static final RegistryObject<MusicDiscItem> meme_record3 = ITEMS.register("meme_record_3" , () -> new ItemMemeRecord(0, MemeSounds.meme_music3.get(), itemBuilder()));
+	public static final RegistryObject<MusicDiscItem> meme_record4 = ITEMS.register("meme_record_4" , () -> new ItemMemeRecord(0, MemeSounds.meme_music4.get(), itemBuilder()));
 
 	public static final RegistryObject<Item> john_cena_spawn_egg = ITEMS.register("john_cena_spawn_egg" , () -> new ItemMemeSpawnEgg(MemeEntities.JOHN_CENA.get(), 16032864, 9199159, itemBuilder()));
 	public static final RegistryObject<Item> donald_trump_spawn_egg = ITEMS.register("donald_trump_spawn_egg" , () -> new ItemMemeSpawnEgg(MemeEntities.DONALD_TRUMP.get(), 16753920, 16766720, itemBuilder()));

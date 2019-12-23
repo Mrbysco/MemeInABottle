@@ -23,7 +23,7 @@ public class ItemMusical extends ItemMemeBase {
 	private int cooldown;
 	private String info;
 
-	public ItemMusical(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, @Nullable String textLocal)
+	public ItemMusical(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, String textLocal)
 	{
 		super(builder);
 		this.sound = soundIn;
@@ -62,6 +62,8 @@ public class ItemMusical extends ItemMemeBase {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		tooltip.add(new TranslationTextComponent(this.info).applyTextStyle(TextFormatting.YELLOW));
+		if(this.info != null && !this.info.isEmpty()) {
+			tooltip.add(new TranslationTextComponent(this.info).applyTextStyle(TextFormatting.YELLOW));
+		}
 	}
 }

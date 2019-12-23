@@ -1,8 +1,8 @@
 {
 	"__comment": "Designed by Mrbysco",
 	"textures": {
-		"particle": "blocks/wool_colored_red",
-		"texture": "blocks/wool_colored_red"
+		"particle": "block/red_wool",
+		"texture": "block/red_wool"
 	},
 	"elements": [ 	 
 		{

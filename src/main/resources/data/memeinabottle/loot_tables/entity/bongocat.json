@@ -7,7 +7,7 @@
                 {
                     "conditions": [],
                     "type": "item",
-                    "name": "minecraft:noteblock",
+                    "name": "minecraft:note_block",
                     "functions": [
                         {
                             "conditions": [],
