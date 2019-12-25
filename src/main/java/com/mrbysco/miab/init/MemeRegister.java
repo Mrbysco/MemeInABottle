@@ -115,7 +115,7 @@ public class MemeRegister {
 	public static final RegistryObject<Item> tom_spawn_egg = ITEMS.register("tom_spawn_egg" , () -> new ItemMemeSpawnEgg(MemeEntities.TOM.get(), 9405003, 8747679, itemBuilder()));
 
 	static {
-		ITEMS.register("oscar", () -> new BlockItem(OSCAR.get(), new Item.Properties()));
+		ITEMS.register("oscar", () -> new BlockItem(OSCAR.get(), new Item.Properties().group(MemeTab.MEME_TAB)));
 	}
 
 	private static Item.Properties itemBuilder()

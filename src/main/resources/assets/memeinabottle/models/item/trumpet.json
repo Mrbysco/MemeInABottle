@@ -1,9 +1,9 @@
 {
 	"__comment": "Designed by Mrbysco",
 	"textures": {
-		"particle": "blocks/gold_block",
-		"texture": "blocks/gold_block",
-		"texture1": "blocks/hardened_clay_stained_cyan"
+		"particle": "block/gold_block",
+		"texture": "block/gold_block",
+		"texture1": "block/cyan_terracotta"
 	},
 	"elements": [ 	 
 		{

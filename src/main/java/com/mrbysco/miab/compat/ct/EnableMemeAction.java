@@ -1,29 +1,48 @@
 package com.mrbysco.miab.compat.ct;
 
-public class EnableMemeAction {//implements IAction {
-//	private final String[] memes;
-//
-//	public EnableMemeAction(String[] memes) {
-//		this.memes = memes;
-//	}
-//
-//	public EnableMemeAction(String memes) {
-//		this.memes = new String[]{memes};
-//	}
-//
-//	@Override
-//	public void apply() {
-//		if(this.memes.length > 0) {
-//			MemeRegistry.INSTANCE.enableMeme(this.memes);
-//		}
-//	}
-//
-//	@Override
-//	public String describe() {
-//		if(this.memes.length > 0) {
-//			return null;
-//		} else {
-//			return String.format("Could not remove memes. String array was empty.");
-//		}
-//	}
+import com.blamejared.crafttweaker.api.actions.IUndoableAction;
+import com.mrbysco.miab.memes.MemeRegistry;
+
+public class EnableMemeAction implements IUndoableAction {
+	private final String[] memes;
+
+	public EnableMemeAction(String[] memes) {
+		this.memes = memes;
+	}
+
+	public EnableMemeAction(String memes) {
+		this.memes = new String[]{memes};
+	}
+
+	@Override
+	public void apply() {
+		if(this.memes.length > 0) {
+			MemeRegistry.INSTANCE.enableMeme(this.memes);
+		}
+	}
+
+    @Override
+    public void undo() {
+        if(this.memes.length > 0) {
+            MemeRegistry.INSTANCE.disableMeme(this.memes);
+        }
+    }
+
+    @Override
+	public String describe() {
+        if(this.memes.length > 0) {
+            return String.format("The following memes have been enabled: " + this.memes.toString());
+        } else {
+            return String.format("Could not enable memes. String array was empty.");
+        }
+	}
+
+    @Override
+    public String describeUndo() {
+        if(this.memes.length > 0) {
+            return String.format("The following memes have been re-disabled: " + this.memes.toString());
+        } else {
+            return String.format("Could not re-disable memes. String array was empty.");
+        }
+    }
 }

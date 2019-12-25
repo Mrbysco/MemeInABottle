@@ -6,7 +6,7 @@ import com.mrbysco.miab.handler.MemeHandler;
 import com.mrbysco.miab.init.MemeEntities;
 import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.init.MemeSounds;
-import com.mrbysco.miab.init.MemeTab;
+import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
@@ -23,8 +23,6 @@ import org.apache.logging.log4j.Logger;
 @Mod(Reference.MOD_ID)
 public class MemeInABottle {
 	public static final Logger logger = LogManager.getLogger(Reference.MOD_ID);
-
-	public static MemeTab memeTab = new MemeTab();
 
 	public MemeInABottle() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, MemeConfig.serverSpec);
@@ -48,7 +46,7 @@ public class MemeInABottle {
 
 	private void setup(final FMLCommonSetupEvent event)
 	{
-		//MemeRegistry.initializeMemes();
+		MemeRegistry.initializeMemes();
 
 	}
 

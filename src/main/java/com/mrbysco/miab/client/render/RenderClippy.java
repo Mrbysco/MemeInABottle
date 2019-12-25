@@ -7,6 +7,7 @@ import com.mrbysco.miab.entity.memes.EntityClippy;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 
 public class RenderClippy extends MobRenderer<EntityClippy, ModelClippy<EntityClippy>>
 {
@@ -21,7 +22,7 @@ public class RenderClippy extends MobRenderer<EntityClippy, ModelClippy<EntityCl
     {
         GlStateManager.scalef(0.999F, 0.999F, 0.999F);
         float f1 = (float)1;
-        float f2 = (entitylivingbaseIn.prevJumpFactor + (entitylivingbaseIn.jumpFactor - entitylivingbaseIn.prevJumpFactor) * partialTickTime) / (f1 * 0.5F + 1.0F);
+        float f2 = MathHelper.lerp(partialTickTime, entitylivingbaseIn.prevJumpFactor, entitylivingbaseIn.jumpFactor) / (f1 * 0.5F + 1.0F);
         float f3 = 1.0F / (f2 + 1.0F);
         GlStateManager.scalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
     }
