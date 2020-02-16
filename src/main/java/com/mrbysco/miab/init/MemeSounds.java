@@ -154,6 +154,7 @@ public class MemeSounds {
 	public static final RegistryObject<SoundEvent> wrong = SOUND_EVENTS.register("wrong", () -> createSound("wrong"));
 	public static final RegistryObject<SoundEvent> wrongnumber = SOUND_EVENTS.register("wrongnumber", () -> createSound("wrongnumber"));
 	public static final RegistryObject<SoundEvent> thuglife = SOUND_EVENTS.register("thug.life", () -> createSound("thug.life"));
+	public static final RegistryObject<SoundEvent> pufferfish = SOUND_EVENTS.register("pufferfish.augh", () -> createSound("pufferfish.augh"));
 
 	private static SoundEvent createSound(String name) {
 		ResourceLocation resourceLocation = new ResourceLocation(Reference.MOD_ID, name);

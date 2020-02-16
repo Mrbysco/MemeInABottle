@@ -12,23 +12,23 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum MemeArmor implements IArmorMaterial {
-    TRUMPHAIR("trumphair", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trump_sound.get(), 0.0F, () -> null),
-    BELT("belt", 7, new int[]{1, 3, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, () -> null),
-    LEATHERBELT("leatherbelt", 7, new int[]{1, 3, 2, 1}, 15, MemeSounds.leather_belt.get(), 0.0F, () -> null),
-    TROLLMASK("trollmask", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.trololo.get(), 0.0F, () -> null),
-    RIPOFFHAT("rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.dad_summon.get(), 2.0F, () -> null),
-    GLASSES("sunglasses", 5, new int[]{1, 3, 2, 1}, 15, MemeSounds.thuglife.get(), 0.0F, () -> null);
+    TRUMPHAIR("trumphair", 5, new int[]{1, 3, 2, 1}, 15, () -> MemeSounds.trump_sound.get(), 0.0F, () -> null),
+    BELT("belt", 7, new int[]{1, 3, 2, 1}, 15, () -> SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, () -> null),
+    LEATHERBELT("leatherbelt", 7, new int[]{1, 3, 2, 1}, 15, () -> MemeSounds.leather_belt.get(), 0.0F, () -> null),
+    TROLLMASK("trollmask", 5, new int[]{1, 3, 2, 1}, 15, () -> MemeSounds.trololo.get(), 0.0F, () -> null),
+    RIPOFFHAT("rippoffhat", 5, new int[]{1, 3, 2, 1}, 15, () -> MemeSounds.dad_summon.get(), 2.0F, () -> null),
+    GLASSES("sunglasses", 5, new int[]{1, 3, 2, 1}, 15, () -> MemeSounds.thuglife.get(), 0.0F, () -> null);
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;
     private final int maxDamageFactor;
     private final int[] damageReductionAmountArray;
     private final int enchantability;
-    private final SoundEvent soundEvent;
+    private final Supplier<SoundEvent> soundEvent;
     private final float toughness;
     private final LazyLoadBase<Ingredient> repairMaterial;
 
-    private MemeArmor(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, SoundEvent equipSoundIn, float p_i48533_8_, Supplier<Ingredient> repairMaterialSupplier) {
+    private MemeArmor(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, Supplier<SoundEvent> equipSoundIn, float p_i48533_8_, Supplier<Ingredient> repairMaterialSupplier) {
         this.name = nameIn;
         this.maxDamageFactor = maxDamageFactorIn;
         this.damageReductionAmountArray = damageReductionAmountsIn;
@@ -51,7 +51,7 @@ public enum MemeArmor implements IArmorMaterial {
     }
 
     public SoundEvent getSoundEvent() {
-        return this.soundEvent;
+        return this.soundEvent.get();
     }
 
     public Ingredient getRepairMaterial() {

@@ -16,14 +16,15 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ItemMusical extends ItemMemeBase {
-	private SoundEvent sound;
-	private SoundEvent sound2;
+	private Supplier<? extends SoundEvent> sound;
+	private Supplier<? extends SoundEvent> sound2;
 	private int cooldown;
 	private String info;
 
-	public ItemMusical(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundin2, int cooldownNumber, String textLocal)
+	public ItemMusical(Item.Properties builder, Supplier<? extends SoundEvent> soundIn, @Nullable Supplier<? extends SoundEvent> soundin2, int cooldownNumber, String textLocal)
 	{
 		super(builder);
 		this.sound = soundIn;
@@ -37,18 +38,18 @@ public class ItemMusical extends ItemMemeBase {
 	{
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 
-		if(playerIn.isSneaking() && this.sound2 != null)
+		if(playerIn.isSneaking() && this.sound2.get() != null)
 		{
-			playerIn.playSound(this.sound2, 1F, 1F);
+			playerIn.playSound(this.sound2.get(), 1F, 1F);
 		}
 		else
 		{
-			playerIn.playSound(this.sound, 1F, 1F);
+			playerIn.playSound(this.sound.get(), 1F, 1F);
 		}
 
 		if(this.sound2 == null)
 		{
-			playerIn.playSound(this.sound, 1F, 1F);
+			playerIn.playSound(this.sound.get(), 1F, 1F);
 		}
 
 		if(this.cooldown != 0)

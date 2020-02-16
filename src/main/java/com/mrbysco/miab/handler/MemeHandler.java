@@ -2,25 +2,33 @@ package com.mrbysco.miab.handler;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
+import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.init.MemeRegister;
+import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.SandBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.passive.fish.PufferfishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.ShovelItem;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.TickEvent.Phase;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 
@@ -46,6 +54,25 @@ public class MemeHandler {
 							world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), getRandomMemeBottle(world.rand)));
 							itemStack.setDamage(itemDamage + 1);
 						}
+					}
+				}
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void OnEntityInteraction(EntityInteract event) {
+		ItemStack itemStack = event.getItemStack();
+//		System.out.println(itemStack.getItem());
+		World world = event.getWorld();
+		if (!world.isRemote && MemeRegistry.nameList.contains(Reference.MOD_PREFIX + "pufferfish")) {
+			Entity entity = event.getTarget();
+			if (entity instanceof PufferfishEntity) {
+				if (itemStack.getItem() == Items.CARROT) {
+					world.playSound((PlayerEntity)null, event.getPos(), MemeSounds.pufferfish.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
+					entity.attackEntityFrom(DamageSource.GENERIC, 1.0F);
+					if(!event.getPlayer().abilities.isCreativeMode) {
+						itemStack.shrink(1);
 					}
 				}
 			}

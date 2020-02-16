@@ -6,10 +6,11 @@ import net.minecraft.item.UseAction;
 import net.minecraft.util.SoundEvent;
 
 import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class ItemInstrument extends ItemMusical {
 
-	public ItemInstrument(Item.Properties builder, SoundEvent soundIn, @Nullable SoundEvent soundIn2, int cooldown, String infoText)
+	public ItemInstrument(Item.Properties builder, Supplier<? extends SoundEvent> soundIn, @Nullable Supplier<? extends SoundEvent> soundIn2, int cooldown, String infoText)
 	{
 		super(builder.maxStackSize(1), soundIn, soundIn2, cooldown, infoText);
 	}

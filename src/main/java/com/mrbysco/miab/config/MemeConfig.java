@@ -22,7 +22,7 @@ public class MemeConfig {
 		public final BooleanValue MatureSounds;
 		public final BooleanValue UseNarator;
 		public final BooleanValue LogTriggers;
-		public final ConfigValue<List<String>> disabled_memes;
+		public final ConfigValue<List<? extends String>> disabled_memes;
 
 		Server(ForgeConfigSpec.Builder builder) {
 			builder.comment("General settings")
@@ -51,7 +51,7 @@ public class MemeConfig {
 			String[] messages = new String[]{ };
 			disabled_memes = builder
 					.comment("Any meme id's added here will be removed from the possible meme list")
-					.define("disabled_memes", Arrays.asList(messages));
+					.defineList("disabled_memes", Arrays.asList(messages), entry -> entry instanceof String);
 
 			builder.pop();
 		}

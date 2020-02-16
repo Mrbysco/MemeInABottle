@@ -1108,5 +1108,12 @@
             "memeinabottle:tom/chocolate3",
             "memeinabottle:tom/chocolate4"
         ]
+   },
+   "pufferfish.augh" : {
+	"subtitle": "memeinabottle.subtitle.pufferfish.sound",
+	"category" : "neutral",
+	"sounds": [
+	  "memeinabottle:pufferfish/pufferfish"
+	]
    }
 }

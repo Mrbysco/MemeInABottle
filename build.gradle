@@ -13,14 +13,14 @@ apply plugin: 'net.minecraftforge.gradle'
 // apply plugin: 'eclipse'
 // apply plugin: 'maven-publish'
 
-version = '3.0.0'
+version = '3.0.1'
 group = 'com.mrbysco.memeinabottle' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'MemeInABottle-1.14.4'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
-    mappings channel: 'snapshot', version: '20191215-1.14.3'
+    mappings channel: 'stable', version: '58-1.14.4'
     
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -99,7 +99,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.107'
+    minecraft 'net.minecraftforge:forge:1.14.4-28.1.115'
     compile fg.deobf("com.blamejared.crafttweaker:CraftTweaker-1.14.4:5.0.1.+")
 }
 

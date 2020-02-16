@@ -18,6 +18,7 @@ import com.mrbysco.miab.memes.actions.basis.TannerMeme;
 import com.mrbysco.miab.memes.actions.basis.WastedMeme;
 import com.mrbysco.miab.memes.actions.basis.entity.AnimalMeme;
 import com.mrbysco.miab.memes.actions.basis.entity.CenaMeme;
+import com.mrbysco.miab.memes.actions.basis.entity.PufferfishMeme;
 import com.mrbysco.miab.memes.actions.basis.item.DangerousToGoAloneMeme;
 import com.mrbysco.miab.memes.actions.basis.item.OscarMeme;
 import com.mrbysco.miab.memes.actions.iFunny;
@@ -154,6 +155,7 @@ public class MemeRegistry {
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "pingu", 5, MemeEntities.PINGU.get(), MemeSounds.noot.get()));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "sans", 5, MemeEntities.SANS.get(), MemeSounds.sans_sound.get()));
 		INSTANCE.registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "chocolate_guy", 5, MemeEntities.TOM.get(), MemeSounds.chocolate.get()));
+		INSTANCE.registerMeme(new PufferfishMeme());
 
 		//Other memes
 		INSTANCE.registerMeme(new InceptionMeme());
@@ -161,7 +163,7 @@ public class MemeRegistry {
 	
 	public void registerMeme(iFunny reward)
 	{
-		List<String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
+		List<? extends String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
 		if(this.nameList.contains(reward.getName())) {
 			MemeInABottle.logger.error("An attempt was made to register a meme with an ID that already exists. ID: " + reward.getName());
 		} else {
@@ -227,7 +229,7 @@ public class MemeRegistry {
 	
 	//TODO: Check if disabling works live
 	public void checkDisabled() {
-		List<String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
+		List<? extends String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
 		for(iFunny meme : funnyList) {
 			String name = meme.getName();
 			if(disabledMemes.contains(name)) {
