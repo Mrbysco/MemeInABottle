@@ -31,11 +31,10 @@ public class ItemFidget extends ItemMemeBase {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
-	{
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack heldItem = playerIn.getHeldItem(handIn);
 
 		playerIn.setActiveHand(handIn);
-		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, heldItem);
+		return new ActionResult<>(ActionResultType.SUCCESS, heldItem);
 	}
 }

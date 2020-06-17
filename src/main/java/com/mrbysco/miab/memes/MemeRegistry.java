@@ -39,8 +39,8 @@ public class MemeRegistry {
 
 	public static List<String> nameList = Lists.newArrayList();
 	public static List<iFunny> funnyList = Lists.newArrayList();
-	private Map<String, iFunny> nameToFunny = Maps.newHashMap();
-	private Map<String, iFunny> disabledNameToFunny = Maps.newHashMap();
+	private final Map<String, iFunny> nameToFunny = Maps.newHashMap();
+	private final Map<String, iFunny> disabledNameToFunny = Maps.newHashMap();
 	
 	public static void initializeMemes() {
 		//Sounds
@@ -164,10 +164,10 @@ public class MemeRegistry {
 	public void registerMeme(iFunny reward)
 	{
 		List<? extends String> disabledMemes = MemeConfig.SERVER.disabled_memes.get();
-		if(this.nameList.contains(reward.getName())) {
+		if(nameList.contains(reward.getName())) {
 			MemeInABottle.logger.error("An attempt was made to register a meme with an ID that already exists. ID: " + reward.getName());
 		} else {
-			this.nameList.add(reward.getName());
+			nameList.add(reward.getName());
 		}
 		if(!disabledMemes.contains(reward.getName()))
 		{
@@ -176,12 +176,12 @@ public class MemeRegistry {
 		}
 		else
 		{
-			this.disabledNameToFunny.put(reward.getName(), reward);
+			disabledNameToFunny.put(reward.getName(), reward);
 		}
 	}
 
 	public boolean isIDUnique(String ID) {
-		return !this.nameList.contains(ID);
+		return !nameList.contains(ID);
 	}
 	
 	private void sortList(@Nullable iFunny newReward)
@@ -193,7 +193,7 @@ public class MemeRegistry {
 	}
 	
 	public void triggerRandomMeme(World worldIn, BlockPos pos, PlayerEntity playerIn) {
-		if(this.funnyList.isEmpty())
+		if(funnyList.isEmpty())
 		{
 			MemeInABottle.logger.log(Level.WARN, "There are no registered memes so no meme has been triggered");
 			return;

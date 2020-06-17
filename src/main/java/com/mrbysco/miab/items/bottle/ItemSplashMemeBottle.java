@@ -40,7 +40,7 @@ public class ItemSplashMemeBottle extends ItemMemeBase {
 		}
 
 		playerIn.addStat(Stats.ITEM_USED.get(this));
-		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
+		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
 	}
 
 	@Override

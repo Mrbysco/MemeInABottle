@@ -13,6 +13,4 @@ public class ItemCustomArmor extends ArmorItem {
 		super(material, armorType, builder.group(MemeTab.MEME_TAB));
 		DispenserBlock.registerDispenseBehavior(this, DISPENSER_BEHAVIOR);
 	}
-
-
 }

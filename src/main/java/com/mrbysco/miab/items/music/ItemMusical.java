@@ -19,10 +19,10 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ItemMusical extends ItemMemeBase {
-	private Supplier<? extends SoundEvent> sound;
-	private Supplier<? extends SoundEvent> sound2;
-	private int cooldown;
-	private String info;
+	private final Supplier<? extends SoundEvent> sound;
+	private final Supplier<? extends SoundEvent> sound2;
+	private final int cooldown;
+	private final String info;
 
 	public ItemMusical(Item.Properties builder, Supplier<? extends SoundEvent> soundIn, @Nullable Supplier<? extends SoundEvent> soundin2, int cooldownNumber, String textLocal)
 	{
@@ -57,7 +57,7 @@ public class ItemMusical extends ItemMemeBase {
 			playerIn.getCooldownTracker().setCooldown(this, this.cooldown);
 		}
 
-		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
+		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
 	}
 
 	@Override

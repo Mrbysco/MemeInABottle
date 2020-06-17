@@ -27,8 +27,7 @@ public class BlockOscar extends HorizontalBlock implements IBucketPickupHandler,
 
 	private static final VoxelShape SHAPE = Block.makeCuboidShape(4D, 0, 4, 12, 12, 12);
 
-	public BlockOscar(Properties builder)
-	{
+	public BlockOscar(Properties builder) {
 		super(builder.hardnessAndResistance(0.6F, 200).sound(SoundType.METAL));
 		this.setDefaultState((BlockState)((BlockState)this.stateContainer.getBaseState()).with(HORIZONTAL_FACING, Direction.NORTH));
 	}

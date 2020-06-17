@@ -9,6 +9,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,10 +49,9 @@ public class MemeConfig {
 			builder.comment("Meme Settings")
 					.push("meme");
 
-			String[] messages = new String[]{ };
 			disabled_memes = builder
 					.comment("Any meme id's added here will be removed from the possible meme list")
-					.defineList("disabled_memes", Arrays.asList(messages), entry -> entry instanceof String);
+					.defineList("disabled_memes", new ArrayList<>(), entry -> entry instanceof String);
 
 			builder.pop();
 		}

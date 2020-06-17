@@ -4,6 +4,7 @@ import com.mrbysco.miab.client.ClientHandler;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.handler.MemeHandler;
 import com.mrbysco.miab.init.MemeEntities;
+import com.mrbysco.miab.init.MemeLoot;
 import com.mrbysco.miab.init.MemeRegister;
 import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.MemeRegistry;
@@ -49,6 +50,7 @@ public class MemeInABottle {
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		MemeRegistry.initializeMemes();
+		MemeLoot.registerLootTables();
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event)

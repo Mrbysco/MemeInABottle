@@ -24,7 +24,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.TickEvent.Phase;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -32,6 +31,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Predicate;
@@ -69,7 +69,9 @@ public class MemeHandler {
 			Entity entity = event.getTarget();
 			if (entity instanceof PufferfishEntity) {
 				if (itemStack.getItem() == Items.CARROT) {
-					world.playSound((PlayerEntity)null, event.getPos(), MemeSounds.pufferfish.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
+					if(MemeSounds.pufferfish.get() != null) {
+						world.playSound((PlayerEntity)null, event.getPos(), MemeSounds.pufferfish.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
+					}
 					entity.attackEntityFrom(DamageSource.GENERIC, 1.0F);
 					if(!event.getPlayer().abilities.isCreativeMode) {
 						itemStack.shrink(1);
@@ -81,6 +83,7 @@ public class MemeHandler {
 
 	public static List<Item> memeBottles = Lists.newArrayList();
 
+	@Nonnull
 	public static ItemStack getRandomMemeBottle(Random rand)
 	{
 		if(memeBottles.isEmpty()) {
@@ -96,9 +99,7 @@ public class MemeHandler {
 		return new ItemStack(memeBottles.get(randomIndex));
 	}
 
-	private static final Predicate<Entity> ALIVE_PREDICATE = (entity) -> {
-		return entity.isAlive();
-	};
+	private static final Predicate<Entity> ALIVE_PREDICATE = Entity::isAlive;
 
 	@SubscribeEvent
 	public void onTick(TickEvent.WorldTickEvent event)
@@ -107,14 +108,12 @@ public class MemeHandler {
 			ServerWorld world = (ServerWorld)event.world;
 			if (world.getGameTime() % 40 == 0) {
 				for(Entity entity : world.getEntities(EntityType.AREA_EFFECT_CLOUD, ALIVE_PREDICATE)) {
-					if(entity.getCustomName().getFormattedText() == "dankcloud") {
+					if(entity.getCustomName() != null && entity.getCustomName().getFormattedText().equals("dankcloud")) {
 						PlayerEntity player = world.getClosestPlayer(entity, 20);
-						if(player != null)
-						{
+						if(player != null) {
 							int random = world.rand.nextInt(10);
 
-							if(random < 4)
-							{
+							if(random < 4) {
 								MemeRegistry.INSTANCE.triggerRandomMeme(world, entity.getPosition(), player);
 							}
 						}

@@ -34,13 +34,11 @@ public class ItemMemeBottle extends ItemMemeBase {
 	{
 		PlayerEntity entityplayer = entityLiving instanceof PlayerEntity ? (PlayerEntity)entityLiving : null;
 
-        if (entityplayer instanceof ServerPlayerEntity)
-        {
+        if (entityplayer instanceof ServerPlayerEntity) {
             CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayerEntity)entityplayer, stack);
         }
         
-        if (entityplayer == null || !entityplayer.abilities.isCreativeMode)
-        {
+        if (entityplayer != null || !entityplayer.abilities.isCreativeMode) {
             stack.shrink(1);
         }
 
@@ -48,17 +46,12 @@ public class ItemMemeBottle extends ItemMemeBase {
 			MemeRegistry.INSTANCE.triggerRandomMeme(worldIn, entityLiving.getPosition(), entityplayer);
 		}
 
-        if (entityplayer == null || !entityplayer.abilities.isCreativeMode)
-        {
-            if (stack.isEmpty())
-            {
+        if (entityplayer != null || !entityplayer.abilities.isCreativeMode) {
+            if (stack.isEmpty()) {
                 return new ItemStack(Items.GLASS_BOTTLE);
             }
 
-            if (entityplayer != null)
-            {
-                entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
-            }
+			entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
         }
 
         return stack;

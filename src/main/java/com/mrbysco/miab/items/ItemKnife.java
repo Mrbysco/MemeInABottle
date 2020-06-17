@@ -16,15 +16,13 @@ public class ItemKnife extends SwordItem {
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker)
-	{
-		if(this.isHot == true)
-		{
+	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		if(this.isHot) {
 			target.setFire(3);
 			attacker.playSound(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1F, 1F);
 			return true;
-		}
-		else
+		} else {
 			return false;
+		}
 	}
 }

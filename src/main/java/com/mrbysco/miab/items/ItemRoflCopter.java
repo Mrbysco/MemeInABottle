@@ -31,26 +31,28 @@ public class ItemRoflCopter extends ItemMemeBase{
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
-		RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, FluidMode.NONE);
+		RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, FluidMode.NONE);
 		ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerIn, worldIn, itemstack, raytraceresult);
 		if (ret != null) return ret;
 
 		if (raytraceresult == null) {
-			return new ActionResult<ItemStack>(ActionResultType.PASS, itemstack);
+			return new ActionResult<>(ActionResultType.PASS, itemstack);
 		} else if (raytraceresult.getType() != RayTraceResult.Type.BLOCK) {
-			return new ActionResult<ItemStack>(ActionResultType.PASS, itemstack);
+			return new ActionResult<>(ActionResultType.PASS, itemstack);
 		} else {
 			BlockRayTraceResult traceResult = (BlockRayTraceResult)raytraceresult;
 			BlockPos blockpos = traceResult.getPos();
 			EntityRoflCopter roflCopter = MemeEntities.ROFL_COPTER.get().create(worldIn);
-			roflCopter.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
-			worldIn.addEntity(roflCopter);
+			if(roflCopter != null) {
+				roflCopter.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
+				worldIn.addEntity(roflCopter);
+			}
 
-			if (!playerIn.isCreative())
-			{
+
+			if (!playerIn.isCreative()) {
 				itemstack.shrink(1);
 			}
-			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
+			return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
 		}
 	}
 

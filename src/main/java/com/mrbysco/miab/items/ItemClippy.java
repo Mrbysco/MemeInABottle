@@ -36,21 +36,22 @@ public class ItemClippy extends ItemMemeBase{
 		if (ret != null) return ret;
 
 		if (raytraceresult == null) {
-			return new ActionResult<ItemStack>(ActionResultType.PASS, itemstack);
+			return new ActionResult<>(ActionResultType.PASS, itemstack);
 		} else if (raytraceresult.getType() != RayTraceResult.Type.BLOCK) {
-			return new ActionResult<ItemStack>(ActionResultType.PASS, itemstack);
+			return new ActionResult<>(ActionResultType.PASS, itemstack);
 		} else {
 			BlockRayTraceResult traceResult = (BlockRayTraceResult)raytraceresult;
 			BlockPos blockpos = traceResult.getPos();
 			EntityClippy clippy = MemeEntities.CLIPPY.get().create(worldIn);
-			clippy.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
-			worldIn.addEntity(clippy);
+			if(clippy != null) {
+				clippy.setPositionAndUpdate(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
+				worldIn.addEntity(clippy);
+			}
 
-			if (!playerIn.isCreative())
-			{
+			if (!playerIn.isCreative()) {
 				itemstack.shrink(1);
 			}
-			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, itemstack);
+			return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
 		}
 	}
 
