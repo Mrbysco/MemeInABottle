@@ -84,7 +84,7 @@
     "effect.memeinabottle.memed": "Dank",
 
     "_comment": "Creative tab name",
-    "itemGroup.memeinabottle.tab": "Meme In A Bottle",
+    "itemGroup.memeinabottle": "Meme In A Bottle",
 
     "_comment": "Entity names",
     "entity.memeinabottle:splash_meme": "Splash Meme In A Bottle",
