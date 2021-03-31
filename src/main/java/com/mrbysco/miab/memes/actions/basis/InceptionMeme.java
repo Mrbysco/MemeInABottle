@@ -7,6 +7,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.ChestTileEntity;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
@@ -23,9 +24,12 @@ public class InceptionMeme extends BasicFunny {
 		if(!world.isRemote) {
 			world.playSound((PlayerEntity)null, pos, MemeSounds.inception.get(), SoundCategory.RECORDS, 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 			world.setBlockState(pos, Blocks.CHEST.getDefaultState());
-			ChestTileEntity chest = (ChestTileEntity) world.getTileEntity(pos);
-			chest.setInventorySlotContents(0, new ItemStack(Blocks.CHEST));
-			chest.setCustomName(new StringTextComponent("Chestception"));
+			TileEntity tile = world.getTileEntity(pos);
+			if(tile instanceof ChestTileEntity) {
+				ChestTileEntity chest = (ChestTileEntity)tile;
+				chest.setInventorySlotContents(0, new ItemStack(Blocks.CHEST));
+				chest.setCustomName(new StringTextComponent("Chestception"));
+			}
 		}
 	}
 }

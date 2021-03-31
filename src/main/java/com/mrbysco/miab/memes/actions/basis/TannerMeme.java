@@ -5,6 +5,7 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -27,15 +28,12 @@ public class TannerMeme extends BasicFunny {
 					+ "I make over 200k a year and drive a mustang GT.\n "
 					+ "I guess some things never change huh loser? Nice catching up lol.\n"
 					+ " Pathetic..";
-			if(MemeConfig.SERVER.UseNarator.get())
-    		{
+			if(MemeConfig.SERVER.useNarator.get()) {
     			Narrator.getNarrator().say(tannerMessage, false);
-    		}
-    		else
-    		{
+    		} else {
     		    String[] splitMessage = tannerMessage.split("\n");
     			for(String message : splitMessage) {
-    				player.sendMessage(new StringTextComponent(message.trim()));
+    				player.sendMessage(new StringTextComponent(message.trim()), Util.DUMMY_UUID);
     			}
     		}
 		}

@@ -29,15 +29,15 @@ public class AddItemMemeAction implements IAction {
 		if(!this.soundEvent.isEmpty())
 			sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(this.soundEvent));
 
-		MemeRegistry.INSTANCE.registerMeme(new BasicItemTextMeme(uniqueID, weight, sound, stack.getInternal(), message));
+		MemeRegistry.instance().registerMeme(new BasicItemTextMeme(uniqueID, weight, sound, stack.getInternal(), message));
 	}
 
 	@Override
 	public String describe() {
-		if(MemeRegistry.INSTANCE.isIDUnique(this.uniqueID)) {
-			return String.format("Added a meme with ID: " + this.uniqueID + " to the Meme Registry.");
+		if(MemeRegistry.instance().isIDUnique(this.uniqueID)) {
+			return "Added a meme with ID: " + this.uniqueID + " to the Meme Registry.";
 		} else {
-			return String.format("Could not add meme with ID: " + this.uniqueID + " but that ID already exists.");
+			return "Could not add meme with ID: " + this.uniqueID + " but that ID already exists.";
 		}
 	}
 }

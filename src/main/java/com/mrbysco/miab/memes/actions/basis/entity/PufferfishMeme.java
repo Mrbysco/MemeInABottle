@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 public class PufferfishMeme extends BasicEntityMeme {
 
 	public PufferfishMeme() {
-		super(Reference.MOD_PREFIX + "pufferfish", 5, EntityType.PUFFERFISH, MemeSounds.pufferfish.get());
+		super(Reference.MOD_PREFIX + "pufferfish", 5, EntityType.PUFFERFISH, MemeSounds.pufferfish);
 	}
 
 	@Override
@@ -24,13 +25,10 @@ public class PufferfishMeme extends BasicEntityMeme {
 		super.trigger(world, pos, player);
 		if(!world.isRemote) {
 			spawnEntityItem(world, new ItemStack(Items.CARROT, 1), pos);
-			if(MemeConfig.SERVER.UseNarator.get())
-			{
+			if(MemeConfig.SERVER.useNarator.get()) {
 				Narrator.getNarrator().say("You know what to do!", false);
-			}
-			else
-			{
-				player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "message.ykwtd"));
+			} else {
+				player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "message.ykwtd"), Util.DUMMY_UUID);
 			}
 		}
 	}

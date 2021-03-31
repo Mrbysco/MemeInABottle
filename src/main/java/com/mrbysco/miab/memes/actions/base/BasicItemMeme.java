@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class BasicItemMeme extends BasicFunny {
 
 	private SoundEvent sound = null;
-	private ItemStack stack;
+	private final ItemStack stack;
 	
 	public BasicItemMeme(String name, int rarity, ItemStack stack) {
 		super(name, rarity);

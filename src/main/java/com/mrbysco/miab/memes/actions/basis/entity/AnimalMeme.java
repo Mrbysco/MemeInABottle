@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 
 public class AnimalMeme extends BasicFunny {
 
-	private EntityType<? extends TameableEntity> entry;
+	private final EntityType<? extends TameableEntity> entry;
 	private SoundEvent sound = null;
 
 	public AnimalMeme(String name, int rarity, EntityType<? extends TameableEntity> entry, @Nullable SoundEvent sound) {
@@ -33,7 +33,7 @@ public class AnimalMeme extends BasicFunny {
 		if(!world.isRemote) {
 			Entity animal = entry.create(world);
 			if(animal instanceof TameableEntity) {
-				spawnAnimal(world, (TameableEntity)entry.create(world), pos, player);
+				spawnAnimal(world, (TameableEntity)animal, pos, player);
 				if(this.sound != null) {
 					world.playSound((PlayerEntity)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
 				}
@@ -41,10 +41,11 @@ public class AnimalMeme extends BasicFunny {
 		}
 	}
 
-	public static void spawnAnimal(World world, TameableEntity entity, BlockPos pos, PlayerEntity owner)
-	{
-		entity.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
-		entity.setTamedBy(owner);
-		world.addEntity(entity);
+	public static void spawnAnimal(World world, @Nullable TameableEntity entity, BlockPos pos, PlayerEntity owner) {
+		if(entity != null) {
+			entity.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
+			entity.setTamedBy(owner);
+			world.addEntity(entity);
+		}
 	}
 }

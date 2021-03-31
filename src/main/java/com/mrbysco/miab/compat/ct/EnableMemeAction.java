@@ -17,32 +17,32 @@ public class EnableMemeAction implements IUndoableAction {
 	@Override
 	public void apply() {
 		if(this.memes.length > 0) {
-			MemeRegistry.INSTANCE.enableMeme(this.memes);
+			MemeRegistry.instance().enableMeme(this.memes);
 		}
 	}
 
     @Override
     public void undo() {
         if(this.memes.length > 0) {
-            MemeRegistry.INSTANCE.disableMeme(this.memes);
+            MemeRegistry.instance().disableMeme(this.memes);
         }
     }
 
     @Override
 	public String describe() {
         if(this.memes.length > 0) {
-            return String.format("The following memes have been enabled: " + this.memes.toString());
+            return "The following memes have been enabled: " + String.join(", ", this.memes);
         } else {
-            return String.format("Could not enable memes. String array was empty.");
+            return "Could not enable memes. String array was empty.";
         }
 	}
 
     @Override
     public String describeUndo() {
         if(this.memes.length > 0) {
-            return String.format("The following memes have been re-disabled: " + this.memes.toString());
+            return "The following memes have been re-disabled: " + String.join(", ", this.memes);
         } else {
-            return String.format("Could not re-disable memes. String array was empty.");
+            return "Could not re-disable memes. String array was empty.";
         }
     }
 }

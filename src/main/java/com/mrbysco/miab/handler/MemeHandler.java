@@ -19,9 +19,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.TickEvent;
@@ -38,13 +41,14 @@ import java.util.function.Predicate;
 
 public class MemeHandler {
 	@SubscribeEvent
-	public void OnBlockInteraction(PlayerInteractEvent.RightClickBlock event) {
+	public void onBlockInteraction(PlayerInteractEvent.RightClickBlock event) {
 		ItemStack itemStack = event.getItemStack();
 		BlockPos pos = event.getPos();
 		World world = event.getWorld();
 		Block block = world.getBlockState(pos).getBlock();
-		if (!world.isRemote && MemeConfig.SERVER.MemesOnBeach.get()) {
-			if (BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.BEACH)) {
+		if (!world.isRemote && MemeConfig.SERVER.memesOnBeach.get()) {
+			RegistryKey<Biome> biomeKey = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, world.getBiome(pos).getRegistryName());
+			if (BiomeDictionary.hasType(biomeKey, BiomeDictionary.Type.BEACH)) {
 				if (block instanceof SandBlock) {
 					if (itemStack.getItem() instanceof ShovelItem) {
 						int itemDamage = itemStack.getDamage();
@@ -61,17 +65,14 @@ public class MemeHandler {
 	}
 
 	@SubscribeEvent
-	public void OnEntityInteraction(EntityInteract event) {
+	public void onEntityInteraction(EntityInteract event) {
 		ItemStack itemStack = event.getItemStack();
-//		System.out.println(itemStack.getItem());
 		World world = event.getWorld();
 		if (!world.isRemote && MemeRegistry.nameList.contains(Reference.MOD_PREFIX + "pufferfish")) {
 			Entity entity = event.getTarget();
 			if (entity instanceof PufferfishEntity) {
 				if (itemStack.getItem() == Items.CARROT) {
-					if(MemeSounds.pufferfish.get() != null) {
-						world.playSound((PlayerEntity)null, event.getPos(), MemeSounds.pufferfish.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
-					}
+					world.playSound((PlayerEntity)null, event.getPos(), MemeSounds.pufferfish.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
 					entity.attackEntityFrom(DamageSource.GENERIC, 1.0F);
 					if(!event.getPlayer().abilities.isCreativeMode) {
 						itemStack.shrink(1);
@@ -84,12 +85,11 @@ public class MemeHandler {
 	public static List<Item> memeBottles = Lists.newArrayList();
 
 	@Nonnull
-	public static ItemStack getRandomMemeBottle(Random rand)
-	{
+	public static ItemStack getRandomMemeBottle(Random rand) {
 		if(memeBottles.isEmpty()) {
-			memeBottles.add(MemeRegister.meme_in_a_bottle.get());
-			memeBottles.add(MemeRegister.splash_meme_in_a_bottle.get());
-			memeBottles.add(MemeRegister.lingering_meme_in_a_bottle.get());
+			memeBottles.add(MemeRegister.MEME_IN_A_BOTTLE.get());
+			memeBottles.add(MemeRegister.SPLASH_MEME_IN_A_BOTTLE.get());
+			memeBottles.add(MemeRegister.LINGERING_MEME_IN_A_BOTTLE.get());
 		}
 		final int size = memeBottles.size();
 		Preconditions.checkArgument(size > 0, "Can't select from empty list");
@@ -102,19 +102,18 @@ public class MemeHandler {
 	private static final Predicate<Entity> ALIVE_PREDICATE = Entity::isAlive;
 
 	@SubscribeEvent
-	public void onTick(TickEvent.WorldTickEvent event)
-	{
+	public void onTick(TickEvent.WorldTickEvent event) {
 		if(event.phase == Phase.END && event.side == LogicalSide.SERVER) {
 			ServerWorld world = (ServerWorld)event.world;
 			if (world.getGameTime() % 40 == 0) {
 				for(Entity entity : world.getEntities(EntityType.AREA_EFFECT_CLOUD, ALIVE_PREDICATE)) {
-					if(entity.getCustomName() != null && entity.getCustomName().getFormattedText().equals("dankcloud")) {
+					if(entity.getCustomName() != null && entity.getCustomName().getString().equals("dankcloud")) {
 						PlayerEntity player = world.getClosestPlayer(entity, 20);
 						if(player != null) {
 							int random = world.rand.nextInt(10);
 
 							if(random < 4) {
-								MemeRegistry.INSTANCE.triggerRandomMeme(world, entity.getPosition(), player);
+								MemeRegistry.instance().triggerRandomMeme(world, entity.getPosition(), player);
 							}
 						}
 					}

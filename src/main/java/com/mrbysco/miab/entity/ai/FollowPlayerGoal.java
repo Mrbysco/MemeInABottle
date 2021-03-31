@@ -53,20 +53,17 @@ public class FollowPlayerGoal extends Goal {
         }
 	}
 
-	public boolean shouldContinueExecuting()
-    {
+	public boolean shouldContinueExecuting() {
         return !this.navigator.noPath() && this.meme.getDistanceSq(this.player) > (double)(this.maxDist * this.maxDist);
     }
 	
-	public void startExecuting()
-    {
+	public void startExecuting() {
         this.timeToRecalcPath = 0;
         this.oldWaterCost = this.meme.getPathPriority(PathNodeType.WATER);
         this.meme.setPathPriority(PathNodeType.WATER, 0.0F);
     }
 	
-	public void resetTask()
-    {
+	public void resetTask() {
         this.player = null;
         this.navigator.clearPath();
         this.meme.setPathPriority(PathNodeType.WATER, this.oldWaterCost);
@@ -79,8 +76,8 @@ public class FollowPlayerGoal extends Goal {
             if (!this.navigator.tryMoveToEntityLiving(this.player, this.followSpeed)) {
                 if (!this.meme.getLeashed() && !this.meme.isPassenger()) {
                     if (!(this.meme.getDistanceSq(this.player) < 144.0D)) {
-                        int i = MathHelper.floor(this.player.posX) - 2;
-                        int j = MathHelper.floor(this.player.posZ) - 2;
+                        int i = MathHelper.floor(this.player.getPosX()) - 2;
+                        int j = MathHelper.floor(this.player.getPosZ()) - 2;
                         int k = MathHelper.floor(this.player.getBoundingBox().minY);
 
                         for(int l = 0; l <= 4; ++l) {

@@ -1,5 +1,6 @@
 package com.mrbysco.miab.config;
 
+import com.mrbysco.miab.MemeInABottle;
 import com.mrbysco.miab.memes.MemeRegistry;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
@@ -7,49 +8,44 @@ import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.tuple.Pair;
-import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import static net.minecraftforge.fml.Logging.CORE;
-import static net.minecraftforge.fml.loading.LogMarkers.FORGEMOD;
 
 public class MemeConfig {
 
 	public static class Server {
-		public final BooleanValue MemesOnBeach;
-		public final BooleanValue MatureSounds;
-		public final BooleanValue UseNarator;
-		public final BooleanValue LogTriggers;
-		public final ConfigValue<List<? extends String>> disabled_memes;
+		public final BooleanValue memesOnBeach;
+		public final BooleanValue matureSounds;
+		public final BooleanValue useNarator;
+		public final BooleanValue logTriggers;
+		public final ConfigValue<List<? extends String>> disabledMemes;
 
 		Server(ForgeConfigSpec.Builder builder) {
 			builder.comment("General settings")
 					.push("general");
 
-			MemesOnBeach = builder
+			memesOnBeach = builder
 					.comment("When enabled allows you to dig up memes in beaches. (Default: true)")
-					.define("MemesOnBeach", true);
+					.define("memesOnBeach", true);
 
-			MatureSounds = builder
+			matureSounds = builder
 					.comment("Setting to true allows for some of the questionable memes (Default: false)")
-					.define("MatureSounds", false);
+					.define("matureSounds", false);
 
-			UseNarator = builder
+			useNarator = builder
 					.comment("Use Minecraft's narrator to pronounce some copypasta memes (Default: false)")
-					.define("MemesOnBeach", false);
+					.define("useNarator", false);
 
-			LogTriggers = builder
+			logTriggers = builder
 					.comment("When enabled will log the memes executed. (Default: false)")
-					.define("LogTriggers", false);
+					.define("logTriggers", false);
 
 			builder.pop();
 			builder.comment("Meme Settings")
 					.push("meme");
 
-			disabled_memes = builder
+			disabledMemes = builder
 					.comment("Any meme id's added here will be removed from the possible meme list")
 					.defineList("disabled_memes", new ArrayList<>(), entry -> entry instanceof String);
 
@@ -58,21 +54,21 @@ public class MemeConfig {
 	}
 
 	public static final ForgeConfigSpec serverSpec;
-	public static final MemeConfig.Server SERVER;
+	public static final Server SERVER;
 	static {
-		final Pair<MemeConfig.Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(MemeConfig.Server::new);
+		final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
 		serverSpec = specPair.getRight();
 		SERVER = specPair.getLeft();
 	}
 
 	@SubscribeEvent
 	public static void onLoad(final ModConfig.Loading configEvent) {
-		LogManager.getLogger().debug(FORGEMOD, "Loaded forge config file {}", configEvent.getConfig().getFileName());
+		MemeInABottle.logger.debug("Loaded Meme In A Bottle's config file {}", configEvent.getConfig().getFileName());
 	}
 
 	@SubscribeEvent
-	public static void onFileChange(final ModConfig.ConfigReloading configEvent) {
-		LogManager.getLogger().fatal(CORE, "Forge config just got changed on the file system!");
-		MemeRegistry.INSTANCE.checkDisabled();
+	public static void onFileChange(final ModConfig.Reloading configEvent) {
+		MemeInABottle.logger.debug("Meme In A Bottle's config just got changed on the file system!");
+		MemeRegistry.instance().checkDisabled();
 	}
 }

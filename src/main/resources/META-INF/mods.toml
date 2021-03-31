@@ -1,6 +1,7 @@
 modLoader="javafml"
-loaderVersion="[28,)"
+loaderVersion="[36,)"
 issueTrackerURL="https://github.com/mrbysco/memeinabottle/issues"
+license="MIT"
 
 [[mods]]
 modId="memeinabottle"

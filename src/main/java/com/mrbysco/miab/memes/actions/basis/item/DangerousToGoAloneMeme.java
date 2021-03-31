@@ -7,6 +7,7 @@ import com.mrbysco.miab.memes.actions.base.BasicFunny;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -26,13 +27,10 @@ public class DangerousToGoAloneMeme extends BasicFunny {
 			sword.setDisplayName(new StringTextComponent("Zelda Sword"));
 			spawnEntityItem(world, sword, pos);
 
-			if(MemeConfig.SERVER.UseNarator.get())
-    		{
+			if(MemeConfig.SERVER.useNarator.get()) {
 	        	Narrator.getNarrator().say("It's dangerous to go alone, take this", false);
-    		}
-    		else
-    		{
-    			player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "dangerous"));
+    		} else {
+    			player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "dangerous"), Util.DUMMY_UUID);
     		}
 		}
 	}

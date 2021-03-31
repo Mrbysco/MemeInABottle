@@ -7,22 +7,23 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BasicSoundMeme extends BasicFunny {
+import java.util.function.Supplier;
 
-	private SoundEvent sound;
+public class BasicSoundMeme extends BasicFunny {
+	private final Supplier<SoundEvent> soundEvent;
 	
-	public BasicSoundMeme(String name, int rarity, SoundEvent sound) {
+	public BasicSoundMeme(String name, int rarity, Supplier<SoundEvent> soundEvent) {
 		super(name, rarity);
-		this.sound = sound;
+		this.soundEvent = soundEvent;
 	}
 
 	@Override
 	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
-			if(this.sound != null) { 
-				world.playSound((PlayerEntity)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
+			if(soundEvent.get() != null) {
+				world.playSound((PlayerEntity)null, pos, soundEvent.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
 			} else {
-				MemeInABottle.logger.error("Meme sound by the name of: " + this.getName() + "has a null SoundEvent" );
+				MemeInABottle.logger.error("Meme by the name of: {} has an invalid SoundEvent", getName());
 			}
 		}
 	}

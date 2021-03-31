@@ -8,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class MemeSounds {
-	public static final DeferredRegister<SoundEvent> SOUND_EVENTS = new DeferredRegister<>(ForgeRegistries.SOUND_EVENTS, Reference.MOD_ID);
+	public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Reference.MOD_ID);
 
 	public static final RegistryObject<SoundEvent> cena_spawn = SOUND_EVENTS.register("cena.spawn", () -> createSound("cena.spawn"));
 	public static final RegistryObject<SoundEvent> cena_sound = SOUND_EVENTS.register("cena.sound", () -> createSound("cena.sound"));

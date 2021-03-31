@@ -1,118 +1,102 @@
 package com.mrbysco.miab.client;
 
-import com.mrbysco.miab.client.render.RenderAttachedGirlfriend;
-import com.mrbysco.miab.client.render.RenderBongoCat;
-import com.mrbysco.miab.client.render.RenderCena;
-import com.mrbysco.miab.client.render.RenderChocolateGuy;
-import com.mrbysco.miab.client.render.RenderClippy;
-import com.mrbysco.miab.client.render.RenderDankey;
-import com.mrbysco.miab.client.render.RenderDatBoi;
-import com.mrbysco.miab.client.render.RenderDoge;
-import com.mrbysco.miab.client.render.RenderFA;
-import com.mrbysco.miab.client.render.RenderGnome;
-import com.mrbysco.miab.client.render.RenderGrandDad;
-import com.mrbysco.miab.client.render.RenderGrumpy;
-import com.mrbysco.miab.client.render.RenderHeMan;
-import com.mrbysco.miab.client.render.RenderHotDog;
-import com.mrbysco.miab.client.render.RenderKnuckles;
-import com.mrbysco.miab.client.render.RenderKnucklesQueen;
-import com.mrbysco.miab.client.render.RenderKnucklesSpit;
-import com.mrbysco.miab.client.render.RenderNigel;
-import com.mrbysco.miab.client.render.RenderNyanCat;
-import com.mrbysco.miab.client.render.RenderPPAP;
-import com.mrbysco.miab.client.render.RenderPepe;
-import com.mrbysco.miab.client.render.RenderPhilSwift;
-import com.mrbysco.miab.client.render.RenderPingu;
-import com.mrbysco.miab.client.render.RenderRoadmanShaq;
-import com.mrbysco.miab.client.render.RenderRobbie;
-import com.mrbysco.miab.client.render.RenderRoflCopter;
-import com.mrbysco.miab.client.render.RenderSanic;
-import com.mrbysco.miab.client.render.RenderSans;
-import com.mrbysco.miab.client.render.RenderShrek;
-import com.mrbysco.miab.client.render.RenderSkywalker;
-import com.mrbysco.miab.client.render.RenderTacNayn;
-import com.mrbysco.miab.client.render.RenderTrololo;
-import com.mrbysco.miab.client.render.RenderTrump;
-import com.mrbysco.miab.entity.memes.EntityAttachedGirlfriend;
-import com.mrbysco.miab.entity.memes.EntityBongoCat;
-import com.mrbysco.miab.entity.memes.EntityCena;
-import com.mrbysco.miab.entity.memes.EntityChocolateGuy;
-import com.mrbysco.miab.entity.memes.EntityClippy;
-import com.mrbysco.miab.entity.memes.EntityDankey;
-import com.mrbysco.miab.entity.memes.EntityDatBoi;
-import com.mrbysco.miab.entity.memes.EntityDoge;
-import com.mrbysco.miab.entity.memes.EntityFA;
-import com.mrbysco.miab.entity.memes.EntityGnome;
-import com.mrbysco.miab.entity.memes.EntityGrumpy;
-import com.mrbysco.miab.entity.memes.EntityHeMan;
-import com.mrbysco.miab.entity.memes.EntityHotDog;
-import com.mrbysco.miab.entity.memes.EntityKnuckles;
-import com.mrbysco.miab.entity.memes.EntityKnucklesQueen;
-import com.mrbysco.miab.entity.memes.EntityMario7;
-import com.mrbysco.miab.entity.memes.EntityNigel;
-import com.mrbysco.miab.entity.memes.EntityNyanCat;
-import com.mrbysco.miab.entity.memes.EntityPPAP;
-import com.mrbysco.miab.entity.memes.EntityPepe;
-import com.mrbysco.miab.entity.memes.EntityPhilSwift;
-import com.mrbysco.miab.entity.memes.EntityPingu;
-import com.mrbysco.miab.entity.memes.EntityRoadmanShaq;
-import com.mrbysco.miab.entity.memes.EntityRobbie;
-import com.mrbysco.miab.entity.memes.EntityRoflCopter;
-import com.mrbysco.miab.entity.memes.EntitySanic;
-import com.mrbysco.miab.entity.memes.EntitySans;
-import com.mrbysco.miab.entity.memes.EntityShrek;
-import com.mrbysco.miab.entity.memes.EntitySkywalker;
-import com.mrbysco.miab.entity.memes.EntityTacNayn;
-import com.mrbysco.miab.entity.memes.EntityTrololo;
-import com.mrbysco.miab.entity.memes.EntityTrump;
-import com.mrbysco.miab.entity.projectile.EntityKnucklesSpit;
-import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
+import com.mrbysco.miab.client.render.AttachedGirlfriendRenderer;
+import com.mrbysco.miab.client.render.BongoCatRenderer;
+import com.mrbysco.miab.client.render.CenaRenderer;
+import com.mrbysco.miab.client.render.ChocolateGuyRenderer;
+import com.mrbysco.miab.client.render.ClippyRenderer;
+import com.mrbysco.miab.client.render.DankeyRenderer;
+import com.mrbysco.miab.client.render.DatBoiRenderer;
+import com.mrbysco.miab.client.render.DogeRenderer;
+import com.mrbysco.miab.client.render.FARenderer;
+import com.mrbysco.miab.client.render.GnomeRenderer;
+import com.mrbysco.miab.client.render.GrandDadRenderer;
+import com.mrbysco.miab.client.render.GrumpyRenderer;
+import com.mrbysco.miab.client.render.HeManRenderer;
+import com.mrbysco.miab.client.render.HotDogRenderer;
+import com.mrbysco.miab.client.render.KnucklesQueenRenderer;
+import com.mrbysco.miab.client.render.KnucklesRenderer;
+import com.mrbysco.miab.client.render.KnucklesSpitRenderer;
+import com.mrbysco.miab.client.render.NigelRenderer;
+import com.mrbysco.miab.client.render.NyanCatRenderer;
+import com.mrbysco.miab.client.render.PPAPRenderer;
+import com.mrbysco.miab.client.render.PepeRenderer;
+import com.mrbysco.miab.client.render.PhilSwiftRenderer;
+import com.mrbysco.miab.client.render.PinguRenderer;
+import com.mrbysco.miab.client.render.RoadmanShaqRenderer;
+import com.mrbysco.miab.client.render.RobbieRenderer;
+import com.mrbysco.miab.client.render.RoflCopterRenderer;
+import com.mrbysco.miab.client.render.SanicRenderer;
+import com.mrbysco.miab.client.render.SansRenderer;
+import com.mrbysco.miab.client.render.ShrekRenderer;
+import com.mrbysco.miab.client.render.SkywalkerRenderer;
+import com.mrbysco.miab.client.render.TacNyanRenderer;
+import com.mrbysco.miab.client.render.TrololoRenderer;
+import com.mrbysco.miab.client.render.TrumpRenderer;
+import com.mrbysco.miab.init.MemeEntities;
+import com.mrbysco.miab.init.MemeRegister;
+import com.mrbysco.miab.items.MemeSpawnEggItem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraft.item.ItemModelsProperties;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientHandler {
 
-	@SubscribeEvent
-    public static void registerRenders(ModelRegistryEvent event) {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySplashMeme.class, renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
+	public static void onClientSetup(final FMLClientSetupEvent event) {
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SPLASH_MEME.get(), renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityCena.class, renderManager -> new RenderCena(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTrump.class, renderManager -> new RenderTrump(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDoge.class, renderManager -> new RenderDoge(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrumpy.class, renderManager -> new RenderGrumpy(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAttachedGirlfriend.class, renderManager -> new RenderAttachedGirlfriend(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTrololo.class, renderManager -> new RenderTrololo(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPPAP.class, renderManager -> new RenderPPAP(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityRobbie.class, renderManager -> new RenderRobbie(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMario7.class, renderManager -> new RenderGrandDad(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHeMan.class, renderManager -> new RenderHeMan(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkywalker.class, renderManager -> new RenderSkywalker(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityRoadmanShaq.class, renderManager -> new RenderRoadmanShaq(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDankey.class, renderManager -> new RenderDankey(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPhilSwift.class, renderManager -> new RenderPhilSwift(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityShrek.class, renderManager -> new RenderShrek(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.JOHN_CENA.get(), renderManager -> new CenaRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DONALD_TRUMP.get(), renderManager -> new TrumpRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DOGE.get(), renderManager -> new DogeRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GRUMPY_CAT.get(), renderManager -> new GrumpyRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ATTACHED_GIRLFRIEND.get(), renderManager -> new AttachedGirlfriendRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.EDUARD_KHIL.get(), renderManager -> new TrololoRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PPAP.get(), renderManager -> new PPAPRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROBBIE_ROTTEN.get(), renderManager -> new RobbieRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GRAND_DAD.get(), renderManager -> new GrandDadRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.HE_MAN.get(), renderManager -> new HeManRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SKYWALKER.get(), renderManager -> new SkywalkerRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROADMAN_SHAQ.get(), renderManager -> new RoadmanShaqRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DANKEY_KANG.get(), renderManager -> new DankeyRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PHIL_SWIFT.get(), renderManager -> new PhilSwiftRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SHREK.get(), renderManager -> new ShrekRenderer(renderManager));
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityDatBoi.class, renderManager -> new RenderDatBoi(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySanic.class, renderManager -> new RenderSanic(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPepe.class, renderManager -> new RenderPepe(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFA.class, renderManager -> new RenderFA(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityNyanCat.class, renderManager -> new RenderNyanCat(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTacNayn.class, renderManager -> new RenderTacNayn(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityNigel.class, renderManager -> new RenderNigel(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHotDog.class, renderManager -> new RenderHotDog(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBongoCat.class, renderManager -> new RenderBongoCat(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityRoflCopter.class, renderManager -> new RenderRoflCopter(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityGnome.class, renderManager -> new RenderGnome(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityClippy.class, renderManager -> new RenderClippy(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySans.class, renderManager -> new RenderSans(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPingu.class, renderManager -> new RenderPingu(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityChocolateGuy.class, renderManager -> new RenderChocolateGuy(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DAT_BOI.get(), renderManager -> new DatBoiRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SANIC.get(), renderManager -> new SanicRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PEPE.get(), renderManager -> new PepeRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.FOREVER_ALONE.get(), renderManager -> new FARenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.NYAN_CAT.get(), renderManager -> new NyanCatRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.TAC_NAYN.get(), renderManager -> new TacNyanRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.NIGEL_THORNBERRY.get(), renderManager -> new NigelRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DANCING_HOTDOG.get(), renderManager -> new HotDogRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.BONGO_CAT.get(), renderManager -> new BongoCatRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROFL_COPTER.get(), renderManager -> new RoflCopterRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GNOME.get(), renderManager -> new GnomeRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.CLIPPY.get(), renderManager -> new ClippyRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SANS.get(), renderManager -> new SansRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PINGU.get(), renderManager -> new PinguRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.TOM.get(), renderManager -> new ChocolateGuyRenderer(renderManager));
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityKnuckles.class, renderManager -> new RenderKnuckles(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesSpit.class, renderManager -> new RenderKnucklesSpit(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesQueen.class, renderManager -> new RenderKnucklesQueen(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES.get(), renderManager -> new KnucklesRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES_SPIT.get(), renderManager -> new KnucklesSpitRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES_QUEEN.get(), renderManager -> new KnucklesQueenRenderer(renderManager));
+
+		ItemModelsProperties.registerProperty(MemeRegister.FIDGET_SPINNER.get(), new ResourceLocation("spinning"), (stack, world, livingEntity) ->
+				livingEntity != null && livingEntity.isHandActive() && livingEntity.getActiveItemStack() == stack ? 1.0F : 0.0F);
     }
+
+	public static void registerItemColors(final ColorHandlerEvent.Item event) {
+		ItemColors colors = event.getItemColors();
+
+		for(MemeSpawnEggItem item : MemeSpawnEggItem.getMemeEggs()) {
+			colors.register((p_198141_1_, p_198141_2_) -> {
+				return item.getColor(p_198141_2_);
+			}, item);
+		}
+	}
 }

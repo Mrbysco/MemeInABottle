@@ -10,13 +10,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class BasicEntityMeme extends BasicFunny {
 
-	private EntityType<? extends LivingEntity> entry;
-	private SoundEvent sound = null;
+	private final EntityType<? extends LivingEntity> entry;
+	private Supplier<SoundEvent> sound = () -> null;
 
-	public BasicEntityMeme(String name, int rarity, EntityType<? extends LivingEntity> entry, @Nullable SoundEvent sound) {
+	public BasicEntityMeme(String name, int rarity, EntityType<? extends LivingEntity> entry, @Nullable Supplier<SoundEvent> sound) {
 		super(name, rarity);
 		this.entry = entry;
 		this.sound = sound;
@@ -31,8 +32,8 @@ public class BasicEntityMeme extends BasicFunny {
 	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
 			spawnEntity(world, entry.create(world), pos);
-			if(this.sound != null) { 
-				world.playSound((PlayerEntity)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
+			if(this.sound.get() != null) {
+				world.playSound((PlayerEntity)null, pos, this.sound.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
 			} else {
 				MemeInABottle.logger.error("Meme sound by the name of: " + this.getName() + "has a null SoundEvent" );
 			}

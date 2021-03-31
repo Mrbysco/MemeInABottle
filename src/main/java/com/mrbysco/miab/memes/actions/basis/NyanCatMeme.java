@@ -1,8 +1,8 @@
 package com.mrbysco.miab.memes.actions.basis;
 
 import com.mrbysco.miab.Reference;
-import com.mrbysco.miab.entity.memes.EntityNyanCat;
-import com.mrbysco.miab.entity.memes.EntityTacNayn;
+import com.mrbysco.miab.entity.memes.NyanCatEntity;
+import com.mrbysco.miab.entity.memes.TacNyanEntity;
 import com.mrbysco.miab.init.MemeEntities;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,13 +18,17 @@ public class NyanCatMeme extends BasicFunny {
 	@Override
 	public void trigger(World world, BlockPos pos, PlayerEntity player) {
 		if(!world.isRemote) {
-			EntityNyanCat cat = MemeEntities.NYAN_CAT.get().create(world);
-			cat.setTamedBy(player);
-			spawnEntity(world, cat, pos);
-			if(world.rand.nextBoolean()) {
-				EntityTacNayn tac = MemeEntities.TAC_NAYN.get().create(world);
+			NyanCatEntity cat = MemeEntities.NYAN_CAT.get().create(world);
+			if(cat != null) {
 				cat.setTamedBy(player);
-				spawnEntity(world, tac, pos);
+				spawnEntity(world, cat, pos);
+			}
+			if(world.rand.nextBoolean()) {
+				TacNyanEntity tac = MemeEntities.TAC_NAYN.get().create(world);
+				if(tac != null) {
+					tac.setTamedBy(player);
+					spawnEntity(world, tac, pos);
+				}
 			}
 		}
 	}
