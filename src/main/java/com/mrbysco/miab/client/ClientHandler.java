@@ -50,41 +50,41 @@ public class ClientHandler {
 	public static void onClientSetup(final FMLClientSetupEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SPLASH_MEME.get(), renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
 
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.JOHN_CENA.get(), renderManager -> new CenaRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DONALD_TRUMP.get(), renderManager -> new TrumpRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DOGE.get(), renderManager -> new DogeRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GRUMPY_CAT.get(), renderManager -> new GrumpyRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ATTACHED_GIRLFRIEND.get(), renderManager -> new AttachedGirlfriendRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.EDUARD_KHIL.get(), renderManager -> new TrololoRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PPAP.get(), renderManager -> new PPAPRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROBBIE_ROTTEN.get(), renderManager -> new RobbieRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GRAND_DAD.get(), renderManager -> new GrandDadRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.HE_MAN.get(), renderManager -> new HeManRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SKYWALKER.get(), renderManager -> new SkywalkerRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROADMAN_SHAQ.get(), renderManager -> new RoadmanShaqRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DANKEY_KANG.get(), renderManager -> new DankeyRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PHIL_SWIFT.get(), renderManager -> new PhilSwiftRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SHREK.get(), renderManager -> new ShrekRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.JOHN_CENA.get(), CenaRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DONALD_TRUMP.get(), TrumpRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DOGE.get(), DogeRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GRUMPY_CAT.get(), GrumpyRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ATTACHED_GIRLFRIEND.get(), AttachedGirlfriendRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.EDUARD_KHIL.get(), TrololoRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PPAP.get(), PPAPRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROBBIE_ROTTEN.get(), RobbieRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GRAND_DAD.get(), GrandDadRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.HE_MAN.get(), HeManRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SKYWALKER.get(), SkywalkerRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROADMAN_SHAQ.get(), RoadmanShaqRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DANKEY_KANG.get(), DankeyRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PHIL_SWIFT.get(), PhilSwiftRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SHREK.get(), ShrekRenderer::new);
 
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DAT_BOI.get(), renderManager -> new DatBoiRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SANIC.get(), renderManager -> new SanicRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PEPE.get(), renderManager -> new PepeRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.FOREVER_ALONE.get(), renderManager -> new FARenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.NYAN_CAT.get(), renderManager -> new NyanCatRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.TAC_NAYN.get(), renderManager -> new TacNyanRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.NIGEL_THORNBERRY.get(), renderManager -> new NigelRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DANCING_HOTDOG.get(), renderManager -> new HotDogRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.BONGO_CAT.get(), renderManager -> new BongoCatRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROFL_COPTER.get(), renderManager -> new RoflCopterRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GNOME.get(), renderManager -> new GnomeRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.CLIPPY.get(), renderManager -> new ClippyRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SANS.get(), renderManager -> new SansRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PINGU.get(), renderManager -> new PinguRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.TOM.get(), renderManager -> new ChocolateGuyRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DAT_BOI.get(), DatBoiRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SANIC.get(), SanicRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PEPE.get(), PepeRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.FOREVER_ALONE.get(), FARenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.NYAN_CAT.get(), NyanCatRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.TAC_NAYN.get(), TacNyanRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.NIGEL_THORNBERRY.get(), NigelRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.DANCING_HOTDOG.get(), HotDogRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.BONGO_CAT.get(), BongoCatRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.ROFL_COPTER.get(), RoflCopterRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.GNOME.get(), GnomeRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.CLIPPY.get(), ClippyRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.SANS.get(), SansRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.PINGU.get(), PinguRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.TOM.get(), ChocolateGuyRenderer::new);
 
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES.get(), renderManager -> new KnucklesRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES_SPIT.get(), renderManager -> new KnucklesSpitRenderer(renderManager));
-		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES_QUEEN.get(), renderManager -> new KnucklesQueenRenderer(renderManager));
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES.get(), KnucklesRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES_SPIT.get(), KnucklesSpitRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MemeEntities.KNUCKLES_QUEEN.get(), KnucklesQueenRenderer::new);
 
 		ItemModelsProperties.registerProperty(MemeRegister.FIDGET_SPINNER.get(), new ResourceLocation("spinning"), (stack, world, livingEntity) ->
 				livingEntity != null && livingEntity.isHandActive() && livingEntity.getActiveItemStack() == stack ? 1.0F : 0.0F);
@@ -94,9 +94,7 @@ public class ClientHandler {
 		ItemColors colors = event.getItemColors();
 
 		for(MemeSpawnEggItem item : MemeSpawnEggItem.getMemeEggs()) {
-			colors.register((p_198141_1_, p_198141_2_) -> {
-				return item.getColor(p_198141_2_);
-			}, item);
+			colors.register((stack, tintIndex) -> item.getColor(tintIndex), item);
 		}
 	}
 }

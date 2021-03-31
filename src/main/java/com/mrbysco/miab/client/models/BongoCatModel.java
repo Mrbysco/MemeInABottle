@@ -71,8 +71,7 @@ public class BongoCatModel<T extends BongoCatEntity> extends SegmentedModel<T> {
 		this.bipedRightLeg.rotateAngleY = 0.0F;
 		this.bipedLeftLeg.rotateAngleY = 0.0F;
 
-		BongoCatEntity cat = (BongoCatEntity) entityIn;
-		boolean flag = cat.isTapping();
+		boolean flag = entityIn.isTapping();
 		float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
 		float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
 		this.bipedRightArm.rotateAngleZ = 0.0F;
@@ -84,7 +83,7 @@ public class BongoCatModel<T extends BongoCatEntity> extends SegmentedModel<T> {
 		this.bipedLeftArm.rotateAngleX = f2;
 
 		//clap?
-		float f3 = (flag ? ((MathHelper.cos(ageInTicks * 1F)) * 0.4F) : 0.0F);
+		float f3 = (flag ? ((MathHelper.cos(ageInTicks)) * 0.4F) : 0.0F);
 		this.bipedRightArm.rotateAngleX += f3;
 		this.bipedLeftArm.rotateAngleX += -f3;
 

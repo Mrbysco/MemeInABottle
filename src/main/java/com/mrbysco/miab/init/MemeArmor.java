@@ -29,7 +29,7 @@ public enum MemeArmor implements IArmorMaterial {
     private final float knockbackResistance;
     private final LazyValue<Ingredient> repairMaterial;
 
-    private MemeArmor(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, Supplier<SoundEvent> equipSoundIn, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterialSupplier) {
+    MemeArmor(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, Supplier<SoundEvent> equipSoundIn, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterialSupplier) {
         this.name = nameIn;
         this.maxDamageFactor = maxDamageFactorIn;
         this.damageReductionAmountArray = damageReductionAmountsIn;
@@ -71,6 +71,6 @@ public enum MemeArmor implements IArmorMaterial {
 
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return this.knockbackResistance;
     }
 }

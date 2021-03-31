@@ -4,13 +4,6 @@ import com.mrbysco.miab.entity.AbstractMeme;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
 public class HotDogModel<T extends AbstractMeme> extends HumanBaseModel<T> {
-	private final ModelRenderer Headset;
-	private final ModelRenderer HeadsetRight;
-	private final ModelRenderer HeadsetLeft;
-	private final ModelRenderer bipedRightLeg2;
-	private final ModelRenderer bipedRightFoot;
-	private final ModelRenderer bipedLeftFoot;
-	private final ModelRenderer bipedLeftLeg2;
 
 	public HotDogModel() {
 		super();
@@ -22,24 +15,24 @@ public class HotDogModel<T extends AbstractMeme> extends HumanBaseModel<T> {
 		bipedHead.setTextureOffset(0, 5).addBox(-3.0F, -6.0F, -2.0F, 7.0F, 6.0F, 4.0F, 0.0F, true);
 		bipedHead.setTextureOffset(2, 0).addBox(-1.9F, -7.0F, -2.0F, 5.0F, 1.0F, 4.0F, 0.0F, true);
 
-		Headset = new ModelRenderer(this);
-		Headset.setRotationPoint(0.0F, 23.0F, 0.0F);
-		bipedHead.addChild(Headset);
-		Headset.setTextureOffset(54, 58).addBox(-4.8F, -29.4F, -1.5F, 2.0F, 3.0F, 3.0F, 0.0F, true);
-		Headset.setTextureOffset(44, 58).addBox(3.8F, -29.4F, -1.5F, 2.0F, 3.0F, 3.0F, 0.0F, true);
-		Headset.setTextureOffset(32, 55).addBox(-2.9F, -31.4F, -0.5F, 7.0F, 1.0F, 1.0F, 0.0F, true);
+		ModelRenderer headset = new ModelRenderer(this);
+		headset.setRotationPoint(0.0F, 23.0F, 0.0F);
+		bipedHead.addChild(headset);
+		headset.setTextureOffset(54, 58).addBox(-4.8F, -29.4F, -1.5F, 2.0F, 3.0F, 3.0F, 0.0F, true);
+		headset.setTextureOffset(44, 58).addBox(3.8F, -29.4F, -1.5F, 2.0F, 3.0F, 3.0F, 0.0F, true);
+		headset.setTextureOffset(32, 55).addBox(-2.9F, -31.4F, -0.5F, 7.0F, 1.0F, 1.0F, 0.0F, true);
 
-		HeadsetRight = new ModelRenderer(this);
-		HeadsetRight.setRotationPoint(1.0F, -29.4F, 0.5F);
-		Headset.addChild(HeadsetRight);
-		setRotationAngle(HeadsetRight, 0.0F, 0.0F, -0.9425F);
-		HeadsetRight.setTextureOffset(56, 55).addBox(-3.7F, -4.5F, -1.0F, 3.0F, 1.0F, 1.0F, 0.0F, true);
+		ModelRenderer headsetRight = new ModelRenderer(this);
+		headsetRight.setRotationPoint(1.0F, -29.4F, 0.5F);
+		headset.addChild(headsetRight);
+		setRotationAngle(headsetRight, 0.0F, 0.0F, -0.9425F);
+		headsetRight.setTextureOffset(56, 55).addBox(-3.7F, -4.5F, -1.0F, 3.0F, 1.0F, 1.0F, 0.0F, true);
 
-		HeadsetLeft = new ModelRenderer(this);
-		HeadsetLeft.setRotationPoint(1.0F, -29.4F, 0.5F);
-		Headset.addChild(HeadsetLeft);
-		setRotationAngle(HeadsetLeft, 0.0F, 0.0F, 0.9425F);
-		HeadsetLeft.setTextureOffset(48, 55).addBox(0.15F, -3.7F, -1.0F, 3.0F, 1.0F, 1.0F, 0.0F, true);
+		ModelRenderer headsetLeft = new ModelRenderer(this);
+		headsetLeft.setRotationPoint(1.0F, -29.4F, 0.5F);
+		headset.addChild(headsetLeft);
+		setRotationAngle(headsetLeft, 0.0F, 0.0F, 0.9425F);
+		headsetLeft.setTextureOffset(48, 55).addBox(0.15F, -3.7F, -1.0F, 3.0F, 1.0F, 1.0F, 0.0F, true);
 
 		bipedHeadwear = new ModelRenderer(this);
 		bipedHeadwear.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -66,13 +59,13 @@ public class HotDogModel<T extends AbstractMeme> extends HumanBaseModel<T> {
 		bipedRightLeg.setRotationPoint(-1.9F, 14.0F, 1.1F);
 		bipedRightLeg.setTextureOffset(0, 48).addBox(-1.1F, 0.2F, -2.6F, 3.0F, 3.0F, 3.0F, 0.0F, false);
 
-		bipedRightLeg2 = new ModelRenderer(this);
+		ModelRenderer bipedRightLeg2 = new ModelRenderer(this);
 		bipedRightLeg2.setRotationPoint(-0.2F, 3.6F, -0.7F);
 		bipedRightLeg.addChild(bipedRightLeg2);
 		setRotationAngle(bipedRightLeg2, 0.2618F, -0.1222F, 0.0F);
 		bipedRightLeg2.setTextureOffset(0, 55).addBox(-1.0F, -1.0F, -2.0F, 3.0F, 6.0F, 3.0F, 0.0F, true);
 
-		bipedRightFoot = new ModelRenderer(this);
+		ModelRenderer bipedRightFoot = new ModelRenderer(this);
 		bipedRightFoot.setRotationPoint(4.7F, 10.2F, 0.2F);
 		bipedRightLeg.addChild(bipedRightFoot);
 		setRotationAngle(bipedRightFoot, 0.2618F, -0.1222F, 0.0175F);
@@ -82,13 +75,13 @@ public class HotDogModel<T extends AbstractMeme> extends HumanBaseModel<T> {
 		bipedLeftLeg.setRotationPoint(1.9F, 14.0F, 1.1F);
 		bipedLeftLeg.setTextureOffset(12, 48).addBox(-1.0F, 0.2F, -2.6F, 3.0F, 3.0F, 3.0F, 0.0F, true);
 
-		bipedLeftFoot = new ModelRenderer(this);
+		ModelRenderer bipedLeftFoot = new ModelRenderer(this);
 		bipedLeftFoot.setRotationPoint(0.7F, 10.2F, -0.2F);
 		bipedLeftLeg.addChild(bipedLeftFoot);
 		setRotationAngle(bipedLeftFoot, 0.2618F, 0.1222F, -0.0175F);
 		bipedLeftFoot.setTextureOffset(42, 48).addBox(-2.0F, -1.9F, -1.2F, 4.0F, 2.0F, 4.0F, 0.0F, true);
 
-		bipedLeftLeg2 = new ModelRenderer(this);
+		ModelRenderer bipedLeftLeg2 = new ModelRenderer(this);
 		bipedLeftLeg2.setRotationPoint(0.2F, 3.6F, -0.7F);
 		bipedLeftLeg.addChild(bipedLeftLeg2);
 		setRotationAngle(bipedLeftLeg2, 0.2618F, 0.1222F, 0.0F);

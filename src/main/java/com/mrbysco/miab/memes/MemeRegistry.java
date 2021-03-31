@@ -141,7 +141,7 @@ public class MemeRegistry {
 		registerMeme(new AnimalMeme(Reference.MOD_PREFIX + "grumpy_cat", 5, MemeEntities.GRUMPY_CAT.get(), SoundEvents.ENTITY_CAT_PURR));
 		registerMeme(new AnimalMeme(Reference.MOD_PREFIX + "doge", 5, MemeEntities.DOGE.get(), SoundEvents.ENTITY_WOLF_GROWL));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "overly_attached", 5, MemeEntities.ATTACHED_GIRLFRIEND.get()));
-		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "trololo", 5, MemeEntities.EDUARD_KHIL.get()));
+		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "trololo", 5, MemeEntities.EDUARD_KHIL.get(), MemeSounds.khil_spawn));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "ppap", 5, MemeEntities.PPAP.get(), MemeSounds.ppap_spawn));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "robbie_rotten", 5, MemeEntities.ROBBIE_ROTTEN.get(), MemeSounds.robbie_summon));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "grand_dad", 5, MemeEntities.GRAND_DAD.get(), MemeSounds.dad_summon));

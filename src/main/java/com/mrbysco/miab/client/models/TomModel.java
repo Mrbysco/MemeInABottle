@@ -58,7 +58,7 @@ public class TomModel<T extends ChocolateGuyEntity> extends SegmentedModel<T> {
 
 	@Override
 	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.bipedLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount / 1.0F;
+		this.bipedLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 		this.bipedRightLeg.rotateAngleY = 0.0F;
 		this.bipedLeftLeg.rotateAngleY = 0.0F;
 		this.bipedRightLeg.rotateAngleZ = 0.0F;

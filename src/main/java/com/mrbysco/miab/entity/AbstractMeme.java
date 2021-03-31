@@ -28,7 +28,7 @@ public abstract class AbstractMeme extends CreatureEntity {
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
 		return MobEntity.func_233666_p_()
 				.createMutableAttribute(Attributes.FOLLOW_RANGE, 20.0D)
-				.createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.2F)
+				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F)
 				.createMutableAttribute(Attributes.FOLLOW_RANGE, 20.0D)
 				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.23000000)
 				.createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D)

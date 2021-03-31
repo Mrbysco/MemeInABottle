@@ -12,18 +12,8 @@ public class DatBoiModel<T extends DatBoiEntity> extends SegmentedModel<T> {
 	private final ModelRenderer bipedLeftArm;
 	private final ModelRenderer bipedRightArm;
 	private final ModelRenderer RightKnee;
-	private final ModelRenderer RightLeg;
 	private final ModelRenderer LeftKnee;
-	private final ModelRenderer LeftLeg;
 	private final ModelRenderer Bike;
-	private final ModelRenderer Saddle;
-	private final ModelRenderer Frame;
-	private final ModelRenderer FullPedalLeft;
-	private final ModelRenderer LeftPeddleScape;
-	private final ModelRenderer LeftPaddle;
-	private final ModelRenderer FullPeddleRight;
-	private final ModelRenderer RightPeddleScape;
-	private final ModelRenderer RightPaddle;
 	private final ModelRenderer Wheel;
 
 	public DatBoiModel() {
@@ -58,77 +48,77 @@ public class DatBoiModel<T extends DatBoiEntity> extends SegmentedModel<T> {
 		setRotationAngle(RightKnee, 0.266F, 0.0F, 0.4653F);
 		RightKnee.setTextureOffset(56, 0).addBox(-6.0F, 1.0F, -1.0F, 2.0F, 12.0F, 2.0F, 0.0F, true);
 
-		RightLeg = new ModelRenderer(this);
-		RightLeg.setRotationPoint(-6.0F, 13.0F, 0.0F);
-		RightKnee.addChild(RightLeg);
-		setRotationAngle(RightLeg, 0.0F, 0.0F, -0.6981F);
-		RightLeg.setTextureOffset(56, 14).addBox(0.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, 0.0F, true);
+		ModelRenderer rightLeg = new ModelRenderer(this);
+		rightLeg.setRotationPoint(-6.0F, 13.0F, 0.0F);
+		RightKnee.addChild(rightLeg);
+		setRotationAngle(rightLeg, 0.0F, 0.0F, -0.6981F);
+		rightLeg.setTextureOffset(56, 14).addBox(0.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, 0.0F, true);
 
 		LeftKnee = new ModelRenderer(this);
 		LeftKnee.setRotationPoint(-1.7F, -2.0F, -1.0F);
 		setRotationAngle(LeftKnee, -0.1496F, 0.0F, -0.565F);
 		LeftKnee.setTextureOffset(48, 0).addBox(2.0F, 2.0F, 0.0F, 2.0F, 12.0F, 2.0F, 0.0F, true);
 
-		LeftLeg = new ModelRenderer(this);
-		LeftLeg.setRotationPoint(2.7F, 13.0F, 1.0F);
-		LeftKnee.addChild(LeftLeg);
-		setRotationAngle(LeftLeg, -0.2618F, 0.0873F, 0.7854F);
-		LeftLeg.setTextureOffset(48, 14).addBox(-0.5F, -0.5F, -1.0F, 2.0F, 8.0F, 2.0F, 0.0F, true);
+		ModelRenderer leftLeg = new ModelRenderer(this);
+		leftLeg.setRotationPoint(2.7F, 13.0F, 1.0F);
+		LeftKnee.addChild(leftLeg);
+		setRotationAngle(leftLeg, -0.2618F, 0.0873F, 0.7854F);
+		leftLeg.setTextureOffset(48, 14).addBox(-0.5F, -0.5F, -1.0F, 2.0F, 8.0F, 2.0F, 0.0F, true);
 
 		Bike = new ModelRenderer(this);
 		Bike.setRotationPoint(0.0F, 18.0F, 0.0F);
-		
 
-		Saddle = new ModelRenderer(this);
-		Saddle.setRotationPoint(0.0F, 0.0F, 0.0F);
-		Bike.addChild(Saddle);
-		Saddle.setTextureOffset(42, 46).addBox(-2.0F, -17.0F, -5.0F, 4.0F, 2.0F, 6.0F, 0.0F, true);
-		Saddle.setTextureOffset(40, 40).addBox(-4.0F, -17.0F, 1.0F, 8.0F, 2.0F, 4.0F, 0.0F, true);
 
-		Frame = new ModelRenderer(this);
-		Frame.setRotationPoint(0.0F, 0.0F, 0.0F);
-		Bike.addChild(Frame);
-		Frame.setTextureOffset(0, 46).addBox(-4.0F, -7.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, true);
-		Frame.setTextureOffset(28, 46).addBox(2.0F, -7.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, true);
-		Frame.setTextureOffset(8, 36).addBox(-3.0F, -9.0F, -1.0F, 6.0F, 2.0F, 2.0F, 0.0F, true);
-		Frame.setTextureOffset(0, 38).addBox(-1.0F, -15.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, true);
-		Frame.setTextureOffset(36, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
-		Frame.setTextureOffset(40, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
-		Frame.setTextureOffset(44, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
-		Frame.setTextureOffset(48, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
-		Frame.setTextureOffset(8, 40).addBox(-5.0F, -1.0F, -1.0F, 10.0F, 2.0F, 2.0F, 0.0F, true);
+		ModelRenderer saddle = new ModelRenderer(this);
+		saddle.setRotationPoint(0.0F, 0.0F, 0.0F);
+		Bike.addChild(saddle);
+		saddle.setTextureOffset(42, 46).addBox(-2.0F, -17.0F, -5.0F, 4.0F, 2.0F, 6.0F, 0.0F, true);
+		saddle.setTextureOffset(40, 40).addBox(-4.0F, -17.0F, 1.0F, 8.0F, 2.0F, 4.0F, 0.0F, true);
 
-		FullPedalLeft = new ModelRenderer(this);
-		FullPedalLeft.setRotationPoint(0.0F, 0.0F, 0.0F);
-		Frame.addChild(FullPedalLeft);
-		
+		ModelRenderer frame = new ModelRenderer(this);
+		frame.setRotationPoint(0.0F, 0.0F, 0.0F);
+		Bike.addChild(frame);
+		frame.setTextureOffset(0, 46).addBox(-4.0F, -7.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, true);
+		frame.setTextureOffset(28, 46).addBox(2.0F, -7.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, true);
+		frame.setTextureOffset(8, 36).addBox(-3.0F, -9.0F, -1.0F, 6.0F, 2.0F, 2.0F, 0.0F, true);
+		frame.setTextureOffset(0, 38).addBox(-1.0F, -15.0F, -1.0F, 2.0F, 6.0F, 2.0F, 0.0F, true);
+		frame.setTextureOffset(36, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
+		frame.setTextureOffset(40, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
+		frame.setTextureOffset(44, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
+		frame.setTextureOffset(48, 54).addBox(-0.5F, 0.6F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, true);
+		frame.setTextureOffset(8, 40).addBox(-5.0F, -1.0F, -1.0F, 10.0F, 2.0F, 2.0F, 0.0F, true);
 
-		LeftPeddleScape = new ModelRenderer(this);
-		LeftPeddleScape.setRotationPoint(-4.0F, 0.0F, -1.0F);
-		FullPedalLeft.addChild(LeftPeddleScape);
-		setRotationAngle(LeftPeddleScape, -1.0922F, 0.0F, 0.0F);
-		LeftPeddleScape.setTextureOffset(32, 39).addBox(-2.0F, -6.5F, -0.2F, 1.0F, 6.0F, 1.0F, 0.0F, true);
+		ModelRenderer fullPedalLeft = new ModelRenderer(this);
+		fullPedalLeft.setRotationPoint(0.0F, 0.0F, 0.0F);
+		frame.addChild(fullPedalLeft);
 
-		LeftPaddle = new ModelRenderer(this);
-		LeftPaddle.setRotationPoint(-5.4F, -2.2F, 4.9F);
-		FullPedalLeft.addChild(LeftPaddle);
-		LeftPaddle.setTextureOffset(36, 35).addBox(-2.35F, -1.0F, -2.0F, 4.0F, 1.0F, 3.0F, 0.0F, true);
 
-		FullPeddleRight = new ModelRenderer(this);
-		FullPeddleRight.setRotationPoint(0.0F, 0.0F, 0.0F);
-		Frame.addChild(FullPeddleRight);
-		
+		ModelRenderer leftPeddleScape = new ModelRenderer(this);
+		leftPeddleScape.setRotationPoint(-4.0F, 0.0F, -1.0F);
+		fullPedalLeft.addChild(leftPeddleScape);
+		setRotationAngle(leftPeddleScape, -1.0922F, 0.0F, 0.0F);
+		leftPeddleScape.setTextureOffset(32, 39).addBox(-2.0F, -6.5F, -0.2F, 1.0F, 6.0F, 1.0F, 0.0F, true);
 
-		RightPeddleScape = new ModelRenderer(this);
-		RightPeddleScape.setRotationPoint(4.0F, 0.0F, -1.0F);
-		FullPeddleRight.addChild(RightPeddleScape);
-		setRotationAngle(RightPeddleScape, -2.0237F, 0.0F, 0.0F);
-		RightPeddleScape.setTextureOffset(36, 39).addBox(1.0F, -1.0F, -0.7F, 1.0F, 6.0F, 1.0F, 0.0F, true);
+		ModelRenderer leftPaddle = new ModelRenderer(this);
+		leftPaddle.setRotationPoint(-5.4F, -2.2F, 4.9F);
+		fullPedalLeft.addChild(leftPaddle);
+		leftPaddle.setTextureOffset(36, 35).addBox(-2.35F, -1.0F, -2.0F, 4.0F, 1.0F, 3.0F, 0.0F, true);
 
-		RightPaddle = new ModelRenderer(this);
-		RightPaddle.setRotationPoint(5.4F, -2.2F, -4.9F);
-		FullPeddleRight.addChild(RightPaddle);
-		RightPaddle.setTextureOffset(50, 36).addBox(-1.4F, -0.75F, -1.4F, 4.0F, 1.0F, 3.0F, 0.0F, true);
+		ModelRenderer fullPeddleRight = new ModelRenderer(this);
+		fullPeddleRight.setRotationPoint(0.0F, 0.0F, 0.0F);
+		frame.addChild(fullPeddleRight);
+
+
+		ModelRenderer rightPeddleScape = new ModelRenderer(this);
+		rightPeddleScape.setRotationPoint(4.0F, 0.0F, -1.0F);
+		fullPeddleRight.addChild(rightPeddleScape);
+		setRotationAngle(rightPeddleScape, -2.0237F, 0.0F, 0.0F);
+		rightPeddleScape.setTextureOffset(36, 39).addBox(1.0F, -1.0F, -0.7F, 1.0F, 6.0F, 1.0F, 0.0F, true);
+
+		ModelRenderer rightPaddle = new ModelRenderer(this);
+		rightPaddle.setRotationPoint(5.4F, -2.2F, -4.9F);
+		fullPeddleRight.addChild(rightPaddle);
+		rightPaddle.setTextureOffset(50, 36).addBox(-1.4F, -0.75F, -1.4F, 4.0F, 1.0F, 3.0F, 0.0F, true);
 
 		Wheel = new ModelRenderer(this);
 		Wheel.setRotationPoint(0.0F, 0.0F, 0.0F);

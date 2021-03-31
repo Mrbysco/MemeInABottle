@@ -8,11 +8,9 @@ import net.minecraft.util.math.MathHelper;
 
 public class PinguModel<T extends PinguEntity> extends SegmentedModel<T> {
 	private final ModelRenderer Body;
-	private final ModelRenderer Body2;
 	private final ModelRenderer ArmLeft;
 	private final ModelRenderer ArmRight;
 	private final ModelRenderer Head;
-	private final ModelRenderer Mouth;
 	private final ModelRenderer FeetLeft;
 	private final ModelRenderer FeetRight;
 
@@ -24,10 +22,10 @@ public class PinguModel<T extends PinguEntity> extends SegmentedModel<T> {
 		Body.setRotationPoint(0.0F, 18.5F, 0.0F);
 		Body.setTextureOffset(0, 24).addBox(-3.0F, -4.5F, -3.0F, 6.0F, 9.0F, 5.0F, 0.0F, false);
 
-		Body2 = new ModelRenderer(this);
-		Body2.setRotationPoint(0.0F, 0.0F, -4.0F);
-		Body.addChild(Body2);
-		Body2.setTextureOffset(24, 30).addBox(-2.5F, -3.5F, 0.6F, 5.0F, 7.0F, 1.0F, 0.0F, false);
+		ModelRenderer body2 = new ModelRenderer(this);
+		body2.setRotationPoint(0.0F, 0.0F, -4.0F);
+		Body.addChild(body2);
+		body2.setTextureOffset(24, 30).addBox(-2.5F, -3.5F, 0.6F, 5.0F, 7.0F, 1.0F, 0.0F, false);
 
 		ArmLeft = new ModelRenderer(this);
 		ArmLeft.setRotationPoint(3.5F, 14.0F, -0.5F);
@@ -41,10 +39,10 @@ public class PinguModel<T extends PinguEntity> extends SegmentedModel<T> {
 		Head.setRotationPoint(0.0F, 14.5F, -0.5F);
 		Head.setTextureOffset(0, 0).addBox(-2.0F, -4.5F, -2.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
 
-		Mouth = new ModelRenderer(this);
-		Mouth.setRotationPoint(0.0F, -2.0F, -2.5F);
-		Head.addChild(Mouth);
-		Mouth.setTextureOffset(12, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+		ModelRenderer mouth = new ModelRenderer(this);
+		mouth.setRotationPoint(0.0F, -2.0F, -2.5F);
+		Head.addChild(mouth);
+		mouth.setTextureOffset(12, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
 
 		FeetLeft = new ModelRenderer(this);
 		FeetLeft.setRotationPoint(-1.5F, 23.0F, -1.0F);

@@ -8,10 +8,6 @@ import net.minecraft.util.math.MathHelper;
 public class RobbieModel<T extends AbstractMeme> extends HumanBaseModel<T> {
 	public RobbieModel() { }
 
-	public RobbieModel(float modelSize, boolean p_i46303_2_) {
-        super(modelSize, p_i46303_2_);
-    }
-
     @Override
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
