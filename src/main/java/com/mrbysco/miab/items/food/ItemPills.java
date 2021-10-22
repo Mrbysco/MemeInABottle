@@ -10,7 +10,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 
 public class ItemPills extends ItemMemeBase {

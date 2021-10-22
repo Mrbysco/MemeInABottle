@@ -67,8 +67,11 @@ import com.mrbysco.miab.entity.memes.EntityTrololo;
 import com.mrbysco.miab.entity.memes.EntityTrump;
 import com.mrbysco.miab.entity.projectile.EntityKnucklesSpit;
 import com.mrbysco.miab.entity.projectile.EntitySplashMeme;
+import com.mrbysco.miab.items.ItemMemeSpawnEgg;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -115,4 +118,15 @@ public class ClientHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesSpit.class, renderManager -> new RenderKnucklesSpit(renderManager));
 		RenderingRegistry.registerEntityRenderingHandler(EntityKnucklesQueen.class, renderManager -> new RenderKnucklesQueen(renderManager));
     }
+
+
+	public static void registerItemColors(final ColorHandlerEvent.Item event) {
+		ItemColors colors = event.getItemColors();
+
+		for(ItemMemeSpawnEgg item : ItemMemeSpawnEgg.getEggs()) {
+			colors.register((stack, tintIndex) -> {
+				return item.getColor(tintIndex);
+			}, item);
+		}
+	}
 }
