@@ -2,102 +2,88 @@ package com.mrbysco.miab.client.models;
 
 import com.google.common.collect.ImmutableList;
 import com.mrbysco.miab.entity.memes.BongoCatEntity;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.ListModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
-public class BongoCatModel<T extends BongoCatEntity> extends SegmentedModel<T> {
-	private final ModelRenderer bipedHead;
-	private final ModelRenderer RightEar;
-	private final ModelRenderer LeftEar;
-	private final ModelRenderer bipedLeftLeg;
-	private final ModelRenderer bipedLeftArm;
-	private final ModelRenderer bipedRightLeg;
-	private final ModelRenderer bipedRightArm;
-	private final ModelRenderer bipedBody;
+public class BongoCatModel<T extends BongoCatEntity> extends ListModel<T> {
+	private final ModelPart head;
+	private final ModelPart leftLeg;
+	private final ModelPart leftArm;
+	private final ModelPart rightLeg;
+	private final ModelPart rightArm;
+	private final ModelPart body;
 
-	public BongoCatModel() {
-		textureWidth = 64;
-		textureHeight = 64;
+	public BongoCatModel(ModelPart root) {
+		this.head = root.getChild("head");
+		this.leftLeg = root.getChild("left_leg");
+		this.leftArm = root.getChild("left_arm");
+		this.rightLeg = root.getChild("right_leg");
+		this.rightArm = root.getChild("right_arm");
+		this.body = root.getChild("body");
+	}
 
-		bipedHead = new ModelRenderer(this);
-		bipedHead.setRotationPoint(-1.0F, 12.0F, 0.0F);
-		bipedHead.setTextureOffset(1, 6).addBox(-2.0F, -6.0F, -2.0F, 6.0F, 6.0F, 4.0F, 0.0F, true);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		RightEar = new ModelRenderer(this);
-		RightEar.setRotationPoint(3.0F, -7.7F, -1.0F);
-		bipedHead.addChild(RightEar);
-		setRotationAngle(RightEar, 0.0F, 0.0F, 0.5236F);
-		RightEar.setTextureOffset(10, 0).addBox(-3.5F, 2.0F, 0.0F, 3.0F, 2.0F, 2.0F, 0.0F, false);
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(1, 6).addBox(-2.0F, -6.0F, -2.0F, 6.0F, 6.0F, 4.0F), PartPose.offset(-1.0F, 12.0F, 0.0F));
 
-		LeftEar = new ModelRenderer(this);
-		LeftEar.setRotationPoint(-1.0F, -7.7F, -1.02F);
-		bipedHead.addChild(LeftEar);
-		setRotationAngle(LeftEar, 0.0F, 0.0F, 1.0472F);
-		LeftEar.setTextureOffset(0, 0).addBox(2.0F, -3.5F, 0.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
+		PartDefinition right_ear = head.addOrReplaceChild("right_ear", CubeListBuilder.create().texOffs(10, 0).addBox(-3.5F, 2.0F, 0.0F, 3.0F, 2.0F, 2.0F), PartPose.offsetAndRotation(3.0F, -7.7F, -1.0F, 0.0F, 0.0F, 0.5236F));
 
-		bipedLeftLeg = new ModelRenderer(this);
-		bipedLeftLeg.setRotationPoint(1.0F, 18.0F, 0.1F);
-		bipedLeftLeg.setTextureOffset(0, 16).addBox(-1.0F, 0.0F, -1.5F, 3.0F, 6.0F, 3.0F, 0.0F, true);
+		PartDefinition left_ear = head.addOrReplaceChild("left_ear", CubeListBuilder.create().texOffs(0, 0).addBox(2.0F, -3.5F, 0.0F, 2.0F, 3.0F, 2.0F), PartPose.offsetAndRotation(-1.0F, -7.7F, -1.02F, 0.0F, 0.0F, 1.0472F));
 
-		bipedLeftArm = new ModelRenderer(this);
-		bipedLeftArm.setRotationPoint(4.0F, 14.0F, 0.0F);
-		setRotationAngle(bipedLeftArm, -2.0944F, 0.1F, 0.1F);
-		bipedLeftArm.setTextureOffset(40, 16).addBox(-1.0F, -2.0F, -2.0F, 3.0F, 6.0F, 3.0F, 0.0F, true);
+		PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 16).addBox(-1.0F, 0.0F, -1.5F, 3.0F, 6.0F, 3.0F), PartPose.offset(1.0F, 18.0F, 0.1F));
 
-		bipedRightLeg = new ModelRenderer(this);
-		bipedRightLeg.setRotationPoint(-2.0F, 18.0F, 0.1F);
-		bipedRightLeg.setTextureOffset(0, 16).addBox(-1.0F, 0.0F, -1.5F, 3.0F, 6.0F, 3.0F, 0.0F, false);
+		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(40, 16).addBox(-1.0F, -2.0F, -2.0F, 3.0F, 6.0F, 3.0F), PartPose.offsetAndRotation(4.0F, 14.0F, 0.0F, -2.0944F, 0.1F, 0.1F));
 
-		bipedRightArm = new ModelRenderer(this);
-		bipedRightArm.setRotationPoint(-4.0F, 14.0F, 0.0F);
-		setRotationAngle(bipedRightArm, -2.0944F, -0.1F, -0.1F);
-		bipedRightArm.setTextureOffset(40, 16).addBox(-2.0F, -2.0F, -2.0F, 3.0F, 6.0F, 3.0F, 0.0F, false);
+		PartDefinition right_leg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 16).addBox(-1.0F, 0.0F, -1.5F, 3.0F, 6.0F, 3.0F), PartPose.offset(-2.0F, 18.0F, 0.1F));
 
-		bipedBody = new ModelRenderer(this);
-		bipedBody.setRotationPoint(0.0F, 12.0F, 0.0F);
-		bipedBody.setTextureOffset(16, 16).addBox(-3.0F, 0.0F, -2.0F, 6.0F, 6.0F, 4.0F, 0.0F, true);
+		PartDefinition right_arm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(40, 16).addBox(-2.0F, -2.0F, -2.0F, 3.0F, 6.0F, 3.0F), PartPose.offsetAndRotation(-4.0F, 14.0F, 0.0F, -2.0944F, -0.1F, -0.1F));
+
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).addBox(-3.0F, 0.0F, -2.0F, 6.0F, 6.0F, 4.0F), PartPose.offset(0.0F, 12.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override
-	public Iterable<ModelRenderer> getParts() {
-		return ImmutableList.of(this.bipedHead, this.bipedLeftLeg, this.bipedRightLeg, this.bipedLeftArm, this.bipedRightArm, this.bipedBody);
+	public Iterable<ModelPart> parts() {
+		return ImmutableList.of(this.head, this.leftLeg, this.rightLeg, this.leftArm, this.rightArm, this.body);
 	}
 
 	@Override
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.bipedRightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
-		this.bipedLeftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount * 0.5F;
-		this.bipedRightLeg.rotateAngleY = 0.0F;
-		this.bipedLeftLeg.rotateAngleY = 0.0F;
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
+		this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount * 0.5F;
+		this.rightLeg.yRot = 0.0F;
+		this.leftLeg.yRot = 0.0F;
 
 		boolean flag = entityIn.isTapping();
-		float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
-		float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
-		this.bipedRightArm.rotateAngleZ = 0.0F;
-		this.bipedLeftArm.rotateAngleZ = 0.0F;
-		this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
-		this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
-		float f2 = -(float)Math.PI / (1.5F);
-		this.bipedRightArm.rotateAngleX = f2;
-		this.bipedLeftArm.rotateAngleX = f2;
+		float f = Mth.sin(this.attackTime * (float) Math.PI);
+		float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float) Math.PI);
+		this.rightArm.zRot = 0.0F;
+		this.leftArm.zRot = 0.0F;
+		this.rightArm.yRot = -(0.1F - f * 0.6F);
+		this.leftArm.yRot = 0.1F - f * 0.6F;
+		float f2 = -(float) Math.PI / (1.5F);
+		this.rightArm.xRot = f2;
+		this.leftArm.xRot = f2;
 
 		//clap?
-		float f3 = (flag ? ((MathHelper.cos(ageInTicks)) * 0.4F) : 0.0F);
-		this.bipedRightArm.rotateAngleX += f3;
-		this.bipedLeftArm.rotateAngleX += -f3;
+		float f3 = (flag ? ((Mth.cos(ageInTicks)) * 0.4F) : 0.0F);
+		this.rightArm.xRot += f3;
+		this.leftArm.xRot -= f3;
 
-		this.bipedRightArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-		this.bipedLeftArm.rotateAngleX += f * 1.2F - f1 * 0.4F;
-		this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-		this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-		this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-		this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+		this.rightArm.xRot += f * 1.2F - f1 * 0.4F;
+		this.leftArm.xRot += f * 1.2F - f1 * 0.4F;
+		this.rightArm.zRot += Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+		this.leftArm.zRot -= Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+		this.rightArm.xRot += Mth.sin(ageInTicks * 0.067F) * 0.05F;
+		this.leftArm.xRot -= Mth.sin(ageInTicks * 0.067F) * 0.05F;
 	}
 }

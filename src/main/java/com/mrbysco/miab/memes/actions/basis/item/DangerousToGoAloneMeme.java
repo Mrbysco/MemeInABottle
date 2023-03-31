@@ -4,14 +4,12 @@ import com.mojang.text2speech.Narrator;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 
 public class DangerousToGoAloneMeme extends BasicFunny {
 
@@ -20,18 +18,18 @@ public class DangerousToGoAloneMeme extends BasicFunny {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, PlayerEntity player) {
+	public void trigger(Level world, BlockPos pos, Player player) {
 		super.trigger(world, pos, player);
-		if(!world.isRemote) {
+		if (!world.isClientSide) {
 			ItemStack sword = new ItemStack(Items.WOODEN_SWORD);
-			sword.setDisplayName(new StringTextComponent("Zelda Sword"));
+			sword.setHoverName(Component.literal("Zelda Sword"));
 			spawnEntityItem(world, sword, pos);
 
-			if(MemeConfig.SERVER.useNarator.get()) {
-	        	Narrator.getNarrator().say("It's dangerous to go alone, take this", false);
-    		} else {
-    			player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "dangerous"), Util.DUMMY_UUID);
-    		}
+			if (MemeConfig.SERVER.useNarator.get()) {
+				Narrator.getNarrator().say("It's dangerous to go alone, take this", false);
+			} else {
+				player.sendSystemMessage(Component.translatable(Reference.MOD_PREFIX + "dangerous"));
+			}
 		}
 	}
 }

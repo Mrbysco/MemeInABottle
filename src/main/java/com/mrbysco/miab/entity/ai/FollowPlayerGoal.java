@@ -1,103 +1,104 @@
 package com.mrbysco.miab.entity.ai;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.pathfinding.FlyingPathNavigator;
-import net.minecraft.pathfinding.GroundPathNavigator;
-import net.minecraft.pathfinding.PathNavigator;
-import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
 import java.util.EnumSet;
 
 public class FollowPlayerGoal extends Goal {
-    public final AbstractMeme meme;
-    public PlayerEntity player;
-    public final World world;
-    public final double followSpeed;
-    public final PathNavigator navigator;
-    public int timeToRecalcPath;
-    float maxDist;
-    float minDist;
-    public float oldWaterCost;
-    public int range;
-    
+	public final AbstractMeme meme;
+	public Player player;
+	public final Level world;
+	public final double followSpeed;
+	public final PathNavigation navigator;
+	public int timeToRecalcPath;
+	float maxDist;
+	float minDist;
+	public float oldWaterCost;
+	public int range;
+
 	public FollowPlayerGoal(AbstractMeme memeIn, double followSpeedIn, float minDistIn, float maxDistIn, int findRange) {
-        this.meme = memeIn;
-        this.world = memeIn.world;
-        this.followSpeed = followSpeedIn;
-        this.navigator = memeIn.getNavigator();
-        this.minDist = minDistIn;
-        this.maxDist = maxDistIn;
-        this.range = findRange;
-        this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-        if (!(meme.getNavigator() instanceof GroundPathNavigator) && !(meme.getNavigator() instanceof FlyingPathNavigator)) {
-            throw new IllegalArgumentException("Unsupported mob type for FollowPlayerGoal");
-        }
-    }
-	
-	@Override
-	public boolean shouldExecute() {
-		PlayerEntity nearestPlayer = this.meme.getNearestPlayer(this.range);
-        if (nearestPlayer == null) {
-            return false;
-        } else if (nearestPlayer.isSpectator()) {
-            return false;
-        } else {
-            this.player = nearestPlayer;
-            return true;
-        }
+		this.meme = memeIn;
+		this.world = memeIn.level;
+		this.followSpeed = followSpeedIn;
+		this.navigator = memeIn.getNavigation();
+		this.minDist = minDistIn;
+		this.maxDist = maxDistIn;
+		this.range = findRange;
+		this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+		if (!(meme.getNavigation() instanceof GroundPathNavigation) && !(meme.getNavigation() instanceof FlyingPathNavigation)) {
+			throw new IllegalArgumentException("Unsupported mob type for FollowPlayerGoal");
+		}
 	}
 
-	public boolean shouldContinueExecuting() {
-        return !this.navigator.noPath() && this.meme.getDistanceSq(this.player) > (double)(this.maxDist * this.maxDist);
-    }
-	
-	public void startExecuting() {
-        this.timeToRecalcPath = 0;
-        this.oldWaterCost = this.meme.getPathPriority(PathNodeType.WATER);
-        this.meme.setPathPriority(PathNodeType.WATER, 0.0F);
-    }
-	
-	public void resetTask() {
-        this.player = null;
-        this.navigator.clearPath();
-        this.meme.setPathPriority(PathNodeType.WATER, this.oldWaterCost);
-    }
+	@Override
+	public boolean canUse() {
+		Player nearestPlayer = this.meme.getNearestPlayer(this.range);
+		if (nearestPlayer == null) {
+			return false;
+		} else if (nearestPlayer.isSpectator()) {
+			return false;
+		} else {
+			this.player = nearestPlayer;
+			return true;
+		}
+	}
 
-    public void tick() {
-        this.meme.getLookController().setLookPositionWithEntity(this.player, 10.0F, (float)this.meme.getVerticalFaceSpeed());
-        if (--this.timeToRecalcPath <= 0) {
-            this.timeToRecalcPath = 10;
-            if (!this.navigator.tryMoveToEntityLiving(this.player, this.followSpeed)) {
-                if (!this.meme.getLeashed() && !this.meme.isPassenger()) {
-                    if (!(this.meme.getDistanceSq(this.player) < 144.0D)) {
-                        int i = MathHelper.floor(this.player.getPosX()) - 2;
-                        int j = MathHelper.floor(this.player.getPosZ()) - 2;
-                        int k = MathHelper.floor(this.player.getBoundingBox().minY);
+	public boolean canContinueToUse() {
+		return !this.navigator.isDone() && this.meme.distanceToSqr(this.player) > (double) (this.maxDist * this.maxDist);
+	}
 
-                        for(int l = 0; l <= 4; ++l) {
-                            for(int i1 = 0; i1 <= 4; ++i1) {
-                                if ((l < 1 || i1 < 1 || l > 3 || i1 > 3) && this.canTeleportToBlock(new BlockPos(i + l, k - 1, j + i1))) {
-                                    this.meme.setLocationAndAngles((double)((float)(i + l) + 0.5F), (double)k, (double)((float)(j + i1) + 0.5F), this.meme.rotationYaw, this.meme.rotationPitch);
-                                    this.navigator.clearPath();
-                                    return;
-                                }
-                            }
-                        }
+	public void start() {
+		this.timeToRecalcPath = 0;
+		this.oldWaterCost = this.meme.getPathfindingMalus(BlockPathTypes.WATER);
+		this.meme.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+	}
 
-                    }
-                }
-            }
-        }
-    }
+	public void stop() {
+		this.player = null;
+		this.navigator.stop();
+		this.meme.setPathfindingMalus(BlockPathTypes.WATER, this.oldWaterCost);
+	}
 
-    protected boolean canTeleportToBlock(BlockPos pos) {
-        BlockState blockstate = this.world.getBlockState(pos);
-        return blockstate.canEntitySpawn(this.world, pos, this.meme.getType()) && this.world.isAirBlock(pos.up()) && this.world.isAirBlock(pos.up(2));
-    }
+	public void tick() {
+		this.meme.getLookControl().setLookAt(this.player, 10.0F, (float) this.meme.getMaxHeadXRot());
+		if (--this.timeToRecalcPath <= 0) {
+			this.timeToRecalcPath = 10;
+			if (!this.navigator.moveTo(this.player, this.followSpeed)) {
+				if (!this.meme.isLeashed() && !this.meme.isPassenger()) {
+					if (!(this.meme.distanceToSqr(this.player) < 144.0D)) {
+						int i = Mth.floor(this.player.getX()) - 2;
+						int j = Mth.floor(this.player.getZ()) - 2;
+						int k = Mth.floor(this.player.getBoundingBox().minY);
+
+						for (int l = 0; l <= 4; ++l) {
+							for (int i1 = 0; i1 <= 4; ++i1) {
+								if ((l < 1 || i1 < 1 || l > 3 || i1 > 3) && this.canTeleportToBlock(new BlockPos(i + l, k - 1, j + i1))) {
+									this.meme.moveTo((double) ((float) (i + l) + 0.5F), (double) k, (double) ((float) (j + i1) + 0.5F),
+											this.meme.getYRot(), this.meme.getXRot());
+									this.navigator.stop();
+									return;
+								}
+							}
+						}
+
+					}
+				}
+			}
+		}
+	}
+
+	protected boolean canTeleportToBlock(BlockPos pos) {
+		BlockState blockstate = this.world.getBlockState(pos);
+		return blockstate.isValidSpawn(this.world, pos, this.meme.getType()) && this.world.isEmptyBlock(pos.above()) && this.world.isEmptyBlock(pos.above(2));
+	}
 }

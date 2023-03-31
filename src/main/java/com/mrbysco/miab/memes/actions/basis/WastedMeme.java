@@ -1,32 +1,35 @@
 package com.mrbysco.miab.memes.actions.basis;
 
 import com.mrbysco.miab.Reference;
-import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.network.play.server.STitlePacket;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import com.mrbysco.miab.registry.MemeSounds;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
+import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 public class WastedMeme extends BasicFunny {
 
 	public WastedMeme() {
 		super(Reference.MOD_PREFIX + "wasted", 20);
-	}	
+	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, PlayerEntity player) {
-		if(!world.isRemote) {
-			world.playSound((PlayerEntity)null, pos, MemeSounds.wasted.get(), SoundCategory.NEUTRAL, 1f, 1f);
-			if ((player instanceof ServerPlayerEntity)) {
-				STitlePacket packet = new STitlePacket(STitlePacket.Type.TITLE,
-						new StringTextComponent("WASTED").mergeStyle(TextFormatting.RED).mergeStyle(Style.EMPTY.setBold(true)), 5, 60, 20);
-				((ServerPlayerEntity)player).connection.sendPacket(packet);
+	public void trigger(Level world, BlockPos pos, Player player) {
+		if (!world.isClientSide) {
+			world.playSound((Player) null, pos, MemeSounds.wasted.get(), SoundSource.NEUTRAL, 1f, 1f);
+			if (player instanceof ServerPlayer serverPlayer) {
+				ClientboundSetTitleTextPacket packet = new ClientboundSetTitleTextPacket(
+						Component.literal("WASTED").withStyle(ChatFormatting.RED).withStyle(Style.EMPTY.withBold(true)));
+				serverPlayer.connection.send(packet);
+				ClientboundSetTitlesAnimationPacket packet2 = new ClientboundSetTitlesAnimationPacket(5, 60, 20);
+				serverPlayer.connection.send(packet2);
 			}
 		}
 	}

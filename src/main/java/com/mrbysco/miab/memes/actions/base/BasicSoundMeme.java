@@ -1,27 +1,27 @@
 package com.mrbysco.miab.memes.actions.base;
 
 import com.mrbysco.miab.MemeInABottle;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
 
 public class BasicSoundMeme extends BasicFunny {
 	private final Supplier<SoundEvent> soundEvent;
-	
+
 	public BasicSoundMeme(String name, int rarity, Supplier<SoundEvent> soundEvent) {
 		super(name, rarity);
 		this.soundEvent = soundEvent;
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, PlayerEntity player) {
-		if(!world.isRemote) {
-			if(soundEvent.get() != null) {
-				world.playSound((PlayerEntity)null, pos, soundEvent.get(), SoundCategory.RECORDS, 0.75F, 1.0F);
+	public void trigger(Level world, BlockPos pos, Player player) {
+		if (!world.isClientSide) {
+			if (soundEvent.get() != null) {
+				world.playSound((Player) null, pos, soundEvent.get(), SoundSource.RECORDS, 0.75F, 1.0F);
 			} else {
 				MemeInABottle.logger.error("Meme by the name of: {} has an invalid SoundEvent", getName());
 			}

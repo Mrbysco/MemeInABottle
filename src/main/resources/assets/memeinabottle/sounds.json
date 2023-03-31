@@ -776,18 +776,8 @@
             "memeinabottle:memes/blagh"
         ]
 	},
-	"meme.record1" : {
+   "meme.record1" : {
 	"subtitle": "memeinabottle.subtitle.meme.record1",
-	"category" : "record",
-        "sounds": [
-            {
-            "name": "memeinabottle:record/invertednumberone",
-            "stream": true
-            }
-        ]
-	},
-   "meme.record2" : {
-	"subtitle": "memeinabottle.subtitle.meme.record2",
    "category" : "record",
         "sounds": [
             {
@@ -796,22 +786,12 @@
             }
         ]
    },
-   "meme.record3" : {
-	"subtitle": "memeinabottle.subtitle.meme.record3",
+   "meme.record2" : {
+	"subtitle": "memeinabottle.subtitle.meme.record2",
    "category" : "record",
         "sounds": [
             {
             "name": "memeinabottle:record/neverhurtingyou",
-            "stream": true
-            }
-        ]
-   },
-   "meme.record4" : {
-	"subtitle": "memeinabottle.subtitle.meme.record4",
-   "category" : "record",
-        "sounds": [
-            {
-            "name": "memeinabottle:record/goingon",
             "stream": true
             }
         ]

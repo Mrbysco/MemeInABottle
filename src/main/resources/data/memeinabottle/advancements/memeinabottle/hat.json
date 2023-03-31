@@ -1,30 +1,32 @@
 {
-    "display": {
-        "icon": {
-            "item": "memeinabottle:ripoff_hat"
-        },
-        "title": {
-            "translate": "Itsa me"
-        },
-        "description": {
-            "translate": "Merio"
-        },
-		"frame": "task",
-		"hidden": false,
-		"show_toast": true,
-        "announce_to_chat": false
-		},
-    "parent": "memeinabottle:memeinabottle/troll",
-    "criteria": {
-        "meme": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "item": "memeinabottle:ripoff_hat"
-                    }
-                ]
-            }
-        }
+  "display": {
+    "icon": {
+      "item": "memeinabottle:ripoff_hat"
+    },
+    "title": {
+      "translate": "Itsa me"
+    },
+    "description": {
+      "translate": "Merio"
+    },
+    "frame": "task",
+    "hidden": false,
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "memeinabottle:memeinabottle/troll",
+  "criteria": {
+    "meme": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "memeinabottle:ripoff_hat"
+            ]
+          }
+        ]
+      }
     }
+  }
 }

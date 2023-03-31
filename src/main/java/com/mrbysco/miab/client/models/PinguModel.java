@@ -1,89 +1,89 @@
 package com.mrbysco.miab.client.models;
 
-import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mrbysco.miab.entity.memes.PinguEntity;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
-public class PinguModel<T extends PinguEntity> extends SegmentedModel<T> {
-	private final ModelRenderer Body;
-	private final ModelRenderer ArmLeft;
-	private final ModelRenderer ArmRight;
-	private final ModelRenderer Head;
-	private final ModelRenderer FeetLeft;
-	private final ModelRenderer FeetRight;
+public class PinguModel<T extends PinguEntity> extends EntityModel<T> {
+	private final ModelPart head;
+	private final ModelPart body;
+	private final ModelPart left_arm;
+	private final ModelPart right_arm;
+	private final ModelPart left_feet;
+	private final ModelPart right_feet;
 
-	public PinguModel() {
-		textureWidth = 64;
-		textureHeight = 64;
+	public PinguModel(ModelPart root) {
+		this.head = root.getChild("head");
+		this.body = root.getChild("body");
+		this.left_arm = root.getChild("left_arm");
+		this.right_arm = root.getChild("right_arm");
+		this.left_feet = root.getChild("left_feet");
+		this.right_feet = root.getChild("right_feet");
+	}
 
-		Body = new ModelRenderer(this);
-		Body.setRotationPoint(0.0F, 18.5F, 0.0F);
-		Body.setTextureOffset(0, 24).addBox(-3.0F, -4.5F, -3.0F, 6.0F, 9.0F, 5.0F, 0.0F, false);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		ModelRenderer body2 = new ModelRenderer(this);
-		body2.setRotationPoint(0.0F, 0.0F, -4.0F);
-		Body.addChild(body2);
-		body2.setTextureOffset(24, 30).addBox(-2.5F, -3.5F, 0.6F, 5.0F, 7.0F, 1.0F, 0.0F, false);
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, -4.5F, -2.0F, 4.0F, 4.0F, 4.0F), PartPose.offset(0.0F, 14.5F, -0.5F));
 
-		ArmLeft = new ModelRenderer(this);
-		ArmLeft.setRotationPoint(3.5F, 14.0F, -0.5F);
-		ArmLeft.setTextureOffset(0, 38).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 7.0F, 2.0F, 0.0F, false);
+		PartDefinition Mouth = head.addOrReplaceChild("mouth", CubeListBuilder.create().create().texOffs(12, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 1.0F, 2.0F), PartPose.offset(0.0F, -2.0F, -2.5F));
 
-		ArmRight = new ModelRenderer(this);
-		ArmRight.setRotationPoint(-3.5F, 14.0F, -0.5F);
-		ArmRight.setTextureOffset(0, 38).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 7.0F, 2.0F, 0.0F, true);
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 24).addBox(-3.0F, -4.5F, -3.0F, 6.0F, 9.0F, 5.0F), PartPose.offset(0.0F, 18.5F, 0.0F));
 
-		Head = new ModelRenderer(this);
-		Head.setRotationPoint(0.0F, 14.5F, -0.5F);
-		Head.setTextureOffset(0, 0).addBox(-2.0F, -4.5F, -2.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
+		PartDefinition Body2 = body.addOrReplaceChild("body2", CubeListBuilder.create().texOffs(24, 30).addBox(-2.5F, -3.5F, 0.6F, 5.0F, 7.0F, 1.0F), PartPose.offset(0.0F, 0.0F, -4.0F));
 
-		ModelRenderer mouth = new ModelRenderer(this);
-		mouth.setRotationPoint(0.0F, -2.0F, -2.5F);
-		Head.addChild(mouth);
-		mouth.setTextureOffset(12, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 38).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 7.0F, 2.0F), PartPose.offset(3.5F, 14.0F, -0.5F));
 
-		FeetLeft = new ModelRenderer(this);
-		FeetLeft.setRotationPoint(-1.5F, 23.0F, -1.0F);
-		FeetLeft.setTextureOffset(0, 10).addBox(-1.0F, 0.0F, -4.0F, 2.0F, 1.0F, 5.0F, 0.0F, false);
+		PartDefinition right_arm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(0, 38).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 7.0F, 2.0F), PartPose.offset(-3.5F, 14.0F, -0.5F));
 
-		FeetRight = new ModelRenderer(this);
-		FeetRight.setRotationPoint(1.5F, 23.0F, -1.0F);
-		FeetRight.setTextureOffset(0, 10).addBox(-1.0F, 0.0F, -4.0F, 2.0F, 1.0F, 5.0F, 0.0F, true);
+		PartDefinition left_feet = partdefinition.addOrReplaceChild("left_feet", CubeListBuilder.create().texOffs(0, 10).addBox(-1.0F, 0.0F, -4.0F, 2.0F, 1.0F, 5.0F), PartPose.offset(-1.5F, 23.0F, -1.0F));
+
+		PartDefinition right_feet = partdefinition.addOrReplaceChild("right_feet", CubeListBuilder.create().texOffs(0, 10).addBox(-1.0F, 0.0F, -4.0F, 2.0F, 1.0F, 5.0F), PartPose.offset(1.5F, 23.0F, -1.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override
-	public Iterable<ModelRenderer> getParts() {
-		return ImmutableList.of(this.Body, this.ArmLeft, this.ArmRight, this.Head, this.FeetLeft, this.FeetRight);
-	}
-
-	protected Iterable<ModelRenderer> getHead() {
-		return ImmutableList.of(this.Head);
-	}
-
-	@Override
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.FeetRight.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
-		this.FeetLeft.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount * 0.5F;
-		this.FeetRight.rotateAngleY = 0.0F;
-		this.FeetLeft.rotateAngleY = 0.0F;
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.right_feet.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
+		this.left_feet.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount * 0.5F;
+		this.right_feet.yRot = 0.0F;
+		this.left_feet.yRot = 0.0F;
 
 		if (entityIn.isAggressive()) {
-			float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
-			float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
-			this.ArmRight.rotateAngleZ = 0.0F;
-			this.ArmLeft.rotateAngleZ = 0.0F;
-			this.ArmRight.rotateAngleY = -(0.1F - f * 0.6F);
-			this.ArmLeft.rotateAngleY = 0.1F - f * 0.6F;
-			this.ArmRight.rotateAngleX = -((float)Math.PI / 2F);
-			this.ArmLeft.rotateAngleX = -((float)Math.PI / 2F);
-			this.ArmRight.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-			this.ArmLeft.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-			this.ArmRight.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-			this.ArmLeft.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-			this.ArmRight.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-			this.ArmLeft.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+			float f = Mth.sin(this.attackTime * (float) Math.PI);
+			float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float) Math.PI);
+			this.right_arm.zRot = 0.0F;
+			this.left_arm.zRot = 0.0F;
+			this.right_arm.yRot = -(0.1F - f * 0.6F);
+			this.left_arm.yRot = 0.1F - f * 0.6F;
+			this.right_arm.xRot = -((float) Math.PI / 2F);
+			this.left_arm.xRot = -((float) Math.PI / 2F);
+			this.right_arm.xRot -= f * 1.2F - f1 * 0.4F;
+			this.left_arm.xRot -= f * 1.2F - f1 * 0.4F;
+			this.right_arm.zRot += Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.left_arm.zRot -= Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.right_arm.xRot += Mth.sin(ageInTicks * 0.067F) * 0.05F;
+			this.left_arm.xRot -= Mth.sin(ageInTicks * 0.067F) * 0.05F;
 		}
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		left_arm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		right_arm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		left_feet.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		right_feet.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

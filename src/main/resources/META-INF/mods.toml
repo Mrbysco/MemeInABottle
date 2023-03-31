@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[41,)"
 issueTrackerURL="https://github.com/mrbysco/memeinabottle/issues"
 license="MIT"
 
@@ -9,4 +9,11 @@ version="${file.jarVersion}"
 displayName="Meme in a bottle"
 displayURL="https://minecraft.curseforge.com/projects/meme-in-a-bottle"
 authors="Mrbysco"
-description='''Adding Memes to Minecraft since 2016'''
+description='''Adding (stale) Memes to Minecraft since 2016'''
+
+[[dependencies.memeinabottle]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.19,1.20)"
+ordering="NONE"
+side="BOTH"

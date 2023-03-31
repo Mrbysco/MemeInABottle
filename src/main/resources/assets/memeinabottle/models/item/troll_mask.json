@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "memeinabottle:items/troll_mask"
+        "layer0": "memeinabottle:item/troll_mask"
     }
 }

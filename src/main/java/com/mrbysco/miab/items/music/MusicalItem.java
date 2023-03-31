@@ -1,18 +1,17 @@
 package com.mrbysco.miab.items.music;
 
 import com.mrbysco.miab.items.MemeBaseItem;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -33,31 +32,31 @@ public class MusicalItem extends MemeBaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack itemstack = playerIn.getHeldItem(handIn);
+	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
+		ItemStack itemstack = playerIn.getItemInHand(handIn);
 
-		if(playerIn.isSneaking() && this.sound2.get() != null) {
+		if (playerIn.isShiftKeyDown() && this.sound2.get() != null) {
 			playerIn.playSound(this.sound2.get(), 1F, 1F);
 		} else {
 			playerIn.playSound(this.sound.get(), 1F, 1F);
 		}
 
-		if(this.sound2 == null) {
+		if (this.sound2 == null) {
 			playerIn.playSound(this.sound.get(), 1F, 1F);
 		}
 
-		if(this.cooldown != 0) {
-			playerIn.getCooldownTracker().setCooldown(this, this.cooldown);
+		if (this.cooldown != 0) {
+			playerIn.getCooldowns().addCooldown(this, this.cooldown);
 		}
 
-		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
+		return new InteractionResultHolder<>(InteractionResult.SUCCESS, itemstack);
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		super.addInformation(stack, worldIn, tooltip, flagIn);
-		if(this.info != null && !this.info.isEmpty()) {
-			tooltip.add(new TranslationTextComponent(this.info).mergeStyle(TextFormatting.YELLOW));
+	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
+		super.appendHoverText(stack, level, tooltip, flagIn);
+		if (this.info != null && !this.info.isEmpty()) {
+			tooltip.add(Component.translatable(this.info).withStyle(ChatFormatting.YELLOW));
 		}
 	}
 }

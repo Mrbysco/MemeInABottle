@@ -1,17 +1,17 @@
 package com.mrbysco.miab.memes.actions.basis;
 
 import com.mrbysco.miab.Reference;
-import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.ChestTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
+import com.mrbysco.miab.registry.MemeSounds;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 
 public class InceptionMeme extends BasicFunny {
 
@@ -20,15 +20,14 @@ public class InceptionMeme extends BasicFunny {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, PlayerEntity player) {
-		if(!world.isRemote) {
-			world.playSound((PlayerEntity)null, pos, MemeSounds.inception.get(), SoundCategory.RECORDS, 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
-			world.setBlockState(pos, Blocks.CHEST.getDefaultState());
-			TileEntity tile = world.getTileEntity(pos);
-			if(tile instanceof ChestTileEntity) {
-				ChestTileEntity chest = (ChestTileEntity)tile;
-				chest.setInventorySlotContents(0, new ItemStack(Blocks.CHEST));
-				chest.setCustomName(new StringTextComponent("Chestception"));
+	public void trigger(Level world, BlockPos pos, Player player) {
+		if (!world.isClientSide) {
+			world.playSound((Player) null, pos, MemeSounds.inception.get(), SoundSource.RECORDS, 0.5F, world.random.nextFloat() * 0.1F + 0.9F);
+			world.setBlockAndUpdate(pos, Blocks.CHEST.defaultBlockState());
+			BlockEntity tile = world.getBlockEntity(pos);
+			if (tile instanceof ChestBlockEntity chest) {
+				chest.setItem(0, new ItemStack(Blocks.CHEST));
+				chest.setCustomName(Component.literal("Chestception"));
 			}
 		}
 	}

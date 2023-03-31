@@ -1,47 +1,45 @@
 package com.mrbysco.miab.client.models;
 
-import com.mrbysco.miab.entity.AbstractMeme;
-import net.minecraft.client.renderer.model.ModelRenderer;
+import com.mrbysco.miab.entity.memes.DankeyEntity;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 
-public class DankeyModel<T extends AbstractMeme> extends HumanBaseModel<T> {
-	public DankeyModel() {
-		textureWidth = 64;
-		textureHeight = 64;
+public class DankeyModel<T extends DankeyEntity> extends HumanBaseModel<T> {
 
-		bipedHeadwear = new ModelRenderer(this);
-		bipedHeadwear.setRotationPoint(0.0F, 0.0F, 0.0F);
+	public DankeyModel(ModelPart root) {
+		super(root);
+	}
 
+	public static MeshDefinition createMesh(CubeDeformation cubeDeformation) {
+		MeshDefinition meshdefinition = new MeshDefinition();
 
-		bipedHead = new ModelRenderer(this);
-		bipedHead.setRotationPoint(0.0F, 0.0F, 0.0F);
-		bipedHead.setTextureOffset(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.0F, true);
-		bipedHead.setTextureOffset(32, 10).addBox(-4.0F, -3.0F, -4.0F, 8.0F, 3.0F, 2.0F, 0.5F, true);
+		PartDefinition partdefinition = meshdefinition.getRoot();
+		PartDefinition hat = partdefinition.addOrReplaceChild("hat", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		bipedBody = new ModelRenderer(this);
-		bipedBody.setRotationPoint(0.0F, 0.0F, 0.0F);
-		bipedBody.setTextureOffset(2, 16).addBox(-4.0F, 0.0F, -3.0F, 8.0F, 6.0F, 6.0F, 0.0F, true);
-		bipedBody.setTextureOffset(4, 28).addBox(-4.0F, 6.0F, -2.0F, 8.0F, 6.0F, 4.0F, 0.0F, true);
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, cubeDeformation)
+				.texOffs(32, 10).addBox(-4.0F, -3.0F, -4.0F, 8.0F, 3.0F, 2.0F, new CubeDeformation(0.5F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		bipedRightArm = new ModelRenderer(this);
-		bipedRightArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-		bipedRightArm.setTextureOffset(32, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
-		bipedRightArm.setTextureOffset(33, 24).addBox(-2.0F, 2.0F, -1.5F, 3.0F, 6.0F, 3.0F, 0.0F, false);
-		bipedRightArm.setTextureOffset(32, 33).addBox(-3.0F, 8.0F, -2.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(2, 16).addBox(-4.0F, 0.0F, -3.0F, 8.0F, 6.0F, 6.0F, cubeDeformation)
+				.texOffs(4, 28).addBox(-4.0F, 6.0F, -2.0F, 8.0F, 6.0F, 4.0F, cubeDeformation), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		bipedLeftArm = new ModelRenderer(this);
-		bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-		bipedLeftArm.setTextureOffset(32, 16).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, 0.0F, true);
-		bipedLeftArm.setTextureOffset(33, 24).addBox(-1.0F, 2.0F, -1.5F, 3.0F, 6.0F, 3.0F, 0.0F, true);
-		bipedLeftArm.setTextureOffset(32, 33).addBox(-1.0F, 8.0F, -2.0F, 4.0F, 4.0F, 4.0F, 0.0F, true);
+		PartDefinition right_arm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(32, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, cubeDeformation)
+				.texOffs(33, 24).addBox(-2.0F, 2.0F, -1.5F, 3.0F, 6.0F, 3.0F, cubeDeformation)
+				.texOffs(32, 33).addBox(-3.0F, 8.0F, -2.0F, 4.0F, 4.0F, 4.0F, cubeDeformation), PartPose.offset(-5.0F, 2.0F, 0.0F));
 
-		bipedRightLeg = new ModelRenderer(this);
-		bipedRightLeg.setRotationPoint(-1.9F, 12.0F, 0.1F);
-		bipedRightLeg.setTextureOffset(0, 38).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, 0.0F, false);
-		bipedRightLeg.setTextureOffset(0, 51).addBox(-2.0F, 9.0F, -2.5F, 4.0F, 3.0F, 5.0F, 0.0F, false);
+		PartDefinition left_arm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(32, 16).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, cubeDeformation)
+				.texOffs(33, 24).addBox(-1.0F, 2.0F, -1.5F, 3.0F, 6.0F, 3.0F, cubeDeformation)
+				.texOffs(32, 33).addBox(-1.0F, 8.0F, -2.0F, 4.0F, 4.0F, 4.0F, cubeDeformation), PartPose.offset(5.0F, 2.0F, 0.0F));
 
-		bipedLeftLeg = new ModelRenderer(this);
-		bipedLeftLeg.setRotationPoint(1.9F, 12.0F, 0.1F);
-		bipedLeftLeg.setTextureOffset(0, 38).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, 0.0F, true);
-		bipedLeftLeg.setTextureOffset(0, 51).addBox(-2.0F, 9.0F, -2.5F, 4.0F, 3.0F, 5.0F, 0.0F, true);
+		PartDefinition right_leg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 38).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, cubeDeformation)
+				.texOffs(0, 51).addBox(-2.0F, 9.0F, -2.5F, 4.0F, 3.0F, 5.0F, cubeDeformation), PartPose.offset(-1.9F, 12.0F, 0.1F));
+
+		PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 38).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, cubeDeformation)
+				.texOffs(0, 51).addBox(-2.0F, 9.0F, -2.5F, 4.0F, 3.0F, 5.0F, cubeDeformation), PartPose.offset(1.9F, 12.0F, 0.1F));
+
+		return meshdefinition;
 	}
 }

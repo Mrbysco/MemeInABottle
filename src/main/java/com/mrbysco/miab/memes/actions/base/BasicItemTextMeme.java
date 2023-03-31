@@ -2,15 +2,14 @@ package com.mrbysco.miab.memes.actions.base;
 
 import com.mojang.text2speech.Narrator;
 import com.mrbysco.miab.config.MemeConfig;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 
@@ -39,22 +38,22 @@ public class BasicItemTextMeme extends BasicFunny {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, PlayerEntity player) {
-		if(!world.isRemote) {
-			if(!message.isEmpty()) {
-				if(MemeConfig.SERVER.useNarator.get()) {
+	public void trigger(Level world, BlockPos pos, Player player) {
+		if (!world.isClientSide) {
+			if (!message.isEmpty()) {
+				if (MemeConfig.SERVER.useNarator.get()) {
 					Narrator.getNarrator().say(this.message, false);
 				} else {
 					String[] splitMessage = message.split("\n");
-					for(String message : splitMessage) {
-						player.sendMessage(new StringTextComponent(TextFormatting.YELLOW + message.trim()), Util.DUMMY_UUID);
+					for (String message : splitMessage) {
+						player.sendSystemMessage(Component.literal(ChatFormatting.YELLOW + message.trim()));
 					}
 				}
 			}
-			if(this.sound != null) {
-				world.playSound((PlayerEntity)null, pos, this.sound, SoundCategory.RECORDS, 0.75F, 1.0F);
+			if (this.sound != null) {
+				world.playSound((Player) null, pos, this.sound, SoundSource.RECORDS, 0.75F, 1.0F);
 			}
-	    	spawnEntityItem(world, this.stack, pos);
+			spawnEntityItem(world, this.stack, pos);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "memeinabottle:items/mcw_belt"
+        "layer0": "memeinabottle:item/mcw_belt"
     }
 }

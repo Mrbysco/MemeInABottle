@@ -1,9 +1,9 @@
 {
 	"__comment": "Designed by Mrbysco with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "memeinabottle:items/sax",
-		"sax": "memeinabottle:items/sax",
-		"mouth": "memeinabottle:items/sax"
+		"particle": "memeinabottle:item/sax",
+		"sax": "memeinabottle:item/sax",
+		"mouth": "memeinabottle:item/sax"
 	},
 	"elements": [
 		{

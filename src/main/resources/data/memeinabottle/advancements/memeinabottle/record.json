@@ -1,30 +1,32 @@
 {
-    "display": {
-        "icon": {
-            "item": "memeinabottle:meme_record_1"
-        },
-        "title": {
-            "translate": "We are inverted"
-        },
-        "description": {
-            "translate": "Classic 2017 Meme"
-        },
-		"frame": "task",
-		"hidden": false,
-		"show_toast": true,
-        "announce_to_chat": false
-		},
-    "parent": "memeinabottle:memeinabottle/splash",
-    "criteria": {
-        "meme": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "item": "memeinabottle:meme_record_1"
-                    }
-                ]
-            }
-        }
+  "display": {
+    "icon": {
+      "item": "memeinabottle:meme_record_1"
+    },
+    "title": {
+      "translate": "What song is this?"
+    },
+    "description": {
+      "translate": "Darude Minestorm"
+    },
+    "frame": "task",
+    "hidden": false,
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "memeinabottle:memeinabottle/splash",
+  "criteria": {
+    "meme": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "memeinabottle:meme_record_1"
+            ]
+          }
+        ]
+      }
     }
+  }
 }

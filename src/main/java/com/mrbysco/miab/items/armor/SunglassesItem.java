@@ -1,27 +1,26 @@
 package com.mrbysco.miab.items.armor;
 
 import com.mrbysco.miab.Reference;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class SunglassesItem extends CustomArmorItem {
-	public SunglassesItem(IArmorMaterial material, EquipmentSlotType armorType, Item.Properties builder) {
+	public SunglassesItem(ArmorMaterial material, EquipmentSlot armorType, Item.Properties builder) {
 		super(material, armorType, builder);
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		super.addInformation(stack, worldIn, tooltip, flagIn);
-		tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "sunglasses.info").mergeStyle(TextFormatting.WHITE));
+	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
+		super.appendHoverText(stack, level, tooltip, flagIn);
+		tooltip.add(Component.translatable(Reference.MOD_PREFIX + "sunglasses.info").withStyle(ChatFormatting.WHITE));
 	}
 }

@@ -3,58 +3,57 @@ package com.mrbysco.miab.items.bottle;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.entity.projectile.SplashMemeEntity;
 import com.mrbysco.miab.items.MemeBaseItem;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
 
 public class SplashMemeBottleItem extends MemeBaseItem {
 
 	public SplashMemeBottleItem(Item.Properties builder) {
-		super(builder.maxStackSize(16));
+		super(builder.stacksTo(16));
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack itemstack = playerIn.getHeldItem(handIn);
-		worldIn.playSound((PlayerEntity) null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.ENTITY_SPLASH_POTION_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
+		ItemStack itemstack = playerIn.getItemInHand(handIn);
+		level.playSound((Player) null, playerIn.getX(), playerIn.getY(), playerIn.getZ(), SoundEvents.SPLASH_POTION_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (playerIn.getRandom().nextFloat() * 0.4F + 0.8F));
 
-		if (!worldIn.isRemote) {
-			SplashMemeEntity memeEntity = new SplashMemeEntity(worldIn, playerIn);
+		if (!level.isClientSide) {
+			SplashMemeEntity memeEntity = new SplashMemeEntity(level, playerIn);
 			memeEntity.setItem(itemstack);
-			memeEntity.setDirectionAndMovement(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, -20.0F, 0.5F, 1.0F);
-			worldIn.addEntity(memeEntity);
+			memeEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), -20.0F, 0.5F, 1.0F);
+			level.addFreshEntity(memeEntity);
 		}
 
-		playerIn.addStat(Stats.ITEM_USED.get(this));
-		if (!playerIn.abilities.isCreativeMode) {
+		playerIn.awardStat(Stats.ITEM_USED.get(this));
+		if (!playerIn.getAbilities().instabuild) {
 			itemstack.shrink(1);
 		}
 
-		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
+		return new InteractionResultHolder<>(InteractionResult.SUCCESS, itemstack);
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		super.addInformation(stack, worldIn, tooltip, flagIn);
-		if(Screen.hasShiftDown()){
-			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "splashbottle.text1").mergeStyle(TextFormatting.YELLOW));
-			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "splashbottle.text2").mergeStyle(TextFormatting.YELLOW));
+	public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flagIn) {
+		super.appendHoverText(stack, level, tooltip, flagIn);
+		if (Screen.hasShiftDown()) {
+			tooltip.add(Component.translatable(Reference.MOD_PREFIX + "splashbottle.text1").withStyle(ChatFormatting.YELLOW));
+			tooltip.add(Component.translatable(Reference.MOD_PREFIX + "splashbottle.text2").withStyle(ChatFormatting.YELLOW));
 		} else {
-			tooltip.add(new TranslationTextComponent(Reference.MOD_PREFIX + "shift.info").mergeStyle(TextFormatting.GRAY));
+			tooltip.add(Component.translatable(Reference.MOD_PREFIX + "shift.info").withStyle(ChatFormatting.GRAY));
 		}
 	}
 }

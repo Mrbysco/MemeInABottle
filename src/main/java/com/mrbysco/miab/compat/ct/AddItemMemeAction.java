@@ -1,14 +1,14 @@
 package com.mrbysco.miab.compat.ct;
 
-import com.blamejared.crafttweaker.api.actions.IAction;
+import com.blamejared.crafttweaker.api.action.base.IRuntimeAction;
 import com.blamejared.crafttweaker.api.item.IItemStack;
-import com.mrbysco.miab.memes.MemeRegistry;
+import com.mrbysco.miab.memes.FunnyRegistry;
 import com.mrbysco.miab.memes.actions.base.BasicItemTextMeme;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class AddItemMemeAction implements IAction {
+public class AddItemMemeAction implements IRuntimeAction {
 	private final String uniqueID;
 	private final int weight;
 	private final IItemStack stack;
@@ -26,15 +26,15 @@ public class AddItemMemeAction implements IAction {
 	@Override
 	public void apply() {
 		SoundEvent sound = null;
-		if(!this.soundEvent.isEmpty())
+		if (!this.soundEvent.isEmpty())
 			sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(this.soundEvent));
 
-		MemeRegistry.instance().registerMeme(new BasicItemTextMeme(uniqueID, weight, sound, stack.getInternal(), message));
+		FunnyRegistry.instance().registerMeme(new BasicItemTextMeme(uniqueID, weight, sound, stack.getInternal(), message));
 	}
 
 	@Override
 	public String describe() {
-		if(MemeRegistry.instance().isIDUnique(this.uniqueID)) {
+		if (FunnyRegistry.instance().isIDUnique(this.uniqueID)) {
 			return "Added a meme with ID: " + this.uniqueID + " to the Meme Registry.";
 		} else {
 			return "Could not add meme with ID: " + this.uniqueID + " but that ID already exists.";

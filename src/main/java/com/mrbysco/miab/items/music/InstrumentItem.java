@@ -1,9 +1,9 @@
 package com.mrbysco.miab.items.music;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.UseAction;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 public class InstrumentItem extends MusicalItem {
 
 	public InstrumentItem(Item.Properties builder, Supplier<SoundEvent> soundIn, @Nullable Supplier<SoundEvent> soundIn2, int cooldown, String infoText) {
-		super(builder.maxStackSize(1), soundIn, soundIn2, cooldown, infoText);
+		super(builder.stacksTo(1), soundIn, soundIn2, cooldown, infoText);
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class InstrumentItem extends MusicalItem {
 	}
 
 	@Override
-	public UseAction getUseAction(ItemStack stack) {
-		return UseAction.BOW;
+	public UseAnim getUseAnimation(ItemStack stack) {
+		return UseAnim.BOW;
 	}
 }

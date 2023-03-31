@@ -1,40 +1,41 @@
 package com.mrbysco.miab.client.render;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Vector3f;
 import com.mrbysco.miab.entity.projectile.KnucklesSpitEntity;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.model.LlamaSpitModel;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.model.LlamaSpitModel;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3f;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 public class KnucklesSpitRenderer extends EntityRenderer<KnucklesSpitEntity> {
-    private static final ResourceLocation SPIT_TEXTURE = new ResourceLocation("textures/entity/llama/spit.png");
-    private final LlamaSpitModel<KnucklesSpitEntity> model = new LlamaSpitModel<>();
+	private static final ResourceLocation SPIT_TEXTURE = new ResourceLocation("textures/entity/llama/spit.png");
+	private final LlamaSpitModel<KnucklesSpitEntity> model;
 
-    public KnucklesSpitRenderer(EntityRendererManager EntityRendererManagerIn)
-    {
-        super(EntityRendererManagerIn);
-    }
+	public KnucklesSpitRenderer(EntityRendererProvider.Context context) {
+		super(context);
+		this.model = new LlamaSpitModel<>(context.bakeLayer(ModelLayers.LLAMA_SPIT));
+	}
 
-    @Override
-    public void render(KnucklesSpitEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
-        matrixStackIn.push();
-        matrixStackIn.translate(0.0D, (double)0.15F, 0.0D);
-        matrixStackIn.rotate(Vector3f.YP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.prevRotationYaw, entityIn.rotationYaw) - 90.0F));
-        matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.prevRotationPitch, entityIn.rotationPitch)));
-        this.model.setRotationAngles(entityIn, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
-        IVertexBuilder ivertexbuilder = bufferIn.getBuffer(this.model.getRenderType(SPIT_TEXTURE));
-        this.model.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-        matrixStackIn.pop();
-        super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
-    }
+	@Override
+	public void render(KnucklesSpitEntity entityIn, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn) {
+		poseStack.pushPose();
+		poseStack.translate(0.0D, (double) 0.15F, 0.0D);
+		poseStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(partialTicks, entityIn.yRotO, entityIn.getYRot()) - 90.0F));
+		poseStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(partialTicks, entityIn.xRotO, entityIn.getXRot())));
+		this.model.setupAnim(entityIn, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
+		VertexConsumer vertexConsumer = bufferSource.getBuffer(this.model.renderType(SPIT_TEXTURE));
+		this.model.renderToBuffer(poseStack, vertexConsumer, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+		poseStack.popPose();
+		super.render(entityIn, entityYaw, partialTicks, poseStack, bufferSource, packedLightIn);
+	}
 
-    public ResourceLocation getEntityTexture(KnucklesSpitEntity entity) {
-        return SPIT_TEXTURE;
-    }
+	public ResourceLocation getTextureLocation(KnucklesSpitEntity entity) {
+		return SPIT_TEXTURE;
+	}
 }

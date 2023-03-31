@@ -1,31 +1,30 @@
 package com.mrbysco.miab.entity.memes;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.level.Level;
 
-public class DogeEntity extends WolfEntity {
+public class DogeEntity extends Wolf {
 
-	public DogeEntity(EntityType<? extends DogeEntity> entityType, World worldIn) {
-		super(entityType, worldIn);
+	public DogeEntity(EntityType<? extends DogeEntity> entityType, Level level) {
+		super(entityType, level);
 	}
 
 	@Override
-	public boolean canMateWith(AnimalEntity otherAnimal) {
+	public boolean canMate(Animal otherAnimal) {
 		if (otherAnimal == this) {
 			return false;
-		} else if (!this.isTamed()) {
+		} else if (!this.isTame()) {
 			return false;
-		} else if (!(otherAnimal instanceof DogeEntity)) {
+		} else if (!(otherAnimal instanceof DogeEntity entityDoge)) {
 			return false;
 		} else {
-			DogeEntity entityDoge = (DogeEntity)otherAnimal;
 
-			if (!entityDoge.isTamed()) {
+			if (!entityDoge.isTame()) {
 				return false;
-			} else if (entityDoge.isQueuedToSit()) {
+			} else if (entityDoge.isOrderedToSit()) {
 				return false;
 			} else {
 				return this.isInLove() && entityDoge.isInLove();
@@ -33,7 +32,7 @@ public class DogeEntity extends WolfEntity {
 		}
 	}
 
-	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return WolfEntity.registerAttributes();
+	public static AttributeSupplier.Builder registerAttributes() {
+		return Wolf.createAttributes();
 	}
 }

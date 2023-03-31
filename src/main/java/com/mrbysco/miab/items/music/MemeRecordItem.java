@@ -1,13 +1,12 @@
 package com.mrbysco.miab.items.music;
 
-import com.mrbysco.miab.init.MemeTab;
-import net.minecraft.item.MusicDiscItem;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.RecordItem;
 
 import java.util.function.Supplier;
 
-public class MemeRecordItem extends MusicDiscItem {
-	public MemeRecordItem(int comparatorValue, Supplier<SoundEvent> soundIn, Properties builder) {
-		super(comparatorValue, soundIn, builder.maxDamage(1).group(MemeTab.MEME_TAB));
+public class MemeRecordItem extends RecordItem {
+	public MemeRecordItem(int comparatorValue, Supplier<SoundEvent> soundIn, int length, Properties builder) {
+		super(comparatorValue, soundIn, builder.durability(1), length);
 	}
 }

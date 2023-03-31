@@ -1,3 +1,6 @@
+[![build](https://github.com/Mrbysco/MemeInABottle/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/MemeInABottle/actions/workflows/build.yml)
+[![](http://cf.way2muchnoise.eu/versions/240830.svg)](https://www.curseforge.com/minecraft/mc-mods/meme-in-a-bottle)
+
 # Memes In A Bottle #
 
 ## About ##

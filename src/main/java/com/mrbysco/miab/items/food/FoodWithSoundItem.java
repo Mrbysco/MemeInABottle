@@ -1,20 +1,20 @@
 package com.mrbysco.miab.items.food;
 
 import com.mrbysco.miab.items.MemeBaseItem;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
 
 public class FoodWithSoundItem extends MemeBaseItem {
-	private Supplier<SoundEvent> sound;
-	private int cooldown;
+	private final Supplier<SoundEvent> sound;
+	private final int cooldown;
 
 	public FoodWithSoundItem(Item.Properties builder, Supplier<SoundEvent> soundIn, int cooldownIn) {
 		super(builder);
@@ -23,12 +23,12 @@ public class FoodWithSoundItem extends MemeBaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		worldIn.playSound((PlayerEntity) null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), this.sound.get(), SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
+		level.playSound((Player) null, playerIn.getX(), playerIn.getY(), playerIn.getZ(), this.sound.get(), SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
 
-		if(this.cooldown != 0) {
-			playerIn.getCooldownTracker().setCooldown(this, this.cooldown);
+		if (this.cooldown != 0) {
+			playerIn.getCooldowns().addCooldown(this, this.cooldown);
 		}
-		return super.onItemRightClick(worldIn, playerIn, handIn);
+		return super.use(level, playerIn, handIn);
 	}
 }

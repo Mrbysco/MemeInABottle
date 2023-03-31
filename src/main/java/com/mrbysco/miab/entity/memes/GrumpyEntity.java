@@ -1,31 +1,30 @@
 package com.mrbysco.miab.entity.memes;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CatEntity;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.level.Level;
 
-public class GrumpyEntity extends CatEntity {
+public class GrumpyEntity extends Cat {
 
-	public GrumpyEntity(EntityType<? extends GrumpyEntity> entityType, World worldIn) {
-		super(entityType, worldIn);
+	public GrumpyEntity(EntityType<? extends GrumpyEntity> entityType, Level level) {
+		super(entityType, level);
 	}
 
 	@Override
-	public boolean canMateWith(AnimalEntity otherAnimal) {
+	public boolean canMate(Animal otherAnimal) {
 		if (otherAnimal == this) {
 			return false;
-		} else if (!this.isTamed()) {
+		} else if (!this.isTame()) {
 			return false;
-		} else if (!(otherAnimal instanceof GrumpyEntity)) {
+		} else if (!(otherAnimal instanceof GrumpyEntity grumpyEntity)) {
 			return false;
 		} else {
-			GrumpyEntity grumpyEntity = (GrumpyEntity)otherAnimal;
 
-			if (!grumpyEntity.isTamed()) {
+			if (!grumpyEntity.isTame()) {
 				return false;
-			} else if (grumpyEntity.isQueuedToSit()) {
+			} else if (grumpyEntity.isOrderedToSit()) {
 				return false;
 			} else {
 				return this.isInLove() && grumpyEntity.isInLove();
@@ -33,7 +32,7 @@ public class GrumpyEntity extends CatEntity {
 		}
 	}
 
-	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return CatEntity.func_234184_eY_();
+	public static AttributeSupplier.Builder registerAttributes() {
+		return Cat.createAttributes();
 	}
 }

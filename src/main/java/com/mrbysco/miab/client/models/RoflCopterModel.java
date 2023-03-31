@@ -1,103 +1,80 @@
 package com.mrbysco.miab.client.models;
 
-import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mrbysco.miab.entity.memes.RoflCopterEntity;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
-public class RoflCopterModel<T extends RoflCopterEntity> extends SegmentedModel<T> {
-	private final ModelRenderer Copter;
-	private final ModelRenderer Top_Propelor;
-	private final ModelRenderer Back_Propelor;
+public class RoflCopterModel<T extends RoflCopterEntity> extends EntityModel<T> {
+	private final ModelPart copter;
+	private final ModelPart top_propelor;
+	private final ModelPart back_propelor;
 
-	public RoflCopterModel() {
-		textureWidth = 128;
-		textureHeight = 128;
+	public RoflCopterModel(ModelPart root) {
+		this.copter = root.getChild("copter");
+		this.top_propelor = this.copter.getChild("top_part").getChild("top_propelor");
+		this.back_propelor = this.copter.getChild("back_part").getChild("back_propelor");
+	}
 
-		Copter = new ModelRenderer(this);
-		Copter.setRotationPoint(0.0F, 24.0F, 0.0F);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
+		PartDefinition copter = partdefinition.addOrReplaceChild("copter", CubeListBuilder.create().create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		ModelRenderer top_part = new ModelRenderer(this);
-		top_part.setRotationPoint(0.0F, -23.0F, 0.0F);
-		Copter.addChild(top_part);
-		top_part.setTextureOffset(2, 12).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 2.0F, 2.0F, 0.0F, false);
+		PartDefinition top_part = copter.addOrReplaceChild("top_part", CubeListBuilder.create().texOffs(2, 12).mirror().addBox(-1.0F, -1.0F, -1.0F, 2.0F, 2.0F, 2.0F).mirror(false), PartPose.offset(0.0F, -23.0F, 0.0F));
 
-		Top_Propelor = new ModelRenderer(this);
-		Top_Propelor.setRotationPoint(0.0F, -2.1F, 0.0F);
-		top_part.addChild(Top_Propelor);
-		Top_Propelor.setTextureOffset(4, 123).addBox(-12.0F, -1.0F, -2.0F, 24.0F, 1.0F, 4.0F, 0.0F, false);
+		PartDefinition top_propelor = top_part.addOrReplaceChild("top_propelor", CubeListBuilder.create().texOffs(4, 123).mirror().addBox(-12.0F, -1.0F, -2.0F, 24.0F, 1.0F, 4.0F).mirror(false), PartPose.offset(0.0F, -2.1F, 0.0F));
 
-		ModelRenderer middle_Part = new ModelRenderer(this);
-		middle_Part.setRotationPoint(0.0F, -12.0F, 0.0F);
-		Copter.addChild(middle_Part);
-		middle_Part.setTextureOffset(2, 0).addBox(-6.0F, -6.0F, -10.0F, 12.0F, 12.0F, 20.0F, 0.0F, false);
-		middle_Part.setTextureOffset(8, 32).addBox(-3.0F, -10.0F, -7.0F, 6.0F, 4.0F, 14.0F, 0.0F, false);
-		middle_Part.setTextureOffset(46, 0).addBox(-3.0F, -5.0F, 10.0F, 6.0F, 8.0F, 3.0F, 0.0F, false);
-		middle_Part.setTextureOffset(0, 0).addBox(-3.0F, -2.0F, -15.0F, 6.0F, 6.0F, 5.0F, 0.0F, false);
+		PartDefinition middle_part = copter.addOrReplaceChild("middle_part", CubeListBuilder.create().texOffs(2, 0).mirror().addBox(-6.0F, -6.0F, -10.0F, 12.0F, 12.0F, 20.0F).mirror(false)
+				.texOffs(8, 32).mirror().addBox(-3.0F, -10.0F, -7.0F, 6.0F, 4.0F, 14.0F).mirror(false)
+				.texOffs(46, 0).mirror().addBox(-3.0F, -5.0F, 10.0F, 6.0F, 8.0F, 3.0F).mirror(false)
+				.texOffs(0, 0).mirror().addBox(-3.0F, -2.0F, -15.0F, 6.0F, 6.0F, 5.0F).mirror(false), PartPose.offset(0.0F, -12.0F, 0.0F));
 
-		ModelRenderer landing_Left = new ModelRenderer(this);
-		landing_Left.setRotationPoint(-6.0F, 10.0F, 0.0F);
-		middle_Part.addChild(landing_Left);
-		landing_Left.setTextureOffset(0, 80).addBox(-1.0F, -1.0F, -12.0F, 1.0F, 2.0F, 24.0F, 0.0F, false);
-		landing_Left.setTextureOffset(0, 80).addBox(-1.0F, -3.0F, -14.0F, 1.0F, 2.0F, 2.0F, 0.0F, false);
-		landing_Left.setTextureOffset(18, 80).addBox(-1.0F, -3.0F, 12.0F, 1.0F, 2.0F, 2.0F, 0.0F, false);
+		PartDefinition landing_left = middle_part.addOrReplaceChild("landing_left", CubeListBuilder.create().texOffs(0, 80).mirror().addBox(-1.0F, -1.0F, -12.0F, 1.0F, 2.0F, 24.0F).mirror(false)
+				.texOffs(0, 80).mirror().addBox(-1.0F, -3.0F, -14.0F, 1.0F, 2.0F, 2.0F).mirror(false)
+				.texOffs(18, 80).mirror().addBox(-1.0F, -3.0F, 12.0F, 1.0F, 2.0F, 2.0F).mirror(false), PartPose.offset(-6.0F, 10.0F, 0.0F));
 
-		ModelRenderer landing_LeftChild = new ModelRenderer(this);
-		landing_LeftChild.setRotationPoint(0.9F, -5.9F, -5.0F);
-		landing_Left.addChild(landing_LeftChild);
-		setRotationAngle(landing_LeftChild, 0.0F, 0.0F, 0.1745F);
-		landing_LeftChild.setTextureOffset(6, 80).addBox(-1.0F, 0.0F, 0.0F, 1.0F, 5.0F, 2.0F, 0.0F, false);
+		PartDefinition landing_left_child = landing_left.addOrReplaceChild("landing_left_child", CubeListBuilder.create().texOffs(6, 80).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 5.0F, 2.0F).mirror(false), PartPose.offsetAndRotation(0.9F, -5.9F, -5.0F, 0.0F, 0.0F, 0.1745F));
 
-		ModelRenderer landing_Right = new ModelRenderer(this);
-		landing_Right.setRotationPoint(7.0F, 10.0F, 0.0F);
-		middle_Part.addChild(landing_Right);
-		landing_Right.setTextureOffset(0, 52).addBox(-1.0F, -1.0F, -12.0F, 1.0F, 2.0F, 24.0F, 0.0F, false);
-		landing_Right.setTextureOffset(18, 52).addBox(-1.0F, -3.0F, 12.0F, 1.0F, 2.0F, 2.0F, 0.0F, false);
-		landing_Right.setTextureOffset(0, 52).addBox(-1.0F, -3.0F, -14.0F, 1.0F, 2.0F, 2.0F, 0.0F, false);
+		PartDefinition landing_right = middle_part.addOrReplaceChild("landing_right", CubeListBuilder.create().texOffs(0, 52).mirror().addBox(-1.0F, -1.0F, -12.0F, 1.0F, 2.0F, 24.0F).mirror(false)
+				.texOffs(18, 52).mirror().addBox(-1.0F, -3.0F, 12.0F, 1.0F, 2.0F, 2.0F).mirror(false)
+				.texOffs(0, 52).mirror().addBox(-1.0F, -3.0F, -14.0F, 1.0F, 2.0F, 2.0F).mirror(false), PartPose.offset(7.0F, 10.0F, 0.0F));
 
-		ModelRenderer landing_RightChild = new ModelRenderer(this);
-		landing_RightChild.setRotationPoint(-0.9F, -6.0F, -5.0F);
-		landing_Right.addChild(landing_RightChild);
-		setRotationAngle(landing_RightChild, 0.0F, 0.0F, -0.1745F);
-		landing_RightChild.setTextureOffset(6, 52).addBox(-1.0F, 0.0F, 0.0F, 1.0F, 5.0F, 2.0F, 0.0F, false);
+		PartDefinition landing_right_child = landing_right.addOrReplaceChild("landing_right_child", CubeListBuilder.create().texOffs(6, 52).mirror().addBox(-1.0F, 0.0F, 0.0F, 1.0F, 5.0F, 2.0F).mirror(false), PartPose.offsetAndRotation(-0.9F, -6.0F, -5.0F, 0.0F, 0.0F, -0.1745F));
 
-		ModelRenderer back_Part = new ModelRenderer(this);
-		back_Part.setRotationPoint(0.0F, -15.0F, 16.0F);
-		Copter.addChild(back_Part);
-		back_Part.setTextureOffset(69, 3).addBox(-1.5F, -1.0F, -3.0F, 3.0F, 3.0F, 9.0F, 0.0F, false);
+		PartDefinition back_part = copter.addOrReplaceChild("back_part", CubeListBuilder.create().texOffs(69, 3).mirror().addBox(-1.5F, -1.0F, -3.0F, 3.0F, 3.0F, 9.0F).mirror(false), PartPose.offset(0.0F, -15.0F, 16.0F));
 
-		Back_Propelor = new ModelRenderer(this);
-		Back_Propelor.setRotationPoint(-1.0F, 0.6F, 3.0F);
-		back_Part.addChild(Back_Propelor);
-		Back_Propelor.setTextureOffset(0, 113).addBox(-1.0F, -6.0F, -1.0F, 1.0F, 12.0F, 2.0F, 0.0F, false);
+		PartDefinition back_propelor = back_part.addOrReplaceChild("back_propelor", CubeListBuilder.create().texOffs(0, 113).mirror().addBox(-1.0F, -6.0F, -1.0F, 1.0F, 12.0F, 2.0F).mirror(false), PartPose.offset(-1.0F, 0.6F, 3.0F));
+
+		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
 	@Override
-	public Iterable<ModelRenderer> getParts() {
-		return ImmutableList.of(this.Copter);
-	}
-
-	@Override
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		boolean flag = !entityIn.getIsCopterLanded();
 
-		float f3 = (flag ? ((MathHelper.cos(ageInTicks)) * 0.4F) : 0.0F);
-		if(flag) {
-			this.Back_Propelor.rotateAngleX += f3;
-			this.Top_Propelor.rotateAngleY += -f3;
+		float f3 = (flag ? ((Mth.cos(ageInTicks)) * 0.4F) : 0.0F);
+		if (flag) {
+			this.back_propelor.xRot += f3;
+			this.top_propelor.yRot -= f3;
 		} else {
-			this.Back_Propelor.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
-			this.Top_Propelor.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 0.3F * limbSwingAmount;
-			this.Back_Propelor.rotateAngleY = 0.0F;
-			this.Top_Propelor.rotateAngleY = 0.0F;
+			this.back_propelor.xRot = Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
+			this.top_propelor.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 0.3F * limbSwingAmount;
+			this.back_propelor.yRot = 0.0F;
+			this.top_propelor.yRot = 0.0F;
 		}
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		copter.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

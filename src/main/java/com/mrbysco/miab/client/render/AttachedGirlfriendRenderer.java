@@ -1,22 +1,29 @@
 package com.mrbysco.miab.client.render;
 
 import com.mrbysco.miab.Reference;
+import com.mrbysco.miab.client.ClientHandler;
 import com.mrbysco.miab.client.models.HumanBaseModel;
 import com.mrbysco.miab.entity.memes.AttachedGirlfriendEntity;
-import net.minecraft.client.renderer.entity.BipedRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 
-public class AttachedGirlfriendRenderer extends BipedRenderer<AttachedGirlfriendEntity, HumanBaseModel<AttachedGirlfriendEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/attached_girlfriend.png");
+public class AttachedGirlfriendRenderer extends AbstractHumanoidRenderer<AttachedGirlfriendEntity, HumanBaseModel<AttachedGirlfriendEntity>> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/attached_girlfriend.png");
 
-    public AttachedGirlfriendRenderer(EntityRendererManager EntityRendererManagerIn) {
-        super(EntityRendererManagerIn, new HumanBaseModel(), 0.5F);
-        this.addLayer(new BipedArmorLayer<>(this, new HumanBaseModel<>(0.5F, true), new HumanBaseModel<>(1.0F, true)));
-    }
+	public AttachedGirlfriendRenderer(EntityRendererProvider.Context context) {
+		this(context, ClientHandler.ATTACHED_GIRLFRIEND, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);
+	}
 
-    public ResourceLocation getEntityTexture(AttachedGirlfriendEntity entity) {
-        return TEXTURE;
-    }
+	public AttachedGirlfriendRenderer(EntityRendererProvider.Context context, ModelLayerLocation layerLocation,
+									  ModelLayerLocation innerLocation, ModelLayerLocation outerLocation) {
+		super(context,
+				new HumanBaseModel<>(context.bakeLayer(layerLocation)),
+				new HumanBaseModel<>(context.bakeLayer(innerLocation)),
+				new HumanBaseModel<>(context.bakeLayer(outerLocation)));
+	}
+
+	public ResourceLocation getTextureLocation(AttachedGirlfriendEntity entity) {
+		return TEXTURE;
+	}
 }

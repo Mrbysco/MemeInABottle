@@ -1,22 +1,29 @@
 package com.mrbysco.miab.client.render;
 
 import com.mrbysco.miab.Reference;
+import com.mrbysco.miab.client.ClientHandler;
 import com.mrbysco.miab.client.models.HumanBaseModel;
 import com.mrbysco.miab.entity.memes.SkywalkerEntity;
-import net.minecraft.client.renderer.entity.BipedRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 
-public class SkywalkerRenderer extends BipedRenderer<SkywalkerEntity, HumanBaseModel<SkywalkerEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/skywalker.png");
+public class SkywalkerRenderer extends AbstractHumanoidRenderer<SkywalkerEntity, HumanBaseModel<SkywalkerEntity>> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/skywalker.png");
 
-    public SkywalkerRenderer(EntityRendererManager EntityRendererManagerIn) {
-        super(EntityRendererManagerIn, new HumanBaseModel(), 0.5F);
-        this.addLayer(new BipedArmorLayer<>(this, new HumanBaseModel<>(0.5F, true), new HumanBaseModel<>(1.0F, true)));
-    }
+	public SkywalkerRenderer(EntityRendererProvider.Context context) {
+		this(context, ClientHandler.SKYWALKER, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);
+	}
 
-    public ResourceLocation getEntityTexture(SkywalkerEntity entity) {
-        return TEXTURE;
-    }
+	public SkywalkerRenderer(EntityRendererProvider.Context context, ModelLayerLocation layerLocation,
+							 ModelLayerLocation innerLocation, ModelLayerLocation outerLocation) {
+		super(context,
+				new HumanBaseModel<>(context.bakeLayer(layerLocation)),
+				new HumanBaseModel<>(context.bakeLayer(innerLocation)),
+				new HumanBaseModel<>(context.bakeLayer(outerLocation)));
+	}
+
+	public ResourceLocation getTextureLocation(SkywalkerEntity entity) {
+		return TEXTURE;
+	}
 }

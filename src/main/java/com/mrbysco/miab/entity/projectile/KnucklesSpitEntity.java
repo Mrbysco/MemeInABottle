@@ -1,46 +1,45 @@
 package com.mrbysco.miab.entity.projectile;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeEntities;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.projectile.LlamaSpitEntity;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import com.mrbysco.miab.registry.MemeEntities;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.projectile.LlamaSpit;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.FMLPlayMessages;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.network.PlayMessages;
 
 import java.util.UUID;
 
-public class KnucklesSpitEntity extends LlamaSpitEntity {
+public class KnucklesSpitEntity extends LlamaSpit {
 	public AbstractMeme owner;
-	private CompoundNBT ownerNbt;
+	private CompoundTag ownerNbt;
 
-	public KnucklesSpitEntity(EntityType<? extends KnucklesSpitEntity> entityType, World worldIn) {
-		super(entityType, worldIn);
+	public KnucklesSpitEntity(EntityType<? extends KnucklesSpitEntity> entityType, Level level) {
+		super(entityType, level);
 	}
 
-	public KnucklesSpitEntity(World worldIn, AbstractMeme entity) {
-		super(MemeEntities.KNUCKLES_SPIT.get(), worldIn);
+	public KnucklesSpitEntity(Level level, AbstractMeme entity) {
+		super(MemeEntities.KNUCKLES_SPIT.get(), level);
 		this.owner = entity;
-		this.setPosition(entity.getPosX() - (double)(entity.getWidth() + 1.0F) * 0.5D * (double)MathHelper.sin(entity.renderYawOffset * ((float)Math.PI / 180F)), entity.getPosYEye() - (double)0.1F, entity.getPosZ() + (double)(entity.getWidth() + 1.0F) * 0.5D * (double)MathHelper.cos(entity.renderYawOffset * ((float)Math.PI / 180F)));
+		this.setPos(entity.getX() - (double) (entity.getBbWidth() + 1.0F) * 0.5D * (double) Mth.sin(entity.yBodyRot * ((float) Math.PI / 180F)), entity.getEyeY() - (double) 0.1F, entity.getZ() + (double) (entity.getBbWidth() + 1.0F) * 0.5D * (double) Mth.cos(entity.yBodyRot * ((float) Math.PI / 180F)));
 	}
 
-	public KnucklesSpitEntity(World worldIn, double x, double y, double z, double p_i47274_8_, double p_i47274_10_, double p_i47274_12_) {
-		super(MemeEntities.KNUCKLES_SPIT.get(), worldIn);
-		this.setPosition(x, y, z);
+	public KnucklesSpitEntity(Level level, double x, double y, double z, double p_i47274_8_, double p_i47274_10_, double p_i47274_12_) {
+		super(MemeEntities.KNUCKLES_SPIT.get(), level);
+		this.setPos(x, y, z);
 
-		for (int i = 0; i < 7; ++i)
-		{
-			double d0 = 0.4D + 0.1D * (double)i;
-			worldIn.addParticle(ParticleTypes.SPIT, x, y, z, p_i47274_8_ * d0, p_i47274_10_, p_i47274_12_ * d0);
+		for (int i = 0; i < 7; ++i) {
+			double d0 = 0.4D + 0.1D * (double) i;
+			level.addParticle(ParticleTypes.SPIT, x, y, z, p_i47274_8_ * d0, p_i47274_10_, p_i47274_12_ * d0);
 		}
 
-		this.setMotion(p_i47274_8_, p_i47274_10_, p_i47274_12_);
+		this.setDeltaMovement(p_i47274_8_, p_i47274_10_, p_i47274_12_);
 	}
 
 	@Override
@@ -48,12 +47,12 @@ public class KnucklesSpitEntity extends LlamaSpitEntity {
 		return MemeEntities.KNUCKLES_SPIT.get();
 	}
 
-	public KnucklesSpitEntity(FMLPlayMessages.SpawnEntity spawnEntity, World worldIn) {
-		this(MemeEntities.KNUCKLES_SPIT.get(), worldIn);
+	public KnucklesSpitEntity(PlayMessages.SpawnEntity spawnEntity, Level level) {
+		this(MemeEntities.KNUCKLES_SPIT.get(), level);
 	}
 
 	@Override
-	public IPacket<?> createSpawnPacket() {
+	public Packet<?> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
@@ -67,39 +66,39 @@ public class KnucklesSpitEntity extends LlamaSpitEntity {
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	public void setVelocity(double x, double y, double z) {
-		this.setMotion(x, y, z);
-		if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
-			float f = MathHelper.sqrt(x * x + z * z);
-			this.rotationPitch = (float)(MathHelper.atan2(y, (double)f) * (double)(180F / (float)Math.PI));
-			this.rotationYaw = (float)(MathHelper.atan2(x, z) * (double)(180F / (float)Math.PI));
-			this.prevRotationPitch = this.rotationPitch;
-			this.prevRotationYaw = this.rotationYaw;
-			this.setLocationAndAngles(this.getPosX(), this.getPosY(), this.getPosZ(), this.rotationYaw, this.rotationPitch);
+	public void lerpMotion(double x, double y, double z) {
+		this.setDeltaMovement(x, y, z);
+		if (this.xRotO == 0.0F && this.yRotO == 0.0F) {
+			float f = Mth.sqrt((float) (x * x + z * z));
+			this.setXRot((float) (Mth.atan2(y, (double) f) * (double) (180F / (float) Math.PI)));
+			this.setYRot((float) (Mth.atan2(x, z) * (double) (180F / (float) Math.PI)));
+			this.xRotO = this.getXRot();
+			this.yRotO = this.getYRot();
+			this.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
 		}
 	}
 
-	protected void readAdditional(CompoundNBT compound) {
+	protected void readAdditionalSaveData(CompoundTag compound) {
 		if (compound.contains("Owner", 10)) {
 			this.ownerNbt = compound.getCompound("Owner");
 		}
 	}
 
-	protected void writeAdditional(CompoundNBT compound) {
+	protected void addAdditionalSaveData(CompoundTag compound) {
 		if (this.owner != null) {
-			CompoundNBT compoundnbt = new CompoundNBT();
-			UUID uuid = this.owner.getUniqueID();
-			compoundnbt.putUniqueId("OwnerUUID", uuid);
+			CompoundTag compoundnbt = new CompoundTag();
+			UUID uuid = this.owner.getUUID();
+			compoundnbt.putUUID("OwnerUUID", uuid);
 			compound.put("Owner", compoundnbt);
 		}
 	}
 
 	private void restoreOwnerFromSave() {
-		if (this.ownerNbt != null && this.ownerNbt.hasUniqueId("OwnerUUID")) {
-			UUID uuid = this.ownerNbt.getUniqueId("OwnerUUID");
+		if (this.ownerNbt != null && this.ownerNbt.hasUUID("OwnerUUID")) {
+			UUID uuid = this.ownerNbt.getUUID("OwnerUUID");
 
-			for(AbstractMeme meme : this.world.getEntitiesWithinAABB(AbstractMeme.class, this.getBoundingBox().grow(15.0D))) {
-				if (meme.getUniqueID().equals(uuid)) {
+			for (AbstractMeme meme : this.level.getEntitiesOfClass(AbstractMeme.class, this.getBoundingBox().inflate(15.0D))) {
+				if (meme.getUUID().equals(uuid)) {
 					this.owner = meme;
 					break;
 				}
@@ -109,6 +108,6 @@ public class KnucklesSpitEntity extends LlamaSpitEntity {
 		this.ownerNbt = null;
 	}
 
-	protected void registerData() {
+	protected void defineSynchedData() {
 	}
 }

@@ -1,11 +1,9 @@
 package com.mrbysco.miab.items;
 
-import com.mrbysco.miab.init.MemeTab;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class MemeBaseItem extends Item {
-	public MemeBaseItem(Item.Properties builder)
-	{
-		super(builder.group(MemeTab.MEME_TAB));
+	public MemeBaseItem(Item.Properties builder) {
+		super(builder);
 	}
 }

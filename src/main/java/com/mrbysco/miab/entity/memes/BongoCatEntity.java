@@ -1,87 +1,85 @@
 package com.mrbysco.miab.entity.memes;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.OcelotAttackGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.OcelotAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
-public class BongoCatEntity extends AbstractMeme{
-	private static final DataParameter<Boolean> TAPPING = EntityDataManager.<Boolean>createKey(BongoCatEntity.class, DataSerializers.BOOLEAN);
+public class BongoCatEntity extends AbstractMeme {
+	private static final EntityDataAccessor<Boolean> TAPPING = SynchedEntityData.<Boolean>defineId(BongoCatEntity.class, EntityDataSerializers.BOOLEAN);
 
 	private int TickSinceTap = 0;
 	private int TicksNotTapped = 0;
 
-	public BongoCatEntity(EntityType<? extends BongoCatEntity> entityType, World worldIn) {
-		super(entityType, worldIn);
+	public BongoCatEntity(EntityType<? extends BongoCatEntity> entityType, Level level) {
+		super(entityType, level);
 	}
 
 	protected void registerGoals() {
-		this.goalSelector.addGoal(1, new SwimGoal(this));
+		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(7, new LeapAtTargetGoal(this, 0.3F));
 		this.goalSelector.addGoal(8, new OcelotAttackGoal(this));
-		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
-		this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 		this.registerTargetGoals();
 	}
 
 	private void registerTargetGoals() {
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, ChickenEntity.class, false));
-		this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)).setCallsForHelp(BongoCatEntity.class));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Chicken.class, false));
+		this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)).setAlertOthers(BongoCatEntity.class));
 	}
 
-	public static AttributeModifierMap.MutableAttribute registerAttributes() {
+	public static AttributeSupplier.Builder registerAttributes() {
 		return AbstractMeme.registerAttributes()
-			.createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-			.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.30000001192092896D)
-			.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.4D)
-			.createMutableAttribute(Attributes.FOLLOW_RANGE, 30.0D)
-			.createMutableAttribute(Attributes.ATTACK_DAMAGE, 3.0D);
+				.add(Attributes.MAX_HEALTH, 10.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.30000001192092896D)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 0.4D)
+				.add(Attributes.FOLLOW_RANGE, 30.0D)
+				.add(Attributes.ATTACK_DAMAGE, 3.0D);
 	}
 
 	@Override
-	protected void registerData() {
-		super.registerData();
-		this.dataManager.register(TAPPING, Boolean.valueOf(false));
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(TAPPING, Boolean.valueOf(false));
 	}
 
-	public void setTapping(boolean isTapping)
-	{
-		this.getDataManager().set(TAPPING, Boolean.valueOf(isTapping));
+	public void setTapping(boolean isTapping) {
+		this.getEntityData().set(TAPPING, Boolean.valueOf(isTapping));
 	}
 
-	public boolean isTapping()
-	{
-		return ((Boolean)this.getDataManager().get(TAPPING)).booleanValue();
+	public boolean isTapping() {
+		return ((Boolean) this.getEntityData().get(TAPPING)).booleanValue();
 	}
 
 	@Override
-	public void livingTick() {
-		if(isTapping()) {
+	public void aiStep() {
+		if (isTapping()) {
 			TickSinceTap++;
 
-			if(world.rand.nextInt(50) < 4) {
-				this.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASEDRUM, getSoundVolume(), getSoundPitch());
+			if (level.random.nextInt(50) < 4) {
+				this.playSound(SoundEvents.NOTE_BLOCK_BASEDRUM, getSoundVolume(), getVoicePitch());
 			}
 
-			if(TickSinceTap > 30) {
+			if (TickSinceTap > 30) {
 				this.setTapping(false);
 				TickSinceTap = 0;
 			}
@@ -89,29 +87,29 @@ public class BongoCatEntity extends AbstractMeme{
 			TicksNotTapped++;
 		}
 
-		if(TicksNotTapped > 30) {
+		if (TicksNotTapped > 30) {
 			this.setTapping(true);
 			TicksNotTapped = 0;
 		}
 
-		super.livingTick();
+		super.aiStep();
 	}
 
 	@Override
-    protected SoundEvent getAmbientSound() {
-        return null;
-    }
-	
+	protected SoundEvent getAmbientSound() {
+		return null;
+	}
+
 	@Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_CAT_HURT;
-    }
-	
+	protected SoundEvent getHurtSound(DamageSource source) {
+		return SoundEvents.CAT_HURT;
+	}
+
 	@Override
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_CAT_DEATH;
-    }
-	
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.CAT_DEATH;
+	}
+
 	@Override
 	public boolean canPickupItems() {
 		return false;

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "memeinabottle:items/knife"
+        "layer0": "memeinabottle:item/knife"
     }
 }

@@ -1,16 +1,16 @@
 package com.mrbysco.miab.items;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class FidgetItem extends MemeBaseItem {
 	public FidgetItem(Item.Properties builder) {
-		super(builder.maxStackSize(1));
+		super(builder.stacksTo(1));
 	}
 
 	@Override
@@ -19,10 +19,10 @@ public class FidgetItem extends MemeBaseItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack heldItem = playerIn.getHeldItem(handIn);
+	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
+		ItemStack heldItem = playerIn.getItemInHand(handIn);
 
-		playerIn.setActiveHand(handIn);
-		return new ActionResult<>(ActionResultType.SUCCESS, heldItem);
+		playerIn.startUsingItem(handIn);
+		return new InteractionResultHolder<>(InteractionResult.SUCCESS, heldItem);
 	}
 }

@@ -1,31 +1,43 @@
 package com.mrbysco.miab.client.models;
 
-import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mrbysco.miab.entity.memes.SanicEntity;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
-public class SanicModel<T extends SanicEntity> extends SegmentedModel<T> {
-	private final ModelRenderer Body;
+public class SanicModel<T extends SanicEntity> extends EntityModel<T> {
+	private final ModelPart body;
 
-	public SanicModel() {
-		textureWidth = 64;
-		textureHeight = 64;
+	public SanicModel(ModelPart root) {
+		this.body = root.getChild("body");
+	}
 
-		Body = new ModelRenderer(this);
-		Body.setRotationPoint(0.0F, 17.0F, 0.0F);
-		Body.setTextureOffset(0, 0).addBox(-7.0F, -7.0F, -7.0F, 14.0F, 14.0F, 14.0F, 0.0F, true);
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create()
+						.texOffs(0, 0).addBox(-7.0F, -7.0F, -7.0F, 14.0F, 14.0F, 14.0F),
+				PartPose.offset(0.0F, 17.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override
-	public Iterable<ModelRenderer> getParts() {
-		return ImmutableList.of(this.Body);
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.body.xRot = Mth.cos(limbSwing * 0.6662F) * 3F * limbSwingAmount;
+		this.body.yRot = 0.0F;
 	}
 
 	@Override
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.Body.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 3F * limbSwingAmount;
-		this.Body.rotateAngleY = 0.0F;
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

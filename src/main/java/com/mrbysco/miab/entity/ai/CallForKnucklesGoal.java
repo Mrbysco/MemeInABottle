@@ -1,65 +1,66 @@
 package com.mrbysco.miab.entity.ai;
 
 import com.mrbysco.miab.entity.memes.KnucklesEntity;
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.EntityPredicate;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.TargetGoal;
-import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.phys.AABB;
 
 import java.util.EnumSet;
 
-public class CallForKnucklesGoal extends TargetGoal
-{
+public class CallForKnucklesGoal extends TargetGoal {
 	private final boolean entityCallsForHelp;
-	/** Store the previous revengeTimer value */
+	/**
+	 * Store the previous revengeTimer value
+	 */
 	private int revengeTimerOld;
 	private final Class<?>[] excludedReinforcementTypes;
 
-	public CallForKnucklesGoal(CreatureEntity creatureIn, boolean entityCallsForHelpIn, Class<?>... excludedReinforcementTypes) {
+	public CallForKnucklesGoal(PathfinderMob creatureIn, boolean entityCallsForHelpIn, Class<?>... excludedReinforcementTypes) {
 		super(creatureIn, true);
 		this.entityCallsForHelp = entityCallsForHelpIn;
 		this.excludedReinforcementTypes = excludedReinforcementTypes;
-		this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+		this.setFlags(EnumSet.of(Goal.Flag.MOVE));
 	}
 
 	/**
 	 * Returns whether the EntityAIBase should begin execution.
 	 */
-	public boolean shouldExecute() {
-		int i = this.goalOwner.getRevengeTimer();
-		LivingEntity entitylivingbase = this.goalOwner.getRevengeTarget();
-		return i != this.revengeTimerOld && entitylivingbase != null && this.isSuitableTarget(entitylivingbase, EntityPredicate.DEFAULT);
+	public boolean canUse() {
+		int i = this.mob.getLastHurtByMobTimestamp();
+		LivingEntity entitylivingbase = this.mob.getLastHurtByMob();
+		return i != this.revengeTimerOld && entitylivingbase != null && this.canAttack(entitylivingbase, TargetingConditions.DEFAULT);
 	}
 
 	/**
 	 * Execute a one shot task or start executing a continuous task
 	 */
-	public void startExecuting() {
-		this.goalOwner.setAttackTarget(this.goalOwner.getRevengeTarget());
-		this.target = this.goalOwner.getAttackTarget();
-		this.revengeTimerOld = this.goalOwner.getRevengeTimer();
+	public void start() {
+		this.mob.setTarget(this.mob.getLastHurtByMob());
+		this.targetMob = this.mob.getTarget();
+		this.revengeTimerOld = this.mob.getLastHurtByMobTimestamp();
 		this.unseenMemoryTicks = 300;
 
 		if (this.entityCallsForHelp) {
 			this.alertOthers();
 		}
 
-		super.startExecuting();
+		super.start();
 	}
 
 	protected void alertOthers() {
-		double d0 = this.getTargetDistance();
+		double d0 = this.getFollowDistance();
 
-		for (MobEntity entitymob : this.goalOwner.world.getEntitiesWithinAABB(this.goalOwner.getClass(),
-				(new AxisAlignedBB(this.goalOwner.getPosX(), this.goalOwner.getPosY(), this.goalOwner.getPosZ(),
-						this.goalOwner.getPosX() + 1.0D, this.goalOwner.getPosY() + 1.0D, this.goalOwner.getPosZ() + 1.0D)).grow(d0, 10.0D, d0))) {
+		for (Mob entitymob : this.mob.level.getEntitiesOfClass(this.mob.getClass(),
+				(new AABB(this.mob.getX(), this.mob.getY(), this.mob.getZ(),
+						this.mob.getX() + 1.0D, this.mob.getY() + 1.0D, this.mob.getZ() + 1.0D)).inflate(d0, 10.0D, d0))) {
 			//if (this.goalOwner != entitycreature && entitycreature.getAttackTarget() == null && (!(this.goalOwner instanceof EntityTameable)
 			//		|| ((EntityTameable)this.goalOwner).getOwner() == ((EntityTameable)entitycreature).getOwner())
 			//		&& !entitycreature.isOnSameTeam(this.goalOwner.getRevengeTarget()))
-			if (this.goalOwner != entitymob && entitymob instanceof KnucklesEntity) {
+			if (this.mob != entitymob && entitymob instanceof KnucklesEntity) {
 				boolean flag = false;
 
 				for (Class<?> oclass : this.excludedReinforcementTypes) {
@@ -70,13 +71,13 @@ public class CallForKnucklesGoal extends TargetGoal
 				}
 
 				if (!flag) {
-					this.setEntityAttackTarget(entitymob, this.goalOwner.getRevengeTarget());
+					this.setEntityAttackTarget(entitymob, this.mob.getLastHurtByMob());
 				}
 			}
 		}
 	}
 
-	protected void setEntityAttackTarget(MobEntity creatureIn, LivingEntity entityLivingBaseIn) {
-		creatureIn.setAttackTarget(entityLivingBaseIn);
+	protected void setEntityAttackTarget(Mob creatureIn, LivingEntity entityLivingBaseIn) {
+		creatureIn.setTarget(entityLivingBaseIn);
 	}
 }

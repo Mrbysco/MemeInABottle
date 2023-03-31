@@ -1,22 +1,29 @@
 package com.mrbysco.miab.client.render;
 
 import com.mrbysco.miab.Reference;
+import com.mrbysco.miab.client.ClientHandler;
 import com.mrbysco.miab.client.models.HumanBaseModel;
 import com.mrbysco.miab.entity.memes.PPAPEntity;
-import net.minecraft.client.renderer.entity.BipedRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 
-public class PPAPRenderer extends BipedRenderer<PPAPEntity, HumanBaseModel<PPAPEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/kosakadaimaou.png");
+public class PPAPRenderer extends AbstractHumanoidRenderer<PPAPEntity, HumanBaseModel<PPAPEntity>> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/kosakadaimaou.png");
 
-    public PPAPRenderer(EntityRendererManager EntityRendererManagerIn) {
-        super(EntityRendererManagerIn, new HumanBaseModel(), 0.5F);
-        this.addLayer(new BipedArmorLayer<>(this, new HumanBaseModel<>(0.5F, true), new HumanBaseModel<>(1.0F, true)));
-    }
+	public PPAPRenderer(EntityRendererProvider.Context context) {
+		this(context, ClientHandler.ROADMAN_SHAQ, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);
+	}
 
-    public ResourceLocation getEntityTexture(PPAPEntity entity) {
-        return TEXTURE;
-    }
+	public PPAPRenderer(EntityRendererProvider.Context context, ModelLayerLocation layerLocation,
+						ModelLayerLocation innerLocation, ModelLayerLocation outerLocation) {
+		super(context,
+				new HumanBaseModel<>(context.bakeLayer(layerLocation)),
+				new HumanBaseModel<>(context.bakeLayer(innerLocation)),
+				new HumanBaseModel<>(context.bakeLayer(outerLocation)));
+	}
+
+	public ResourceLocation getTextureLocation(PPAPEntity entity) {
+		return TEXTURE;
+	}
 }

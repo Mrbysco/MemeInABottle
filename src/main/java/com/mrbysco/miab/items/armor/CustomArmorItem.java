@@ -1,16 +1,15 @@
 package com.mrbysco.miab.items.armor;
 
-import com.mrbysco.miab.init.MemeTab;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Item;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.DispenserBlock;
 
 public class CustomArmorItem extends ArmorItem {
 
-	public CustomArmorItem(IArmorMaterial material, EquipmentSlotType armorType, Item.Properties builder) {
-		super(material, armorType, builder.group(MemeTab.MEME_TAB));
-		DispenserBlock.registerDispenseBehavior(this, DISPENSER_BEHAVIOR);
+	public CustomArmorItem(ArmorMaterial material, EquipmentSlot armorType, Item.Properties builder) {
+		super(material, armorType, builder);
+		DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
 	}
 }

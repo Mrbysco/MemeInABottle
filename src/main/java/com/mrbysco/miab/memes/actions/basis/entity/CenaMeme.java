@@ -3,14 +3,13 @@ package com.mrbysco.miab.memes.actions.basis.entity;
 import com.mojang.text2speech.Narrator;
 import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.config.MemeConfig;
-import com.mrbysco.miab.init.MemeEntities;
-import com.mrbysco.miab.init.MemeSounds;
 import com.mrbysco.miab.memes.actions.base.BasicEntityMeme;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import com.mrbysco.miab.registry.MemeEntities;
+import com.mrbysco.miab.registry.MemeSounds;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 public class CenaMeme extends BasicEntityMeme {
 
@@ -19,14 +18,14 @@ public class CenaMeme extends BasicEntityMeme {
 	}
 
 	@Override
-	public void trigger(World world, BlockPos pos, PlayerEntity player) {
+	public void trigger(Level world, BlockPos pos, Player player) {
 		super.trigger(world, pos, player);
-		if(!world.isRemote) {
-			if(MemeConfig.SERVER.useNarator.get()) {
-	        	Narrator.getNarrator().say("And his name is!\n JOHN CENA", false);
-    		} else {
-        		player.sendMessage(new TranslationTextComponent(Reference.MOD_PREFIX + "cena.itscena"), Util.DUMMY_UUID);
-    		}
+		if (!world.isClientSide) {
+			if (MemeConfig.SERVER.useNarator.get()) {
+				Narrator.getNarrator().say("And his name is!\n JOHN CENA", false);
+			} else {
+				player.sendSystemMessage(Component.translatable(Reference.MOD_PREFIX + "cena.itscena"));
+			}
 		}
 	}
 }

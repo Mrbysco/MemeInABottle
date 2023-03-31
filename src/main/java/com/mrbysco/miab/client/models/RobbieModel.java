@@ -1,27 +1,30 @@
 package com.mrbysco.miab.client.models;
 
 import com.mrbysco.miab.entity.AbstractMeme;
-import com.mrbysco.miab.init.MemeRegister;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
+import com.mrbysco.miab.registry.MemeRegistry;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
 
 public class RobbieModel<T extends AbstractMeme> extends HumanBaseModel<T> {
-	public RobbieModel() { }
+	public RobbieModel(ModelPart root) {
+		super(root);
+	}
 
-    @Override
-    public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        ItemStack itemstack = entityIn.getHeldItemMainhand();
+	@Override
+	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		super.setupAnim(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+		ItemStack itemstack = entityIn.getMainHandItem();
 
-        if ((itemstack.getItem() == MemeRegister.SAX.get())) {
-            float f = MathHelper.sin(this.swingProgress * (float)Math.PI);
-            float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float)Math.PI);
-            this.bipedRightArm.rotateAngleZ = 0.0F;
-            this.bipedRightArm.rotateAngleY = 0.1F - f * 0.6F;
-            this.bipedRightArm.rotateAngleX = -((float)Math.PI / 2F);
-            this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-            this.bipedRightArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-            this.bipedRightArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-        }
-    }
+		if ((itemstack.getItem() == MemeRegistry.SAX.get())) {
+			float f = Mth.sin(this.attackTime * (float) Math.PI);
+			float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float) Math.PI);
+			this.rightArm.zRot = 0.0F;
+			this.rightArm.yRot = 0.1F - f * 0.6F;
+			this.rightArm.xRot = -((float) Math.PI / 2F);
+			this.rightArm.xRot -= f * 1.2F - f1 * 0.4F;
+			this.rightArm.zRot -= Mth.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.rightArm.xRot -= Mth.sin(ageInTicks * 0.067F) * 0.05F;
+		}
+	}
 }
