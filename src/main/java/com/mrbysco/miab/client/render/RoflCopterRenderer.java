@@ -9,10 +9,10 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class RoflCopterRenderer extends MobRenderer<RoflCopterEntity, RoflCopterModel<RoflCopterEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/roflcopter.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/roflcopter.png");
 
 	public RoflCopterRenderer(EntityRendererProvider.Context context) {
-		super(context, new RoflCopterModel(context.bakeLayer(ClientHandler.ROFL_COPTER)), 1.0F);
+		super(context, new RoflCopterModel<>(context.bakeLayer(ClientHandler.ROFL_COPTER)), 1.0F);
 	}
 
 	public ResourceLocation getTextureLocation(RoflCopterEntity entity) {

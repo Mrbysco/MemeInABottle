@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class SansRenderer extends AbstractHumanoidRenderer<SansEntity, HumanBaseModel<SansEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/sans.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/sans.png");
 
 	public SansRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.SANS, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class TrumpRenderer extends AbstractHumanoidRenderer<TrumpEntity, HumanBaseModel<TrumpEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/trump.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/trump.png");
 
 	public TrumpRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.DONALD_TRUMP, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

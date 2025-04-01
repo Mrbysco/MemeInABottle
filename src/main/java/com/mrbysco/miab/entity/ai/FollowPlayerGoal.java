@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 
 import java.util.EnumSet;
 
@@ -28,7 +28,7 @@ public class FollowPlayerGoal extends Goal {
 
 	public FollowPlayerGoal(AbstractMeme memeIn, double followSpeedIn, float minDistIn, float maxDistIn, int findRange) {
 		this.meme = memeIn;
-		this.world = memeIn.level;
+		this.world = memeIn.level();
 		this.followSpeed = followSpeedIn;
 		this.navigator = memeIn.getNavigation();
 		this.minDist = minDistIn;
@@ -59,14 +59,14 @@ public class FollowPlayerGoal extends Goal {
 
 	public void start() {
 		this.timeToRecalcPath = 0;
-		this.oldWaterCost = this.meme.getPathfindingMalus(BlockPathTypes.WATER);
-		this.meme.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+		this.oldWaterCost = this.meme.getPathfindingMalus(PathType.WATER);
+		this.meme.setPathfindingMalus(PathType.WATER, 0.0F);
 	}
 
 	public void stop() {
 		this.player = null;
 		this.navigator.stop();
-		this.meme.setPathfindingMalus(BlockPathTypes.WATER, this.oldWaterCost);
+		this.meme.setPathfindingMalus(PathType.WATER, this.oldWaterCost);
 	}
 
 	public void tick() {

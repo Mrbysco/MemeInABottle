@@ -2,14 +2,13 @@ package com.mrbysco.miab.config;
 
 import com.mrbysco.miab.MemeInABottle;
 import com.mrbysco.miab.memes.FunnyRegistry;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
-import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.BooleanValue;
+import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
+import net.neoforged.fml.event.config.ModConfigEvent;
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MemeConfig {
@@ -21,7 +20,7 @@ public class MemeConfig {
 		public final BooleanValue logTriggers;
 		public final ConfigValue<List<? extends String>> disabledMemes;
 
-		Server(ForgeConfigSpec.Builder builder) {
+		Server(ModConfigSpec.Builder builder) {
 			builder.comment("General settings")
 					.push("general");
 
@@ -47,17 +46,17 @@ public class MemeConfig {
 
 			disabledMemes = builder
 					.comment("Any meme id's added here will be removed from the possible meme list")
-					.defineList("disabled_memes", new ArrayList<>(), entry -> entry instanceof String);
+					.defineListAllowEmpty("disabled_memes", List::of, String::new, entry -> entry instanceof String);
 
 			builder.pop();
 		}
 	}
 
-	public static final ForgeConfigSpec serverSpec;
+	public static final ModConfigSpec serverSpec;
 	public static final Server SERVER;
 
 	static {
-		final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
+		final Pair<Server, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Server::new);
 		serverSpec = specPair.getRight();
 		SERVER = specPair.getLeft();
 	}

@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class ShrekRenderer extends HumanoidMobRenderer<ShrekEntity, ShrekModel<ShrekEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/shrek.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/shrek.png");
 
 	public ShrekRenderer(EntityRendererProvider.Context context) {
 		super(context, new ShrekModel<>(context.bakeLayer(ClientHandler.SHREK)), 0.5F);

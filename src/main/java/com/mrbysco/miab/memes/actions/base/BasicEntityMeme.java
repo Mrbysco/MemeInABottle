@@ -35,7 +35,7 @@ public class BasicEntityMeme extends BasicFunny {
 			if (this.sound.get() != null) {
 				world.playSound((Player) null, pos, this.sound.get(), SoundSource.RECORDS, 0.75F, 1.0F);
 			} else {
-				MemeInABottle.logger.error("Meme sound by the name of: " + this.getName() + "has a null SoundEvent");
+				MemeInABottle.logger.error("Meme sound by the name of: {}has a null SoundEvent", this.getName());
 			}
 		}
 	}

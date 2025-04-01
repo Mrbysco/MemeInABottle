@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class TrololoRenderer extends AbstractHumanoidRenderer<TrololoEntity, HumanBaseModel<TrololoEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/khil.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/khil.png");
 
 	public TrololoRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.EDUARD_KHIL, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

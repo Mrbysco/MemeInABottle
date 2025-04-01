@@ -22,7 +22,7 @@ public class NyanCatEntity extends Cat {
 
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
-		this.goalSelector.addGoal(3, new AvoidEntityGoal(this, TacNyanEntity.class, 6.0F, 1.0D, 1.2D));
+		this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, TacNyanEntity.class, 6.0F, 1.0D, 1.2D));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(7, new LeapAtTargetGoal(this, 0.3F));

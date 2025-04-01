@@ -15,13 +15,13 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class KnucklesRenderer extends MobRenderer<KnucklesEntity, EntityModel<KnucklesEntity>> {
-	private static final ResourceLocation REGULAR = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/knuckles.png");
-	private static final ResourceLocation TANK = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/tankknuckles.png");
-	private static final ResourceLocation BLUE = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/blueknuckles.png");
-	private static final ResourceLocation AKU = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/akuknuckles.png");
-	private static final ResourceLocation YUGI = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/yugiknuckles.png");
-	private static final ResourceLocation SAIYAN1 = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/saiyanknuckles.png");
-	private static final ResourceLocation SAIYAN2 = new ResourceLocation(Reference.MOD_PREFIX + "textures/entity/saiyanknuckles2.png");
+	private static final ResourceLocation REGULAR = Reference.modLoc("textures/entity/knuckles.png");
+	private static final ResourceLocation TANK = Reference.modLoc("textures/entity/tankknuckles.png");
+	private static final ResourceLocation BLUE = Reference.modLoc("textures/entity/blueknuckles.png");
+	private static final ResourceLocation AKU = Reference.modLoc("textures/entity/akuknuckles.png");
+	private static final ResourceLocation YUGI = Reference.modLoc("textures/entity/yugiknuckles.png");
+	private static final ResourceLocation SAIYAN1 = Reference.modLoc("textures/entity/saiyanknuckles.png");
+	private static final ResourceLocation SAIYAN2 = Reference.modLoc("textures/entity/saiyanknuckles2.png");
 
 	private final KnucklesModel<KnucklesEntity> knuckles;
 	private final KnucklesTankModel<KnucklesEntity> tankKnuckles;

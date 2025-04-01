@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class GrandDadRenderer extends AbstractHumanoidRenderer<GrandDadEntity, HumanBaseModel<GrandDadEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/granddad.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/granddad.png");
 
 	public GrandDadRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.GRAND_DAD, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

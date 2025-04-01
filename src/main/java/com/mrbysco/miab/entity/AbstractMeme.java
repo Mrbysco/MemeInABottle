@@ -1,6 +1,9 @@
 package com.mrbysco.miab.entity;
 
+import com.mrbysco.miab.Reference;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.SynchedEntityData.Builder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -17,8 +20,11 @@ import net.minecraft.world.phys.AABB;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractMeme extends PathfinderMob {
+	private static final ResourceLocation SPAWN_BOOST_ID = Reference.modLoc("spawn_boost");
+	private static final ResourceLocation SPAWN_BONUS_ID = Reference.modLoc("spawn_bonus");
 	protected int summonSoundTime = 100;
 
 	public AbstractMeme(EntityType<? extends AbstractMeme> entityType, Level level) {
@@ -36,8 +42,8 @@ public abstract class AbstractMeme extends PathfinderMob {
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
+	protected void defineSynchedData(Builder builder) {
+		super.defineSynchedData(builder);
 	}
 
 	@Override
@@ -55,7 +61,7 @@ public abstract class AbstractMeme extends PathfinderMob {
 	@Override
 	public void aiStep() {
 		super.aiStep();
-		if (!this.level.isClientSide) {
+		if (!this.level().isClientSide) {
 			int i = this.summonSoundTime;
 
 			if (i > 0) {
@@ -67,18 +73,26 @@ public abstract class AbstractMeme extends PathfinderMob {
 
 	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData livingData, @Nullable CompoundTag dataTag) {
-		livingData = super.finalizeSpawn(level, difficultyIn, reason, livingData, dataTag);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData livingData) {
+		livingData = super.finalizeSpawn(level, difficultyIn, reason, livingData);
 		float f = difficultyIn.getSpecialMultiplier();
 		if (canPickupItems()) {
 			this.setCanPickUpLoot(this.random.nextFloat() < 0.55F * f);
 		}
 
-		this.getAttribute(Attributes.KNOCKBACK_RESISTANCE).addTransientModifier(new AttributeModifier("Random spawn bonus", this.random.nextDouble() * 0.5D, AttributeModifier.Operation.ADDITION));
+		Objects.requireNonNull(this.getAttribute(Attributes.KNOCKBACK_RESISTANCE)).addTransientModifier(
+				new AttributeModifier(
+						SPAWN_BOOST_ID, this.random.nextDouble() * 0.5D, AttributeModifier.Operation.ADD_VALUE
+				)
+		);
 
 		double d0 = this.random.nextDouble() * 1.5D * (double) f;
 		if (d0 > 1.0D) {
-			this.getAttribute(Attributes.FOLLOW_RANGE).addTransientModifier(new AttributeModifier("Random meme-spawn bonus", d0, AttributeModifier.Operation.MULTIPLY_TOTAL));
+			Objects.requireNonNull(this.getAttribute(Attributes.FOLLOW_RANGE)).addTransientModifier(
+					new AttributeModifier(
+							SPAWN_BONUS_ID, d0, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+					)
+			);
 		}
 
 		return livingData;
@@ -90,13 +104,13 @@ public abstract class AbstractMeme extends PathfinderMob {
 
 	public Player getNearestPlayer(int range) {
 		AABB aabb = (new AABB(getX(), getY(), getZ(), getX() + 1, getY() + 1, getZ() + 1)).inflate(range);
-		List<Player> list = level.getEntitiesOfClass(Player.class, aabb);
-		return !list.isEmpty() ? list.get(0) : null;
+		List<Player> list = level().getEntitiesOfClass(Player.class, aabb);
+		return !list.isEmpty() ? list.getFirst() : null;
 	}
 
 	public boolean isPlayerNearby(int range) {
 		AABB aabb = (new AABB(getX(), getY(), getZ(), getX() + 1, getY() + 1, getZ() + 1)).inflate(range);
-		List<Player> list = level.getEntitiesOfClass(Player.class, aabb);
+		List<Player> list = level().getEntitiesOfClass(Player.class, aabb);
 		return !list.isEmpty();
 	}
 

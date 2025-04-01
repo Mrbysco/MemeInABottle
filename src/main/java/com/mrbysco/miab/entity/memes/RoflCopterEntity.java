@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.network.syncher.SynchedEntityData.Builder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -16,7 +17,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -50,9 +50,9 @@ public class RoflCopterEntity extends PathfinderMob {
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(LANDED, Byte.valueOf((byte) 0));
+	protected void defineSynchedData(Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(LANDED, (byte) 0);
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class RoflCopterEntity extends PathfinderMob {
 	}
 
 	@Override
-	public boolean canBeLeashed(Player player) {
+	public boolean canBeLeashed() {
 		return true;
 	}
 
@@ -121,16 +121,16 @@ public class RoflCopterEntity extends PathfinderMob {
 	}
 
 	public boolean getIsCopterLanded() {
-		return (((Byte) this.entityData.get(LANDED)).byteValue() & 1) != 0;
+		return ((Byte) this.entityData.get(LANDED) & 1) != 0;
 	}
 
 	public void setIsCopterLanded(boolean isHanging) {
-		byte b0 = ((Byte) this.entityData.get(LANDED)).byteValue();
+		byte b0 = (Byte) this.entityData.get(LANDED);
 
 		if (isHanging) {
-			this.entityData.set(LANDED, Byte.valueOf((byte) (b0 | 1)));
+			this.entityData.set(LANDED, (byte) (b0 | 1));
 		} else {
-			this.entityData.set(LANDED, Byte.valueOf((byte) (b0 & -2)));
+			this.entityData.set(LANDED, (byte) (b0 & -2));
 		}
 	}
 
@@ -158,21 +158,21 @@ public class RoflCopterEntity extends PathfinderMob {
 		BlockPos blockpos1 = blockpos.above();
 
 		if (this.getIsCopterLanded()) {
-			if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
+			if (this.level().getBlockState(blockpos1).isRedstoneConductor(this.level(), blockpos1)) {
 				if (this.random.nextInt(200) == 0) {
 					this.yHeadRot = (float) this.random.nextInt(360);
 				}
 
-				if (this.level.getNearestPlayer(this, 4.0D) != null) {
+				if (this.level().getNearestPlayer(this, 4.0D) != null) {
 					this.setIsCopterLanded(false);
-					this.level.levelEvent((Player) null, 1025, blockpos, 0);
+					this.level().levelEvent((Player) null, 1025, blockpos, 0);
 				}
 			} else {
 				this.setIsCopterLanded(false);
-				this.level.levelEvent((Player) null, 1025, blockpos, 0);
+				this.level().levelEvent((Player) null, 1025, blockpos, 0);
 			}
 		} else {
-			if (this.spawnPosition != null && (!this.level.isEmptyBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
+			if (this.spawnPosition != null && (!this.level().isEmptyBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
 				this.spawnPosition = null;
 			}
 
@@ -197,7 +197,7 @@ public class RoflCopterEntity extends PathfinderMob {
 			this.zza = 0.5F;
 			this.setYRot(getYRot() + f1);
 
-			if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
+			if (this.random.nextInt(100) == 0 && this.level().getBlockState(blockpos1).isRedstoneConductor(this.level(), blockpos1)) {
 				this.setIsCopterLanded(true);
 			}
 		}
@@ -233,7 +233,7 @@ public class RoflCopterEntity extends PathfinderMob {
 		if (this.isInvulnerableTo(source)) {
 			return false;
 		} else {
-			if (!this.level.isClientSide && this.getIsCopterLanded()) {
+			if (!this.level().isClientSide && this.getIsCopterLanded()) {
 				this.setIsCopterLanded(false);
 			}
 			return super.hurt(source, amount);
@@ -246,7 +246,7 @@ public class RoflCopterEntity extends PathfinderMob {
 	@Override
 	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
-		this.entityData.set(LANDED, Byte.valueOf(compound.getByte("CopterFlags")));
+		this.entityData.set(LANDED, compound.getByte("CopterFlags"));
 	}
 
 	/**
@@ -255,7 +255,7 @@ public class RoflCopterEntity extends PathfinderMob {
 	@Override
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
-		compound.putByte("CopterFlags", ((Byte) this.entityData.get(LANDED)).byteValue());
+		compound.putByte("CopterFlags", (Byte) this.entityData.get(LANDED));
 	}
 
 	/**
@@ -263,22 +263,21 @@ public class RoflCopterEntity extends PathfinderMob {
 	 */
 	@Override
 	public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnReasonIn) {
-		BlockPos blockpos = new BlockPos(this.getX(), this.getBoundingBox().minY, this.getZ());
+		BlockPos blockpos = BlockPos.containing(this.getX(), this.getBoundingBox().minY, this.getZ());
 
-		if (blockpos.getY() >= this.level.getSeaLevel()) {
+		if (blockpos.getY() >= this.level().getSeaLevel()) {
 			return false;
 		} else {
-			int i = this.level.getLightEmission(blockpos);
+			int i = this.level().getLightEmission(blockpos);
 
 			return i > this.random.nextInt(4) ? false : super.checkSpawnRules(level, spawnReasonIn);
 		}
 	}
 
 	@Override
-	public float getEyeHeight(Pose pose) {
+	public double getEyeY() {
 		return this.getBbHeight() / 1.5F;
 	}
-
 
 	static class RandomFlyGoal extends Goal {
 		private final RoflCopterEntity parentEntity;

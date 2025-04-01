@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.network.syncher.SynchedEntityData.Builder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -15,7 +16,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -38,11 +38,6 @@ public class KnucklesEntity extends AbstractMeme implements RangedAttackMob {
 
 	public KnucklesEntity(EntityType<? extends KnucklesEntity> entityType, Level level) {
 		super(entityType, level);
-	}
-
-	@Override
-	public float getEyeHeight(Pose pose) {
-		return 0.65F;
 	}
 
 	protected void registerGoals() {
@@ -71,34 +66,34 @@ public class KnucklesEntity extends AbstractMeme implements RangedAttackMob {
 
 	@Override
 	public void performRangedAttack(LivingEntity target, float distanceFactor) {
-		KnucklesSpitEntity entityknucklesspit = new KnucklesSpitEntity(this.level, this);
+		KnucklesSpitEntity entityknucklesspit = new KnucklesSpitEntity(this.level(), this);
 		double d0 = target.getX() - this.getX();
 		double d1 = target.getBoundingBox().minY + (double) (target.getBbHeight() / 3.0F) - entityknucklesspit.getY();
 		double d2 = target.getZ() - this.getZ();
 		float f = Mth.sqrt((float) (d0 * d0 + d2 * d2)) * 0.2F;
 		entityknucklesspit.shoot(d0, d1 + (double) f, d2, 1.5F, 10.0F);
-		this.level.playSound((Player) null, this.getX(), this.getY(), this.getZ(), SoundEvents.LLAMA_SPIT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
-		this.level.addFreshEntity(entityknucklesspit);
+		this.level().playSound((Player) null, this.getX(), this.getY(), this.getZ(), SoundEvents.LLAMA_SPIT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+		this.level().addFreshEntity(entityknucklesspit);
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(TYPE, Integer.valueOf(0));
+	protected void defineSynchedData(Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(TYPE, 0);
 	}
 
 	public void setKnucklesType(int type) {
-		this.entityData.set(TYPE, Integer.valueOf(type));
+		this.entityData.set(TYPE, type);
 	}
 
 	public int getKnucklesType() {
-		return this.entityData.get(TYPE).intValue();
+		return this.entityData.get(TYPE);
 	}
 
 	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData livingData, @Nullable CompoundTag dataTag) {
-		livingData = super.finalizeSpawn(level, difficultyIn, reason, livingData, dataTag);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData livingData) {
+		livingData = super.finalizeSpawn(level, difficultyIn, reason, livingData);
 		this.setKnucklesType(random.nextInt(7));
 
 		return livingData;

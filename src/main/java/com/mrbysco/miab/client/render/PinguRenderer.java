@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class PinguRenderer extends MobRenderer<PinguEntity, PinguModel<PinguEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/pingu.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/pingu.png");
 
 	public PinguRenderer(EntityRendererProvider.Context context) {
 		super(context, new PinguModel<>(context.bakeLayer(ClientHandler.PINGU)), 0.5F);

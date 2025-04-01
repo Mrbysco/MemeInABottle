@@ -1,6 +1,7 @@
 package com.mrbysco.miab.compat.ct;
 
 import com.blamejared.crafttweaker.api.action.base.IUndoableAction;
+import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.memes.FunnyRegistry;
 
 public class DisableMemeAction implements IUndoableAction {
@@ -44,5 +45,10 @@ public class DisableMemeAction implements IUndoableAction {
 		} else {
 			return "Could not re-enable memes. String array was empty.";
 		}
+	}
+
+	@Override
+	public String systemName() {
+		return Reference.MOD_ID;
 	}
 }

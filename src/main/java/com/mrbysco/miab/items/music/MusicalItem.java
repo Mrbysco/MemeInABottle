@@ -53,8 +53,8 @@ public class MusicalItem extends MemeBaseItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
-		super.appendHoverText(stack, level, tooltip, flagIn);
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+		super.appendHoverText(stack, context, tooltip, tooltipFlag);
 		if (this.info != null && !this.info.isEmpty()) {
 			tooltip.add(Component.translatable(this.info).withStyle(ChatFormatting.YELLOW));
 		}

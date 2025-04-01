@@ -28,7 +28,7 @@ public class TacNyanEntity extends Cat {
 		this.goalSelector.addGoal(8, new OcelotAttackGoal(this));
 		this.goalSelector.addGoal(10, new WaterAvoidingRandomStrollGoal(this, 0.8D));
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, NyanCatEntity.class, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, NyanCatEntity.class, true));
 		this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers(TacNyanEntity.class));
 	}
 

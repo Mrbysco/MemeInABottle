@@ -56,12 +56,12 @@ public class MemeBottleItem extends MemeBaseItem {
 	}
 
 	@Override
-	public int getUseDuration(ItemStack stack) {
+	public int getUseDuration(ItemStack stack, LivingEntity living) {
 		return 32;
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack p_77661_1_) {
+	public UseAnim getUseAnimation(ItemStack stack) {
 		return UseAnim.DRINK;
 	}
 
@@ -72,8 +72,8 @@ public class MemeBottleItem extends MemeBaseItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flagIn) {
-		super.appendHoverText(stack, level, tooltip, flagIn);
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+		super.appendHoverText(stack, context, tooltip, tooltipFlag);
 		if (Screen.hasShiftDown()) {
 			tooltip.add(Component.translatable(Reference.MOD_PREFIX + "bottle.text1").withStyle(ChatFormatting.YELLOW));
 			tooltip.add(Component.translatable(Reference.MOD_PREFIX + "bottle.text2").withStyle(ChatFormatting.YELLOW));

@@ -23,6 +23,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.util.BlockSnapshot;
+import net.neoforged.neoforge.event.EventHooks;
 
 public class TrumpEntity extends AbstractMeme {
 
@@ -104,7 +106,7 @@ public class TrumpEntity extends AbstractMeme {
 		public boolean canUse() {
 			if (this.trump.placedBlocks >= this.trump.maxWallBlocks) {
 				return false;
-			} else if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.trump.level, this.trump)) {
+			} else if (!EventHooks.canEntityGrief(this.trump.level(), this.trump)) {
 				return false;
 			} else {
 				return this.trump.getRandom().nextInt(2000) == 0;
@@ -116,7 +118,7 @@ public class TrumpEntity extends AbstractMeme {
 		 */
 		public void tick() {
 			RandomSource random = this.trump.getRandom();
-			Level level = this.trump.level;
+			Level level = this.trump.level();
 			int i = Mth.floor(this.trump.getX() - 1.0D + random.nextDouble() * 2.0D);
 			int j = Mth.floor(this.trump.getY() + random.nextDouble() * 2.0D);
 			int k = Mth.floor(this.trump.getZ() - 1.0D + random.nextDouble() * 2.0D);
@@ -126,7 +128,7 @@ public class TrumpEntity extends AbstractMeme {
 			BlockState blockstate1 = level.getBlockState(blockpos1);
 			BlockState blockstate2 = Blocks.BRICKS.defaultBlockState();
 
-			if (blockstate2 != null && this.canPlaceBlock(level, blockpos, blockstate2, blockstate, blockstate1, blockpos1) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(trump, net.minecraftforge.common.util.BlockSnapshot.create(level.dimension(), level, blockpos), net.minecraft.core.Direction.UP)) {
+			if (blockstate2 != null && this.canPlaceBlock(level, blockpos, blockstate2, blockstate, blockstate1, blockpos1) && !EventHooks.onBlockPlace(trump, BlockSnapshot.create(level.dimension(), level, blockpos), net.minecraft.core.Direction.UP)) {
 				level.setBlock(blockpos, blockstate2, 3);
 				this.trump.addPlacedBlock();
 			}

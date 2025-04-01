@@ -10,14 +10,14 @@ public class KnifeItem extends SwordItem {
 	private final boolean isHot;
 
 	public KnifeItem(Properties properties, boolean isHotKnife) {
-		super(Tiers.IRON, 1, -2.4F, properties.stacksTo(1));
+		super(Tiers.IRON,properties.attributes(SwordItem.createAttributes(Tiers.IRON,  1, -2.4F)).stacksTo(1));
 		this.isHot = isHotKnife;
 	}
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if (this.isHot) {
-			target.setSecondsOnFire(3);
+			target.igniteForSeconds(3);
 			attacker.playSound(SoundEvents.FIRE_EXTINGUISH, 1F, 1F);
 			return true;
 		} else {

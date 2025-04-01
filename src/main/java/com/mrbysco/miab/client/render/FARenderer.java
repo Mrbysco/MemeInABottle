@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class FARenderer extends HumanoidMobRenderer<FAEntity, FAModel<FAEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/foreveralone.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/foreveralone.png");
 
 	public FARenderer(EntityRendererProvider.Context context) {
 		super(context, new FAModel<>(context.bakeLayer(ClientHandler.FOREVER_ALONE)), 0.5F);

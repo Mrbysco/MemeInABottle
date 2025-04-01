@@ -4,15 +4,12 @@ import com.mrbysco.miab.entity.AbstractMeme;
 import com.mrbysco.miab.registry.MemeEntities;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.LlamaSpit;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.network.PlayMessages;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.UUID;
 
@@ -45,15 +42,6 @@ public class KnucklesSpitEntity extends LlamaSpit {
 	@Override
 	public EntityType<?> getType() {
 		return MemeEntities.KNUCKLES_SPIT.get();
-	}
-
-	public KnucklesSpitEntity(PlayMessages.SpawnEntity spawnEntity, Level level) {
-		this(MemeEntities.KNUCKLES_SPIT.get(), level);
-	}
-
-	@Override
-	public Packet<?> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
 	@Override
@@ -97,7 +85,7 @@ public class KnucklesSpitEntity extends LlamaSpit {
 		if (this.ownerNbt != null && this.ownerNbt.hasUUID("OwnerUUID")) {
 			UUID uuid = this.ownerNbt.getUUID("OwnerUUID");
 
-			for (AbstractMeme meme : this.level.getEntitiesOfClass(AbstractMeme.class, this.getBoundingBox().inflate(15.0D))) {
+			for (AbstractMeme meme : this.level().getEntitiesOfClass(AbstractMeme.class, this.getBoundingBox().inflate(15.0D))) {
 				if (meme.getUUID().equals(uuid)) {
 					this.owner = meme;
 					break;

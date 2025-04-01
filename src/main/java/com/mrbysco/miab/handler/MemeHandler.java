@@ -12,8 +12,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Pufferfish;
@@ -26,13 +26,11 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SandBlock;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.TickEvent.Phase;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteract;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.EntityInteract;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -44,11 +42,12 @@ public class MemeHandler {
 		ItemStack itemStack = event.getItemStack();
 		BlockPos pos = event.getPos();
 		Level level = event.getLevel();
-		Block block = level.getBlockState(pos).getBlock();
+		BlockState state = level.getBlockState(pos);
+		Block block = state.getBlock();
 		if (!level.isClientSide && MemeConfig.SERVER.memesOnBeach.get()) {
 			Holder<Biome> biomeHolder = level.getBiome(pos);
 			if (biomeHolder.is(BiomeTags.IS_BEACH)) {
-				if (block instanceof SandBlock) {
+				if (state.is(BlockTags.SAND)) {
 					if (itemStack.getItem() instanceof ShovelItem) {
 						int itemDamage = itemStack.getDamageValue();
 
@@ -72,7 +71,7 @@ public class MemeHandler {
 			if (entity instanceof Pufferfish) {
 				if (itemStack.getItem() == Items.CARROT) {
 					world.playSound((Player) null, event.getPos(), MemeSounds.pufferfish.get(), SoundSource.RECORDS, 0.75F, 1.0F);
-					entity.hurt(DamageSource.GENERIC, 1.0F);
+					entity.hurt(world.damageSources().generic(), 1.0F);
 					if (!event.getEntity().getAbilities().instabuild) {
 						itemStack.shrink(1);
 					}
@@ -93,7 +92,7 @@ public class MemeHandler {
 		final int size = memeBottles.size();
 		Preconditions.checkArgument(size > 0, "Can't select from empty list");
 		if (size == 0) return null;
-		if (size == 1) new ItemStack(memeBottles.get(0));
+		if (size == 1) new ItemStack(memeBottles.getFirst());
 		int randomIndex = rand.nextInt(memeBottles.size());
 		return new ItemStack(memeBottles.get(randomIndex));
 	}
@@ -101,9 +100,8 @@ public class MemeHandler {
 	private static final Predicate<Entity> ALIVE_PREDICATE = Entity::isAlive;
 
 	@SubscribeEvent
-	public void onTick(TickEvent.LevelTickEvent event) {
-		if (event.phase == Phase.END && event.side == LogicalSide.SERVER) {
-			ServerLevel serverLevel = (ServerLevel) event.level;
+	public void onTick(LevelTickEvent.Post event) {
+		if (event.getLevel() instanceof ServerLevel serverLevel && serverLevel.dimension().equals(Level.OVERWORLD)) {
 			if (serverLevel.getGameTime() % 40 == 0) {
 				for (Entity entity : serverLevel.getEntities(EntityType.AREA_EFFECT_CLOUD, ALIVE_PREDICATE)) {
 					if (entity.getCustomName() != null && entity.getCustomName().getString().equals("dankcloud")) {

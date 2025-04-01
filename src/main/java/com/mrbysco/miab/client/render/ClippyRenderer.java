@@ -11,10 +11,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 public class ClippyRenderer extends MobRenderer<ClippyEntity, ClippyModel<ClippyEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/clippy.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/clippy.png");
 
 	public ClippyRenderer(EntityRendererProvider.Context context) {
-		super(context, new ClippyModel(context.bakeLayer(ClientHandler.CLIPPY)), 0.5F);
+		super(context, new ClippyModel<>(context.bakeLayer(ClientHandler.CLIPPY)), 0.5F);
 	}
 
 	@Override

@@ -66,15 +66,15 @@ public class ClippyEntity extends AbstractMeme {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		Holder<Biome> biome = this.level.getBiome(this.blockPosition());
+		Holder<Biome> biome = this.level().getBiome(this.blockPosition());
 		SoundEvent sound = SoundEvents.SLIME_HURT;
 		if (!this.dead) {
-			if (!this.level.isDay()) {
+			if (!this.level().isDay()) {
 				sound = MemeSounds.clippy_night.get();
 			} else if (biome.is(BiomeTags.IS_FOREST)) {
 				if (isPlayerNearby(20) && getPlayerHealth() < 6) {
 					sound = MemeSounds.clippy_health.get();
-				} else if (!this.level.canSeeSkyFromBelowWater(this.blockPosition())) {
+				} else if (!this.level().canSeeSkyFromBelowWater(this.blockPosition())) {
 					sound = MemeSounds.clippy_cave.get();
 				} else
 					sound = MemeSounds.clippy_forest.get();
@@ -82,8 +82,8 @@ public class ClippyEntity extends AbstractMeme {
 				sound = MemeSounds.clippy_health.get();
 			} else if (this.getY() < 60) {
 				sound = MemeSounds.clippy_cave.get();
-			} else if (!this.level.isClientSide &&
-					((ServerLevel) this.level).findNearestMapStructure(StructureTags.MINESHAFT, this.blockPosition(), 30, true) == this.blockPosition()) {
+			} else if (!this.level().isClientSide &&
+					((ServerLevel) this.level()).findNearestMapStructure(StructureTags.MINESHAFT, this.blockPosition(), 30, true) == this.blockPosition()) {
 				sound = MemeSounds.clippy_mineshaft.get();
 			} else {
 				sound = MemeSounds.clippy_passive.get();
@@ -93,7 +93,7 @@ public class ClippyEntity extends AbstractMeme {
 	}
 
 	private float getPlayerHealth() {
-		Player player = this.level.getNearestPlayer(this, 20);
+		Player player = this.level().getNearestPlayer(this, 20);
 		return player == null ? 0 : player.getHealth();
 	}
 
@@ -121,9 +121,9 @@ public class ClippyEntity extends AbstractMeme {
 	protected void dealDamage(LivingEntity entityIn) {
 		int i = 2;
 
-		if (this.hasLineOfSight(entityIn) && this.distanceToSqr(entityIn) < 0.6D * (double) i * 0.6D * (double) i && entityIn.hurt(DamageSource.mobAttack(this), (float) 2)) {
+		if (this.hasLineOfSight(entityIn) && this.distanceToSqr(entityIn) < 0.6D * (double) i * 0.6D * (double) i && entityIn.hurt(
+				damageSources().mobAttack(this), (float) 2)) {
 			this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-			this.doEnchantDamageEffects(this, entityIn);
 		}
 	}
 
@@ -142,14 +142,14 @@ public class ClippyEntity extends AbstractMeme {
 		this.prevJumpFactor = this.jumpFactor;
 		super.tick();
 
-		if (this.onGround && !this.wasOnGround) {
+		if (this.onGround() && !this.wasOnGround) {
 			int i = 2;
 			for (int j = 0; j < i * 8; ++j) {
 				float f = this.random.nextFloat() * ((float) Math.PI * 2F);
 				float f1 = this.random.nextFloat() * 0.5F + 0.5F;
 				float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
 				float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
-				Level world = this.level;
+				Level world = this.level();
 				ParticleOptions iparticledata = ParticleTypes.FIREWORK;
 				double d0 = this.getX() + (double) f2;
 				double d1 = this.getZ() + (double) f3;
@@ -158,11 +158,11 @@ public class ClippyEntity extends AbstractMeme {
 
 			//this.playSound(this.getJumpSound(), this.getSoundVolume(), ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) / 0.8F);
 			this.jumpAmount = -0.5F;
-		} else if (!this.onGround && this.wasOnGround) {
+		} else if (!this.onGround() && this.wasOnGround) {
 			this.jumpAmount = 1.0F;
 		}
 
-		this.wasOnGround = this.onGround;
+		this.wasOnGround = this.onGround();
 		this.alterJumpAmount();
 	}
 
@@ -170,7 +170,7 @@ public class ClippyEntity extends AbstractMeme {
 		this.jumpAmount *= 0.6F;
 	}
 
-	protected void jumpFromGround() {
+	public void jumpFromGround() {
 		Vec3 vec3d = this.getDeltaMovement();
 		this.setDeltaMovement(vec3d.x, (double) 0.42F, vec3d.z);
 		this.hasImpulse = true;
@@ -242,7 +242,7 @@ public class ClippyEntity extends AbstractMeme {
 			} else {
 				this.operation = MoveControl.Operation.WAIT;
 
-				if (this.mob.isOnGround()) {
+				if (this.mob.onGround()) {
 					this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttribute(Attributes.MOVEMENT_SPEED).getValue()));
 
 					if (this.jumpDelay-- <= 0) {

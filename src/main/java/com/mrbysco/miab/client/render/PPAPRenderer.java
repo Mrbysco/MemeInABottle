@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class PPAPRenderer extends AbstractHumanoidRenderer<PPAPEntity, HumanBaseModel<PPAPEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/kosakadaimaou.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/kosakadaimaou.png");
 
 	public PPAPRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.ROADMAN_SHAQ, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

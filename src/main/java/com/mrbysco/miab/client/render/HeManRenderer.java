@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class HeManRenderer extends AbstractHumanoidRenderer<HeManEntity, HumanBaseModel<HeManEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/heman.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/heman.png");
 
 	public HeManRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.HE_MAN, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

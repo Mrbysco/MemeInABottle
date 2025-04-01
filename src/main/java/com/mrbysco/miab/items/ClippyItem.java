@@ -19,7 +19,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.HitResult.Type;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class ClippyItem extends MemeBaseItem {
@@ -31,8 +30,6 @@ public class ClippyItem extends MemeBaseItem {
 	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
 		ItemStack itemstack = playerIn.getItemInHand(handIn);
 		HitResult raytraceresult = getPlayerPOVHitResult(level, playerIn, Fluid.NONE);
-		InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerIn, level, itemstack, raytraceresult);
-		if (ret != null) return ret;
 
 		if (raytraceresult == null) {
 			return new InteractionResultHolder<>(InteractionResult.PASS, itemstack);
@@ -55,8 +52,8 @@ public class ClippyItem extends MemeBaseItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
-		super.appendHoverText(stack, level, tooltip, flagIn);
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+		super.appendHoverText(stack, context, tooltip, tooltipFlag);
 		tooltip.add(Component.translatable(Reference.MOD_PREFIX + "clippy.info").withStyle(ChatFormatting.YELLOW));
 	}
 }

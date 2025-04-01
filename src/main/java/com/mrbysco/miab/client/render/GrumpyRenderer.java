@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Cat;
 
 public class GrumpyRenderer extends CatRenderer {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/grumpy.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/grumpy.png");
 
 	public GrumpyRenderer(EntityRendererProvider.Context context) {
 		super(context);

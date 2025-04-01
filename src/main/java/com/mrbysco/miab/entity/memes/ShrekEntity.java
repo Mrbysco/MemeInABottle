@@ -31,9 +31,7 @@ import java.util.function.Predicate;
 
 public class ShrekEntity extends AbstractMeme {
 
-	private static final Predicate<Difficulty> HARD_DIFFICULTY_PREDICATE = (p_213697_0_) -> {
-		return p_213697_0_ == Difficulty.HARD;
-	};
+	private static final Predicate<Difficulty> HARD_DIFFICULTY_PREDICATE = (difficulty) -> difficulty == Difficulty.HARD;
 	private final BreakDoorGoal breakDoorAI = new BreakDoorGoal(this, HARD_DIFFICULTY_PREDICATE);
 	private boolean isBreakDoorsTaskSet;
 
@@ -86,11 +84,11 @@ public class ShrekEntity extends AbstractMeme {
 	@Override
 	public void die(DamageSource cause) {
 		super.die(cause);
-		if (!level.isClientSide) {
-			Donkey donkey = EntityType.DONKEY.create(level);
+		if (!level().isClientSide) {
+			Donkey donkey = EntityType.DONKEY.create(level());
 			donkey.moveTo(getX() + 0.5, getY(), getZ() + 0.5, 0, 0);
 			donkey.setCustomName(Component.literal("Donkey"));
-			level.addFreshEntity(donkey);
+			level().addFreshEntity(donkey);
 		}
 	}
 
@@ -134,12 +132,12 @@ public class ShrekEntity extends AbstractMeme {
 
 	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData livingData, @Nullable CompoundTag dataTag) {
-		livingData = super.finalizeSpawn(level, difficultyIn, reason, livingData, dataTag);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData livingData) {
+		livingData = super.finalizeSpawn(level, difficultyIn, reason, livingData);
 		float f = difficultyIn.getSpecialMultiplier();
 		this.setBreakDoorsAItask(this.random.nextFloat() < f * 0.1F);
 		this.populateDefaultEquipmentSlots(random, difficultyIn);
-		this.populateDefaultEquipmentEnchantments(random, difficultyIn);
+		this.populateDefaultEquipmentEnchantments(level, random, difficultyIn);
 
 		if (this.random.nextFloat() < f * 0.05F) {
 			this.setBreakDoorsAItask(true);

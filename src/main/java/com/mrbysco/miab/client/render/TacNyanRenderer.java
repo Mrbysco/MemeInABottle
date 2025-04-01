@@ -9,10 +9,10 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class TacNyanRenderer extends MobRenderer<TacNyanEntity, NyanModel<TacNyanEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/tacnayn.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/tacnayn.png");
 
 	public TacNyanRenderer(EntityRendererProvider.Context context) {
-		super(context, new NyanModel(context.bakeLayer(ClientHandler.TAC_NAYN)), 0.5F);
+		super(context, new NyanModel<>(context.bakeLayer(ClientHandler.TAC_NAYN)), 0.5F);
 	}
 
 	public ResourceLocation getTextureLocation(TacNyanEntity entity) {

@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class DankeyRenderer extends AbstractHumanoidRenderer<DankeyEntity, HumanBaseModel<DankeyEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/dankey_kang.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/dankey_kang.png");
 
 	public DankeyRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.DANKEY_KANG, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

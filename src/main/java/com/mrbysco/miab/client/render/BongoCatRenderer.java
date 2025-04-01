@@ -10,11 +10,11 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class BongoCatRenderer extends MobRenderer<BongoCatEntity, BongoCatModel<BongoCatEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/bongocat.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/bongocat.png");
 
 	public BongoCatRenderer(EntityRendererProvider.Context context) {
-		super(context, new BongoCatModel(context.bakeLayer(ClientHandler.BONGO_CAT)), 0.3F);
-		this.addLayer(new NoteBlockLayer(this, context.getItemInHandRenderer()));
+		super(context, new BongoCatModel<>(context.bakeLayer(ClientHandler.BONGO_CAT)), 0.3F);
+		this.addLayer(new NoteBlockLayer<>(this, context.getItemInHandRenderer()));
 	}
 
 	public ResourceLocation getTextureLocation(BongoCatEntity entity) {

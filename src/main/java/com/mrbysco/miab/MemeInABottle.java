@@ -9,44 +9,41 @@ import com.mrbysco.miab.registry.MemeEntities;
 import com.mrbysco.miab.registry.MemeRegistry;
 import com.mrbysco.miab.registry.MemeReloadManager;
 import com.mrbysco.miab.registry.MemeSounds;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.server.ServerStartedEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import com.mrbysco.miab.registry.MemeTab;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import org.slf4j.Logger;
 
 @Mod(Reference.MOD_ID)
 public class MemeInABottle {
 	public static final Logger logger = LogUtils.getLogger();
 
-	public MemeInABottle() {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, MemeConfig.serverSpec);
-		FMLJavaModLoadingContext.get().getModEventBus().register(MemeConfig.class);
+	public MemeInABottle(IEventBus eventBus, Dist dist, ModContainer container) {
+		container.registerConfig(ModConfig.Type.SERVER, MemeConfig.serverSpec);
+		eventBus.register(MemeConfig.class);
 
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		MemeEntities.ENTITIES.register(eventBus);
 		MemeRegistry.ITEMS.register(eventBus);
 		MemeRegistry.BLOCKS.register(eventBus);
+		MemeTab.CREATIVE_MODE_TABS.register(eventBus);
 		MemeSounds.SOUND_EVENTS.register(eventBus);
 
-		MinecraftForge.EVENT_BUS.register(new MemeHandler());
-		MinecraftForge.EVENT_BUS.register(new MemeReloadManager());
-		MinecraftForge.EVENT_BUS.addListener(this::serverStart);
+		NeoForge.EVENT_BUS.register(new MemeHandler());
+		NeoForge.EVENT_BUS.register(new MemeReloadManager());
+		NeoForge.EVENT_BUS.addListener(this::serverStart);
 
 		eventBus.addListener(MemeEntities::registerEntityAttributes);
 
-		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+		if (dist.isClient()) {
 			eventBus.addListener(ClientHandler::onClientSetup);
 			eventBus.addListener(ClientHandler::registerEntityRenders);
 			eventBus.addListener(ClientHandler::registerLayerDefinitions);
-		});
+		}
 	}
 
 	public void serverStart(ServerStartedEvent event) {

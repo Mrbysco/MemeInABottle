@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class RoadmanShaqRenderer extends AbstractHumanoidRenderer<RoadmanShaqEntity, HumanBaseModel<RoadmanShaqEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/bigshaq.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/bigshaq.png");
 
 	public RoadmanShaqRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.ROADMAN_SHAQ, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

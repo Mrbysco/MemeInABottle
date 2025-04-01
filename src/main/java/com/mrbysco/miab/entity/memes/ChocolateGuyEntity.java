@@ -6,6 +6,7 @@ import com.mrbysco.miab.registry.MemeSounds;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.network.syncher.SynchedEntityData.Builder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -51,9 +52,9 @@ public class ChocolateGuyEntity extends AbstractMeme {
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.getEntityData().define(FOLLOWING_PLAYER, Boolean.valueOf(false));
+	protected void defineSynchedData(Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(FOLLOWING_PLAYER, Boolean.FALSE);
 	}
 
 	@Override
@@ -72,11 +73,11 @@ public class ChocolateGuyEntity extends AbstractMeme {
 	}
 
 	public void setFollowingPlayer(boolean armsRaised) {
-		this.getEntityData().set(FOLLOWING_PLAYER, Boolean.valueOf(armsRaised));
+		this.getEntityData().set(FOLLOWING_PLAYER, armsRaised);
 	}
 
 	public boolean isFollowingPlayer() {
-		return ((Boolean) this.getEntityData().get(FOLLOWING_PLAYER)).booleanValue();
+		return (Boolean) this.getEntityData().get(FOLLOWING_PLAYER);
 	}
 
 	static class AIFollowPlayerGoalCocoa extends FollowPlayerGoal {

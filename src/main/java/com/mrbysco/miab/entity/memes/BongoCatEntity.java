@@ -4,6 +4,7 @@ import com.mrbysco.miab.entity.AbstractMeme;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.network.syncher.SynchedEntityData.Builder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -57,17 +58,17 @@ public class BongoCatEntity extends AbstractMeme {
 	}
 
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(TAPPING, Boolean.valueOf(false));
+	protected void defineSynchedData(Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(TAPPING, Boolean.FALSE);
 	}
 
 	public void setTapping(boolean isTapping) {
-		this.getEntityData().set(TAPPING, Boolean.valueOf(isTapping));
+		this.getEntityData().set(TAPPING, isTapping);
 	}
 
 	public boolean isTapping() {
-		return ((Boolean) this.getEntityData().get(TAPPING)).booleanValue();
+		return (Boolean) this.getEntityData().get(TAPPING);
 	}
 
 	@Override
@@ -75,8 +76,8 @@ public class BongoCatEntity extends AbstractMeme {
 		if (isTapping()) {
 			TickSinceTap++;
 
-			if (level.random.nextInt(50) < 4) {
-				this.playSound(SoundEvents.NOTE_BLOCK_BASEDRUM, getSoundVolume(), getVoicePitch());
+			if (level().random.nextInt(50) < 4) {
+				this.playSound(SoundEvents.NOTE_BLOCK_BASEDRUM.value(), getSoundVolume(), getVoicePitch());
 			}
 
 			if (TickSinceTap > 30) {

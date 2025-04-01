@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class ChocolateGuyRenderer extends AbstractHumanoidRenderer<ChocolateGuyEntity, TomModel<ChocolateGuyEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/tom.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/tom.png");
 
 	public ChocolateGuyRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.TOM, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

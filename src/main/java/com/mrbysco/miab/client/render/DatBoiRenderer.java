@@ -9,10 +9,10 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class DatBoiRenderer extends MobRenderer<DatBoiEntity, DatBoiModel<DatBoiEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/datboi.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/datboi.png");
 
 	public DatBoiRenderer(EntityRendererProvider.Context context) {
-		super(context, new DatBoiModel(context.bakeLayer(ClientHandler.DAT_BOI)), 0.5F);
+		super(context, new DatBoiModel<>(context.bakeLayer(ClientHandler.DAT_BOI)), 0.5F);
 	}
 
 	public ResourceLocation getTextureLocation(DatBoiEntity entity) {

@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Wolf;
 
 public class DogeRenderer extends WolfRenderer {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/doge.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/doge.png");
 
 	public DogeRenderer(EntityRendererProvider.Context context) {
 		super(context);

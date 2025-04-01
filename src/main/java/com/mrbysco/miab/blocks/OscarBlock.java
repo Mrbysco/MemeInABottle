@@ -1,9 +1,11 @@
 package com.mrbysco.miab.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
@@ -18,6 +20,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class OscarBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+	public static final MapCodec<OscarBlock> CODEC = simpleCodec(OscarBlock::new);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	private static final VoxelShape SHAPE = Block.box(4D, 0, 4, 12, 12, 12);
@@ -25,6 +28,11 @@ public class OscarBlock extends HorizontalDirectionalBlock implements SimpleWate
 	public OscarBlock(Properties builder) {
 		super(builder.strength(0.6F, 200).sound(SoundType.METAL));
 		this.registerDefaultState((BlockState) ((BlockState) this.stateDefinition.any()).setValue(FACING, Direction.NORTH));
+	}
+
+	@Override
+	protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+		return CODEC;
 	}
 
 	@Override

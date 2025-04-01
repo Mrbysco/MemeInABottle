@@ -5,6 +5,7 @@ import com.mrbysco.miab.Reference;
 import com.mrbysco.miab.config.MemeConfig;
 import com.mrbysco.miab.memes.actions.base.BasicFunny;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +23,7 @@ public class DangerousToGoAloneMeme extends BasicFunny {
 		super.trigger(world, pos, player);
 		if (!world.isClientSide) {
 			ItemStack sword = new ItemStack(Items.WOODEN_SWORD);
-			sword.setHoverName(Component.literal("Zelda Sword"));
+			sword.set(DataComponents.CUSTOM_NAME, Component.literal("Zelda Sword"));
 			spawnEntityItem(world, sword, pos);
 
 			if (MemeConfig.SERVER.useNarator.get()) {

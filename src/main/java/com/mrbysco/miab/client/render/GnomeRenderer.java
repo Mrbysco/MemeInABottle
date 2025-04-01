@@ -10,10 +10,10 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class GnomeRenderer extends MobRenderer<GnomeEntity, GnomeModel<GnomeEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/gnome.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/gnome.png");
 
 	public GnomeRenderer(EntityRendererProvider.Context context) {
-		super(context, new GnomeModel(context.bakeLayer(ClientHandler.GNOME)), 0.5F);
+		super(context, new GnomeModel<>(context.bakeLayer(ClientHandler.GNOME)), 0.5F);
 	}
 
 	@Override

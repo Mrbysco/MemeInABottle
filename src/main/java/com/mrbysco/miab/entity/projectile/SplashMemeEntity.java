@@ -16,10 +16,8 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.network.PlayMessages;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(
 		value = Dist.CLIENT,
@@ -43,27 +41,18 @@ public class SplashMemeEntity extends ThrowableItemProjectile implements ItemSup
 		super(MemeEntities.SPLASH_MEME.get(), x, y, z, level);
 	}
 
-	public SplashMemeEntity(PlayMessages.SpawnEntity spawnEntity, Level level) {
-		this(MemeEntities.SPLASH_MEME.get(), level);
-	}
-
-	@Override
-	public Packet<?> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
-	}
-
 	@Override
 	public void handleEntityEvent(byte id) {
 		if (id == 3) {
 			for (int i = 0; i < 8; ++i) {
-				this.level.addParticle(ParticleTypes.NOTE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+				this.level().addParticle(ParticleTypes.NOTE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
 
 	@Override
-	protected float getGravity() {
-		return 0.05F;
+	protected double getDefaultGravity() {
+		return 0.05D;
 	}
 
 	/**
@@ -71,33 +60,32 @@ public class SplashMemeEntity extends ThrowableItemProjectile implements ItemSup
 	 */
 	@Override
 	protected void onHit(HitResult result) {
-		if (!this.level.isClientSide) {
+		if (!this.level().isClientSide) {
 			if (this.isLingering()) {
-				if (!level.isClientSide) {
+				if (!level().isClientSide) {
 					this.makeAreaOfEffectCloud();
 				}
 			}
 
-			FunnyRegistry.instance().triggerRandomMeme(level, this.blockPosition(), level.getNearestPlayer(this, 100.0));
+			FunnyRegistry.instance().triggerRandomMeme(level(), this.blockPosition(), level().getNearestPlayer(this, 100.0));
 
 			this.discard();
 		}
 	}
 
 	private void makeAreaOfEffectCloud() {
-		AreaEffectCloud entityareaeffectcloud = new AreaEffectCloud(this.level, this.getX(), this.getY(), this.getZ());
+		AreaEffectCloud areaEffectCloud = new AreaEffectCloud(this.level(), this.getX(), this.getY(), this.getZ());
 		Entity entity = this.getOwner();
 		if (entity instanceof LivingEntity) {
-			entityareaeffectcloud.setOwner((LivingEntity) entity);
+			areaEffectCloud.setOwner((LivingEntity) entity);
 		}
-		entityareaeffectcloud.setRadius(3.0F);
-		entityareaeffectcloud.setRadiusOnUse(-0.5F);
-		entityareaeffectcloud.setWaitTime(10);
-		entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float) entityareaeffectcloud.getDuration());
-		entityareaeffectcloud.setFixedColor(13882323);
-		entityareaeffectcloud.setCustomName(Component.literal("dankcloud"));
+		areaEffectCloud.setRadius(3.0F);
+		areaEffectCloud.setRadiusOnUse(-0.5F);
+		areaEffectCloud.setWaitTime(10);
+		areaEffectCloud.setRadiusPerTick(-areaEffectCloud.getRadius() / (float) areaEffectCloud.getDuration());
+		areaEffectCloud.setCustomName(Component.literal("dankcloud"));
 
-		this.level.addFreshEntity(entityareaeffectcloud);
+		this.level().addFreshEntity(areaEffectCloud);
 	}
 
 	@Override

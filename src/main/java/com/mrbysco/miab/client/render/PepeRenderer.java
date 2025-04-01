@@ -9,10 +9,10 @@ import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
 public class PepeRenderer extends HumanoidMobRenderer<PepeEntity, PepeModel<PepeEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/pepe.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/pepe.png");
 
 	public PepeRenderer(EntityRendererProvider.Context context) {
-		super(context, new PepeModel(context.bakeLayer(ClientHandler.PEPE)), 0.5F);
+		super(context, new PepeModel<>(context.bakeLayer(ClientHandler.PEPE)), 0.5F);
 	}
 
 	public ResourceLocation getTextureLocation(PepeEntity entity) {

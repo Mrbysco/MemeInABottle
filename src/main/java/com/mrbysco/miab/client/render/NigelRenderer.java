@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class NigelRenderer extends AbstractHumanoidRenderer<NigelEntity, HumanBaseModel<NigelEntity>> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/nigel.png");
+	private static final ResourceLocation TEXTURE = Reference.modLoc("textures/entity/nigel.png");
 
 	public NigelRenderer(EntityRendererProvider.Context context) {
 		this(context, ClientHandler.NIGEL_THORNBERRY, ClientHandler.HUMANOID_INNER_ARMOR, ClientHandler.HUMANOID_OUTER_ARMOR);

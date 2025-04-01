@@ -161,7 +161,7 @@ public class FunnyRegistry {
 		registerMeme(new NyanCatMeme());
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "nigel_thornberry", 5, MemeEntities.NIGEL_THORNBERRY.get(), MemeSounds.nigel_blagh));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "dancing_hotdog", 5, MemeEntities.DANCING_HOTDOG.get(), MemeSounds.hotdog_full));
-		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "bongo_cat", 5, MemeEntities.BONGO_CAT.get(), () -> SoundEvents.NOTE_BLOCK_HAT));
+		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "bongo_cat", 5, MemeEntities.BONGO_CAT.get(), SoundEvents.NOTE_BLOCK_HAT::value));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "roflcopter", 5, MemeEntities.ROFL_COPTER.get(), MemeSounds.rofl_spawn));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "gnome", 5, MemeEntities.GNOME.get(), MemeSounds.gnome_spawn));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "clippy", 5, MemeEntities.CLIPPY.get(), MemeSounds.clippy_passive));
@@ -178,7 +178,7 @@ public class FunnyRegistry {
 
 	public void registerMeme(iFunny reward) {
 		if (nameList.contains(reward.getName())) {
-			MemeInABottle.logger.error("An attempt was made to register a meme with an ID that already exists. ID: " + reward.getName());
+			MemeInABottle.logger.error("An attempt was made to register a meme with an ID that already exists. ID: {}", reward.getName());
 		} else {
 			nameList.add(reward.getName());
 			nameToFunny.put(reward.getName(), reward);
@@ -221,7 +221,7 @@ public class FunnyRegistry {
 			}
 			iFunny randomMeme = funnyList.get(randomIndex);
 			if (MemeConfig.SERVER.logTriggers.get()) {
-				MemeInABottle.logger.info("Triggered the meme with the name: " + randomMeme.getName() + " at " + playerIn.getName());
+				MemeInABottle.logger.info("Triggered the meme with the name: {} at {}", randomMeme.getName(), playerIn.getName());
 			}
 			randomMeme.trigger(level, pos, playerIn);
 		}

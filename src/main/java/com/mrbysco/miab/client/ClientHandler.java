@@ -68,53 +68,53 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientHandler {
-	public static final ModelLayerLocation JOHN_CENA = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "john_cena"), "main");
-	public static final ModelLayerLocation DONALD_TRUMP = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "donald_trump"), "main");
-	public static final ModelLayerLocation DOGE = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "doge"), "main");
-	public static final ModelLayerLocation GRUMPY_CAT = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "grumpy_cat"), "main");
-	public static final ModelLayerLocation ATTACHED_GIRLFRIEND = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "attached_girlfriend"), "main");
-	public static final ModelLayerLocation EDUARD_KHIL = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "eduard_khil"), "main");
-	public static final ModelLayerLocation PPAP = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "ppap"), "main");
-	public static final ModelLayerLocation ROBBIE_ROTTEN = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "robbie_rotten"), "main");
-	public static final ModelLayerLocation GRAND_DAD = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "grand_dad"), "main");
-	public static final ModelLayerLocation HE_MAN = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "he_man"), "main");
-	public static final ModelLayerLocation SKYWALKER = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "skywalker"), "main");
-	public static final ModelLayerLocation ROADMAN_SHAQ = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "roadman_shaq"), "main");
-	public static final ModelLayerLocation DANKEY_KANG = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "dankey_kang"), "main");
-	public static final ModelLayerLocation PHIL_SWIFT = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "phil_swift"), "main");
-	public static final ModelLayerLocation SHREK = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "shrek"), "main");
-	public static final ModelLayerLocation DAT_BOI = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "dat_boi"), "main");
-	public static final ModelLayerLocation SANIC = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "sanic"), "main");
-	public static final ModelLayerLocation PEPE = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "pepe"), "main");
-	public static final ModelLayerLocation FOREVER_ALONE = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "forever_alone"), "main");
-	public static final ModelLayerLocation NYAN_CAT = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "nyan_cat"), "main");
-	public static final ModelLayerLocation TAC_NAYN = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "tac_nayn"), "main");
-	public static final ModelLayerLocation NIGEL_THORNBERRY = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "nigel_thornberry"), "main");
-	public static final ModelLayerLocation DANCING_HOTDOG = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "dancing_hotdog"), "main");
-	public static final ModelLayerLocation BONGO_CAT = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "bongo_cat"), "main");
-	public static final ModelLayerLocation ROFL_COPTER = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "rofl_copter"), "main");
-	public static final ModelLayerLocation GNOME = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "gnome"), "main");
-	public static final ModelLayerLocation CLIPPY = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "clippy"), "main");
-	public static final ModelLayerLocation SANS = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "sans"), "main");
-	public static final ModelLayerLocation PINGU = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "pingu"), "main");
-	public static final ModelLayerLocation TOM = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "tom"), "main");
-	public static final ModelLayerLocation KNUCKLES = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles"), "main");
-	public static final ModelLayerLocation KNUCKLES_AKU = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles"), "aku");
-	public static final ModelLayerLocation KNUCKLES_SAIYAN = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles"), "saiyan");
-	public static final ModelLayerLocation KNUCKLES_TANK = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles"), "tank");
-	public static final ModelLayerLocation KNUCKLES_YUGI = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles"), "yugi");
-	public static final ModelLayerLocation KNUCKLES_SPIT = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles_spit"), "main");
-	public static final ModelLayerLocation KNUCKLES_QUEEN = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "knuckles_queen"), "main");
-	public static final ModelLayerLocation HUMANOID_INNER_ARMOR = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "humanoid"), "inner_armor");
-	public static final ModelLayerLocation HUMANOID_OUTER_ARMOR = new ModelLayerLocation(new ResourceLocation(Reference.MOD_ID, "humanoid"), "outer_armor");
+	public static final ModelLayerLocation JOHN_CENA = new ModelLayerLocation(Reference.modLoc("john_cena"), "main");
+	public static final ModelLayerLocation DONALD_TRUMP = new ModelLayerLocation(Reference.modLoc("donald_trump"), "main");
+	public static final ModelLayerLocation DOGE = new ModelLayerLocation(Reference.modLoc("doge"), "main");
+	public static final ModelLayerLocation GRUMPY_CAT = new ModelLayerLocation(Reference.modLoc("grumpy_cat"), "main");
+	public static final ModelLayerLocation ATTACHED_GIRLFRIEND = new ModelLayerLocation(Reference.modLoc("attached_girlfriend"), "main");
+	public static final ModelLayerLocation EDUARD_KHIL = new ModelLayerLocation(Reference.modLoc("eduard_khil"), "main");
+	public static final ModelLayerLocation PPAP = new ModelLayerLocation(Reference.modLoc("ppap"), "main");
+	public static final ModelLayerLocation ROBBIE_ROTTEN = new ModelLayerLocation(Reference.modLoc("robbie_rotten"), "main");
+	public static final ModelLayerLocation GRAND_DAD = new ModelLayerLocation(Reference.modLoc("grand_dad"), "main");
+	public static final ModelLayerLocation HE_MAN = new ModelLayerLocation(Reference.modLoc("he_man"), "main");
+	public static final ModelLayerLocation SKYWALKER = new ModelLayerLocation(Reference.modLoc("skywalker"), "main");
+	public static final ModelLayerLocation ROADMAN_SHAQ = new ModelLayerLocation(Reference.modLoc("roadman_shaq"), "main");
+	public static final ModelLayerLocation DANKEY_KANG = new ModelLayerLocation(Reference.modLoc("dankey_kang"), "main");
+	public static final ModelLayerLocation PHIL_SWIFT = new ModelLayerLocation(Reference.modLoc("phil_swift"), "main");
+	public static final ModelLayerLocation SHREK = new ModelLayerLocation(Reference.modLoc("shrek"), "main");
+	public static final ModelLayerLocation DAT_BOI = new ModelLayerLocation(Reference.modLoc("dat_boi"), "main");
+	public static final ModelLayerLocation SANIC = new ModelLayerLocation(Reference.modLoc("sanic"), "main");
+	public static final ModelLayerLocation PEPE = new ModelLayerLocation(Reference.modLoc("pepe"), "main");
+	public static final ModelLayerLocation FOREVER_ALONE = new ModelLayerLocation(Reference.modLoc("forever_alone"), "main");
+	public static final ModelLayerLocation NYAN_CAT = new ModelLayerLocation(Reference.modLoc("nyan_cat"), "main");
+	public static final ModelLayerLocation TAC_NAYN = new ModelLayerLocation(Reference.modLoc("tac_nayn"), "main");
+	public static final ModelLayerLocation NIGEL_THORNBERRY = new ModelLayerLocation(Reference.modLoc("nigel_thornberry"), "main");
+	public static final ModelLayerLocation DANCING_HOTDOG = new ModelLayerLocation(Reference.modLoc("dancing_hotdog"), "main");
+	public static final ModelLayerLocation BONGO_CAT = new ModelLayerLocation(Reference.modLoc("bongo_cat"), "main");
+	public static final ModelLayerLocation ROFL_COPTER = new ModelLayerLocation(Reference.modLoc("rofl_copter"), "main");
+	public static final ModelLayerLocation GNOME = new ModelLayerLocation(Reference.modLoc("gnome"), "main");
+	public static final ModelLayerLocation CLIPPY = new ModelLayerLocation(Reference.modLoc("clippy"), "main");
+	public static final ModelLayerLocation SANS = new ModelLayerLocation(Reference.modLoc("sans"), "main");
+	public static final ModelLayerLocation PINGU = new ModelLayerLocation(Reference.modLoc("pingu"), "main");
+	public static final ModelLayerLocation TOM = new ModelLayerLocation(Reference.modLoc("tom"), "main");
+	public static final ModelLayerLocation KNUCKLES = new ModelLayerLocation(Reference.modLoc("knuckles"), "main");
+	public static final ModelLayerLocation KNUCKLES_AKU = new ModelLayerLocation(Reference.modLoc("knuckles"), "aku");
+	public static final ModelLayerLocation KNUCKLES_SAIYAN = new ModelLayerLocation(Reference.modLoc("knuckles"), "saiyan");
+	public static final ModelLayerLocation KNUCKLES_TANK = new ModelLayerLocation(Reference.modLoc("knuckles"), "tank");
+	public static final ModelLayerLocation KNUCKLES_YUGI = new ModelLayerLocation(Reference.modLoc("knuckles"), "yugi");
+	public static final ModelLayerLocation KNUCKLES_SPIT = new ModelLayerLocation(Reference.modLoc("knuckles_spit"), "main");
+	public static final ModelLayerLocation KNUCKLES_QUEEN = new ModelLayerLocation(Reference.modLoc("knuckles_queen"), "main");
+	public static final ModelLayerLocation HUMANOID_INNER_ARMOR = new ModelLayerLocation(Reference.modLoc("humanoid"), "inner_armor");
+	public static final ModelLayerLocation HUMANOID_OUTER_ARMOR = new ModelLayerLocation(Reference.modLoc("humanoid"), "outer_armor");
 
 	public static void onClientSetup(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			ItemProperties.register(MemeRegistry.FIDGET_SPINNER.get(), new ResourceLocation("spinning"), (stack, world, livingEntity, tintIndex) ->
+			ItemProperties.register(MemeRegistry.FIDGET_SPINNER.get(), ResourceLocation.withDefaultNamespace("spinning"), (stack, world, livingEntity, tintIndex) ->
 					livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == stack ? 1.0F : 0.0F);
 		});
 
@@ -170,7 +170,7 @@ public class ClientHandler {
 
 		event.registerLayerDefinition(JOHN_CENA, () -> humanoidDefinition);
 		event.registerLayerDefinition(DONALD_TRUMP, () -> humanoidDefinition);
-		event.registerLayerDefinition(DOGE, () -> WolfModel.createBodyLayer());
+		event.registerLayerDefinition(DOGE, () -> LayerDefinition.create(WolfModel.createMeshDefinition(CubeDeformation.NONE), 64, 32));
 		event.registerLayerDefinition(GRUMPY_CAT, () -> LayerDefinition.create(OcelotModel.createBodyMesh(CubeDeformation.NONE), 64, 32));
 		event.registerLayerDefinition(ATTACHED_GIRLFRIEND, () -> LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0F), 64, 64));
 		event.registerLayerDefinition(EDUARD_KHIL, () -> humanoidDefinition);

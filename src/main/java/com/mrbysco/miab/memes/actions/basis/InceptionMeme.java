@@ -27,7 +27,7 @@ public class InceptionMeme extends BasicFunny {
 			BlockEntity tile = world.getBlockEntity(pos);
 			if (tile instanceof ChestBlockEntity chest) {
 				chest.setItem(0, new ItemStack(Blocks.CHEST));
-				chest.setCustomName(Component.literal("Chestception"));
+				chest.name = Component.translatable(Reference.MOD_PREFIX + "chestception");
 			}
 		}
 	}
