@@ -161,7 +161,7 @@ public class FunnyRegistry {
 		registerMeme(new NyanCatMeme());
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "nigel_thornberry", 5, MemeEntities.NIGEL_THORNBERRY.get(), MemeSounds.nigel_blagh));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "dancing_hotdog", 5, MemeEntities.DANCING_HOTDOG.get(), MemeSounds.hotdog_full));
-		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "bongo_cat", 5, MemeEntities.BONGO_CAT.get(), () -> SoundEvents.NOTE_BLOCK_HAT));
+		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "bongo_cat", 5, MemeEntities.BONGO_CAT.get(), () -> SoundEvents.NOTE_BLOCK_HAT.value()));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "roflcopter", 5, MemeEntities.ROFL_COPTER.get(), MemeSounds.rofl_spawn));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "gnome", 5, MemeEntities.GNOME.get(), MemeSounds.gnome_spawn));
 		registerMeme(new BasicEntityMeme(Reference.MOD_PREFIX + "clippy", 5, MemeEntities.CLIPPY.get(), MemeSounds.clippy_passive));

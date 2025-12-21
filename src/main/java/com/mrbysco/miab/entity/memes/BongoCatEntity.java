@@ -75,8 +75,8 @@ public class BongoCatEntity extends AbstractMeme {
 		if (isTapping()) {
 			TickSinceTap++;
 
-			if (level.random.nextInt(50) < 4) {
-				this.playSound(SoundEvents.NOTE_BLOCK_BASEDRUM, getSoundVolume(), getVoicePitch());
+			if (level().random.nextInt(50) < 4) {
+				this.playSound(SoundEvents.NOTE_BLOCK_BASEDRUM.value(), getSoundVolume(), getVoicePitch());
 			}
 
 			if (TickSinceTap > 30) {

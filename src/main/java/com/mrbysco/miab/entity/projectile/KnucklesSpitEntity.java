@@ -5,6 +5,7 @@ import com.mrbysco.miab.registry.MemeEntities;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.LlamaSpit;
@@ -52,7 +53,7 @@ public class KnucklesSpitEntity extends LlamaSpit {
 	}
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
@@ -97,7 +98,7 @@ public class KnucklesSpitEntity extends LlamaSpit {
 		if (this.ownerNbt != null && this.ownerNbt.hasUUID("OwnerUUID")) {
 			UUID uuid = this.ownerNbt.getUUID("OwnerUUID");
 
-			for (AbstractMeme meme : this.level.getEntitiesOfClass(AbstractMeme.class, this.getBoundingBox().inflate(15.0D))) {
+			for (AbstractMeme meme : this.level().getEntitiesOfClass(AbstractMeme.class, this.getBoundingBox().inflate(15.0D))) {
 				if (meme.getUUID().equals(uuid)) {
 					this.owner = meme;
 					break;

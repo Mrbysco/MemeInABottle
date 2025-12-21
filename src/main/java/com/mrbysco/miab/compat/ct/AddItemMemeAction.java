@@ -40,4 +40,9 @@ public class AddItemMemeAction implements IRuntimeAction {
 			return "Could not add meme with ID: " + this.uniqueID + " but that ID already exists.";
 		}
 	}
+
+	@Override
+	public String systemName() {
+		return "MIAB Item Meme Addition";
+	}
 }

@@ -86,11 +86,11 @@ public class ShrekEntity extends AbstractMeme {
 	@Override
 	public void die(DamageSource cause) {
 		super.die(cause);
-		if (!level.isClientSide) {
-			Donkey donkey = EntityType.DONKEY.create(level);
+		if (!level().isClientSide) {
+			Donkey donkey = EntityType.DONKEY.create(level());
 			donkey.moveTo(getX() + 0.5, getY(), getZ() + 0.5, 0, 0);
 			donkey.setCustomName(Component.literal("Donkey"));
-			level.addFreshEntity(donkey);
+			level().addFreshEntity(donkey);
 		}
 	}
 

@@ -9,6 +9,7 @@ import com.mrbysco.miab.registry.MemeEntities;
 import com.mrbysco.miab.registry.MemeRegistry;
 import com.mrbysco.miab.registry.MemeReloadManager;
 import com.mrbysco.miab.registry.MemeSounds;
+import com.mrbysco.miab.registry.MemeTab;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartedEvent;
@@ -34,6 +35,7 @@ public class MemeInABottle {
 		MemeEntities.ENTITIES.register(eventBus);
 		MemeRegistry.ITEMS.register(eventBus);
 		MemeRegistry.BLOCKS.register(eventBus);
+		MemeTab.CREATIVE_MODE_TABS.register(eventBus);
 		MemeSounds.SOUND_EVENTS.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(new MemeHandler());

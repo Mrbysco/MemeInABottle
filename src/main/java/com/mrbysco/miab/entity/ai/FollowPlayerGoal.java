@@ -28,7 +28,7 @@ public class FollowPlayerGoal extends Goal {
 
 	public FollowPlayerGoal(AbstractMeme memeIn, double followSpeedIn, float minDistIn, float maxDistIn, int findRange) {
 		this.meme = memeIn;
-		this.world = memeIn.level;
+		this.world = memeIn.level();
 		this.followSpeed = followSpeedIn;
 		this.navigator = memeIn.getNavigation();
 		this.minDist = minDistIn;

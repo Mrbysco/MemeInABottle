@@ -54,7 +54,7 @@ public class CallForKnucklesGoal extends TargetGoal {
 	protected void alertOthers() {
 		double d0 = this.getFollowDistance();
 
-		for (Mob entitymob : this.mob.level.getEntitiesOfClass(this.mob.getClass(),
+		for (Mob entitymob : this.mob.level().getEntitiesOfClass(this.mob.getClass(),
 				(new AABB(this.mob.getX(), this.mob.getY(), this.mob.getZ(),
 						this.mob.getX() + 1.0D, this.mob.getY() + 1.0D, this.mob.getZ() + 1.0D)).inflate(d0, 10.0D, d0))) {
 			//if (this.goalOwner != entitycreature && entitycreature.getAttackTarget() == null && (!(this.goalOwner instanceof EntityTameable)

@@ -104,7 +104,7 @@ public class TrumpEntity extends AbstractMeme {
 		public boolean canUse() {
 			if (this.trump.placedBlocks >= this.trump.maxWallBlocks) {
 				return false;
-			} else if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.trump.level, this.trump)) {
+			} else if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.trump.level(), this.trump)) {
 				return false;
 			} else {
 				return this.trump.getRandom().nextInt(2000) == 0;
@@ -116,7 +116,7 @@ public class TrumpEntity extends AbstractMeme {
 		 */
 		public void tick() {
 			RandomSource random = this.trump.getRandom();
-			Level level = this.trump.level;
+			Level level = this.trump.level();
 			int i = Mth.floor(this.trump.getX() - 1.0D + random.nextDouble() * 2.0D);
 			int j = Mth.floor(this.trump.getY() + random.nextDouble() * 2.0D);
 			int k = Mth.floor(this.trump.getZ() - 1.0D + random.nextDouble() * 2.0D);

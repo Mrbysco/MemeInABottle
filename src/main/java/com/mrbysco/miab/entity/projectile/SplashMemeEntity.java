@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -48,7 +49,7 @@ public class SplashMemeEntity extends ThrowableItemProjectile implements ItemSup
 	}
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
@@ -56,7 +57,7 @@ public class SplashMemeEntity extends ThrowableItemProjectile implements ItemSup
 	public void handleEntityEvent(byte id) {
 		if (id == 3) {
 			for (int i = 0; i < 8; ++i) {
-				this.level.addParticle(ParticleTypes.NOTE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+				this.level().addParticle(ParticleTypes.NOTE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
@@ -71,21 +72,21 @@ public class SplashMemeEntity extends ThrowableItemProjectile implements ItemSup
 	 */
 	@Override
 	protected void onHit(HitResult result) {
-		if (!this.level.isClientSide) {
+		if (!this.level().isClientSide) {
 			if (this.isLingering()) {
-				if (!level.isClientSide) {
+				if (!level().isClientSide) {
 					this.makeAreaOfEffectCloud();
 				}
 			}
 
-			FunnyRegistry.instance().triggerRandomMeme(level, this.blockPosition(), level.getNearestPlayer(this, 100.0));
+			FunnyRegistry.instance().triggerRandomMeme(level(), this.blockPosition(), level().getNearestPlayer(this, 100.0));
 
 			this.discard();
 		}
 	}
 
 	private void makeAreaOfEffectCloud() {
-		AreaEffectCloud entityareaeffectcloud = new AreaEffectCloud(this.level, this.getX(), this.getY(), this.getZ());
+		AreaEffectCloud entityareaeffectcloud = new AreaEffectCloud(this.level(), this.getX(), this.getY(), this.getZ());
 		Entity entity = this.getOwner();
 		if (entity instanceof LivingEntity) {
 			entityareaeffectcloud.setOwner((LivingEntity) entity);
@@ -97,7 +98,7 @@ public class SplashMemeEntity extends ThrowableItemProjectile implements ItemSup
 		entityareaeffectcloud.setFixedColor(13882323);
 		entityareaeffectcloud.setCustomName(Component.literal("dankcloud"));
 
-		this.level.addFreshEntity(entityareaeffectcloud);
+		this.level().addFreshEntity(entityareaeffectcloud);
 	}
 
 	@Override

@@ -26,7 +26,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,7 +37,7 @@ public class MemeRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
 	//BLOCKS
-	public static final RegistryObject<OscarBlock> OSCAR = BLOCKS.register("oscar", () -> new OscarBlock(Block.Properties.of(Material.METAL)));
+	public static final RegistryObject<OscarBlock> OSCAR = BLOCKS.register("oscar", () -> new OscarBlock(Block.Properties.copy(Blocks.GOLD_BLOCK)));
 
 	//ITEMS
 	public static final RegistryObject<Item> MEME_IN_A_BOTTLE = ITEMS.register("meme_in_a_bottle", () -> new MemeBottleItem(itemBuilder()));
@@ -70,12 +70,12 @@ public class MemeRegistry {
 	public static final RegistryObject<Item> POD = ITEMS.register("pod", () -> new MemeBaseItem(itemBuilder().food(MemeFoods.POD)));
 
 	public static final RegistryObject<Item> GNOME_HAT = ITEMS.register("gnome_hat", () -> new GnomeHatItem(itemBuilder()));
-	public static final RegistryObject<ArmorItem> WRESTLING_BELT = ITEMS.register("wrestling_belt", () -> new CustomArmorItem(MemeArmor.BELT, EquipmentSlot.LEGS, itemBuilder()));
-	public static final RegistryObject<ArmorItem> LEATHER_BELT = ITEMS.register("leather_belt", () -> new LeatherBeltItem(MemeArmor.LEATHERBELT, EquipmentSlot.CHEST, itemBuilder()));
-	public static final RegistryObject<ArmorItem> TRUMP_HAIR = ITEMS.register("trump_hair", () -> new CustomArmorItem(MemeArmor.TRUMPHAIR, EquipmentSlot.HEAD, itemBuilder()));
-	public static final RegistryObject<ArmorItem> TROLL_MASK = ITEMS.register("troll_mask", () -> new CustomArmorItem(MemeArmor.TROLLMASK, EquipmentSlot.HEAD, itemBuilder()));
-	public static final RegistryObject<ArmorItem> RIPOFF_HAT = ITEMS.register("ripoff_hat", () -> new CustomArmorItem(MemeArmor.RIPOFFHAT, EquipmentSlot.HEAD, itemBuilder()));
-	public static final RegistryObject<ArmorItem> SUNGLASSES = ITEMS.register("sunglasses", () -> new SunglassesItem(MemeArmor.GLASSES, EquipmentSlot.HEAD, itemBuilder()));
+	public static final RegistryObject<ArmorItem> WRESTLING_BELT = ITEMS.register("wrestling_belt", () -> new CustomArmorItem(MemeArmor.BELT, ArmorItem.Type.LEGGINGS, itemBuilder()));
+	public static final RegistryObject<ArmorItem> LEATHER_BELT = ITEMS.register("leather_belt", () -> new LeatherBeltItem(MemeArmor.LEATHERBELT, ArmorItem.Type.CHESTPLATE, itemBuilder()));
+	public static final RegistryObject<ArmorItem> TRUMP_HAIR = ITEMS.register("trump_hair", () -> new CustomArmorItem(MemeArmor.TRUMPHAIR, ArmorItem.Type.HELMET, itemBuilder()));
+	public static final RegistryObject<ArmorItem> TROLL_MASK = ITEMS.register("troll_mask", () -> new CustomArmorItem(MemeArmor.TROLLMASK, ArmorItem.Type.HELMET, itemBuilder()));
+	public static final RegistryObject<ArmorItem> RIPOFF_HAT = ITEMS.register("ripoff_hat", () -> new CustomArmorItem(MemeArmor.RIPOFFHAT, ArmorItem.Type.HELMET, itemBuilder()));
+	public static final RegistryObject<ArmorItem> SUNGLASSES = ITEMS.register("sunglasses", () -> new SunglassesItem(MemeArmor.GLASSES, ArmorItem.Type.HELMET, itemBuilder()));
 
 	public static final RegistryObject<RecordItem> MEME_RECORD1 = ITEMS.register("meme_record_1", () -> new MemeRecordItem(0, () -> MemeSounds.meme_music1.get(), 4820, itemBuilder()));
 	public static final RegistryObject<RecordItem> MEME_RECORD2 = ITEMS.register("meme_record_2", () -> new MemeRecordItem(0, () -> MemeSounds.meme_music2.get(), 3140, itemBuilder()));
@@ -116,6 +116,6 @@ public class MemeRegistry {
 	public static final RegistryObject<Item> OSCAR_ITEM = ITEMS.register("oscar", () -> new BlockItem(OSCAR.get(), new Item.Properties()));
 
 	private static Item.Properties itemBuilder() {
-		return new Item.Properties().tab(MemeTab.MEME_TAB);
+		return new Item.Properties();
 	}
 }

@@ -158,21 +158,21 @@ public class RoflCopterEntity extends PathfinderMob {
 		BlockPos blockpos1 = blockpos.above();
 
 		if (this.getIsCopterLanded()) {
-			if (this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
+			if (this.level().getBlockState(blockpos1).isRedstoneConductor(this.level(), blockpos1)) {
 				if (this.random.nextInt(200) == 0) {
 					this.yHeadRot = (float) this.random.nextInt(360);
 				}
 
-				if (this.level.getNearestPlayer(this, 4.0D) != null) {
+				if (this.level().getNearestPlayer(this, 4.0D) != null) {
 					this.setIsCopterLanded(false);
-					this.level.levelEvent((Player) null, 1025, blockpos, 0);
+					this.level().levelEvent((Player) null, 1025, blockpos, 0);
 				}
 			} else {
 				this.setIsCopterLanded(false);
-				this.level.levelEvent((Player) null, 1025, blockpos, 0);
+				this.level().levelEvent((Player) null, 1025, blockpos, 0);
 			}
 		} else {
-			if (this.spawnPosition != null && (!this.level.isEmptyBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
+			if (this.spawnPosition != null && (!this.level().isEmptyBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
 				this.spawnPosition = null;
 			}
 
@@ -197,7 +197,7 @@ public class RoflCopterEntity extends PathfinderMob {
 			this.zza = 0.5F;
 			this.setYRot(getYRot() + f1);
 
-			if (this.random.nextInt(100) == 0 && this.level.getBlockState(blockpos1).isRedstoneConductor(this.level, blockpos1)) {
+			if (this.random.nextInt(100) == 0 && this.level().getBlockState(blockpos1).isRedstoneConductor(this.level(), blockpos1)) {
 				this.setIsCopterLanded(true);
 			}
 		}
@@ -233,7 +233,7 @@ public class RoflCopterEntity extends PathfinderMob {
 		if (this.isInvulnerableTo(source)) {
 			return false;
 		} else {
-			if (!this.level.isClientSide && this.getIsCopterLanded()) {
+			if (!this.level().isClientSide && this.getIsCopterLanded()) {
 				this.setIsCopterLanded(false);
 			}
 			return super.hurt(source, amount);
@@ -263,12 +263,12 @@ public class RoflCopterEntity extends PathfinderMob {
 	 */
 	@Override
 	public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnReasonIn) {
-		BlockPos blockpos = new BlockPos(this.getX(), this.getBoundingBox().minY, this.getZ());
+		BlockPos blockpos = BlockPos.containing(this.getX(), this.getBoundingBox().minY, this.getZ());
 
-		if (blockpos.getY() >= this.level.getSeaLevel()) {
+		if (blockpos.getY() >= this.level().getSeaLevel()) {
 			return false;
 		} else {
-			int i = this.level.getLightEmission(blockpos);
+			int i = this.level().getLightEmission(blockpos);
 
 			return i > this.random.nextInt(4) ? false : super.checkSpawnRules(level, spawnReasonIn);
 		}

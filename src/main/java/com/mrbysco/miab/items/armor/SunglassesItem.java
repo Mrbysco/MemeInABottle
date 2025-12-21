@@ -4,6 +4,7 @@ import com.mrbysco.miab.Reference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +15,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class SunglassesItem extends CustomArmorItem {
-	public SunglassesItem(ArmorMaterial material, EquipmentSlot armorType, Item.Properties builder) {
+	public SunglassesItem(ArmorMaterial material, ArmorItem.Type armorType, Item.Properties builder) {
 		super(material, armorType, builder);
 	}
 

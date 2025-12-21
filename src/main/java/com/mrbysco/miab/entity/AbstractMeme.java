@@ -55,7 +55,7 @@ public abstract class AbstractMeme extends PathfinderMob {
 	@Override
 	public void aiStep() {
 		super.aiStep();
-		if (!this.level.isClientSide) {
+		if (!this.level().isClientSide) {
 			int i = this.summonSoundTime;
 
 			if (i > 0) {
@@ -90,13 +90,13 @@ public abstract class AbstractMeme extends PathfinderMob {
 
 	public Player getNearestPlayer(int range) {
 		AABB aabb = (new AABB(getX(), getY(), getZ(), getX() + 1, getY() + 1, getZ() + 1)).inflate(range);
-		List<Player> list = level.getEntitiesOfClass(Player.class, aabb);
+		List<Player> list = level().getEntitiesOfClass(Player.class, aabb);
 		return !list.isEmpty() ? list.get(0) : null;
 	}
 
 	public boolean isPlayerNearby(int range) {
 		AABB aabb = (new AABB(getX(), getY(), getZ(), getX() + 1, getY() + 1, getZ() + 1)).inflate(range);
-		List<Player> list = level.getEntitiesOfClass(Player.class, aabb);
+		List<Player> list = level().getEntitiesOfClass(Player.class, aabb);
 		return !list.isEmpty();
 	}
 

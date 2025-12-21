@@ -72,7 +72,7 @@ public class MemeHandler {
 			if (entity instanceof Pufferfish) {
 				if (itemStack.getItem() == Items.CARROT) {
 					world.playSound((Player) null, event.getPos(), MemeSounds.pufferfish.get(), SoundSource.RECORDS, 0.75F, 1.0F);
-					entity.hurt(DamageSource.GENERIC, 1.0F);
+					entity.hurt(entity.damageSources().generic(), 1.0F);
 					if (!event.getEntity().getAbilities().instabuild) {
 						itemStack.shrink(1);
 					}

@@ -38,6 +38,11 @@ public class EnableMemeAction implements IUndoableAction {
 	}
 
 	@Override
+	public String systemName() {
+		return "MIAB Meme Enabling";
+	}
+
+	@Override
 	public String describeUndo() {
 		if (this.memes.length > 0) {
 			return "The following memes have been re-disabled: " + String.join(", ", this.memes);

@@ -156,7 +156,7 @@ public class MemeSounds {
 
 	private static SoundEvent createSound(String name) {
 		ResourceLocation resourceLocation = new ResourceLocation(Reference.MOD_ID, name);
-		SoundEvent sound = new SoundEvent(resourceLocation);
+		SoundEvent sound = SoundEvent.createVariableRangeEvent(resourceLocation);
 		return sound;
 	}
 }

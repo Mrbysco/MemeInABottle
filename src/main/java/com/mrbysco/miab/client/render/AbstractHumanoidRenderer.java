@@ -10,6 +10,6 @@ public abstract class AbstractHumanoidRenderer<T extends AbstractMeme, M extends
 
 	protected AbstractHumanoidRenderer(EntityRendererProvider.Context context, M model, M modelInner, M modelOuter) {
 		super(context, model, 0.5F);
-		this.addLayer(new HumanoidArmorLayer<>(this, modelInner, modelOuter));
+		this.addLayer(new HumanoidArmorLayer<>(this, modelInner, modelOuter, context.getModelManager()));
 	}
 }

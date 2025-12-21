@@ -51,12 +51,12 @@ public class SkywalkerEntity extends AbstractMeme {
 	public void aiStep() {
 		BlockPos position = this.blockPosition().offset(0, -1, 0);
 
-		if ((this.zza != 0 || this.xxa != 0) && this.onGround && (level.getBlockState(position).getBlock() instanceof SandBlock)) {
-			if (!this.level.isClientSide) {
+		if ((this.zza != 0 || this.xxa != 0) && this.onGround() && (level().getBlockState(position).getBlock() instanceof SandBlock)) {
+			if (!this.level().isClientSide) {
 				int random = this.random.nextInt(1000);
 
 				if (random < 1) {
-					level.playSound((Player) null, this.blockPosition(), MemeSounds.meme_music2.get(), SoundSource.RECORDS, 0.75F, 1.0F);
+					level().playSound((Player) null, this.blockPosition(), MemeSounds.meme_music2.get(), SoundSource.RECORDS, 0.75F, 1.0F);
 				}
 			}
 		}

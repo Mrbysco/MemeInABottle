@@ -1,27 +1,24 @@
 package com.mrbysco.miab.datagen.data;
 
-import com.google.common.collect.ImmutableList;
-import com.mojang.datafixers.util.Pair;
 import com.mrbysco.miab.registry.MemeEntities;
 import com.mrbysco.miab.registry.MemeLootTables;
 import com.mrbysco.miab.registry.MemeRegistry;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.data.loot.EntityLoot;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWithLootingCondition;
@@ -29,31 +26,27 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class MemeLootProvider extends LootTableProvider {
-	public MemeLootProvider(DataGenerator gen) {
-		super(gen);
+	public MemeLootProvider(PackOutput packOutput) {
+		super(packOutput, Set.of(), List.of(
+				new SubProviderEntry(MemeBlockLoot::new, LootContextParamSets.BLOCK),
+				new SubProviderEntry(MemeEntityLoot::new, LootContextParamSets.ENTITY)
+		));
 	}
 
-	@Override
-	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-		return ImmutableList.of(
-				Pair.of(MemeBlockLoot::new, LootContextParamSets.BLOCK),
-				Pair.of(MemeEntityLoot::new, LootContextParamSets.ENTITY)
-		);
-	}
-
-	private static class MemeBlockLoot extends BlockLoot {
+	private static class MemeBlockLoot extends BlockLootSubProvider {
+		public MemeBlockLoot() {
+			super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+		}
 
 		@Override
-		protected void addTables() {
+		protected void generate() {
 			for (RegistryObject<Block> block : MemeRegistry.BLOCKS.getEntries()) {
 				dropSelf(block.get());
 			}
@@ -65,10 +58,14 @@ public class MemeLootProvider extends LootTableProvider {
 		}
 	}
 
-	private static class MemeEntityLoot extends EntityLoot {
+	private static class MemeEntityLoot extends EntityLootSubProvider {
+		protected MemeEntityLoot() {
+			super(FeatureFlags.REGISTRY.allFlags());
+		}
+
 		@Override
-		protected void addTables() {
-			this.add(MemeLootTables.MEME_BASE, LootTable.lootTable()
+		public void generate(BiConsumer<ResourceLocation, LootTable.Builder> output) {
+			output.accept(MemeLootTables.MEME_BASE, LootTable.lootTable()
 					.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).name("bottles")
 							.when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.01F, 0.01F))
 							.add(LootItem.lootTableItem(MemeRegistry.MEME_IN_A_BOTTLE.get()))
@@ -82,6 +79,12 @@ public class MemeLootProvider extends LootTableProvider {
 							.add(LootItem.lootTableItem(MemeRegistry.MEME_RECORD2.get()))
 					)
 			);
+			super.generate(output);
+		}
+
+		@Override
+		public void generate() {
+
 
 			this.add(MemeEntities.SKYWALKER.get(), LootTable.lootTable()
 					.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
@@ -334,21 +337,25 @@ public class MemeLootProvider extends LootTableProvider {
 		}
 
 		@Override
-		protected Iterable<EntityType<?>> getKnownEntities() {
-			Stream<EntityType<?>> entities = MemeEntities.ENTITIES.getEntries().stream().map(RegistryObject::get);
-			return (Iterable<EntityType<?>>) entities::iterator;
+		protected Stream<EntityType<?>> getKnownEntityTypes() {
+			return MemeEntities.ENTITIES.getEntries().stream().map(RegistryObject::get);
 		}
 	}
 
 	@Override
-	protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationContext context) {
-		List<ResourceLocation> ignored = List.of(
-				MemeLootTables.MEME_BASE
-		);
-		map.forEach((name, table) -> {
-			if (!ignored.contains(name)) {
-				LootTables.validate(context, name, table);
-			}
-		});
+	protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationcontext) {
+		super.validate(map, validationcontext);
 	}
+
+	//	@Override
+//	protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationContext context) {
+//		List<ResourceLocation> ignored = List.of(
+//				MemeLootTables.MEME_BASE
+//		);
+//		map.forEach((name, table) -> {
+//			if (!ignored.contains(name)) {
+//				LootTables.validate(context, name, table);
+//			}
+//		});
+//	}
 }

@@ -71,14 +71,14 @@ public class KnucklesEntity extends AbstractMeme implements RangedAttackMob {
 
 	@Override
 	public void performRangedAttack(LivingEntity target, float distanceFactor) {
-		KnucklesSpitEntity entityknucklesspit = new KnucklesSpitEntity(this.level, this);
+		KnucklesSpitEntity entityknucklesspit = new KnucklesSpitEntity(this.level(), this);
 		double d0 = target.getX() - this.getX();
 		double d1 = target.getBoundingBox().minY + (double) (target.getBbHeight() / 3.0F) - entityknucklesspit.getY();
 		double d2 = target.getZ() - this.getZ();
 		float f = Mth.sqrt((float) (d0 * d0 + d2 * d2)) * 0.2F;
 		entityknucklesspit.shoot(d0, d1 + (double) f, d2, 1.5F, 10.0F);
-		this.level.playSound((Player) null, this.getX(), this.getY(), this.getZ(), SoundEvents.LLAMA_SPIT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
-		this.level.addFreshEntity(entityknucklesspit);
+		this.level().playSound((Player) null, this.getX(), this.getY(), this.getZ(), SoundEvents.LLAMA_SPIT, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+		this.level().addFreshEntity(entityknucklesspit);
 	}
 
 	@Override
